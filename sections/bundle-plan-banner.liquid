@@ -1,0 +1,201 @@
+
+<style>
+    section.bundle-plan-banner.bundle-plan-banner-desktop {
+        padding-top: 160px;
+        height: 360px;
+        background-image: url({{ section.settings.image | img_url: "2000x" }});
+        background-position: right;
+        background-repeat: no-repeat;
+        background-color: #bea55c;
+        background-size: cover;
+        position: relative;
+    }
+
+    @media (min-width: 1600px) {
+        section.bundle-plan-banner.bundle-plan-banner-desktop {
+            height: 450px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1599px){
+        section.bundle-plan-banner{
+            background-position-x: center;
+        }
+    }
+
+    section.bundle-plan-banner.bundle-plan-banner-desktop .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* max-width: 1200px; */
+        width: 75%;
+    }
+    section.bundle-plan-banner.bundle-plan-banner-mob {
+        position: relative;
+    }
+    section.bundle-plan-banner.bundle-plan-banner-mob .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 75%;
+    }
+
+    section.bundle-plan-banner .bundle-plan-banner__title{
+        font-family: "Copernicus-Bold";
+        font-size: 45px;
+        line-height: 1.3;
+        color: #1F3337;
+        width: 66.6%;
+        margin: 0 auto;
+        padding-top: 15px;
+    }
+    section.bundle-plan-banner.bundle-plan-banner-mob .bundle-plan-banner__title {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    section.bundle-plan-banner-mob{
+        display: none;
+    }
+
+    @media (max-width: 768px){
+
+        section.bundle-plan-banner-desktop{
+            display: none;
+        }
+
+        section.bundle-plan-banner-mob{
+            display: block;
+            background-image: none;
+        }
+
+        section.bundle-plan-banner-mob .bundle-plan-background{
+            width: 100%;
+        }
+
+        #shopify-section-bundle-plan-items{
+            margin-top: 64px !important;
+        }
+
+        section.bundle-plan-banner-mob .bundle-plan-banner__title{
+            font-family: "Copernicus-Bold";
+            font-size: 32px;
+            text-align: center;
+            color: #1F3337;
+            line-height: 1.3;
+            margin-top: 35px;
+        }
+        
+        #shopify-section-bundle-plan-items > .container{
+            padding: 0 30px;
+        }
+
+        /* #shopify-section-bundle-plan-items .bundle-item-container{
+            padding-top: 0px !important;
+            padding-bottom: 64px !important;
+        } */
+
+        /* #shopify-section-bundle-plan-items .bundle-item-container .bundle-image-wrapper{
+            margin-left: -10px;
+            margin-right: -10px;
+        } */
+
+        /* #shopify-section-bundle-plan-items .bundle-item-container .bundle-image-wrapper .bundle-image{
+            margin: 0px !important;
+            width: 100%;
+        } */
+
+        /* #shopify-section-bundle-plan-items .bundle-item-container:nth-child(even) > .col-md-6:first-child {
+            order: 0 !important;
+        } */
+
+        /* #shopify-section-bundle-plan-items .bundle-content-wrapper{
+            padding: 0px !important;
+        } */
+
+
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-content-wrapper .bundle-comments{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #shopify-section-bundle-plan-items .bundle-item-container+.bundle-item-container{
+            margin-top: 20px !important;
+        }
+    }
+
+    @media (max-width: 549px) {
+        section.bundle-plan-banner-mob .bundle-plan-banner__title{
+            font-size: 26px;
+            line-height: 35px;
+        }
+    }
+
+    @media (max-width: 360px){
+        section.bundle-plan-banner-mob .bundle-plan-banner__title{
+            font-size: 26px;
+        }
+
+        #shopify-section-bundle-plan-items{
+            margin-top: 40px !important;
+        }
+    }
+
+</style>
+
+
+<section class="bundle-plan-banner bundle-plan-banner-desktop">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="bundle-plan-banner__title">
+                <span class="bundle-plan-banner__title-shape">{{ section.settings.title }}</span>
+            </h1>
+		</div>
+	</div>
+</section>
+
+<section class="bundle-plan-banner bundle-plan-banner-mob">
+    <img class="bundle-plan-background" src="{{ section.settings.image_mobile | img_url: '780x' }}">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="bundle-plan-banner__title">
+                <span class="bundle-plan-banner__title-shape">{{ section.settings.title }}</span>
+            </h1>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Bundle plan banner",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Banner image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mobile",
+                "label": "Banner mobile image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Banner heading",
+                "default": "Banner title"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Banner subheading"
+            }
+        ]
+    }
+{% endschema %}

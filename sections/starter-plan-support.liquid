@@ -1,0 +1,226 @@
+<style>
+  #section-{{ section.id }} {
+    padding: 80px 0 140px;
+  }
+  #section-{{ section.id }} .section-inner {
+    display: flex;
+    justify-content: flex-end;
+    min-height: 280px;
+    background-color: {{ section.settings.bg_color }};
+  }
+  #section-{{ section.id }} .section-content {
+    max-width: 727px;
+    width: 100%;
+    padding: 35px 0;
+    padding-left: 15px;
+  }
+  #section-{{ section.id }} .section-content .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 44px;
+  }
+  #section-{{ section.id }} .section-content .item-list {
+    display: flex;
+    margin-top: 20px;
+  }
+  #section-{{ section.id }} .section-content .item-list .item {
+    width: 178px;
+    height: 88px;
+    padding: 16px 28px 16px 20px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 27px;
+    position: relative;
+  }
+  #section-{{ section.id }} .section-content .item-list .item:before {
+    content: '+';
+    position: absolute;
+    left: -6px;
+  }
+  #section-{{ section.id }} .section-content .item-list .item:first-child:before {
+    display: none;
+  }
+  #section-{{ section.id }} .section-content .bottom-text {
+    margin-top: 27px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+  }
+  #section-{{ section.id }} .section-content .bottom-text a {
+    color: #1f3337;
+  }
+
+  #section-{{ section.id }} .section-image {
+    display: flex;
+    width: 280px;
+    margin: auto 48px 0;
+  }
+  #section-{{ section.id }} .section-image .img-mobile {
+    display: none;
+  }
+
+  @media (max-width: 1130px) {
+    #section-{{ section.id }} .section-image {
+      margin: auto 24px 0;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #section-{{ section.id }} .section-inner {
+      flex-direction: column;
+    }
+    #section-{{ section.id }} .section-image {
+      margin-left: auto;
+    }
+  }
+
+  @media (max-width: 991px) {
+    #section-{{ section.id }} {
+      padding: 60px 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .section-content {
+      padding: 25px 0;
+      padding-left: 15px;
+    }
+    #section-{{ section.id }} .section-content .section-title {
+      font-size: 26px;
+      line-height: 35px;
+      padding-right: 15px;
+    }
+    #section-{{ section.id }} .section-content .item-list .item {
+      width: 164px;
+      height: 81px;
+      padding: 16px 9px 16px 20px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+    #section-{{ section.id }} .section-content .item-list .item:before {
+      display: none;
+    }
+    #section-{{ section.id }} .section-content .bottom-text {
+      margin-top: 22px;
+    }
+
+    #section-{{ section.id }} .section-image {
+      width: 207px;
+    }
+    #section-{{ section.id }} .section-image .img-desktop {
+      display: none;
+    }
+    #section-{{ section.id }} .section-image .img-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 640px) {
+    #section-{{ section.id }} .section-content .item-list {
+      flex-wrap: wrap;
+    }
+    #section-{{ section.id }} .section-content .item-list .item {
+      width: 50%;
+    }
+  }
+
+  @media (max-width: 350px) {
+    #section-{{ section.id }} .section-content .section-title {
+      font-size: 25px;
+      line-height: 30px;
+      padding-right: 12px;
+    }
+  }
+</style>
+
+<section id="section-{{ section.id }}" class="starter-plan-support">
+  <div class="container">
+    <div class="section-inner">
+      <div class="section-content">
+        <h2 class="section-title">{{ section.settings.title }}</h2>
+
+        {% if section.blocks.size > 0 %}
+        <div class="item-list">
+          {% for block in section.blocks %}
+            <div class="item block-{{ block.id }}">
+              {{ block.settings.title }}
+            </div>
+            <style>
+              .block-{{ block.id }} {
+                background-color: {{ block.settings.bg_color }};
+              }
+            </style>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="bottom-text">
+          <a href="{{ section.settings.bottom_link }}">{{ section.settings.bottom_text }}</a>
+        </div>
+      </div>
+      <div class="section-image">
+        <img src="{{ section.settings.image_desktop | img_url: 'master' }}" class="lazyload img-desktop" alt="">
+        <img src="{{ section.settings.image_mobile | img_url: 'master' }}" class="lazyload img-mobile" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Support",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": "Desktop Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_mobile",
+      "label": "Mobile Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color"
+    },
+    {
+      "type": "text",
+      "id": "bottom_text",
+      "label": "Bottom Text"
+    },
+    {
+      "type": "url",
+      "id": "bottom_link",
+      "label": "Bottom Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

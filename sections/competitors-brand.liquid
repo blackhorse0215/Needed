@@ -1,0 +1,92 @@
+<section class="competitors-brand">
+  <div class="brand-inner container">
+    <div class="brand-title">
+      <h2 class="title">{{ section.settings.title }}</h2>
+      <h2 class="title2">{{ section.settings.title2 }}</h2>
+    </div>
+    <div class="brand-descr">{{ section.settings.description }}</div>
+
+    {% if section.blocks.size > 0 %}
+    <div class="brand-list">
+      {% for block in section.blocks %}
+      <div class="brand" style="background-color: {{ block.settings.bg_color }}">{{ block.settings.title }}</div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="brand-btn-wrapper">
+      <a href="javascript:;" class="brand-btn show-all">{{ section.settings.btn_text }}</a>
+    </div>
+
+    <div class="brand-footertext">
+      {{ section.settings.footer_text }}
+    </div>
+  </div>
+</section>
+
+<script>
+  if ($(".competitors-brand .brand-list .brand:hidden").length == 0) {
+    $(".competitors-brand .show-all").css('display', 'none');
+  }
+
+  $(".competitors-brand .show-all").on('click', function (e) {
+    e.preventDefault();
+
+    $(".competitors-brand .brand-list .brand:hidden").slice(0, $(".competitors-brand .brand-list .brand:hidden").length).css('display', 'flex');
+
+    if ($(".competitors-brand .brand-list .brand:hidden").length == 0) {
+      $(".competitors-brand .show-all").fadeOut('slow');
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Brands",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "title2",
+        "label": "Title2"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "richtext",
+        "id": "footer_text",
+        "label": "Footer Text"
+      }
+    ],
+    "blocks": [
+      {
+        "name": "Brand",
+        "type": "brand",
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title"
+          },
+          {
+            "type": "color",
+            "id": "bg_color",
+            "label": "Background Color"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

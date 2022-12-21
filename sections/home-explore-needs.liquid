@@ -1,0 +1,111 @@
+{% style %}
+  #section-{{ section.id }} {
+    margin: 0 10px;
+  }
+  #section-{{ section.id }} .section-inner {
+    padding: 50px 15px;
+    text-align: center;
+    border: 3px solid #1F3337;
+    margin-bottom: 40px;
+  }
+  #section-{{ section.id }} .section-title {
+    color: #1F3437;
+    font-family: "Copernicus-Bold";
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+  }
+  #section-{{ section.id }} .section-descr {
+    color: #1F3337;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: 18px;
+  }
+  #section-{{ section.id }} .button-wrapper {
+    margin-top: 30px;
+  }
+  #section-{{ section.id }} .section-btn {
+    max-width: 400px;
+    width: 100%;
+    height: 57px;
+    color: #FFFFFF;
+    background-color: #1f3337;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 29px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .section-inner {
+      padding: 25px 15px;
+      margin-bottom: 60px;
+    }
+    #section-{{ section.id }} .section-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    #section-{{ section.id }} .section-descr {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    #section-{{ section.id }} .button-wrapper {
+      margin-top: 24px;
+    }
+    #section-{{ section.id }} .section-btn {
+      max-width: 240px;
+      width: 100%;
+      height: 57px;
+    }
+  }
+{% endstyle %}
+
+<section class="choose-plan" id="section-{{ section.id }}" data-section-id="{{ section.id }}">
+  <div class="section-inner container">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="section-descr">{{ section.settings.descr }}</div>
+    <div class="button-wrapper">
+      <a href="{{ section.settings.btn_url }}" class="section-btn">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Choose Plan",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Choose Plan",
+      "category": "choose_plan"
+    }
+  ]
+}
+{% endschema %}

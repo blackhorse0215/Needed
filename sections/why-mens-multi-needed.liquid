@@ -1,0 +1,150 @@
+<section class="why-mm-needed">
+  <div class="container">
+    <div class="row js-animate animate-fade-in">
+      {% if section.settings.section_subtitle != blank %}
+        <p class="why-mm-needed__subtitle pro-ico">{{ section.settings.section_subtitle }}</p>
+      {% endif %}
+
+      <h2 class="why-mm-needed__title pro-ico">{{ section.settings.section_title }}</h2>
+    </div>
+
+    {% if section.blocks.size > 0 %}
+      <div class="why-mm-needed__row carousel" data-slick='{"slidesToShow": 3,"slidesToScroll": 1, "infinite": true, "responsive":[{"breakpoint": 1025,"settings":{"slidesToShow": 2 }},{"breakpoint": 768,"settings":{"slidesToShow":2 }} ]}'>
+        {% for block in section.blocks  %}
+          <div class="why-mm-needed__col">
+            <img class="lazyload" data-src="{{ block.settings.item_image | img_url: "x480" }}" alt="item image">
+            <span class="why-mm-needed__item-title" data-keyword-context>{{ block.settings.item_text }}</span>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  @media(max-width: 500px) {
+      .why-mm-needed {
+          padding-top: 20px !important;
+          margin-top: 0px !important;
+      }    
+      #shopify-section-why-mens-multi-needed {
+        padding-top: 20px !important;
+      }
+  }
+  #shopify-section-why-mens-multi-needed {
+    padding-top: 100px;
+  }
+  .why-mm-needed h2 {
+    font-family: "Copernicus-Bold",sans-serif;
+    font-size: 28px;
+    line-height: 37px;
+    text-align: center;
+    color: #1F3437;
+    width: 100%;
+  }
+  .why-mm-needed .why-mm-needed__row {
+    margin-top: 60px;
+  }
+  .why-mm-needed .why-mm-needed__row .why-mm-needed__col {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .why-mm-needed .why-mm-needed__row .why-mm-needed__col img {
+    width: 100%;
+  }
+  .why-mm-needed .why-mm-needed__row .why-mm-needed__col .why-mm-needed__item-title {
+    display: block;
+    margin-top: 30px;
+    font-family: "Copernicus-Bold",sans-serif;
+    font-size: 22px;
+    line-height: 34px;
+    text-align: left;
+    color: #1F3337;
+  }
+
+  #MainContent .why-mm-needed {
+    background-color: {{ section.settings.background_color }};
+  }
+
+  {% for block in section.blocks %}
+    {% if block.settings.icon_hover != blank %}
+      .why-mm-needed__item .why-mm-needed__item-icon--{{ block.id }} {
+        background-image: url({{ block.settings.icon_hover | img_url: "x800" }}) !important;
+      }
+    {% endif %}
+  {% endfor %}
+
+  @media(max-width: 991px) {
+    .why-mm-needed__title {
+      font-size: 26px !important;
+      line-height: 1.3 !important;
+    }
+    .why-mm-needed__row {
+      margin-top: 0 !important;
+    }
+    .why-mm-needed__col {
+      margin-top: 40px; 
+    }
+    .why-mm-needed__item-title {
+      text-align: center !important;
+      margin-top: 15px !important;
+      line-height: 1.6 !important;
+    }
+  }
+  
+  @media(max-width: 768px) {
+    .why-mm-needed .why-mm-needed__row .why-mm-needed__col .why-mm-needed__item-title {
+      font-size: 18px !important;
+    }
+  }
+</style>
+
+<script>
+  $(document).ready(function() {
+    if($(window).width() > 768) {
+      $(".why-mm-needed__row").slick();
+    }
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Why Men's Multi is needed",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Why a better Men’s Multi is needed."
+      },
+      {
+        "type": "textarea",
+        "id": "section_subtitle",
+        "label": "Subheading"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "icon_link",
+        "name": "Item",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "item_image",
+            "label": "Image"
+          },
+          {
+            "type": "textarea",
+            "id": "item_text",
+            "label": "Text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

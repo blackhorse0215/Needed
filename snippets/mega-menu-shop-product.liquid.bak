@@ -1,0 +1,411 @@
+
+
+<li class="site-nav__item dropdown-mega-shop" data-menu="dropdown">
+    <a href="/pages/all-products-collections"
+    class="site-nav__link "
+    data-keyword
+    >
+    <style>
+        .mega-menu.mega-menu-shop{
+            width: 1160px;
+            min-height: 530px;
+            left: -455px;
+            background-color: #FFF;
+            box-shadow: 0px 0px 3px #00000020;
+            padding: 40px 22px 10px;
+            position: absolute;
+            display: none;
+            transition: opacity 0.5s ease-in;
+        }
+        .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-shop {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list {
+            display: flex;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item {
+            flex-basis: 25%;
+            padding: 0 20px;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item .menu-list:nth-child(2) {
+            margin-top: 50px;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item {
+            margin-bottom: 22px;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item:first-child {
+            margin-bottom: 42px;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item .tag-new {
+            font-family: "BrownPro-Regular";
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 14px;
+            padding: 2px 4px 0;
+            color: #fff;
+            background-color: #85853E;
+            margin-left: 6px;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item .mega-shop-item-title {
+            font-size: 18px;
+            letter-spacing: 0;
+            line-height: 23px;
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item .mega-shop-item-descr {
+            opacity: 0.65;
+            color: #1F3337;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 16px;
+            max-width: 200px;
+        }
+        .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item .bundle-shop-link {
+            color: #85853E;
+            font-size: 14px;
+            letter-spacing: 0;
+            line-height: 17px;
+            margin-top: 20px;
+            text-decoration: underline;
+        }
+
+        .mega-menu.mega-menu-shop li.mega-menu__item .site-nav__description{
+            font-family: "BrownPro-Regular";
+            font-size: 16px;
+            color: #1F3337;
+            padding-top: 10px;
+            opacity: 0.5;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item .site-nav__link{
+            font-family: "Copernicus-Bold";
+            font-size: 18px;
+            line-height: 23px;
+            color: #1F3437 !important;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item:hover .site-nav__link{
+            color: #86883D !important;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item .site-nav__footer_desc{
+            font-family: "BrownPro-Regular";
+            font-size: 16px;
+            color: #1F3337;
+            opacity: 0.5;
+        }
+        .mega-menu.mega-menu-shop li.mega-menu__item .site-nav__footer_desc .site-nav-take-quiz{
+            color: #1F3337;
+        }
+        .site-nav__footer{
+            padding-top: 30px;
+            border-top: 1px solid #dddddd85;
+        }
+        .site-nav__footer .site-nav__footer_desc .em-b{
+            font-family: "Copernicus-Bold";
+            font-size: 14px;
+            color: #000;
+        }
+
+        .mega-menu-shop .mega-menu-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0px;
+            margin: 0 18px;
+            border-top: 1px solid #e8eaeb;
+        }
+        .mega-menu-trimester-plan span.tag-new{
+            font-family: "BrownPro-Regular";
+            font-size: 12px;
+            letter-spacing: 0;
+            line-height: 14px;
+            padding: 2px 4px 0;
+            color: #fff;
+            background-color: #85853E;
+            margin-left: 6px;
+            margin-right: 10px;
+        }
+        .mega-menu-trimester-plan{
+            background-color: #F6F4F2;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            margin: 0 18px;
+        }
+        .mega-menu-trimester-plan p{
+            color: #1F3437;
+            font-family: "Copernicus-Bold";
+            font-size: 22px;
+            letter-spacing: 0px;
+            line-height: 27px;
+            display: flex;
+            align-items: center;
+        }
+        .mega-menu-trimester-plan a{
+            display: flex;
+            align-items: center;
+            color: #85853E;
+            font-family: "BrownPro-Regular";
+            font-size: 16px;
+            font-weight: bold;
+            /* letter-spacing: 0.5px; */
+            line-height: 19px;
+        }
+        .mega-menu-shop .mega-menu-footer .find-bundle {
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0;
+            opacity: 0.65;
+            color: #1F3337;
+        }
+        .mega-menu-shop .mega-menu-footer .find-bundle strong {
+            font-family: "Copernicus-Bold-Italic";
+        }
+        .mega-menu-shop .mega-menu-footer .find-bundle a {
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0;
+            opacity: 0.65;
+            color: #1F3337;
+            margin-left: 2px;
+        }
+        .mega-menu-shop .mega-menu-footer .find-bundle a:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card {
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0;
+            opacity: 0.65;
+            color: #1F3337;
+            display: flex;
+            align-items: center;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card a {
+            font-size: 14px;
+            line-height: 16px;
+            letter-spacing: 0;
+            color: #868640;
+            width: 132px;
+            height: 37px;
+            border: 1px solid #868640;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card a:hover {
+            color: #fff;
+            background-color: #868640;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card a .gift-card-icon {
+            margin-right: 4px;
+            margin-top: -2px;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card a svg {
+            margin-right: 4px;
+            margin-top: -2px;
+        }
+        .mega-menu-shop .mega-menu-footer .gift-card a:hover svg g#menu-new2 {
+            fill: #fff;
+        }
+
+        @media (max-width: 1119px) {
+            .mega-menu.mega-menu-shop {
+                width: 900px;
+                min-height: 480px;
+                left: -323px;
+                padding: 40px 10px 10px;
+            }
+            .mega-menu.mega-menu-shop li.mega-menu__item {
+                margin-bottom: 15px;
+            }
+            .mega-menu.mega-menu-shop li.mega-menu__item:first-child {
+                margin-bottom: 30px;
+            }
+            .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item img {
+                width: 183px !important;
+            }
+            .mega-menu.mega-menu-shop li.mega-menu__item .site-nav__link {
+                font-size: 16px;
+            }
+            .mega-menu-shop .mega-menu-footer .find-bundle {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .mega-menu.mega-menu-shop {
+                width: 760px;
+                left: -251px;
+            }
+            .mega-menu.mega-menu-shop li.mega-menu__item {
+                margin-bottom: 12px;
+            }
+            .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item {
+                padding: 0 5px;
+            }
+            .mega-menu.mega-menu-shop .mega-shop-list .mega-shop-item img {
+                width: 175px !important;
+            }
+            .mega-menu-shop .mega-menu-footer {
+                margin: 0 5px;
+            }
+        }
+
+        @media (max-width: 870px) {
+            .mega-menu.mega-menu-shop {
+                left: -278px;
+            }
+        }
+
+        /* @media (max-width: 834px) {
+            .mega-menu.mega-menu-shop {
+                left: -372px;
+            }
+        }
+
+        @media (max-width: 810px) {
+            .mega-menu.mega-menu-shop {
+                left: -362px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .mega-menu.mega-menu-shop {
+                left: -352px;
+            }
+        }
+
+        @media (max-width: 784px) {
+            .mega-menu.mega-menu-shop {
+                left: -342px;
+            }
+        } */
+    </style>
+
+     <span data-keyword-context>Shop products</span>
+    <span data-icon></span>
+    </a>
+    {% comment %}
+    <div class="mega-menu mega-menu-shop">
+        <ul class="mega-shop-list">
+            <li class="mega-shop-item">
+                <ul class="menu-list">
+                    <li class="mega-menu__item">
+                        <p class="site-nav__description">Supplements for mamas</p>
+                    </li>
+                    {% assign product = all_products['prenatal-multi-powder'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Prenatal Multi Powder</a>
+                    </li>
+                    {% assign product = all_products['prenatal-multi-capsules'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Prenatal Multi Capsules</a>
+                    </li>
+                    {% assign product = all_products['prenatal-multi-essentials'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Prenatal Multi Essentials<span class="tag-new">NEW</span></a>
+                    </li>
+                    
+                    {% assign product = all_products['prenatal-omega-3'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Omega-3 Capsules</a>
+                    </li>
+                    {% assign product = all_products['collagen-protein'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Collagen Protein</a>
+                    </li>
+                    {% assign product = all_products['prenatal-pre-probiotic'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Pre/Probiotic</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mega-shop-item">
+                <ul class="menu-list">
+                    <li class="mega-menu__item">
+                        <p class="site-nav__description">Extra Add-Ons</p>
+                    </li>
+                    {% assign product = all_products['prenatal-iron'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Iron</a>
+                    </li>
+                    {% assign product = all_products['prenatal-vitamin-d'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Vitamin D</a>
+                    </li>
+                    {% assign product = all_products['stress-support'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Stress Support<span class="tag-new">NEW</span></a>
+                    </li>
+                    {% assign product = all_products['sleep-support'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Sleep Support<span class="tag-new">NEW</span></a>
+                    </li>
+                    {% assign product = all_products['hydration-support'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Hydration Support<span class="tag-new">NEW</span></a>
+                    </li>
+                    {% assign product = all_products['coq10'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">CoQ10<span class="tag-new">NEW</span></a>
+                    </li>
+                </ul>
+
+                <ul class="menu-list">
+
+                    <li class="mega-menu__item">
+                        <p class="site-nav__description">At-home nutrient tests</p>
+                    </li>
+                    {% assign product = all_products['omega-3-nutrient-testing-kit'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Omega-3 Test</a>
+                    </li>
+                    {% assign product = all_products['vitamin-d-nutrient-testing-kit'] %}
+                    <li class="mega-menu__item">
+                        <a href="{{product.url}}" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Vitamin D Test</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mega-shop-item">
+                <ul class="menu-list">
+                    <li class="mega-menu__item">
+                        <p class="site-nav__description">Men's</p>
+                    </li>
+                    {% assign product = all_products['mens-multi'] %}
+                    <li class="mega-menu__item">
+                        <a href="https://thisisneeded.com/products/mens-multi" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Men's Multi</a>
+                    </li>
+                    {% assign product = all_products['mens-pre-probiotic'] %}
+                    <li class="mega-menu__item">
+                        <a href="https://thisisneeded.com/products/mens-pre-probiotic" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Men's Pre/Probiotic+</a>
+                    </li>
+                    {% assign product = all_products['omega-3-for-men'] %}
+                    <li class="mega-menu__item">
+                        <a href="https://thisisneeded.com/products/omega-3-for-men" class="site-nav__link" data-hover-img="{{product.images.first | img_url : '1400x770'}}">Men's Omega-3+</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="mega-shop-item">
+                <img class="mega-shop-item-image lazyload" data-src="{{'complete-plan_all-capsules1.jpeg' | asset_img_url : '242x155' }}" style="width: 242px; max-width: 242px;">
+                <h2 class="mega-shop-item-title">Save with bundles</h2>
+                <div class="mega-shop-item-descr">Monthly no-brainer supplies of your favorite supplements</div>
+                <a href="https://thisisneeded.com/pages/bundle-plans" class="site-nav__link bundle-shop-link">Shop bundles</a>
+            </li>
+        </ul>
+        <div class="mega-menu-trimester-plan">
+            <p><span class="tag-new">NEW</span>Shop & Save With Our Trimester Plans</p>
+            <a href="/pages/trimester-plans">Subscribe Now</a>
+        </div>
+        <div class="mega-menu-footer">
+            <div class="find-bundle">Need help finding the right bundle for an <strong>optimal you?</strong> <a href="https://thisisneeded.com/pages/quiz" class="take-quiz">Take the quiz</a>.</div>
+            <div class="gift-card">Looking for a perfect gift for her or him? <a href="https://thisisneeded.com/products/gift-card">{% include 'gift.svg' %}Gift Cards</a></div>
+        </div>
+    </div> {% endcomment %}
+</li> 
+

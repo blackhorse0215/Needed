@@ -1,0 +1,57 @@
+<style>
+  #shopify-section-bundle-plan-iron .bundle-plan-iron-wrapper {
+    margin-top: 126px;
+    margin-bottom: 154px;
+    text-align: center;
+  }
+
+  #shopify-section-bundle-plan-iron .bundle-plan-iron-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 28px;
+    color: #1F3437;
+    letter-spacing: 0;
+    line-height: 37px;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+
+  #shopify-section-bundle-plan-iron .bundle-plan-iron-link {
+    font-family: 'BrownPro Regular';
+    font-size: 18px;
+    color: #1F3337;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bundle-plan-iron-wrapper">
+        <h2 class="bundle-plan-iron-title">{{ section.settings.title }}</h2>
+        <a class="bundle-plan-iron-link" href="{{ section.settings.link_url }}">{{ section.settings.link_text }}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bundle plan iron",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text"
+    },
+    {
+      "type": "url",
+      "id": "link_url",
+      "label": "Link"
+    }
+  ]
+}
+{% endschema %}

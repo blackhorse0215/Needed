@@ -1,0 +1,258 @@
+{% assign product = all_products['mens-support-plan'] %}
+
+<section class="mens-support-reviews">
+  <h2 class="header-title">Real Reviews from Real Customers</h2>
+  <div 
+    id="stamped-main-widget"
+    class="stamped-main-widget"
+    data-widget-style="standard"
+    data-product-id="{{ product.id }}"
+    data-name="{{ product.title | escape }}"
+    data-url="{{ shop.url }}{{ product.url | remove: '-trimester-bundle-3-month-supply' | remove: '-6-month-supply' }}"
+    data-image-url="{{ product.featured_image | product_img_url: 'large' |replace: '?', '%3F' | replace: '&','%26'}}"
+    data-description="{{ product.description | escape }}"
+    data-product-sku="{{product.handle}}"
+    data-product-type="{{product.type}}"
+    data-widget-language="{{shop.locale}}"
+  >
+  
+  </div>
+</section>
+
+<style>
+  .mens-support-reviews {
+    padding-top: 140px;
+  }
+  .mens-support-reviews .header-title {
+    position: relative;
+    font-family: "Copernicus-Bold";
+    font-size: 35px;
+    text-align: center;
+    max-width: 750px;
+    color: #1F3337;
+    margin: 0px auto;
+  }
+  #stamped-main-widget .stamped-header {
+    border-top: 1px solid #1f333730;
+    border-bottom: 1px solid #1f333730;
+    padding: 35px 0;
+    margin-bottom: 30px !important;
+  }
+  #stamped-main-widget .stamped-summary {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  #stamped-main-widget .stamped-summary-caption {
+    text-align: center;
+    width: 100%;
+  }
+  #stamped-main-widget .stamped-summary-photos.stamped-summary-photos-container {
+    display: none;
+  }
+  #stamped-main-widget .summary-overview {
+    text-align: center;
+    width: unset !important;
+  }
+  #stamped-main-widget .stamped-summary-text-1 {
+    display: none;
+  }
+  #stamped-main-widget .stamped-reviews-filter {
+    display: none;
+  }
+  #stamped-main-widget .stamped-summary-actions-newquestion,
+  #stamped-main-widget .stamped-summary-actions-newreview {
+    display: block;
+    float: unset;
+    color: #fff;
+    background-color: #1F3337;
+    font-family: 'BrownPro-Bold';
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 30px;
+    padding: 20px 40px;
+  }
+  #stamped-main-widget .stamped-summary-actions-newreview {
+    margin-bottom: 10px;
+  }
+  #stamped-main-widget div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs {
+    text-align: center;
+    border-bottom: none;
+  }
+  #stamped-main-widget div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs {
+    height: unset;
+  }
+  #stamped-main-widget .stamped-container ul.stamped-tabs li {
+    font-size: 18px;
+    font-family: 'BrownPro-Regular';
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  #stamped-main-widget li#tab-questions[data-count][data-new-tab]:after,
+  #stamped-main-widget li#tab-reviews[data-count]:after {
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 2px 12px;
+    margin-left: 5px;
+  }
+  #stamped-main-widget .stamped-reviews {
+    margin-top: 30px !important;
+  }
+  #stamped-main-widget .stamped-review-header-title {
+    color: #1F3437;
+    font-family: 'Copernicus-Bold';
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+  #stamped-main-widget .stamped-pagination a {
+    color: #000;
+  }
+  div[data-widget-style*=standard] .stamped-summary-actions {
+    white-space: nowrap;
+  }
+  #stamped-main-widget .stamped-summary-actions-newquestion {
+    display: none;
+  }
+  #stamped-main-widget .stamped-tab-container #tab-questions {
+    display: none;
+  }
+  #stamped-main-widget .stamped-form-custom-question label:first-child {
+    margin-bottom: 10px;
+  }
+  #stamped-main-widget .stamped-form-custom-question label:nth-child(3),
+  #stamped-main-widget .stamped-form-custom-question label:nth-child(4),
+  #stamped-main-widget .stamped-form-custom-question label:nth-child(5) {
+    float: left;
+    margin-right: 10px;
+  }
+  @media (max-width: 790px) {
+    #stamped-main-widget .stamped-summary {
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    #stamped-main-widget .stamped-summary-actions {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+    #stamped-main-widget .stamped-summary-actions-newreview {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .mens-support-reviews .header-title {
+      font-size: 30px;
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    #stamped-main-widget .stamped-summary-actions-newquestion,
+    #stamped-main-widget .stamped-summary-actions-newreview {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 15px 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mens-support-reviews .header-title {
+        width: 90%;
+    }
+    #stamped-main-widget .stamped-header {
+      padding: 20px 0;
+      margin-bottom: 35px;
+    }
+    #stamped-main-widget .stamped-summary-actions-newquestion {
+      margin-bottom: 0;
+    }
+    #stamped-main-widget .summary-overview {
+      margin-bottom: 15px !important;
+    }
+    #stamped-main-widget .stamped-summary-actions-newquestion,
+    #stamped-main-widget .stamped-summary-actions-newreview {
+      font-size: 14px;
+      line-height: 15px;
+      padding: 15px 20px;
+      width: unset;
+    }
+    #stamped-main-widget .stamped-container ul.stamped-tabs li {
+      font-size: 15px !important;
+      margin-right: 10px !important;
+    }
+    #stamped-main-widget .stamped-reviews {
+      margin-top: 15px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    #stamped-main-widget .stamped-form-custom-question label:nth-child(3),
+    #stamped-main-widget .stamped-form-custom-question label:nth-child(4),
+    #stamped-main-widget .stamped-form-custom-question label:nth-child(5) {
+      float: unset;
+      margin-right: 0px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    #stamped-main-widget .stamped-summary-actions {
+      flex-direction: column;
+    }
+    #stamped-main-widget .stamped-summary-actions-newquestion,
+    #stamped-main-widget .stamped-summary-actions-newreview {
+      width: 100%;
+    }
+  }
+
+  #stamped-main-widget:not([data-product-id]) .stamped-summary-actions, 
+  #stamped-main-widget[data-product-id=""] .stamped-summary-actions {
+    display: block !important;
+  }
+</style>
+
+<script>
+  $(document).ready(function () {
+    let reviewLoop = setInterval(() => {
+      if ($('#stamped-main-widget .stamped-summary-actions-newreview')) {
+        if ($('#stamped-main-widget .stamped-summary-actions-newreview').attr('onclick') != '') {
+          $('#stamped-main-widget .stamped-summary-actions-newreview').attr('onclick', '');
+        } else {
+          clearInterval(reviewLoop);
+        }
+      }
+    }, 500);
+  });
+
+  $('#stamped-main-widget').on('click', '.stamped-summary-actions-newreview', function(e) {
+    if ($('#stamped-main-widget .stamped-summary-actions-newreview').attr('onclick') != '') {
+      $('#stamped-main-widget .stamped-summary-actions-newreview').attr('onclick', '');
+      $('#stamped-main-widget .new-review-form').removeClass('stamped-visible');
+      $(this).click();
+      return false;
+    } else {
+      if ($('#stamped-main-widget .new-review-form').hasClass('stamped-visible')) {
+        $('#stamped-main-widget .new-review-form').removeClass('stamped-visible');
+        $('#stamped-main-widget .new-review-form').fadeOut();
+      } else {
+        $('#stamped-main-widget .new-review-form').addClass('stamped-visible');
+        $('#stamped-main-widget .new-review-form').fadeIn();
+
+        let topPosition = $("#stamped-main-widget .stamped-content").offset().top - $('#header-main').outerHeight(true);
+        if ($('.product-fixed-form--shown').outerHeight(true)) {
+          topPosition = topPosition - $('.product-fixed-form--shown').outerHeight(true)
+        }
+        $('html, body').animate({
+          scrollTop: topPosition
+        }, 1000);
+      }
+    }
+  });
+</script>

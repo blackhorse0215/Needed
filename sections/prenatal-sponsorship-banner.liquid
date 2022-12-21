@@ -1,0 +1,199 @@
+
+<style>
+    section.sponsorship-banner.sponsorship-banner-desktop {
+        margin-top: 103.69px;
+        padding-top: 160px;
+        height: 360px;
+        background-image: url({{ section.settings.image | img_url: "2000x" }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #bea55c;
+        background-size: cover;
+        position: relative;
+    }
+
+    section.sponsorship-banner .container a {
+        margin-top: 32px;
+    }
+    @media (min-width: 1600px) {
+        section.sponsorship-banner.sponsorship-banner-desktop {
+            height: 450px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1599px){
+        section.sponsorship-banner{
+            background-position: center;
+        }
+    }
+    section.sponsorship-banner.sponsorship-banner-desktop .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* max-width: 1200px; */
+        width: 75%;
+    }
+    section.sponsorship-banner.sponsorship-banner-mob {
+        margin-top: 55px;
+        position: relative;
+    }
+    section.sponsorship-banner.sponsorship-banner-mob .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 75%;
+    }
+
+    section.sponsorship-banner .sponsorship-banner__title{
+        font-family: "Copernicus-Bold";
+        font-size: 35px;
+        line-height: 1.3;
+        color: #1F3337;
+        width: 66.6%;
+        margin: 0 auto;
+        padding-top: 15px;
+        letter-spacing: normal;
+    }
+    section.sponsorship-banner .sponsorship-banner__description{
+      margin-top: 25px;
+    }
+    section.sponsorship-banner.sponsorship-banner-mob .sponsorship-banner__title {
+        width: 100%;
+        padding-top: 0;
+        line-height: 32px;
+        letter-spacing: normal;
+    }
+
+    section.sponsorship-banner-mob{
+        display: none;
+    }
+
+    @media (max-width: 768px){
+
+        section.sponsorship-banner-desktop{
+            display: none;
+        }
+
+        section.sponsorship-banner-mob{
+            display: block;
+            background-image: none;
+        }
+        section.sponsorship-banner-mob .container .align-items-center {
+            display: inline-block; 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-77%, -50%);
+            text-align: left;
+            width: 60%;
+        }
+        section.sponsorship-banner-mob .sponsorship-background{
+            width: 100%;
+        }
+
+        #shopify-section-sponsorship-items{
+            margin-top: 64px !important;
+        }
+
+        section.sponsorship-banner-mob .sponsorship-banner__title{
+            font-family: "Copernicus-Bold";
+            font-size: 28px;
+            text-align: left;
+            color: #1F3337;
+            line-height: 1.3;
+            margin-top: 35px;
+        }
+        
+        #shopify-section-sponsorship-items > .container{
+            padding: 0 30px;
+        }
+
+        #shopify-section-sponsorship-items .bundle-item-container .bundle-content-wrapper .bundle-comments{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #shopify-section-sponsorship-items .bundle-item-container+.bundle-item-container{
+            margin-top: 20px !important;
+        }
+    }
+    @media (max-width: 1199px) {
+        section.sponsorship-banner.sponsorship-banner-desktop {
+        margin-top: 55px;
+    }
+    @media (max-width: 549px) {
+        section.sponsorship-banner-mob .sponsorship-banner__title{
+            font-size: 24px;
+            line-height: 35px;
+        }
+    }
+
+    @media (max-width: 360px){
+        section.sponsorship-banner-mob .sponsorship-banner__title{
+            font-size: 26px;
+        }
+
+        #shopify-section-sponsorship-items{
+            margin-top: 40px !important;
+        }
+    }
+</style>
+
+
+<section class="sponsorship-banner sponsorship-banner-desktop">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="sponsorship-banner__title">
+                <span class="sponsorship-banner__title-shape">{{ section.settings.title }}</span>
+            </h1>
+            <a class="button button--primary" href="https://needed.typeform.com/nominate" target="_blank">Nominate a deserving woman</a>
+		</div>
+	</div>
+</section>
+
+<section class="sponsorship-banner sponsorship-banner-mob">
+    <img class="sponsorship-background" src="{{ section.settings.image_mobile | img_url: '780x' }}">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="sponsorship-banner__title">
+                <span class="sponsorship-banner__title-shape">{{ section.settings.title }}</span>
+                <a class="button button--primary" href="https://needed.typeform.com/nominate" target="_blank">Nominate a deserving woman</a>
+            </h1>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+    {
+        "name": "Sponsorship Banner",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Banner image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mobile",
+                "label": "Banner mobile image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Banner heading",
+                "default": "Banner title"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Banner subheading"
+            }
+        ]
+    }
+{% endschema %}

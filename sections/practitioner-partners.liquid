@@ -1,0 +1,274 @@
+<section class="practitioner-partners" data-section-id="{{ section.id }}">
+  <div class="container">
+    {% if section.blocks.size > 0 %}
+      <div class="partner-list">
+        {% for block in section.blocks %}
+        <div class="partner">
+          <div class="partner-inner">
+            <div class="partner-photo">
+              <img class="lazyload" data-src="{{ block.settings.image | img_url: '350x' }}" alt="{{ block.settings.image.alt }}">
+            </div>
+            <div class="partner-content">
+              <div class="partner-descr"><blockquote>{{ block.settings.descr }}</blockquote></div>
+              <div class="partner-author">{{ block.settings.author }}</div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="section-button">
+      <a href="javascript:;" class="meet-more">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    $('.practitioner-partners .meet-more').click(function() {
+      $('.practitioner-partners .partner:hidden').css('display', 'block');
+      $(this).fadeOut('slow');
+    });
+
+    if ($(window).width() < 768) {
+      $('.practitioner-partners .partner:hidden').css('display', 'block');
+      $('.practitioner-partners .meet-more').fadeOut('slow');
+      $('.practitioner-partners .partner-list').slick({
+        slidesToShow: 1,
+        autoplay: false,
+        arrows: true,
+        dots: true,
+        infinite: false,
+        variableWidth: true,
+        prevArrow: '<button type="button" class="slick-arrow arrow arrow--left"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#939c9e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1px;}</style></defs><title/><g id="chevron-bottom"><line class="cls-1" x1="16" x2="7" y1="20.5" y2="11.5"/><line class="cls-1" x1="25" x2="16" y1="11.5" y2="20.5"/></g></svg></button>',
+        nextArrow: '<button type="button" class="slick-arrow arrow arrow--right"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#939c9e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1px;}</style></defs><title/><g id="chevron-bottom"><line class="cls-1" x1="16" x2="7" y1="20.5" y2="11.5"/><line class="cls-1" x1="25" x2="16" y1="11.5" y2="20.5"/></g></svg></button>'
+      });
+    }
+  });
+</script>
+
+<style>
+  .practitioner-partners {
+    padding: 70px 0 160px;
+  }
+  .practitioner-partners .partner + .partner {
+    margin-top: 20px;
+  }
+  .practitioner-partners .partner {
+    display: none;
+    background-color: #F6F4F2;
+  }
+  .practitioner-partners .partner:nth-child(1),
+  .practitioner-partners .partner:nth-child(2) {
+    display: block;
+  }
+  .practitioner-partners .partner-inner {
+    display: flex;
+  }
+  .practitioner-partners .partner:nth-child(2n+1) .partner-inner {
+    flex-direction: row-reverse;
+  }
+  .practitioner-partners .partner-photo {
+    display: flex;
+    align-items: flex-start;
+  }
+  .practitioner-partners .partner-photo img {
+    width: 350px;
+  }
+  .practitioner-partners .partner-content {
+    width: calc(100% - 350px);
+    display: flex;
+    flex-direction: column;
+    padding: 60px 50px 30px 80px;
+  }
+  .practitioner-partners .partner-descr {
+    position: relative;
+    font-size: 22px;
+    line-height: 37px;
+    color: #202F30;
+  }
+  .practitioner-partners .partner-descr:before {
+    content: open-quote;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .practitioner-partners .partner-descr:after {
+    content: close-quote;
+    position: absolute;
+    right: initial;
+    top: -20px;
+    font-family: 'Copernicus-Book', sans-serif;
+    font-size: 90px;
+    line-height: 0;
+    letter-spacing: 3.8px;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    color: #85853e;
+  }
+  .practitioner-partners .partner-descr blockquote {
+    text-indent: 55px;
+  }
+  .practitioner-partners .partner-author {
+    opacity: 0.45;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 34px;
+  }
+  .practitioner-partners .section-button {
+    margin-top: 50px;
+    text-align: center;
+  }
+  .practitioner-partners .section-button a {
+    color: #1F3337;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 28.5px;
+    max-width: 460px;
+    height: 57px;
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 30px;
+    margin: 0 auto;
+  }
+  .practitioner-partners .slick-dots li {
+    margin: 0 6px;
+  }
+  .practitioner-partners .slick-dots li button {
+    background-color: #202F30;
+    opacity: 0.2;
+    width: 6px;
+    height: 6px;
+  }
+  .practitioner-partners .slick-dots li.slick-active button {
+    background-color: #202F30;
+    opacity: 0.6;
+  }
+
+  @media (max-width: 991px) {
+    .practitioner-partners {
+      padding: 45px 0 90px;
+    }
+    .practitioner-partners .partner-photo img {
+      width: 300px;
+    }
+    .practitioner-partners .partner-content {
+      width: calc(100% - 300px);
+      padding: 40px 30px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .practitioner-partners .partner {
+      max-width: 325px;
+      width: 325px;
+      height: 100%;
+    }
+    .practitioner-partners .partner + .partner {
+      margin-top: 0;
+      margin-left: 10px;
+    }
+    .practitioner-partners .partner:nth-child(2n+1) .partner-inner {
+      flex-direction: column;
+    }
+    .practitioner-partners .partner-inner {
+      flex-direction: column;
+    }
+    .practitioner-partners .partner-photo {
+      padding: 40px 30px 0;
+    }
+    .practitioner-partners .partner-photo img {
+      width: 100%;
+    }
+    .practitioner-partners .partner-content {
+      padding-top: 30px;
+      width: 100%;
+    }
+    .practitioner-partners .partner-list .arrow {
+      background: none;
+      padding: 0;
+    }
+    .practitioner-partners .partner-list .arrow svg {
+      width: 30px;
+      height: 30px;
+    }
+    .practitioner-partners .partner-list .arrow--left {
+      position: absolute;
+      left: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .practitioner-partners .partner-list .arrow--left svg {
+      transform: rotate(90deg);
+    }
+    .practitioner-partners .partner-list .arrow--right {
+      position: absolute;
+      right: -25px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .practitioner-partners .partner-list .arrow--right svg {
+      transform: rotate(-90deg);
+    }
+    .practitioner-partners .partner-list .slick-list {
+      display: flex;
+    }
+    .practitioner-partners .partner-list .slick-track {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .practitioner-partners .partner {
+      width: 280px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Partners",
+  "settings": [
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner",
+      "name": "Partner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Partner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

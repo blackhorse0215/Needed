@@ -1,0 +1,98 @@
+<section class="practitioner-image-text" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-12 section-image">
+        <img class="lazyload" data-src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+      </div>
+      <div class="col-lg-6 col-12">
+        <div class="section-content">
+          {{ section.settings.conent }}
+          {% if section.settings.thumbnail_1 != nil or section.settings.thumbnail_2 != nil %}
+            <div class="thumbnail-imgs">
+              {% if section.settings.thumbnail_1 != nil %}
+                <div class="thumbnail-img"><img class="lazyload" data-src="{{ section.settings.thumbnail_1 | img_url: '220x' }}" alt="{{ section.settings.thumbnail_1.alt }}"></div>
+              {% endif %}
+              <div class="thumbnail-amp">&</div>
+              {% if section.settings.thumbnail_2 != nil %}
+                <div class="thumbnail-img"><img class="lazyload" data-src="{{ section.settings.thumbnail_2 | img_url: '220x' }}" alt="{{ section.settings.thumbnail_2.alt }}"></div>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .practitioner-image-text .section-content {
+    max-width: 540px;
+    width: 100%;
+    margin-left: auto;
+    line-height: 24px;
+  }
+  .practitioner-image-text .section-content:first-letter {
+    font-family: 'Copernicus-Bold';
+    font-size: 54px;
+    line-height: 42px;
+    float: left;
+    margin-right: 7px;
+  }
+  .practitioner-image-text .thumbnail-imgs {
+    display: flex;
+    align-items: center;
+  }
+  .practitioner-image-text .thumbnail-img {
+    max-width: 110px;
+    width: 100%;
+  }
+  .practitioner-image-text .thumbnail-amp {
+    padding: 0 25px;
+  }
+
+  @media (max-width: 991px) {
+    .practitioner-image-text .section-image {
+      text-align: center;
+    }
+    .practitioner-image-text .section-content {
+      max-width: 100%;
+      margin-right: auto;
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .practitioner-image-text .section-content {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Text with image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "textarea",
+      "id": "conent",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "thumbnail_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "thumbnail_2",
+      "label": "Image 2"
+    }
+  ]
+}
+{% endschema %}

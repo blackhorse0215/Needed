@@ -1,0 +1,783 @@
+<section class="optimal-dosage-pvitamin">
+  <div class="container" id="optimal_dosage_pvitamin">
+    <div class="row">
+      <h2 class="header-title optimal-dosage-pvitamin__title">{{ section.settings.section_title }}</h2>
+      {% if section.settings.subtitle != blank %}
+      <div class="optimal-dosage-pvitamin__subtitle">
+        {{ section.settings.subtitle }}
+      </div>
+      {% endif %}
+    </div>
+    
+    {% assign no_testing_count = 0 %}
+    {% capture block_no_testing %}
+      {% if section.blocks.size > 0 %}
+        <div class="no_testing_block_wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'no_testing' %}
+            {% assign no_testing_count = 1 %}
+            <div class="no_testing no_testing-{{ block.id }}">
+              <div class="no_testing_title">
+                <p>{{ block.settings.title }}</p>
+              </div>
+              <div class="no_testing_content">
+                {% assign capsule_count = block.settings.capsule_count | times: 1 %}
+                {% if capsule_count > 0 %}
+                <div class="capsule-images">
+                  {% for i in (1..capsule_count) %}
+                  <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <p>
+                  {% if block.settings.capsule_count == '' %}
+                  * See below
+                  {% elsif capsule_count <= 1 %}
+                  {{ block.settings.capsule_count | append: ' capsule / day' }}
+                  {% elsif capsule_count > 1 %}
+                  {{ block.settings.capsule_count | append: ' capsules / day' }}
+                  {% endif %}
+                </p>
+                <div class="dosage">{{ block.settings.dosage }}</div>
+              </div>
+              <style>
+                .optimal-dosage-pvitamin .no_testing-{{ block.id }} .no_testing_content {
+                  background-color: {{ block.settings.bg_color }};
+                }
+                @media (max-width: 767px) {
+                  .optimal-dosage-pvitamin .no_testing-{{ block.id }} .no_testing_content {
+                    border: 1px solid #F6F4F2;
+                  }
+                }
+              </style>
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endcapture %}
+
+    {% if no_testing_count == 1 %}
+    <div class="row no_testing-row">
+        <div class="blocktitle_wrapper">
+          <h3 class="no_testing_blocktitle">{{ section.settings.no_testing_title }}</h3>
+        </div>
+        <div class="no_testing_blocks_wrapper">
+        {{ block_no_testing }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% assign testing_count = 0 %}
+    {% capture block_testing %}
+      {% if section.blocks.size > 0 %}
+        <div class="testing_block_wrapper desktop">
+          <div class="testing testing-fixed">
+            <div class="testing_title">Life Stage</div>
+            <div class="testing_content1">Pregnancy and Fertility Focused or Mom Life</div>
+            <div class="testing_content2">Breastfeeding and Postpartum &lt;1 year</div>
+          </div>
+        {% for block in section.blocks %}
+          {% if block.type == 'testing' %}
+            {% assign testing_count = 1 %}
+            <div class="testing testing-{{ block.id }}">
+              <div class="testing_title">
+                <p>{{ block.settings.title }}</p>
+              </div>
+              <div class="testing_content1">
+                {% assign capsule_count1 = block.settings.capsule_count1 | times: 1 %}
+                {% if capsule_count1 > 0 %}
+                <div class="capsule-images">
+                  {% for i in (1..capsule_count1) %}
+                  <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <p>
+                  {% if block.settings.capsule_count1 == '' %}
+                  * See below
+                  {% elsif capsule_count1 <= 1 %}
+                  {{ block.settings.capsule_count1 | append: ' capsule / day' }}
+                  {% elsif capsule_count1 > 1 %}
+                  {{ block.settings.capsule_count1 | append: ' capsules / day' }}
+                  {% endif %}
+                </p>
+                <div class="dosage">{{ block.settings.dosage1 }}</div>
+                {% if block.settings.chk_or == true %}
+                <div class="tag-or">OR</div>  
+                {% endif %}
+              </div>
+              <div class="testing_content2">
+                {% assign capsule_count2 = block.settings.capsule_count2 | times: 1 %}
+                {% if capsule_count2 > 0 %}
+                <div class="capsule-images">
+                  {% for i in (1..capsule_count2) %}
+                  <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <p>
+                  {% if block.settings.capsule_count2 == '' %}
+                  * See below
+                  {% elsif capsule_count2 <= 1 %}
+                  {{ block.settings.capsule_count2 | append: ' capsule / day' }}
+                  {% elsif capsule_count2 > 1 %}
+                  {{ block.settings.capsule_count2 | append: ' capsules / day' }}
+                  {% endif %}
+                </p>
+                <div class="dosage">{{ block.settings.dosage2 }}</div>
+                {% if block.settings.footer_text != blank %}
+                <div class="footer-text">{{ block.settings.footer_text }}</div>
+                {% endif %}
+              </div>
+              <style>
+                .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content1,
+                .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                  background-color: {{ block.settings.bg_color }};
+                }
+                @media (max-width: 767px) {
+                  .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content1,
+                  .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                    border: 1px solid #F6F4F2;
+                  }
+                }
+              </style>
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+
+        <div class="testing_block_wrapper mobile">
+          <div class="testing_content-heading">Pregnancy and Fertility Focused or Mom Life</div>
+          <div class="testing_content-body">
+            {% for block in section.blocks %}
+              {% if block.type == 'testing' %}
+                {% assign testing_count = 1 %}
+                <div class="testing testing-{{ block.id }}{% if block.settings.chk_or == true %} testing-fullwidth{% endif %}">
+                  <div class="testing_title">
+                    <p>{{ block.settings.title }}</p>
+                  </div>
+                  
+                  {% if block.settings.chk_or == true %}
+                  <div class="testing_content-wrapper">
+                  {% endif %}
+                    <div class="testing_content1">
+                      {% assign capsule_count1 = block.settings.capsule_count1 | times: 1 %}
+                      {% if capsule_count1 > 0 %}
+                      <div class="capsule-images">
+                        {% for i in (1..capsule_count1) %}
+                        <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                        {% endfor %}
+                      </div>
+                      {% endif %}
+                      <p>
+                        {% if block.settings.capsule_count1 == '' %}
+                        * See below
+                        {% elsif capsule_count1 <= 1 %}
+                        {{ block.settings.capsule_count1 | append: ' capsule / day' }}
+                        {% elsif capsule_count1 > 1 %}
+                        {{ block.settings.capsule_count1 | append: ' capsules / day' }}
+                        {% endif %}
+                      </p>
+                      <div class="dosage">{{ block.settings.dosage1 }}</div>
+                      {% if block.settings.chk_or == true %}
+                      <div class="tag-or">OR</div>  
+                      {% endif %}
+                    </div>
+                    {% if block.settings.chk_or == true %}
+                    <div class="testing_content2">
+                      {% assign capsule_count2 = block.settings.capsule_count2 | times: 1 %}
+                      {% if capsule_count2 > 0 %}
+                      <div class="capsule-images">
+                        {% for i in (1..capsule_count2) %}
+                        <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                        {% endfor %}
+                      </div>
+                      {% endif %}
+                      <p>
+                        {% if block.settings.capsule_count2 == '' %}
+                        * See below
+                        {% elsif capsule_count2 <= 1 %}
+                        {{ block.settings.capsule_count2 | append: ' capsule / day' }}
+                        {% elsif capsule_count2 > 1 %}
+                        {{ block.settings.capsule_count2 | append: ' capsules / day' }}
+                        {% endif %}
+                      </p>
+                      <div class="dosage">{{ block.settings.dosage2 }}</div>
+                      {% if block.settings.footer_text != blank %}
+                      <div class="footer-text">{{ block.settings.footer_text }}</div>
+                      {% endif %}
+                    </div>
+                    {% endif %}
+                    <style>
+                      .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content1,
+                      .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                        background-color: {{ block.settings.bg_color }};
+                      }
+                      @media (max-width: 767px) {
+                        .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content1,
+                        .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                          border: 1px solid #F6F4F2;
+                        }
+                      }
+                    </style>
+                  {% if block.settings.chk_or == true %}
+                  </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+
+          <div class="testing_content-heading">Breastfeeding and Postpartum &lt;1 year</div>
+          <div class="testing_content-body">
+          {% for block in section.blocks %}
+            {% if block.type == 'testing' %}
+              {% assign testing_count = 1 %}
+              <div class="testing testing-{{ block.id }}">
+                <div class="testing_title">
+                  <p>{{ block.settings.title }}</p>
+                </div>
+                <div class="testing_content2">
+                  {% assign capsule_count2 = block.settings.capsule_count2 | times: 1 %}
+                  {% if capsule_count2 > 0 %}
+                  <div class="capsule-images">
+                    {% for i in (1..capsule_count2) %}
+                    <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+                  <p>
+                    {% if block.settings.capsule_count2 == '' %}
+                    * See below
+                    {% elsif capsule_count2 <= 1 %}
+                    {{ block.settings.capsule_count2 | append: ' capsule / day' }}
+                    {% elsif capsule_count2 > 1 %}
+                    {{ block.settings.capsule_count2 | append: ' capsules / day' }}
+                    {% endif %}
+                  </p>
+                  <div class="dosage">{{ block.settings.dosage2 }}</div>
+                </div>
+                <style>
+                  .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                    background-color: {{ block.settings.bg_color }};
+                  }
+                  @media (max-width: 767px) {
+                    .optimal-dosage-pvitamin .testing-{{ block.id }} .testing_content2 {
+                      border: 1px solid #F6F4F2;
+                    }
+                  }
+                </style>
+              </div>
+            {% endif %}
+          {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+    {% endcapture %}
+
+    {% if testing_count == 1 %}
+    <div class="row testing-row">
+      <div class="blocktitle_wrapper">
+        <h3 class="testing_blocktitle">{{ section.settings.testing_title }}</h3>
+        <p class="testing_blocksubtitle">{{ section.settings.testing_subtitle }}</p>
+      </div>
+      <div class="testing_blocks_wrapper">
+      {{ block_testing }}
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .optimal-dosage-pvitamin {
+    padding-top: 100px;
+    padding-bottom: 127px;
+  }
+  .optimal-dosage-pvitamin .optimal-dosage-pvitamin__title {
+    color: #1F3337;
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .optimal-dosage-pvitamin .no_testing-row {
+    margin-bottom: 33px;
+    display: flex;
+    justify-content: center;
+  }
+  .optimal-dosage-pvitamin .no_testing-row .blocktitle_wrapper {
+    width: 196px;
+    margin-right: 4px;
+    padding: 17px 17px 0 19px;
+    text-align: right;
+  }
+  .optimal-dosage-pvitamin .no_testing {
+    width: 160px;
+    margin-right: 4px;
+  }
+  .optimal-dosage-pvitamin .no_testing:last-child {
+    margin-right: 0;
+  }
+  .optimal-dosage-pvitamin .no_testing_title {
+    height: 77px;
+    border-bottom: 1px solid #ffffff;
+    padding-left: 18px;
+    padding-bottom: 6px;
+    padding-right: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+  .optimal-dosage-pvitamin .no_testing_content {
+    height: 180px;
+    padding: 27px 17px 20px;
+  }
+  .optimal-dosage-pvitamin .capsule-images {
+    margin-top: -7px;
+  }
+  .optimal-dosage-pvitamin .no_testing_content p {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  .optimal-dosage-pvitamin .dosage {
+    margin-top: 6px;
+    opacity: 0.5;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  .optimal-dosage-pvitamin .no_testing_block_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .optimal-dosage-pvitamin .no_testing_blocktitle {
+    color: #1F3437;
+    font-family: 'Copernicus-bold';
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+  .optimal-dosage-pvitamin .testing-row {
+    display: flex;
+    justify-content: center;
+  }
+  .optimal-dosage-pvitamin .testing-row .blocktitle_wrapper {
+    width: 196px;
+    margin-right: 4px;
+    padding: 17px 17px 0 19px;
+    text-align: right;
+  }
+  .optimal-dosage-pvitamin .testing {
+    width: 160px;
+    margin-right: 4px;
+    display: flex;
+    flex-direction: column;
+  }
+  .optimal-dosage-pvitamin .testing:last-child {
+    margin-right: 0;
+  }
+  .optimal-dosage-pvitamin .testing_title {
+    height: 77px;
+    border-bottom: 1px solid #ffffff;
+    padding: 3px 5px 3px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+  .optimal-dosage-pvitamin .testing_block_wrapper .testing_title {
+    height: 54px;
+  }
+  .optimal-dosage-pvitamin .testing-row .testing_content1 {
+    margin-bottom: 3px;
+    height: 180px;
+    padding: 27px 15px 20px;
+    position: relative;
+  }
+  .optimal-dosage-pvitamin .testing-row .testing_content1 .tag-or {
+    color: #1F3337;
+    background-color: #fff;
+    font-family: 'BrownPro-regular';
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 18px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .optimal-dosage-pvitamin .testing-row .testing_content2 {
+    padding: 27px 15px 20px;
+    flex: 1;
+  }
+  .optimal-dosage-pvitamin .testing-row .testing_content2 .footer-text {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 10px;
+  }
+  .optimal-dosage-pvitamin .testing-fixed .testing_title {
+    color: #1F3337;
+    font-family: 'Copernicus-bold';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 18px;
+    align-items: center;
+  }
+  .optimal-dosage-pvitamin .testing-fixed .testing_content1 {
+    margin-bottom: 3px;
+  }
+  .optimal-dosage-pvitamin .testing-fixed .testing_content1,
+  .optimal-dosage-pvitamin .testing-fixed .testing_content2 {
+    background-color: #F6F4F2;
+    padding-top: 24px;
+    color: #1F3337;
+    font-family: 'Copernicus-bold';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    padding: 27px 17px 20px;
+  }
+  .optimal-dosage-pvitamin .testing_content1 p,
+  .optimal-dosage-pvitamin .testing_content2 p {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  .optimal-dosage-pvitamin .testing_block_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .optimal-dosage-pvitamin .testing_blocktitle {
+    color: #1F3437;
+    font-family: 'Copernicus-bold';
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+  .optimal-dosage-pvitamin .testing_blocksubtitle {
+    font-family: 'Copernicus-Book';
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: 0;
+    color: #1f3437;
+  }
+  .optimal-dosage-pvitamin .optimal-dosage-pvitamin__subtitle {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 38px;
+  }
+  .optimal-dosage-pvitamin .no_testing_title,
+  .optimal-dosage-pvitamin .testing_title,
+  .optimal-dosage-pvitamin .blocktitle_wrapper {
+    background-color: #F6F4F2;
+  }
+  .optimal-dosage-pvitamin .no_testing_content,
+  .optimal-dosage-pvitamin .testing_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .optimal-dosage-pvitamin .testing_block_wrapper.desktop {
+    display: flex;
+  } 
+  .optimal-dosage-pvitamin .testing_block_wrapper.mobile {
+    display: none;
+  }
+  @media (max-width: 1230px) {
+    .optimal-dosage-pvitamin {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  @media (max-width: 1199px) {
+    .optimal-dosage-pvitamin .no_testing-row .blocktitle_wrapper,
+    .optimal-dosage-pvitamin .testing-row .blocktitle_wrapper {
+      width: 166px;
+      margin-right: 4px;
+      padding: 15px 13px 0 15px;
+      text-align: right;
+    }
+    .optimal-dosage-pvitamin .no_testing, 
+    .optimal-dosage-pvitamin .testing {
+      margin-right: 1px;
+    }
+    .optimal-dosage-pvitamin .no_testing:last-child, 
+    .optimal-dosage-pvitamin .testing:last-child {
+      margin-right: 0;
+    }
+    .optimal-dosage-pvitamin .no_testing_content,
+    .optimal-dosage-pvitamin .testing_content {
+      height: 166px;
+      padding: 20px 12px;
+    }
+    .optimal-dosage-pvitamin .testing-row .testing_content1 {
+      height: 166px;
+      padding: 20px 12px;
+    }
+  }
+  @media (max-width: 900px) {
+    .optimal-dosage-pvitamin .no_testing_block_wrapper,
+    .optimal-dosage-pvitamin .testing_block_wrapper {
+      flex-wrap: wrap;
+    }
+    .optimal-dosage-pvitamin .no_testing, .optimal-dosage-pvitamin .testing {
+      width: calc((100% - 5px) / 2);
+      margin-bottom: 5px;
+      margin-right: 0;
+      display: flex;
+      flex-direction: column;
+    }
+    .optimal-dosage-pvitamin .no_testing_title,
+    .optimal-dosage-pvitamin .testing_title {
+      display: flex;
+      align-items: center;
+      height: unset;
+      padding: 8px 25px;
+      text-align: center;
+      flex: 1;
+    }
+    .optimal-dosage-pvitamin .testing_blocktitle,
+    .optimal-dosage-pvitamin .testing_blocksubtitle {
+      font-size: 17px;
+      line-height: 23px;
+    }
+    .optimal-dosage-pvitamin .no_testing_blocktitle {
+      font-size: 17px;
+      line-height: 23px;
+    }
+    .optimal-dosage-pvitamin .no_testing-row .blocktitle_wrapper,
+    .optimal-dosage-pvitamin .testing-row .blocktitle_wrapper {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 5px;
+      text-align: center;
+    }
+    .optimal-dosage-pvitamin .no_testing_content {
+      height: 150px;
+      text-align: center;
+    }
+    .optimal-dosage-pvitamin .testing_content1,
+    .optimal-dosage-pvitamin .testing_content2 {
+      text-align: center;
+    }
+    .optimal-dosage-pvitamin .testing_blocks_wrapper {
+      width: 100%;
+    }
+
+    .optimal-dosage-pvitamin .testing_block_wrapper.desktop {
+      display: none;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile {
+      display: block;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-heading {
+      color: #1F3437;
+      font-family: 'Copernicus-bold';
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 21px;
+      text-align: center;
+      padding: 15px 30px;
+      margin-top: 10px;
+      margin-bottom: 3px;
+      background-color: #F6F4F2;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-body {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing-fullwidth {
+      width: 100%;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-wrapper .testing_content1,
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-wrapper .testing_content2 {
+      width: calc((100% - 4px) / 2);
+      flex: unset;
+      height: unset;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-wrapper .testing_content1 {
+      margin-bottom: 0;
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content-wrapper .testing_content1 .tag-or {
+      left: unset;
+      right: -14px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .optimal-dosage-pvitamin .testing_block_wrapper.mobile .testing_content2 {
+      padding: 27px 6px 20px;
+    }
+  }
+  
+  @media (max-width: 519px) {
+    .optimal-dosage-pvitamin .optimal-dosage-pvitamin__title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    .optimal-dosage-pvitamin .no_testing_blocktitle,
+    .optimal-dosage-pvitamin .testing_blocktitle {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    .optimal-dosage-pvitamin .testing_blocksubtitle {
+      font-size: 17px;
+      line-height: 23px;
+    }
+    .optimal-dosage-pvitamin .no_testing_title,
+    .optimal-dosage-pvitamin .testing_title {
+      font-size: 15px;
+      line-height: 19px;
+    }
+    .optimal-dosage-pvitamin .no_testing_content,
+    .optimal-dosage-pvitamin .testing_content {
+      padding: 20px 12px 10px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Optimal dosage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Heading",
+      "default": "Find your optimal dosage"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Sub Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "no_testing_title",
+      "label": "No Testing Title"
+    },
+    {
+      "type": "textarea",
+      "id": "testing_title",
+      "label": "Testing Title"
+    },
+    {
+      "type": "text",
+      "id": "testing_subtitle",
+      "label": "Testing Subtitle"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "no_testing",
+      "name": "No Testing",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "capsule_count",
+          "label": "Capsules Per Day"
+        },
+        {
+          "type": "text",
+          "id": "dosage",
+          "label": "Dosage"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    },
+    {
+      "type": "testing",
+      "name": "Testing",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "capsule_count1",
+          "label": "Capsules Per Day 1"
+        },
+        {
+          "type": "text",
+          "id": "dosage1",
+          "label": "Dosage 1"
+        },
+        {
+          "type": "checkbox",
+          "id": "chk_or",
+          "label": "OR"
+        },
+        {
+          "type": "text",
+          "id": "capsule_count2",
+          "label": "Capsules Per Day 2"
+        },
+        {
+          "type": "text",
+          "id": "dosage2",
+          "label": "Dosage 2"
+        },
+        {
+          "type": "text",
+          "id": "footer_text",
+          "label": "Footer Text"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

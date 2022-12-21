@@ -1,0 +1,502 @@
+<style>
+  section.choline-needs h1 {
+    text-align: center;
+    width: 670px;
+    margin: auto;
+    margin-top: 130px;
+  }
+  section.choline-needs .content {
+    max-width: 1200px;
+    margin: auto;
+  }
+  .way-item {
+    background-color: #F6F4F2;
+    padding: 15px 23px 23px 40px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 20px;
+  }
+  .way-item-operation {
+    
+    float: left;
+  }
+  .way-item-resut {
+    width: 128px;
+    float: right;
+    height: 128px;
+    padding: auto;
+    background-color: #1F3337;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+        margin-top: 40px;
+  }
+  .image-section img {
+    padding: 10px;
+  }
+  .way-item-products {
+    width: 450px;
+    float: left;
+    display: flex;
+    justify-content: center;
+  }
+  .way-item-product {
+    width: 165px;
+  }
+  .way-item-choline {
+    width: 200px;
+    float: left;
+  }
+  .way-item-foods {
+    width: 350px;
+    float: left;
+    display: flex;
+  }
+  .way-item-food {
+    width: 85px;
+  }
+  .item-plus {
+    height: 48px;
+    width: 60px;
+    color: #1F3337;
+    font-size: 40px;
+    font-family: BrownPro-Regular,sans-serif;
+    line-height: 48px;
+    text-align: center;
+    margin-top: 74px;
+  }
+  .image-section {
+    display: flex;
+    min-height: 190px;
+    vertical-align: middle;
+    margin: auto;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .title-section h2 {
+    min-height: 90px;
+    color: #1F3337;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 21px;
+    text-align: center;
+  }
+  .amount-section {
+    text-align: center;
+    position: relative;
+  }
+  .amount-section span {
+    position: absolute;
+    width: 75px;
+    bottom: -37px;
+    background-color: #1F3337;
+    color: white;
+    padding-top: 5px;
+    border-radius: 15px;
+    padding-bottom: 3px;
+    display: block;
+    transform: translate(50%, 0px);
+    right: 50%;
+    font-size: 16px;
+  }
+  .mobile-show {
+    display: none;
+  }
+  .way-item-wrap {
+    margin-top: 40px;
+  }
+  .way-item-product img {
+    width: 165px;
+  }
+  .way-item-choline img {
+    width: 200px;
+  }
+  .way-item-foods img {
+    width: 85px;
+  }
+
+  @media (max-width: 1300px) {
+    section.choline-needs .content {
+      max-width: 1000px;
+      margin: auto;
+    }
+    .way-item-products {
+      width: 370px;
+    }
+    .way-item-product {
+      width: 160px;
+    }
+    .item-plus {
+      width: auto;
+    }
+    .way-item-choline {
+      width: 200px;
+    }
+    .way-item-foods {
+      width: auto;
+    }
+    .title-section h2 {
+      min-height: 90px;
+    }
+    .way-item-product .image-section img:nth-child(2) {
+      top: 10px;
+    }
+    
+    .way-item-product img {
+      width: 160px;
+    }
+  }
+  @media (max-width: 1000px) {
+    section.choline-needs h1 {
+      width: 346px;
+      margin-top: 70px;
+      font-size: 26px;
+    }
+    .desktop-show {
+      display: none;
+    }
+    .mobile-show {
+      display: block;
+    }
+    section.choline-needs .content {
+      width: 800px;
+    }
+    .way-item-products {
+      width: 350px;
+    }
+    .way-item-product {
+      width: 100%;
+    }
+    .way-item-product .image-section {
+      position: relative;
+    }
+    .way-item-product .image-section img {
+      width: 52%;
+      padding: 0px;
+    }
+    .way-item-product .image-section img:nth-child(2) {
+      position: absolute;
+      top: 17px;
+      right: 0px;
+    }
+    .title-section h2 {
+      min-height: 45px;
+    }
+    .amount-section span {
+      position: unset;
+      display: inline-block;
+      transform: unset;
+      font-size: 16px;
+    }
+    .way-item-choline {
+      width: 200px;
+    }
+    .way-item-foods {
+      width: 185px;
+    }
+    .way-item-food {
+        width: 85px;
+    }
+    .way-item-foods .item-plus {
+      width: auto;
+    }
+    .way-item-wrap {
+      background-color: #1F3337;
+      border-radius: 40px 40px 20px 20px;
+    }
+    .mob-way-result {
+      padding-top: 10px;
+      text-align: center;
+      padding-bottom: 10px;
+      color: white;
+    }
+    .title-section.mobile-show {
+      padding-top: 10px;
+    }
+    .mob-way-result span {
+      font-size: 17px;
+    }
+    
+    .way-item-product img {
+      width: 170px;
+    }
+
+  }
+  @media (max-width: 820px) {
+    section.choline-needs .content {
+      width: 350px;
+    }
+    .way-item {
+      padding: 10px;
+
+    }
+    .way-item-products {
+      width: 136px;
+    }
+    .image-section {
+      min-height: 110px;
+    }
+    .image-section img {
+      padding: 0px;
+    }
+    .way-item-product .image-section img:nth-child(2) {
+        top: 22px;
+    }
+    .title-section h2 {
+      min-height: 65px;
+      font-size: 13px;
+      line-height: 16px;
+    }
+    .amount-section span {
+      font-size: 13px;
+    }
+    .item-plus {
+      width: 23px;
+      font-size: 28px;
+      margin-top: 30px;
+    }
+    .way-item-choline {
+      width: 100px;
+    }
+    .way-item-foods {
+      width: 70px;
+    }
+    .way-item-foods .item-plus {
+      width: 20px;
+    }
+    .way-item-food {
+      width: 85px;
+    }
+    .way-item-food img {
+      width: 40px;
+      margin: auto;
+    }
+    
+    .title-section.mobile-show h2 {
+      min-height: 40px;
+    }
+    
+    .way-item-product img {
+      width: 60px;
+    }
+    .way-item-choline img {
+      width: 100px;
+    }
+    .way-item-foods img {
+      width: 40px;
+    }
+
+  }
+</style>
+<section class="choline-needs">
+    <h1>{{section.settings.section_title}}</h1>
+    <div class="content">
+        {% for block in section.blocks %}
+            <div class="way-item-wrap">
+              <div class="way-item">
+                  <div class="way-item-operation">
+                      <div class="way-item-products">
+                          <div class="way-item-product">
+                              <div class="image-section" {% if block.settings.product_name2 == "" %} style="align-items: center"{% endif %}>
+                                  <img src="{{block.settings.product_img1 | img_url : 'master'}} ">
+                                  {% if block.settings.product_name2 != "" %}
+                                  <img src="{{block.settings.product_img2 | img_url : 'master'}}" class="mobile-show">
+                                  {% endif %}
+                              </div>
+                              <div class="title-section">
+                                  <h2>{{block.settings.product_name1}}</h2>
+                              </div>
+                              <div class="amount-section">
+                                  <span>{{block.settings.product_amount1}}</span>
+                              </div>
+                              {% if block.settings.product_name2 != "" %}
+                                <div class="title-section mobile-show">
+                                    <h2>{{block.settings.product_name2}}</h2>
+                                </div>
+                                <div class="amount-section mobile-show">
+                                    <span>{{block.settings.product_amount2}}</span>
+                                </div>
+                              {% endif %}
+                          </div>
+                          {% if block.settings.product_name2 != "" %}
+                            <span class="item-plus desktop-show">+</span>
+                            <div class="way-item-product desktop-show">
+                                <div class="image-section">
+                                    <img src="{{block.settings.product_img2 | img_url : 'master'}}">
+                                </div>
+                                <div class="title-section">
+                                    <h2>{{block.settings.product_name2}}</h2>
+                                </div>
+                                <div class="amount-section">
+                                    <span>{{block.settings.product_amount2}}</span>
+                                </div>
+                            </div>
+                          {% endif %}
+                          <span class="item-plus">+</span>
+                      </div>
+                      <div class="way-item-choline">
+                          <div class="image-section">
+                              <img src="{{block.settings.choline_img | img_url : 'master'}}">
+                          </div>
+                          <div class="title-section">
+                              <h2>{{block.settings.choline_name}}</h2>
+                          </div>
+                          <div class="amount-section">
+                              <span>{{block.settings.choline_amount}}</span>
+                          </div>
+                      </div>
+                      <div class="way-item-foods">
+                          
+                          <span class="item-plus">+</span>
+                          <div class="way-item-food">
+                              <div class="image-section">
+                                  <img src="{{block.settings.food_img1 | img_url : 'master'}}">
+                                  <img src="{{block.settings.food_img2 | img_url : 'master'}}" class="mobile-show">
+                              </div>
+                              <div class="title-section">
+                                  <h2>{{block.settings.food_name1}}</h2>
+                              </div>
+                              <div class="amount-section">
+                                  <span>{{block.settings.food_amount1}}</span>
+                              </div>     
+                              <div class="title-section mobile-show">
+                                  <h2>{{block.settings.food_name2}}</h2>
+                              </div>
+                              <div class="amount-section mobile-show">
+                                  <span>{{block.settings.food_amount2}}</span>
+                              </div>                     
+                          </div>
+                          
+                          <span class="item-plus desktop-show">+</span>
+                          <div class="way-item-food desktop-show">
+                              <div class="image-section">
+                                  <img src="{{block.settings.food_img2 | img_url : 'master'}}">
+                              </div>
+                              <div class="title-section">
+                                  <h2>{{block.settings.food_name2}}</h2>
+                              </div>
+                              <div class="amount-section">
+                                  <span>{{block.settings.food_amount2}}</span>
+                              </div>                        
+                          </div>
+                          
+                          <span class="item-plus desktop-show">=</span>
+                      </div>
+                  </div>
+                  <div class="way-item-resut desktop-show">
+                      <span>{{block.settings.way_result}}</span>
+                  </div>
+              </div>
+              <div class="mob-way-result mobile-show">
+                <span>{{block.settings.way_result}}</span>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% schema %}
+
+{
+  "name": "Optimal dosage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Heading",
+      "default": "Find your optimal dosage"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "easy_way",
+      "name": "Easy Way",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name1",
+          "label": "Product Name1"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_img1",
+          "label": "Product Image1"
+        },
+        {
+          "type": "text",
+          "id": "product_amount1",
+          "label": "Product Amount1"
+        },
+        {
+          "type": "text",
+          "id": "product_name2",
+          "label": "Product Name2"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_img2",
+          "label": "Product Image2"
+        },
+        {
+          "type": "text",
+          "id": "product_amount2",
+          "label": "Product Amount2"
+        },
+        {
+          "type": "text",
+          "id": "choline_name",
+          "label": "Choline Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "choline_img",
+          "label": "Choline Image"
+        },
+        {
+          "type": "text",
+          "id": "choline_amount",
+          "label": "Choline Amount"
+        },
+        {
+          "type": "text",
+          "id": "food_name1",
+          "label": "Food Name1"
+        },
+        {
+          "type": "image_picker",
+          "id": "food_img1",
+          "label": "Food Image1"
+        },
+        {
+          "type": "text",
+          "id": "food_amount1",
+          "label": "Food Amount1"
+        },
+        {
+          "type": "text",
+          "id": "food_name2",
+          "label": "Food Name2"
+        },
+        {
+          "type": "image_picker",
+          "id": "food_img2",
+          "label": "Food Image2"
+        },
+        {
+          "type": "text",
+          "id": "food_amount2",
+          "label": "Food Amount2"
+        },
+        {
+          "type": "text",
+          "id": "way_result",
+          "label": "Way Result"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

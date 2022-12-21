@@ -1,0 +1,476 @@
+<section class="optimal-dosage-piron">
+  <div class="container" id="optimal_dosage_piron">
+    <div class="row">
+      <h2 class="header-title optimal-dosage-piron__title">{{ section.settings.section_title }}</h2>
+    </div>
+    {% assign no_testing_count = 0 %}
+    {% capture block_no_testing %}
+      {% if section.blocks.size > 0 %}
+        <div class="no_testing_block_wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'no_testing' %}
+            {% assign no_testing_count = 1 %}
+            <div class="no_testing no_testing-{{ block.id }}">
+              <div class="no_testing_title">
+                <p>{{ block.settings.title }}</p>
+              </div>
+              <div class="no_testing_content">
+                {% assign capsule_count = block.settings.capsule_count | times: 1 %}
+                {% if capsule_count > 0 %}
+                <div class="capsule-images">
+                  {% for i in (1..capsule_count) %}
+                  <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <p>
+                  {% if block.settings.capsule_count == '' %}
+                  * See below
+                  {% elsif capsule_count <= 1 %}
+                  {{ block.settings.capsule_count | append: ' capsule / day' }}
+                  {% elsif capsule_count > 1 %}
+                  {{ block.settings.capsule_count | append: ' capsules / day' }}
+                  {% endif %}
+                </p>
+              </div>
+              <style>
+                .optimal-dosage-piron .no_testing-{{ block.id }} .no_testing_content {
+                  background-color: {{ block.settings.bg_color }};
+                }
+                @media (max-width: 767px) {
+                  .optimal-dosage-piron .no_testing-{{ block.id }} .no_testing_content {
+                    border: 1px solid #F6F4F2;
+                  }
+                }
+              </style>
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endcapture %}
+
+    {% if no_testing_count == 1 %}
+    <div class="row no_testing-row">
+        <div class="blocktitle_wrapper">
+          <h3 class="no_testing_blocktitle">No Testing:</h3>
+        </div>
+        <div class="no_testing_blocks_wrapper">
+        {{ block_no_testing }}
+        </div>
+    </div>
+    {% endif %}
+
+    {% assign ferritin_testing_count = 0 %}
+    {% capture block_ferritin_testing %}
+      {% if section.blocks.size > 0 %}
+        <div class="ferritin_testing_block_wrapper">
+        {% for block in section.blocks %}
+          {% if block.type == 'ferritin_testing' %}
+            {% assign ferritin_testing_count = 1 %}
+            <div class="ferritin_testing ferritin_testing-{{ block.id }}">
+              <div class="ferritin_testing_title">
+                <p>{{ block.settings.title }}</p>
+              </div>
+              <div class="ferritin_testing_content">
+                {% assign capsule_count = block.settings.capsule_count | times: 1 %}
+                {% if capsule_count > 0 %}
+                <div class="capsule-images">
+                  {% for i in (1..capsule_count) %}
+                  <img class="lazyload image-capsule" data-src="{{ 'capsule1.png' | asset_img_url: '22x60' }}" alt="">
+                  {% endfor %}
+                </div>
+                {% endif %}
+                <p>
+                  {% if block.settings.capsule_count == '' %}
+                  * See below
+                  {% elsif capsule_count <= 1 %}
+                  {{ block.settings.capsule_count | append: ' capsule / day' }}
+                  {% elsif capsule_count > 1 %}
+                  {{ block.settings.capsule_count | append: ' capsules / day' }}
+                  {% endif %}
+                </p>
+              </div>
+              <style>
+                .optimal-dosage-piron .ferritin_testing-{{ block.id }} .ferritin_testing_content {
+                  background-color: {{ block.settings.bg_color }};
+                }
+                @media (max-width: 767px) {
+                  .optimal-dosage-piron .ferritin_testing-{{ block.id }} .ferritin_testing_content {
+                    border: 1px solid #F6F4F2;
+                  }
+                }
+              </style>
+            </div>
+          {% endif %}
+        {% endfor %}
+        </div>
+      {% endif %}
+    {% endcapture %}
+
+    {% if ferritin_testing_count == 1 %}
+    <div class="row ferritin_testing-row">
+      <div class="blocktitle_wrapper">
+        <h3 class="ferritin_testing_blocktitle"><p>With Ferritin Testing</p><p>(Ferritin in your blood serum):</p></h3>
+      </div>
+      <div class="ferritin_testing_blocks_wrapper">
+      {{ block_ferritin_testing }}
+      
+      </div>
+    </div>
+    {% if section.settings.bottom_title != blank %}
+    <div class="optimal-dosage-piron__bottom_title">
+      <p class="btm-heading">{{ section.settings.bottom_title }}</p>
+    </div>
+    {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  #shopify-section-optimal-dosage-prenatal-iron {
+    padding-top: 80px;
+  }
+  @media (max-width: 767px) {
+    #shopify-section-optimal-dosage-prenatal-iron {
+      padding-top: 50px;
+    } 
+  }
+  .optimal-dosage-piron {
+    padding-top: 100px;
+    padding-bottom: 127px;
+  }
+  .optimal-dosage-piron .optimal-dosage-piron__title {
+    color: #1F3337;
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .optimal-dosage-piron .no_testing-row {
+    margin-bottom: 33px;
+  }
+  .optimal-dosage-piron .no_testing_blocks_wrapper {
+    width: calc(100% - 200px);
+  }
+  .optimal-dosage-piron .no_testing-row .blocktitle_wrapper {
+    width: 196px;
+    height: 195px;
+    margin-right: 4px;
+    padding: 17px 17px 0 17px;
+    text-align: right;
+  }
+  .optimal-dosage-piron .no_testing {
+    width: 160px;
+  }
+  .optimal-dosage-piron .no_testing_title {
+    height: 54px;
+    border-bottom: 1px solid #ffffff;
+    padding-left: 18px;
+    padding-bottom: 6px;
+    display: flex;
+    align-items: flex-end;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+  .optimal-dosage-piron .no_testing_content {
+    height: 140px;
+    padding: 27px 17px;
+  }
+  .optimal-dosage-piron .capsule-images {
+    margin-top: -7px;
+  }
+  .optimal-dosage-piron .no_testing_content p {
+    /* margin-top: 12px; */
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  .optimal-dosage-piron .no_testing_block_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .optimal-dosage-piron .no_testing_blocktitle {
+    color: #1F3437;
+    font-family: 'Copernicus-bold';
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+
+  .optimal-dosage-piron .ferritin_testing-row .blocktitle_wrapper {
+    width: 196px;
+    height: 195px;
+    margin-right: 4px;
+    padding: 17px 17px 0 17px;
+    text-align: right;
+  }
+  .optimal-dosage-piron .ferritin_testing {
+    width: 160px;
+  }
+  .optimal-dosage-piron .ferritin_testing_blocks_wrapper {
+    width: calc(100% - 200px);
+  }
+  .optimal-dosage-piron .ferritin_testing_title {
+    height: 54px;
+    border-bottom: 1px solid #ffffff;
+    padding-left: 18px;
+    padding-bottom: 6px;
+    display: flex;
+    align-items: flex-end;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+  .optimal-dosage-piron .ferritin_testing_content {
+    height: 140px;
+    padding: 27px 17px;
+  }
+  .optimal-dosage-piron .ferritin_testing_content p {
+    /* margin-top: 12px; */
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+  }
+  .optimal-dosage-piron .ferritin_testing_block_wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  .optimal-dosage-piron .ferritin_testing_blocktitle {
+    color: #1F3437;
+    font-family: 'Copernicus-bold';
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 28px;
+  }
+  .optimal-dosage-piron .ferritin_testing_blocktitle p {
+    display: inline-block;
+  }
+  .optimal-dosage-piron .ferritin_testing_blocktitle p:nth-child(2) {
+    font-family: 'Copernicus-Book';
+  }
+  .optimal-dosage-piron .optimal-dosage-piron__bottom_title {
+    margin-top: 15px;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    text-align: center;
+  }
+  .optimal-dosage-piron .no_testing_title,
+  .optimal-dosage-piron .ferritin_testing_title,
+  .optimal-dosage-piron .blocktitle_wrapper {
+    background-color: #F6F4F2;
+  }
+  .optimal-dosage-piron .no_testing_content,
+  .optimal-dosage-piron .ferritin_testing_content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  @media (max-width: 1230px) {
+    .optimal-dosage-piron {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+  @media (max-width: 1199px) {
+    .optimal-dosage-piron .no_testing-row .blocktitle_wrapper,
+    .optimal-dosage-piron .ferritin_testing-row .blocktitle_wrapper {
+      width: 166px;
+      height: 170px;
+      margin-right: 4px;
+      padding: 15px 13px 0 15px;
+      text-align: right;
+    }
+    .optimal-dosage-piron .no_testing_blocks_wrapper,
+    .optimal-dosage-piron .ferritin_testing_blocks_wrapper {
+      width: calc(100% - 170px);
+    }
+    .optimal-dosage-piron .no_testing, 
+    .optimal-dosage-piron .ferritin_testing {
+      width: 152px;
+      margin-right: 1px;
+    }
+    .optimal-dosage-piron .no_testing:last-child, 
+    .optimal-dosage-piron .ferritin_testing:last-child {
+      margin-right: 0;
+    }
+    .optimal-dosage-piron .no_testing_title,
+    .optimal-dosage-piron .ferritin_testing_title {
+      height: 48px;
+      padding-left: 15px;
+      padding-bottom: 3px;
+      padding-right: 2px;
+    }
+    .optimal-dosage-piron .no_testing_content,
+    .optimal-dosage-piron .ferritin_testing_content {
+      height: 122px;
+      padding: 20px 12px;
+    }
+    .optimal-dosage-piron .ferritin_testing_blocktitle {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+  @media (max-width: 991px) {
+    .optimal-dosage-piron .optimal-dosage-piron__title {
+      margin-bottom: 50px;
+    }
+    .optimal-dosage-piron .no_testing-row .blocktitle_wrapper,
+    .optimal-dosage-piron .ferritin_testing-row .blocktitle_wrapper {
+      width: 100%;
+      text-align: center;
+      height: auto;
+      padding: 10px;
+      margin-bottom: 5px;
+      margin-right: 0;
+    }
+    .optimal-dosage-piron .no_testing_blocktitle {
+      font-size: 18px;
+      line-height: 25px;
+    }
+    .optimal-dosage-piron .container {
+      padding: 0 10px;
+    }
+    .optimal-dosage-piron .no_testing_blocks_wrapper, .optimal-dosage-piron .ferritin_testing_blocks_wrapper {
+      width: 100%;
+    }
+    .optimal-dosage-piron .no_testing_title,
+    .optimal-dosage-piron .ferritin_testing_title {
+      height: 45px;
+      padding-left: 5px;
+      padding-bottom: 0px;
+      padding-right: 7px;
+      text-align: center;
+      font-size: 15px;
+      line-height: 18px;
+    }
+    .optimal-dosage-piron .no_testing_title p,
+    .optimal-dosage-piron .ferritin_testing_title p {
+      width: 100%;
+    }
+    .optimal-dosage-piron .no_testing_content,
+    .optimal-dosage-piron .ferritin_testing_content {
+      height: 115px;
+      padding: 12px 7px;
+      text-align: center;
+    }
+    .optimal-dosage-piron .no_testing_content p,
+    .optimal-dosage-piron .ferritin_testing_content p {
+      width: 100%;
+      margin-bottom: 4px;
+    }
+    .optimal-dosage-piron .capsule-images {
+      text-align: center;
+    }
+  }
+  @media (max-width: 767px) {
+    .optimal-dosage-piron .no_testing_block_wrapper,
+    .optimal-dosage-piron .ferritin_testing_block_wrapper {
+      flex-wrap: wrap;
+    }
+    .optimal-dosage-piron .no_testing, .optimal-dosage-piron .ferritin_testing {
+      width: calc((100% - 6px) / 2);
+      margin-bottom: 5px;
+    }
+    .optimal-dosage-piron .no_testing_title,
+    .optimal-dosage-piron .ferritin_testing_title {
+      display: flex;
+      align-items: center;
+    }
+  }
+  @media (max-width: 519px) {
+    .optimal-dosage-piron .optimal-dosage-piron__title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    .optimal-dosage-piron .no_testing_blocktitle,
+    .optimal-dosage-piron .ferritin_testing_blocktitle {
+      font-size: 17px;
+      line-height: 28px;
+    }
+    .optimal-dosage-piron .no_testing_title,
+    .optimal-dosage-piron .ferritin_testing_title {
+      font-size: 15px;
+      line-height: 19px;
+    }
+  }
+  /* .optimal-dosage-piron .container:hover {
+    cursor: pointer;
+  } */
+</style>
+{% schema %}
+{
+  "name": "Optimal dosage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Heading",
+      "default": "Find your optimal dosage"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_title",
+      "label": "Footer"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "no_testing",
+      "name": "No Testing",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "capsule_count",
+          "label": "Content"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    },
+    {
+      "type": "ferritin_testing",
+      "name": "Ferritin Testing",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "capsule_count",
+          "label": "Content"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,152 @@
+<section class="pair-prenatal-vitamin">
+  <div class="pair-pvitamin-container">
+      <div class="pair-pvitamin-row">
+        <div class="col-12 col-md-6">
+          <div class="pair-vitamin-imagewrapper">
+            <img class="pair-vitamin-image lazyload background-image" data-src="{{section.settings.image | img_url : 'master'}}" alt="">
+          </div>
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="content-wrapper">
+            <h2 class="title">{{ section.settings.section_title }}</h2>
+            <p class="description">{{ section.settings.description }}</p>
+            <a href="{{ section.settings.button_link }}" class="button-shop"><span>{{ section.settings.button_text }}</span></a>
+          </div>
+        </div>
+      </div>
+  </div>
+</section>
+
+<style>
+  .pair-pvitamin-container {
+    background: linear-gradient(180deg, #dac87c 0%, #dac87c 100%);
+  }
+  .pair-pvitamin-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .pair-prenatal-vitamin .pair-vitamin-imagewrapper {
+    height: 688px;
+    padding-right: 30px;
+    text-align: right;
+  }
+  .pair-prenatal-vitamin .pair-vitamin-image {
+    height: 100%;
+    object-fit: cover;
+  }
+  .pair-prenatal-vitamin .content-wrapper {
+    padding: 210px 155px 0;
+    text-align: center;
+  }
+  .pair-prenatal-vitamin .content-wrapper .title {
+    color: #1F3337;
+    font-family: 'Copernicus-bold';
+    font-size: 35px;
+    letter-spacing: 0;
+    line-height: 47px;
+    margin-bottom: 20px;
+  }
+  .pair-prenatal-vitamin .content-wrapper .description {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+  .pair-prenatal-vitamin .button-shop {
+    font-size: 16px;
+    font-family: "BrownPro-Bold";
+    padding: 18px 70px;
+    text-decoration: none;
+    color: #FFF;
+    border-radius: 29px;
+    background-color: #1F3337;
+    display: inline-block;
+  }
+  @media (max-width: 1439px) {
+    .pair-prenatal-vitamin .pair-vitamin-imagewrapper {
+      height: 660px;
+      padding-right: 20px;
+    }
+    .pair-prenatal-vitamin .content-wrapper {
+      padding: 170px 125px 0;
+    }
+  }
+  @media (max-width: 1199px) {
+    .pair-prenatal-vitamin .pair-vitamin-imagewrapper {
+      height: 540px;
+      padding-right: 10px;
+    }
+    .pair-prenatal-vitamin .content-wrapper {
+      padding: 100px 75px 0;
+    }
+    .pair-prenatal-vitamin .content-wrapper .title {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 959px) {
+    .pair-prenatal-vitamin .pair-vitamin-imagewrapper {
+      height: 400px;
+      padding-right: 0px;
+    }
+    .pair-prenatal-vitamin .content-wrapper {
+      padding: 40px 25px 0;
+    }
+  }
+  @media (max-width: 767px) {
+    .pair-prenatal-vitamin .pair-vitamin-imagewrapper {
+      height: auto;
+      width: 100%;
+    }
+    .pair-prenatal-vitamin .content-wrapper {
+      padding: 30px 16px;
+    }
+    .pair-prenatal-vitamin .pair-vitamin-image {
+      width: 100%;
+    }
+    .pair-prenatal-vitamin .content-wrapper .title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+  }
+  @media (max-width: 480px) {
+    .pair-prenatal-vitamin .button-shop {
+      width: 90%;
+      padding: 18px 0px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Pair Vitamin",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Heading"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ]
+}
+{% endschema %}

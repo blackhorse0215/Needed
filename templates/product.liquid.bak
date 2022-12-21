@@ -1,0 +1,539 @@
+{% case product.handle %}
+    {% when 'complete-plan-2' %}
+      {% section 'complete-plan-template' %}
+      {% section 'complete-plan-items' %}
+      
+      {% section 'starter-plan-comparison' %}
+      
+      {% section 'complete-plan-testimonials' %}
+      {% section 'complete-plan-icons' %}
+      {% section 'complete-plan-reviews' %}
+    {% when 'starter-plan' %}
+      {% section 'starter-plan-template' %}
+      {% section 'starter-plan-items' %}
+      {% section 'starter-plan-support' %}
+      {% section 'starter-plan-comparison' %}
+      {% section 'starter-plan-testimonials' %}
+      {% section 'starter-plan-icons' %}
+      {% section 'starter-plan-reviews' %}
+    {% when 'conception-support-for-two' %}
+      {% section 'conception-plan-template' %}
+      {% section 'conception-plan-items' %}
+      
+      {% section 'starter-plan-comparison' %}
+      
+      {% section 'conception-plan-testimonials' %}
+      {% section 'conception-plan-icons' %}
+      {% section 'conception-plan-reviews' %}
+    {% when 'mens-complete-plan' %}
+      {% section 'mens-support-template' %}
+      {% section 'mens-support-items' %}
+      {% section 'mens-support-testimonials' %}
+      {% section 'mens-support-icons' %}
+      {% section 'mens-support-reviews' %}
+    {% when 'omega-3' %}
+        {%comment%}Omega-3{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-omega3-needed' %}
+
+        {% section 'product-icons-omega-3' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'intro-nutrients-scroll-o3' %}
+
+        {% section 'text-with-images-o3' %}
+
+        {% section 'pro-banner-middle-o3' %}
+
+        {% section 'plan-cards-o3' %}
+
+        {% section 'reviews-o3' %}
+
+        {% section 'learn-more-o3' %}
+
+        {% section 'pro-download-guide-o3' %}
+
+        {% section 'pro-questions-o3' %}
+
+    {% when 'omega-3-vegan-capsules-men' %}
+      {% section 'product' %}
+
+      {% section 'why-omega3-capsules-needed' %}
+
+      {% section 'product-icons-omega3-capsules' %}
+
+      {% section 'doctors-quote' %}
+      
+      {% section 'nutrient-table-o3-capsules' %}
+
+      {% section 'plan-cards-o3-capsules' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% section 'pro-download-guide-o3-capsules' %}
+
+      {% section 'pro-questions-o3-capsules' %}
+      
+    {% when 'omega-3-for-men' %}
+      {% section 'product' %}
+
+      {% section 'why-omega3-capsules-needed' %}
+
+      {% section 'product-icons-omega3-capsules' %}
+
+      {% section 'doctors-quote' %}
+      
+      {% section 'nutrient-table-o3-capsules' %}
+
+      {% section 'plan-cards-o3-capsules' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% section 'pro-download-guide-o3-capsules' %}
+
+      {% section 'pro-questions-o3-capsules' %}
+
+    {% when 'free-scented-insert' %}
+      {% section 'product' %}
+
+    {% when 'womens-multi' %}
+      
+      {% section 'product' %}
+  
+      {% section 'product-icons-womens-multi-capsules' %}
+
+      {% section 'doctors-quote' %}
+
+      {% section 'nutrient-amount-womens-multi' %}
+
+      {% section 'nutrient-table-womens-multi' %}
+
+      {% section 'which-right' %}
+      
+      {% section 'optimal-womens-multi' %}
+
+      {% section 'product-stamped-reviews' %}
+      
+      {% comment %} {% section 'pro-download-guide-womens-multi' %} {% endcomment %}
+
+      {% section 'pro-questions-womens-multi' %}     
+
+    {% when 'womens-omega-3' %}
+      {% section 'product' %}
+
+      {% section 'why-omega3-capsules-women-needed' %}
+
+      {% section 'product-icons-omega3-capsules-women' %}
+
+      {% section 'doctors-quote' %}
+      
+      {% section 'nutrient-table-o3-capsules-women' %}
+
+      {% section 'plan-cards-o3-capsules-women' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% comment %} {% section 'pro-download-guide-o3-capsules-women' %} {% endcomment %}
+
+      {% section 'pro-questions-o3-capsules-women' %}
+
+    {% when 'prenatal-omega-3' %}
+      {% section 'product' %}
+
+      {% section 'why-omega3-capsules-women-needed' %}
+
+      {% section 'product-icons-omega3-capsules-women' %}
+
+      {% section 'doctors-quote' %}
+      
+      {% section 'nutrient-table-o3-capsules-women' %}
+
+      {% section 'plan-cards-o3-capsules-women' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% section 'pro-download-guide-o3-capsules-women' %}
+
+      {% section 'pro-questions-o3-capsules-women' %}
+
+
+    {% when 'omega-3-for-women' %}
+    
+      {% section 'product' %}
+
+      {% section 'why-omega3-capsules-women-needed' %}
+
+      {% section 'product-icons-omega3-capsules-women' %}
+
+      {% section 'doctors-quote' %}
+      
+      {% section 'nutrient-table-o3-capsules-women' %}
+
+      {% section 'plan-cards-o3-capsules-women' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% section 'pro-download-guide-o3-capsules-women' %}
+
+      {% section 'pro-questions-o3-capsules-women' %}
+
+    {% when 'prenatal-pre-probiotic' %}
+        {%comment%}Pre/Probiotic{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-pp-is-needed' %}
+
+        {% section 'product-icons-pre-probiotic' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'intro-card-scroll-pp' %}
+
+        {% comment %} {% section 'text-with-images-pp' %} {% endcomment %}
+
+        {% section 'nutrient-table' %}
+
+        {% section 'plan-cards-pp' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% comment %} {% section 'pro-download-guide-pp' %} {% endcomment %}
+
+        {% section 'pro-questions-probiotic' %}
+
+    {% when 'womens-pre-probiotic' %}
+        {%comment%}Pre/Probiotic{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-pp-is-needed' %}
+
+        {% section 'product-icons-pre-probiotic' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'intro-card-scroll-pp' %}
+
+        {% comment %} {% section 'text-with-images-pp' %} {% endcomment %}
+
+        {% section 'nutrient-table' %}
+
+        {% section 'plan-cards-pp' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% comment %} {% section 'pro-download-guide-pp' %} {% endcomment %}
+
+        {% section 'pro-questions-probiotic' %}
+
+    {% when 'mens-pre-probiotic' %}
+        {%comment%}Pre/Probiotic{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-mpp-is-needed' %}
+
+        {% section 'product-icons-mens-pre-probiotic' %}
+
+        {% section 'doctors-quote' %}
+
+        {% comment %} {% section 'intro-card-scroll-mpp' %} {% endcomment %}
+
+        {% section 'text-with-images-mpp' %}
+
+        {% section 'nutrient-table-mpp' %}
+
+        {% section 'plan-cards-mpp' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% comment %} {% section 'pro-download-guide-mpp' %} {% endcomment %}
+
+        {% section 'pro-questions-probiotic-mens' %}
+      
+    {% when 'collagen-protein' %}
+        {%comment%}Collagen Protein{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-col-is-needed' %}
+
+        {% section 'product-icons-col-protein' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'intro-card-scroll-col' %}
+
+        {% section 'text-with-images-col' %}
+
+        {% section 'plan-cards-col' %}
+
+        {% section 'product-stamped-reviews' %}
+        
+        {% section 'pro-download-guide-col' %}
+
+        {% section 'pro-questions-collagen' %}
+
+    {% when 'prenatal-multi-powder' %}
+        {%comment%}Prenatal Multi{%endcomment%}
+        {% section 'product' %}
+
+        {% section 'why-prenatal-multi-is-needed' %}
+
+        {% section 'product-icons-prenatal-multi' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'text-with-images-prenatal-multi' %}
+
+        {% comment %} {% section 'nutrient-amount-prenatal-multi' %} {% endcomment %}
+        {% section 'nutrient-amount-pmulti-essential' %}
+
+        {% section 'nutrient-table-prenatal-multi' %}
+
+        {% section 'product-powder-pill-pme' %}
+
+        {% section 'plan-cards-prenatal-multi' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% section 'pro-download-guide-prenatal-multi' %}
+
+        {% section 'pro-questions-prenatal' %}
+
+
+      {% when 'prenatal-multi-capsules' %}
+        {% section 'product' %}
+
+        {% section 'why-prenatal-multi-is-needed' %}
+
+        {% section 'product-icons-prenatal-multi' %}
+
+        {% section 'doctors-quote' %}
+
+        {% comment %} {% section 'nutrient-amount-prenatal-multi' %} {% endcomment %}
+        {% section 'nutrient-amount-pmulti-essential' %}
+
+        {% section 'nutrient-table-prenatal-multi' %}
+
+        {% section 'product-powder-pill-pme' %}
+
+        {% section 'plan-cards-prenatal-multi' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% section 'pro-download-guide-prenatal-multi' %}
+
+        {% section 'pro-questions-prenatal' %}
+
+    {% when 'omega-3-nutrient-testing-kit' %}
+        
+        {% section 'product-o3-testing' %}
+
+        {% section 'pro-video-o3-testing' %}
+
+        {% section 'pro-o3-testing-banner' %}
+
+        {% section 'pro-o3-kit-how-it-works' %}
+
+        {% section 'pro-o3-testing-science' %}
+
+        {% section 'pro-o3-testing-quant' %}
+
+        {% section 'pro-questions-o3-testing' %}
+
+    {% when 'vitamin-d-nutrient-testing-kit' %}
+        
+        {% section 'product-o3-testing' %}
+
+        {% section 'pro-vitamin-d-testing' %}
+
+        {% section 'pro-vitamin-d-testing-banner' %}
+
+        {% section 'pro-vitamin-d-kit-how-it-works' %}
+
+        {% section 'pro-vitamin-d-testing-science' %}
+
+        {% section 'pro-vitamin-d-testing-quant' %}
+
+        {% section 'pro-questions-vitamin-d-testing' %}
+
+
+    {% when 'prenatal-iron' %}
+
+        {% section 'product' %}  {% comment %}last{% endcomment %}
+        
+        {% section 'doctors-quote' %}
+
+        {% section 'optimal-dosage-prenatal-iron' %}
+
+        {% section 'pair-prenatal-iron' %}
+        
+        {% section 'plan-cards-prenatal-iron' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% section 'pro-questions-prenatal-iron' %}
+      
+    {% when 'prenatal-vitamin-d' %}
+
+        {% section 'product' %}  {% comment %}last{% endcomment %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'optimal-dosage-prenatal-vitamin' %}
+
+        {% section 'pair-prenatal-vitamin' %}
+        
+        {% section 'plan-cards-prenatal-vitamin' %}
+
+        {% section 'product-stamped-reviews' %}
+
+        {% section 'pro-download-guide-d3' %}
+
+        {% section 'pro-questions-prenatal-vitamin' %} 
+
+    {% when 'coq10' %}
+        
+      {% section 'product' %}
+      {% section 'doctors-quote' %}
+      
+      {% section 'pair-prenatal-vitamin' %}
+      
+      {% section 'plan-cards-prenatal-vitamin' %}
+
+      {% section 'product-stamped-reviews' %}
+
+      {% section 'pro-questions-coq10' %} 
+
+    {% when 'gift-card' %}
+
+        {% section 'product-gift-card' %}
+
+    {% when 'prepping-for-postpartum-is-needed-nutrition-class' %}
+        
+        {% section 'product-postpartum-prep' %}
+
+    {% when 'prenatal-multi-essentials' %}
+
+      {% section 'product' %}
+      {% section 'why-prenatal-multi-essential-needed' %}
+      {% section 'product-icons-pmulti-essential' %}
+      {% section 'doctors-quote' %}
+      {% section 'nutrient-amount-pmulti-essential' %}
+      {% section 'nutrient-table-pmulti-essential' %}
+      {% section 'product-powder-pill-pme' %}
+      {% section 'plan-cards-pmulti-essential' %}
+      {% section 'product-stamped-reviews' %}
+      {% comment %} {% section 'pro-download-guide-pmulti-essential' %} {% endcomment %}
+      {% section 'pro-questions-pmulti-essential' %}
+
+    {% when 'mens-multi' %}
+
+      {% section 'product' %}
+      {% section 'why-mens-multi-needed' %}
+      {% section 'product-icons-mens-multi' %}
+      {% section 'doctors-quote' %}
+      {% section 'nutrient-amount-mens-multi' %}
+      {% section 'nutrient-table-mens-multi' %}
+      {% section 'plan-cards-mens-multi' %}
+      {% section 'choose-plan-mens-multi' %}
+      {% section 'product-stamped-reviews' %}
+      {% section 'reviews-mens-multi' %}
+      {% section 'pro-download-guide-mens-multi' %}
+      {% section 'pro-questions-mens-multi' %}
+
+    {% when 'stress-support' %}
+
+      {% section 'product' %}
+      {% section 'product-icons-stress-support' %}
+      {% section 'doctors-quote' %}
+      {% section 'product-ingredients-stress' %}
+      {% section 'product-support-stress' %}
+      {% section 'choose-plan-stress' %}
+      {% section 'product-reviews-stress' %}
+      {% section 'product-questions-stress' %}
+      
+    {% when 'sleep-support' %}
+
+      {% section 'product' %}
+      {% section 'product-icons-sleep-support' %}
+      {% section 'doctors-quote' %}
+      {% section 'product-ingredients-sleep' %}
+      {% section 'product-support-sleep' %}
+      {% section 'choose-plan-sleep' %}
+      {% section 'product-reviews-sleep' %}
+      {% section 'product-questions-sleep' %}
+
+    {% when 'hydration-support' %}
+
+      {% section 'product' %}
+      {% section 'product-icons-hydration-support' %}
+      {% section 'doctors-quote' %}
+      {% section 'nutrient-table-hydration-support' %}
+      {% section 'product-support-hydration' %}
+      {% section 'choose-plan-hydration' %}
+      {% section 'product-reviews-hydration' %}
+      {% section 'product-questions-hydration' %}
+    
+    {% when 'prenatal-choline' %}
+        {% section 'product' %}
+
+        {% section 'doctors-quote' %}
+
+        {% section 'optimal-choline-needs' %}
+
+        {% section 'plan-cards-choline' %}
+
+        {% comment %} {% section 'product-stamped-reviews' %} {% endcomment %}
+
+        {% section 'pro-questions-choline' %}
+    
+    {% else %}
+        {% section 'product' %}
+        {% section 'doctors-quote' %}
+
+        {% section 'global-ticker' %}
+
+        {% section 'product-level-based-content' %}
+
+        {% section 'product-references' %}
+        
+        {% include 'product-featured-blog' %}
+        
+{% endcase %}
+
+<script text="text/javascript">
+  var _learnq = _learnq || [];
+
+  var item = {
+    Name: {{ product.title|json }},
+    ProductID: {{ product.id|json }},
+    Categories: {{ product.collections|map:'title'|json }},
+    ImageURL: "https:{{ product.featured_image.src|img_url:'grande' }}",
+    URL: "{{ shop.secure_url }}{{ product.url }}",
+    Brand: {{ product.vendor|json }},
+    Price: {{ product.price|money|json }},
+    CompareAtPrice: {{ product.compare_at_price_max|money|json }}
+  };
+
+  _learnq.push(['track', 'Viewed Product', item]);
+  _learnq.push(['trackViewedItem', {
+    Title: item.Name,
+    ItemId: item.ProductID,
+    Categories: item.Categories,
+    ImageUrl: item.ImageURL,
+    Url: item.URL,
+    Metadata: {
+      Brand: item.Brand,
+      Price: item.Price,
+      CompareAtPrice: item.CompareAtPrice
+    }
+  }]);
+</script>
+
+<script type="text/javascript">
+  var _learnq = _learnq || [];
+    document.getElementById("AddToCart").addEventListener('click',function (){
+       _learnq.push(['track', 'Added to Cart', item]);
+    });
+</script>

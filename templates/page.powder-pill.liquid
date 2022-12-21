@@ -1,0 +1,51 @@
+{% section 'powder-pill' %}
+{% section 'pro-questions-powder-pill' %}
+<script>
+    $(document).ready(function() {
+        $(window).resize(function() {
+            if($(window).width() < 992) {
+                if ($(".prenatal-powder-pill .switch-btn .left").hasClass("active")) {
+                    $(".prenatal-powder-pill .product-right").css('display', 'none');
+                } else {
+                    $(".prenatal-powder-pill .product-left").css('display', 'none');
+                }
+            } else {
+                $(".prenatal-powder-pill .product-left").css('display', 'block');
+                $(".prenatal-powder-pill .product-right").css('display', 'block');
+            }
+
+        })
+        if($(window).width() < 992) {
+            if ($(".prenatal-powder-pill .switch-btn .left").hasClass("active")) {
+                $(".prenatal-powder-pill .product-right").css('display', 'none');
+            } else {
+                $(".prenatal-powder-pill .product-left").css('display', 'none');
+            }
+        }
+        
+        $(".prenatal-powder-pill .switch-btn .btn").on("click", function() {
+            $(".prenatal-powder-pill .switch-btn .btn").removeClass("active");
+            $(this).addClass("active");
+            
+            if ($(this).hasClass("left")) {
+                $(".prenatal-powder-pill .product-left").css('display', 'block');
+                $(".prenatal-powder-pill .product-right").css('display', 'none');
+            } else {
+                $(".prenatal-powder-pill .product-left").css('display', 'none');
+                $(".prenatal-powder-pill .product-right").css('display', 'block');
+            }
+        })
+        $('.prenatal-powder-pill').on('click', '.have_ques, .faq_link', function() {
+            $('html, body').animate({
+                scrollTop: parseInt($('.quiz-pro-o3').offset().top) - 100
+            }, 850);
+        });
+
+        // $(".prenatal-powder-pill .product__supplement-link").on("click", function(){
+        //     $(".product__supplement-fact .popup--supplement").css("display", "flex");
+        // });
+        // $(".prenatal-powder-pill .popup__close-wrapper").on("click", function(){
+        //     $(".product__supplement-fact .popup--supplement").css("display", "none");
+        // });
+    })
+</script>

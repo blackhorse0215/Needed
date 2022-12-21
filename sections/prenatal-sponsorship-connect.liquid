@@ -1,0 +1,131 @@
+
+<style>
+    .sponsorship-connect {
+        margin-top: 122px;
+        width:100%;
+        margin-bottom: 50px;
+    }
+    .sponsorship-connect .container {
+        
+        max-width: 1170px;
+        margin: auto;
+    }
+    .sponsorship-connect .container .col{
+        width: 33.33%;
+        padding-right: 17px;
+        padding-left: 17px;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        float: left;
+    }
+    .sponsorship-connect .container .col img{
+        background-color: #F6F4F2;
+    }
+    .sponsorship-connect .container .col .col-inner{
+        padding-top: 42px;
+        padding-bottom: 47px;
+        background-color: #F6F4F2;
+    }
+    .sponsorship-connect .container .col .col-inner h1{
+        font-size: 24px;
+        letter-spacing: normal;
+        margin-bottom: 16px;
+    }
+    .sponsorship-connect .container .col .col-inner h1 span{
+        color: #85853E;
+    }
+    .sponsorship-connect .container .col .col-inner a {
+        font-size: 16px;
+        color: #85853E;
+    }
+    @media (max-width: 767px) {
+        .sponsorship-connect .container .col{
+            width: 100%;
+            margin-bottom: 25px;
+        }
+    }
+</style>
+<section class='sponsorship-connect'>
+    <div class='container'>
+        <div class='col'>
+            <img src="{{ section.settings.image1 | img_url: 'master' }}">
+            <div class='col-inner'>
+                <h1>{{section.settings.heading1}}</h1>
+                <a href='https://thisisneeded.com/pages/blog-list'>{{section.settings.description1}}</a>
+            </div>
+        </div>
+        <div class='col'>
+            <img src="{{ section.settings.image2 | img_url: 'master' }}">
+            <div class='col-inner'>
+                <h1>{{section.settings.heading2}}</h1>
+                <a href='https://www.instagram.com/needed' target="_blank">{{section.settings.description2}}</a>
+            </div>
+        </div> 
+        <div class='col'>
+            <img src="{{ section.settings.image3 | img_url: 'master' }}">
+            <div class='col-inner'>
+                <h1>{{section.settings.heading3}}</h1>
+                <a href='mailto:hello@thisisneeded.com'>{{section.settings.description3}}</a>
+            </div>
+        </div>    
+    </div>
+
+    
+</section>
+
+{% schema %}
+    {
+        "name": "Sponsorship Connect",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image1",
+                "label": "first image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image2",
+                "label": "second image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image3",
+                "label": "third image"
+            },
+            {
+                "type": "text",
+                "id": "heading1",
+                "label": "heading1",
+                "default": "heading1"
+            },
+            {
+                "type": "textarea",
+                "id": "description1",
+                "label": "description1"
+            },
+            {
+                "type": "text",
+                "id": "heading2",
+                "label": "heading2",
+                "default": "heading2"
+            },
+            {
+                "type": "textarea",
+                "id": "description2",
+                "label": "description2"
+            },
+            {
+                "type": "text",
+                "id": "heading3",
+                "label": "heading3",
+                "default": "heading3"
+            },
+            {
+                "type": "textarea",
+                "id": "description3",
+                "label": "description3"
+            }
+        ]
+    }
+{% endschema %}

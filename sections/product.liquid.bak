@@ -1,0 +1,1172 @@
+{% assign subscription_product = product.metafields.subscriptions %}
+{%comment%}
+{% assign product_description = product.description %}
+{%endcomment%}
+{% if false %}
+	{% capture product_description %}
+	Details<!--tabtitle-->Why powder<!--tabtitle-->How to use<!--tabsplitter-->
+	We deliver our Omega-3 in the most nourishing formulation, ensuring you and your baby get the optimal amount of Omega-3 DHA (300mg) and EPA (150mg).
+	<br /><br />
+30 daily powder packets, delivered straight to your door.
+	<!--tabcontent-->Our powdered format enables us to deliver the most nourishing formulation for mamas and mamas-to-be. It's 5x better absorbed by the body than pills, and is delivered with other needed nutrients that help your body use the Omega-3 DHA and EPA that you and our baby need.<!--tabcontent-->Tastes like sunflower lecithin, which has a sweet nutty taste. If you are extra sensitive to taste and smell, you may also detect some algae notes. The powder pairs well with: nut milk-based "lattes" with cinnamon or chai spice and a hint of maple syrup; smoothies with banana, berries, chocolate or vanilla protein and almond butter; yogurt; and oil & vinegar-based salad dressings. We do not recommend taking it with plain water, orange juice, soymilk, or plain coffee and tea.<!--splitter-->I love that this product combines Omega-3 DHA, EPA, Choline, and Phospholipids, key nutrients that pair optimally to nourish a mama and her baby. Most Omega-3 products contain just DHA. I take it every morning mixed with almond milk and cinnamon."<!--review_splitter-->- Dr. Leah Gordon, Naturopathic + Functional Medicine Doctor"
+	{% endcapture %}
+{% else %}
+	{% capture product_description %}
+		{{ product.description }}
+	{% endcapture %}
+{% endif %}
+
+{% if product_description != nil %}
+	{% assign desc_array = product_description | split: '<!--splitter-->' %}
+	{% assign tab_text = desc_array[0] %}
+	{% assign review = desc_array[1] %}
+{% endif %}
+{% if subscription_product != nil %}
+  {% assign shipping_interval_unit_type = subscription_product.shipping_interval_unit_type %}
+  {% assign shipping_interval_frequency = subscription_product.shipping_interval_frequency | split: ',' %}
+{% endif %}
+
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope
+	 itemtype="http://schema.org/Product" class="product">
+
+	{%- assign current_variant = product.selected_or_first_available_variant -%}
+	{%- assign selected_variant = product.selected_variant -%}
+	{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+	<meta itemprop="name"
+		  content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+	<meta itemprop="brand" content="{{ product.vendor }}">
+	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+    <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+    {{ 'custom.scss.css' | asset_url | stylesheet_tag }}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				{% assign images_count = product.images | size %}
+				<div {% if images_count > 1 %}id="product-main-slider"{% endif %} class="product__image">
+					{% for image in product.images  %}
+						<div>
+							<div class="product__image-slide">
+								<img class="lazyload" data-src="{{ image | img_url: '1600x' }}" alt="{{ image.alt | escape }}">
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+
+				
+			</div>
+
+			<div class="col-12 col-lg-6">
+				<div class="product__information">
+					<h1 class="product__title">{{ product.title }}</h1>
+					{% if product.handle == 'prenatal-omega-3' or product.handle == 'omega-3-for-men' or product.handle == 'prenatal-pre-probiotic' or product.handle == 'collagen-protein' or product.handle == 'prenatal-multi-powder' or product.handle == 'prenatal-multi-capsules' or product.handle == 'prenatal-iron' or product.handle == 'prenatal-vitamin-d' or product.handle == 'mens-pre-probiotic' or product.handle == 'prenatal-multi-essentials' or product.handle == 'mens-multi' or product.handle == 'stress-support' or product.handle == "sleep-support" or product.handle == 'hydration-support' or product.handle == "coq10" or product.handle == "womens-multi" or product.handle == "womens-omega-3"%}
+					<div class="product-reviews-badge">
+						<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+					</div>
+					{% endif %} 
+					{% assign product_subtitle = product.metafields.airf.subtitle %}
+					{% if product_subtitle != blank %}
+					<p class="product__subtitle">{{ product_subtitle }}</p>
+					{% endif %}
+
+					{% assign tab_array = tab_text | split: '<!--tabsplitter-->' %}
+					<div class="description-desktop">{% include 'product-tabs-pp' %}</div>
+
+					{% if product.metafields.bundle.product_id != blank %}
+						<div class="product-bundle">
+							<div class="bundle-content">{{ product.metafields.bundle.bundle_content }}</div>
+							<div class="bundle-image-wrapper">
+								<img src="{{ product.metafields.bundle.bundle_image }}" class="bundle-image" alt="">
+								<a href="javascript:;" class="add-bundle" data-product-id="{{ product.metafields.bundle.product_id }}">Add</a>
+							</div>
+						</div>
+					{% endif %}
+
+					{%- assign parent_product = '' | append: product.metafields.global.parent_product -%}
+					{% if parent_product == '7690488021237' %}
+					<div class="product__want-to-try womens-health">
+						<div class="box--text">{{ product.metafields.global.parent_product_text }}</div>
+						<div class="box--image"><img src="{{ product.metafields.global.parent_product_img }}" alt=""></div>
+					</div>
+					{% endif %}
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product__form">
+						<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+						<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+						<link itemprop="availability"
+							  href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+						<form action="/cart/add" method="post" enctype="multipart/form-data" data-product-original-form data-productid="{{product.id}}">
+							{% if product.id == 5395202343064 or product.id == 5395225182360 or product.id == 6642499518616 or product.id == 6671435563160 or product.id == 7040898957464 or product.id == 7046016237720 or product.id == 7076295147672 or product.id == 7076296425624 or product.id == 7076308320408 %}  {%comment%} Pre-order for prenatal multi and Pre/Probiotic {%endcomment%}
+								{% if product.available %}
+									{% include 'preorder-product' %}
+								{% endif %}
+								
+							{% else %}
+								<style type="text/css">
+									.preorder-information{
+										margin-top: 25px;
+										margin-bottom: 12px;
+									}
+									.preorder-information .save_additional {
+										font-family: "BrownPro-Bold";
+										font-size: 16px;
+										color: #103538;
+									}
+								</style>
+								
+								<div class="preorder-information">
+									{% if product.metafields.airf.pre_info != '&nbsp' %}
+									<div class="save_additional">
+										{{ product.metafields.airf.pre_info }}
+									</div>
+									
+									{% if product.handle == 'mens-multi' %}
+									<a href="javascript:;" class="why-preorder">Why the Wait?</a>
+									<div class="availability-popup">{% include 'product-availability' %}</div>
+									<div class="availability-popup-overlay"></div>
+									{% endif %}
+									{% endif %}
+								</div>
+								
+								{% if product.available %}{% include 'subscription-product' %}{% endif %}
+							{% endif %}
+
+							<div class="product__dosage {% if product.variants.size == 1 %} hide-this{% endif %}">
+								{% unless product.has_only_default_variant %}
+									{% for option in product.options_with_values %}
+										<div class="selector-wrapper js">
+											<select
+												class="select"
+												id="SingleOptionSelector-{{ forloop.index0 }}"
+												data-single-option-selector
+												data-index="option{{ option.position }}"
+											>
+												<option value="" disabled {% if selected_variant.id != current_variant.id %}selected{% endif %}>
+													Select your {{ option.name | downcase }}
+												</option>
+
+												{% for value in option.values %}
+													<option
+														value="{{ value | escape }}"
+														{% if selected_variant.id == current_variant.id or product.variants.size == 1 %}{% if option.selected_value == value or product.variants.size == 1 %}selected="selected"{% endif %}{% endif %}
+													>
+														{{ value }}
+													</option>
+												{% endfor %}
+											</select>
+										</div>
+									{% endfor %}
+								{% endunless %}
+
+								{% include 'product-dosage-popup' %}
+							</div>
+
+							<select id="product-select-{{ product.id }}" data-productid="{{product.id}}" name="id" class="visually-hidden" data-product-select>
+								{% for variant in product.variants %}
+									<option
+										{% if selected_variant.id == current_variant.id and variant.available %}selected="selected"{% endif %}
+										{% unless variant.available %}disabled="disabled"{% endunless %}
+										value="{{ variant.id }}"
+									>
+										{{ variant.title }}
+									</option>
+								{% endfor %}
+							</select>
+
+							{% comment %}
+							{% if product.handle == 'prenatal-iron' %}
+							{% assign prenatalMulti = all_products['prenatal-multi'] %}
+							<select id="product-select-{{ prenatalMulti.id }}" data-productid="{{prenatalMulti.id}}" name="" class="visually-hidden" data-product-select>
+								{% for variant in prenatalMulti.variants %}
+									<option
+										{% if selected_variant.id == current_variant.id and variant.available %}selected="selected"{% endif %}
+										{% unless variant.available %}disabled="disabled"{% endunless %}
+										value="{{ variant.id }}"
+									>
+										{{ variant.title }}
+									</option>
+								{% endfor %}
+							</select>
+							{% endif %}
+							{% endcomment %}
+
+							{% if settings.purchasing_for != blank %}
+							<div class="product__what-for">
+								<input type="text" class="input" placeholder="who's this for?" name="properties[{{ settings.purchasing_for }}]" data-this-for>
+							</div>
+							{% endif %}
+
+							{%- assign parent_product = '' | append: product.metafields.global.parent_product -%}
+							{% if parent_product == '6883884990616' %}
+							<div class="product__want-to-try">
+								<div class="box--text">{{ product.metafields.global.parent_product_text }}</div>
+								<div class="box--image"><img src="{{ product.metafields.global.parent_product_img }}" alt=""></div>
+							</div>
+							{% endif %}
+
+							{% if product.metafields.global.ship_text != blank %}
+								<!-- <div class="ship-text">{{ product.metafields.global.ship_text }}</div> -->
+							{% endif %}
+							{% if current_variant.available %}
+								<div class="product__action">
+									<button
+										type="submit"
+										name="add"
+										class="button button--primary"
+										id="AddToCart"
+										data-add-to-cart
+										{% unless current_variant.available %}disabled="disabled"{% endunless %}
+
+										{% if subscription_product != nil %}
+											data-add-to-cart-subscribe="true"
+											data-price-per-day="{% if section.settings.show_price_per_day %}true{% else %}false{% endif %}"
+											data-subscribe-unit-type='{{ shipping_interval_unit_type }}'
+											data-subscribe-frequency='{{ shipping_interval_frequency | json }}'
+										{% endif %}
+										style="width: 100%;"
+									>
+										<span data-add-to-cart-text>
+											{% if product.variants[0].price == 0 %}
+												Add to cart
+											{% else %}
+												{% if shipping_interval_frequency and shipping_interval_frequency.size > 0 %}
+													{% if current_variant.inventory_management == "shopify" and product.variants.first.inventory_quantity <= 0 %}
+														Pre-order Now
+													{% else %}
+														Add to cart
+													{% endif %}
+												{% else %}
+													{{ product.variants[0].price | money_without_trailing_zeros }}{{ ' - Pre-order Now' }}
+												{% endif %}
+												
+												{% if product.handle == 'omega-3-for-men' %}
+													- {{ current_variant.price | money_without_trailing_zeros }}
+												{% endif %}
+											{% endif %}
+											{%comment%}{% if selected_variant.id == current_variant.id or product.variants.size == 1 %}
+												{% if current_variant.available %}
+													{%- if shipping_interval_frequency and shipping_interval_frequency.size > 0 -%}
+														{%- if section.settings.show_price_per_day -%}
+
+															{%- if shipping_interval_frequency contains "1" and shipping_interval_unit_type == "Months" -%}
+																<span class="product-single__price">{{ current_variant.price | money }}</span><span class="subscription_only"> (per month)</span>
+															{%- else -%}
+																{%- case shipping_interval_unit_type -%}
+																	{%- when "Months" -%}
+																		<span class="product-single__price">{{ current_variant.price | money_without_trailing_zeros }}</span> / {{ shipping_interval_frequency }} (per month)
+																	{%- when "Days" -%}
+																		{%- assign days_number = shipping_interval_frequency[0] | times: 1 -%}
+																		{%- assign price_per_item = current_variant.price | divided_by: days_number -%}
+																		<span class="product-single__price">{{ price_per_item | money }}</span> (per day)
+																	{%- when "Weeks" -%}
+																		{%- assign days_number = shipping_interval_frequency[0] | times: 7 -%}
+																		{%- assign price_per_item = current_variant.price | divided_by: days_number -%}
+																		<span class="product-single__price">{{ price_per_item | money }}</span> (per week)
+																	{% else %}
+																		{{ current_variant.price | money_without_trailing_zeros }} / {{ shipping_interval_frequency }} {{ shipping_interval_unit_type }}
+																{%- endcase -%}
+															{%- endif -%}
+															<span class="btn dot">-</span><span class="pro-btn-txt">{{ 'products.product.add_to_cart_subscribe' | t }}</span>
+														{%- else -%}
+															{%- if shipping_interval_frequency and shipping_interval_frequency.size > 0 -%}
+																{{ current_variant.price | money_without_trailing_zeros }}<span class="btn dot">-</span><span class="pro-btn-txt">{{ 'products.product.add_to_cart_subscribe' | t }}</span>
+																{%- if shipping_interval_frequency contains "1" and shipping_interval_unit_type == "Months" -%}
+																	(per month)
+																{%- else -%}
+																	{%- if shipping_interval_unit_type == "Months" -%}
+																		/ {{ shipping_interval_frequency }} (per month)
+																	{%- else -%}
+																		/ {{ shipping_interval_frequency }} {{ shipping_interval_unit_type }}
+																	{%- endif -%}
+																{%- endif -%}
+															{%- else -%}
+																{{ 'products.product.add_to_cart' | t | downcase }} {{ product.price | money_without_trailing_zeros }}
+															{%- endif -%}
+														{%- endif -%}
+													{%- else -%}
+														{{ 'products.product.add_to_cart' | t | downcase }} {{ product.price | money_without_trailing_zeros }}
+													{%- endif -%}
+												{% else %}
+													{{ 'products.product.sold_out' | t | downcase }}
+												{% endif %}
+											{% else %}
+												Select your dosage
+											{% endif %}
+											{%endcomment%}
+										</span>
+									</button>
+								</div>
+								{% unless product.handle == 'womens-multi' %}
+								<div class="product__action">
+									<a class="add-to-bundle button button--primary" href="/pages/bundle-plans#shopify-section-bundle-plan-items" style="width: 100%;">
+										<span>Shop and Save on Bundles</span>
+									</a>
+								</div>
+								{% endunless %}
+							{% else %}
+								<button id="BIS_trigger" class="button button--primary" style="display: none;">Notify me</button>
+							{% endif %}
+							<!-- <label class="bogo_recomment_comment hidden-bogo-comment">
+								Subscribe to the Omega-3 Powdered Supplement and get a Nutrient Testing Kit <span class="for-free">for FREE</span>
+							</label> -->
+						</form>
+					</div>
+					<!-- <div class="apply-custom-code-wrapper">
+                        <p>Use code <a href="javascript:;" data-testing-code="{{ section.settings.testing_code }}">omegatesting</a> at checkout</p>
+                    </div> -->
+					<div class="product__icons-container">
+						<div class="product__icons">
+							{% include 'product-icons' %}
+						</div>
+						{% include 'product-supplement-popup' %}
+					</div>
+					<div class="description-mobile">{% include 'product-tabs-pp' %}</div>
+					<div class="product-description">{{product.metafields.airf.desc_bottom}}</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	{% comment %} {% if section.settings.show_share_buttons %}
+		{% include 'social-sharing', share_title: product.title, share_permalink: product.url, share_image: product %}
+	{% endif %} {% endcomment %}
+
+	<div class="product-fixed-form" data-title="{{ product.title }}" style="display: none;" data-fixed-form> 
+		<div class="container">
+			<div class="row">
+				<div class="col-12 col-lg-6 product-fixed-form__title">
+					<span class="sticky-bar-title"></span>
+				</div>
+				<div class="col-12 col-lg-6 product-fixed-form__action">
+					<div class="all_price">
+						<span class="price"></span>
+						<span class="discount_price"></span>
+						<span class="discount"></span>
+					</div>
+					<div>
+						<button class="data_add_to_cart_bundle"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container doctorsquote">
+		<div class="addition-contents">
+			{% assign quote_text = product.metafields.airf.quote_text %}
+			{% assign practitioner_name = product.metafields.airf.quote_name %}
+			<p class="contents">{{ quote_text }}</p>
+			<p class="addition-author">{{ practitioner_name }}</p>
+		</div>
+	</div>
+	{% unless product == empty %}
+		<script type="application/json" data-product-json>
+			{{ product | json }}
+		</script>
+	{% endunless %}
+</div>
+{% comment %} BOGO product {% endcomment %}
+{% comment %}
+{% assign bogoProduct = all_products[section.settings.bogo_product] %}
+{% if bogoProduct.metafields.subscriptions.subscription_id %}
+	{% assign bogo_subscription_product = bogoProduct.metafields.subscriptions %}
+	{% assign bogo_subscription_id = bogo_subscription_product.subscription_id %}
+	{% assign bogo_shipping_interval_unit_type = bogo_subscription_product.shipping_interval_unit_type | default: 'Days' %}
+	{% assign bogo_shipping_interval_frequency = bogo_subscription_product.shipping_interval_frequency | split: ',' | default: 30 %}
+
+	{% for bogo_variant in bogoProduct.variants limit: 1 %}
+		{% assign bogo_discount_variant_id = bogo_variant.metafields.subscriptions.discount_variant_id %}
+	{% endfor %}
+{% endif %}
+{% endcomment %}
+<style>
+
+	@media (max-width: 600px){
+		.product__want-to-try.womens-health .box--text {
+			padding-right: 80px !important;
+		}
+	}
+
+	.product__want-to-try.womens-health {
+		background-color: #B2CACA !important;
+	}
+	.product .product__want-to-try .box--image {
+		position: absolute;
+		right: 0px;
+		top: 0;
+		width: auto;
+		max-width: 72px;
+	}
+	.product-description {
+		font-size: 16px;
+		letter-spacing: 0;
+		line-height: 22px;
+		margin-top: 25px;
+		max-width: 490px;
+		width: 100%;
+	}
+	.product-reviews-badge{ 
+		text-align: unset;
+		margin-top: 9px;
+	}
+	.product-description {
+		margin-top: 5px;
+	}
+	.stamped-product-reviews-badge .fa-star-half-o:before,
+	.stamped-product-reviews-badge .fa-star-o:before,
+	.stamped-product-reviews-badge .fa-star:before,
+	.stamped-product-reviews-badge .stamped-fa-star-half-o:before,
+	.stamped-product-reviews-badge .stamped-fa-star-o:before,
+	.stamped-product-reviews-badge .stamped-fa-star:before {
+		font-size: 26px;
+	}
+	.stamped-product-reviews-badge .stamped-badge-caption {
+		margin-left: 10px;
+		font-size: 20px;
+	}
+
+	.product-fixed-form .sticky-bar-save {
+		background: #e7e7d9;
+		font-size: 15px;
+		padding: 3px 5px;
+	}
+	.product .product__icons-container {
+		margin-top: 22px !important;
+	}
+	.product .product__supplement-fact {
+		margin-top: 16px !important;
+	}
+	.product-fixed-form.product-fixed-form--shown {
+		padding: 17px 0 !important;
+	}
+	.add-to-bundle {
+		cursor: pointer;
+	}
+
+	.product__action * {
+		font-family: "BrownPro-Bold",sans-serif;
+		font-size: 16px !important;
+		line-height: 1.2 !important;
+	}
+	.product__subtitle {
+		color: #1F3337;
+		font-family: 'BrownPro-regular';
+		font-size: 16px;
+		letter-spacing: 0;
+		line-height: 22px;
+		margin-top: 10px;
+	}
+	.block__type__bundle {
+		margin-top: 15px;
+	}
+	.label__onetime, .label__bundle {
+		font-family: 'BrownPro-regular';
+		font-size: 16px;
+		line-height: 19px;
+	}
+	.label__onetime span, .label__bundle span {
+		font-family: 'BrownPro-bold';
+	}
+	.compare-price {
+		text-decoration: line-through;
+	}
+	.price__autodeliver {
+		color: #85853E;
+	}
+	.product__information .ship-text {
+		color: #1F3337;
+		font-size: 16px;
+		font-weight: bold;
+		letter-spacing: 0;
+		line-height: 19px;
+		margin-top: 15px;
+	}
+	.product__information .product-bundle {
+		padding: 8px 20px;
+		background-color: #C3B5EC;
+		display: inline-flex;
+		margin: 25px 0;
+		min-height: 72px;
+		position: relative;
+		padding-right: 230px;
+	}
+	.product__information .product-bundle .bundle-content {
+		font-size: 16px;
+		line-height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	}
+	.product__information .product-bundle .bundle-content a {
+		color: #1F3337;
+	}
+	.product__information .product-bundle .bundle-image-wrapper {
+		position: absolute;
+		right: 20px;
+		top: 8px;
+		display: flex;
+	}
+	.product__information .product-bundle .bundle-image {
+		width: 100px;
+		transform: translateY(-16px);
+		margin-right: 9px;
+	}
+	.product__information .product-bundle .add-bundle {
+		font-size: 16px;
+		line-height: 19px;
+		width: 86px;
+		height: 57px;
+		display: inline-flex;
+		border: 2px solid;
+		border-radius: 28.5px;
+		color: #1f3337;
+		text-decoration: none;
+		justify-content: center;
+		align-items: center;
+		padding: 10px 23px;
+	}
+	.btn-group {
+		position: relative;
+		border-radius: 27px;
+		outline: none;
+		margin-top: 15px;
+		margin-bottom: 10px;
+	}
+	.btn-group .mark {
+		position: absolute;
+		background-color: #898a3a;
+		left: 50%;
+		top: 0;
+		transform: translate(-50%, -50%);
+		height: 13px;
+		width: 52px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		margin-top: -1px;
+	}
+	.btn-group .mark span {
+		text-transform: uppercase;
+		color: #ffffff;
+		font-size: 10px;
+		margin-top: 1.5px;
+	}
+	.btn-group p {
+		font-size: 16px;
+		border: 1px solid #1F3337; /* Green border */
+		color: #1f33377a;
+		padding: 10px 0; /* Some padding */
+		cursor: pointer; /* Pointer/hand icon */
+		float: left; /* Float the buttons side by side */
+		text-transform: capitalize;
+		text-align: center;
+		line-height: 0.9;
+	}
+	.btn-group p span{
+		font-size: 12px;
+	}
+	
+	/* Clear floats (clearfix hack) */
+	.btn-group:after {
+		content: "";
+		clear: both;
+		display: table;
+	}
+	
+	.btn-group p:not(:last-child) {
+		border-right: none; /* Prevent double borders */
+	}
+	
+	/* Add a background color on hover */
+	.btn-group p:hover {
+		color: #1F3337; 
+		background-color: #FFFFFF; /* Green background */
+		cursor: pointer;
+	}
+	.btn-group p.active {
+		color: #1F3337; 
+		background-color: #FFFFFF; /* Green background */
+		cursor: pointer;
+		font-weight: bolder;
+	}
+	.compare-price {
+		opacity: 0.6;
+	}
+	.product-fixed-form .product-fixed-form__action {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.product-fixed-form .all_price .price {
+		color: #000000;
+		opacity: 0.6;
+		text-decoration: line-through;
+	}
+	.product-fixed-form .all_price .discount_price {
+		color: #85853E;
+	}
+	.product-fixed-form .all_price .discount {
+		color: #85853E;
+		background-color: #85853e66;
+		margin-left: 10px;
+	}
+	.product-fixed-form .all_price span {
+		font-size: 14px;
+		font-weight: 500;
+		margin: 0 5px;
+	}
+	.product-fixed-form .data_add_to_cart_bundle {
+		font-size: 14px;
+		padding: 10px 20px;
+		border-radius: 54px;
+		background-color: #1F3337;
+		color: #ffffff;
+	}
+	@media (max-width: 991px) {
+		.product-fixed-form .product-fixed-form__action .button {
+			padding: 14px 15px;
+		}
+		.product__title {
+			text-align: center;
+		}
+		.accordHeaderLinks {
+			text-align: center;
+		}
+		/* .addition-contents {
+			border-left: 5px solid #85853E;
+		} */
+		.addition-contents .contents {
+			font-size: 17px;
+			line-height: 1.5;
+		}
+		.addition-contents .addition-author {
+			line-height: 1.2;
+		}
+		
+		.product__information .product-bundle {
+			padding-right: 0;
+		}
+		.product__information .product-bundle .bundle-image-wrapper {
+			position: relative;
+			margin-left: 14px;
+			left: 0;
+			right: unset;
+			top: unset;
+			align-items: center;
+			padding-right: 20px;
+		}
+		.product__information .product-bundle .bundle-image {
+			transform: translateY(0);
+		}
+	}
+
+	@media (min-width: 769px){
+		.product__information .product__form{
+			margin-top: 0px;
+		}
+
+		.product__information .product__form .product__action button[data-add-to-cart]{
+			margin-top: 15px;
+		}
+	}
+
+	@media (max-width: 768px) {
+		.product__information .product-bundle {
+			margin-bottom: 0;
+		}
+		.product__information .product-bundle .bundle-image-wrapper {
+			flex-wrap: wrap;
+		}
+	}
+	@media (max-width: 448px) {
+
+		.product__icons-container {
+			margin-bottom: 0px !important;
+		}
+		#shopify-section-product .product-fixed-form .data_add_to_cart_bundle {
+			font-size: 11px;
+			padding: 9px 7px 7px 7px;
+		}
+		#shopify-section-product .product-fixed-form .all_price span {
+			font-size: 11px;
+			margin: 0;
+		}
+	}
+	/* @media (max-width: 374px){
+		#shopify-section-product .product-fixed-form .product-fixed-form__action{
+			max-width: 150px;
+		}
+
+		#shopify-section-product .product-fixed-form .product-fixed-form__action button{
+			max-width: 150px;
+			font-size: 14px;
+			padding: 12px 12px 10px;
+		}
+
+		#shopify-section-product .product-fixed-form .product-fixed-form__title{
+			max-width: calc(100% - 150px);
+		}
+	}  */
+
+
+	.description-mobile {
+		display: none;
+	}
+</style>
+
+<style>
+	.product__information .ship-text-wrapper {
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: wrap;
+	}
+	.product__information .ship-text-wrapper .why-preorder {
+		color: #1f3337;
+		font-size: 16px;
+		line-height: 19px;
+		margin-left: 20px;
+		margin-top: 8px;
+	}
+	.product__information .preorder-information {
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: wrap;
+	}
+	.product__information .preorder-information .why-preorder {
+		color: #1f3337;
+		font-size: 16px;
+		line-height: 19px;
+		margin-left: 20px;
+		margin-top: 8px;
+	}
+	.availability-popup {
+		display: none;
+		position: fixed;
+		left: 0;
+		top: 0;
+		background-color: #fff;
+		height: calc(100vh - 70px);
+		width: calc(100% - 80px);
+		z-index: 999999;
+		margin: 30px 40px 40px;
+		overflow-y: auto;
+	}
+	.availability-popup.active {
+		display: flex;
+	}
+	.availability-popup-overlay {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		z-index: 99;
+		background-color: #002B2D;
+		opacity: 0.5;
+		display: none;
+	}
+	.availability-popup-overlay.active {
+		display: block;
+	}
+	.availability-popup .availability-popup-close {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		cursor: pointer;
+		width: 18px;
+		height: 18px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.availability-popup .availability-popup-close:before,
+	.availability-popup .availability-popup-close:after {
+		width: 18px;
+		height: 1px;
+		border-top: 1px solid #1F3337;
+		position: absolute;
+		content: '';
+	}
+	.availability-popup .availability-popup-close:before {
+		transform: rotate(45deg);
+	}
+	.availability-popup .availability-popup-close:after {
+		transform: rotate(-45deg);
+	}
+
+	@media (max-width: 991px) {
+		.availability-popup {
+			height: 100vh;
+			width: 100%;
+			margin: 0;
+		}
+	}
+	.doctorsquote {
+		display: block;
+	}
+	@media (max-width: 500px) {
+		.doctorsquote {
+			display: none;
+		}
+		.product__information .ship-text-wrapper {
+			justify-content: space-between;
+		}
+		.product__information .ship-text {
+			margin-right: 5px;
+		}
+		.product__information .ship-text-wrapper .why-preorder {
+			margin-left: 0;
+		}
+		.product__information .ship-text-wrapper {
+			justify-content: space-between;
+		}
+		.preorder-information {
+			justify-content: space-between;
+		}
+		.preorder-information .why-preorder {
+			margin-left: 0;
+		}
+		.product__information .preorder-information .why-preorder {
+			margin-left: 0;
+		}
+	}
+</style>
+
+{% if product.handle == 'stress-support' %}
+	<style>
+		.description-mobile {
+			display: none;
+		}
+		.product .product__icons .shiping-info {
+			text-align: center;
+		}
+		#stamped-main-widget .stamped-review-header-title {
+			display: block;
+		}
+
+		@media (max-width: 991px) {
+			.product .product__image {
+				margin-bottom: 16px;
+			}
+			.product-reviews-badge {
+				margin-top: 0;
+				margin-bottom: 30px;
+			}
+			.description-desktop {
+				display: none;
+			}
+			.description-mobile {
+				display: block;
+			}
+			.product__information .description-mobile .accordian {
+				padding-top: 0;
+				padding-bottom: 30px;
+			}
+			.product .product__icons-container {
+				margin-bottom: 40px;
+			}
+			.product .product__information .accordian .accordHeaderLinks {
+				justify-content: center;
+			}
+		}
+	</style>
+{% endif %}
+
+{% if product.handle == 'womens-multi' or product.handle == 'womens-omega-3' %}
+	<style>
+		@media (max-width: 991px) {
+			.product .product__image { 
+				margin-top: 50px;
+			}
+			.product-reviews-badge{
+				text-align: center;
+			}
+		}
+	</style>
+{% endif %}
+<script>
+
+$(document).ready(function() {
+	window.scrollTo({ top: 0, behavior: 'smooth' });
+
+	var decimalTwoDisplay = function(fixedPrice, discount) {
+		var tempPrice = fixedPrice * discount;
+		return parseFloat(parseFloat(tempPrice).toFixed(2));
+	}
+
+	$(document).on('click', '.multi_month_option .btn-group p', function() {
+		console.log('click');
+		$('.multi_month_option .btn-group p').attr('class', '');
+		$(this).attr('class', 'active');
+		var monthIndex = $(this).data('index');
+		var monthText =  $('.subscribe-text').data('text');
+
+		var productTitle = $('.product-fixed-form').data('title');
+		var variantId1 = $('.multi_month_option .btn-group p[data-index=1]').data('variant_id');
+		var variantId3 = $('.multi_month_option .btn-group p[data-index=3]').data('variant_id');
+		var variantId6 = $('.multi_month_option .btn-group p[data-index=6]').data('variant_id');
+		var fixedPrice = $('.multi_month_option .btn-group p[data-index=3]').data('price').split('$')[1];
+		console.log(variantId1);
+		console.log(variantId3);
+		console.log(variantId6);
+		if(monthIndex == '1') {
+			var discountPrice = decimalTwoDisplay(fixedPrice, 0.85);
+			
+			$('.rc_label.rc_label__autodeliver .discount-price').text('$' + discountPrice + ' /mo');
+			$('.rc_label.rc_label__autodeliver #rc_price_autodeliver1').text('$' + discountPrice + ' /mo');
+			$('.subscribe-text').text('30' + monthText);
+			$('.product__action #AddToCart').text('$' + discountPrice + ' - Add to Cart');
+
+			$('.product-fixed-form .sticky-bar-title').text(productTitle + ' (subscription - 1 month)');
+			$('.product-fixed-form .all_price .price').text('$' + fixedPrice);
+			$('.product-fixed-form .all_price .discount_price').text('$' + discountPrice + ' /mo');
+			$('.product-fixed-form .all_price .discount').text('Save 15%');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').text('$' + discountPrice + ' - Add to Cart');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-index', "1");
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-variantid', variantId1);
+		} else if(monthIndex == "3") {
+			var discountPrice = decimalTwoDisplay(fixedPrice, 0.75);
+			var discountThreePrice = parseFloat((fixedPrice * 0.75 * 3).toFixed(2));
+
+			$('.rc_label.rc_label__autodeliver .discount-price').text('$' + discountPrice + ' /mo');
+			$('.rc_label.rc_label__autodeliver #rc_price_autodeliver1').text('$' + discountPrice + ' /mo');
+			// $('.subscribe-text').text('90' + monthText);
+			$('.subscribe-text').text('90 day supply, shipped every 3 months');
+			$('.product__action #AddToCart').text('$' + discountThreePrice + ' - Add to Cart');
+			
+			$('.product-fixed-form .sticky-bar-title').text(productTitle + ' (subscription - 3 months)');
+			$('.product-fixed-form .all_price .price').text('$' + fixedPrice);
+			$('.product-fixed-form .all_price .discount_price').text('$' + discountPrice + ' /mo');
+			$('.product-fixed-form .all_price .discount').text('Save 25%');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').text('$' + discountThreePrice + ' - Add to Cart');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-index', "3");
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-variantid', variantId3);
+
+		} else {
+			var discountPrice = decimalTwoDisplay(fixedPrice, 0.6667);
+			var discountThreePrice = parseFloat((fixedPrice * 0.6667 * 6).toFixed(2));
+
+			$('.rc_label.rc_label__autodeliver .discount-price').text('$' + discountPrice + ' /mo');
+			$('.rc_label.rc_label__autodeliver #rc_price_autodeliver1').text('$' + discountPrice + ' /mo');
+			// $('.subscribe-text').text('180' + monthText);
+			$('.subscribe-text').text('180 day supply, shipped every 6 months');
+			$('.product__action #AddToCart').text('$' + discountThreePrice + ' - Add to Cart');
+
+			$('.product-fixed-form .sticky-bar-title').text(productTitle + ' (subscription - 6 months)');
+			$('.product-fixed-form .all_price .price').text('$' + fixedPrice);
+			$('.product-fixed-form .all_price .discount_price').text('$' + discountPrice + ' /mo');
+			$('.product-fixed-form .all_price .discount').text('Save 33%');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').text('$' + discountThreePrice + ' - Add to Cart');
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-index', "6");
+			$('.product-fixed-form .product-fixed-form__action .data_add_to_cart_bundle').attr('data-variantid', variantId6);
+		}
+	});
+
+	var addToProduct = function(variantId, pty, fre, unitType) {
+		jQuery.ajax({
+			type: 'POST',
+			url: '/cart/add.js',
+			data: {
+				id: variantId,
+				quantity: pty,
+				properties: {
+					shipping_interval_frequency: fre,
+					shipping_interval_unit_type: unitType
+				}
+			},
+			dataType: 'json',
+			success: function() {
+				location.href='/cart';
+			}
+		});
+	}
+	
+	$('body.template-product [data-product-original-form]').on('click', '[data-add-to-cart]', function(e){
+		var recurringOption = $('#rc_container .rc_block__type--active').find('input[type="radio"]').val();
+		e.preventDefault();
+		e.stopPropagation();
+
+		var monthIndex = $('.multi_month_option .btn-group p.active').data('index');
+		var variantId = $('.multi_month_option .btn-group p.active').data('variant_id');
+
+		if(recurringOption == 'autodeliver') {
+			if(monthIndex == '1') {
+				console.log($('body.template-product [data-product-original-form]').serialize());
+				$('body.template-product [data-product-original-form]').submit();
+			} else if(monthIndex == '3') {
+				addToProduct(variantId, 1, "3", "Months");
+			} else {
+				addToProduct(variantId, 1, "6", "Months");
+			}
+		} else {
+			$('body.template-product [data-product-original-form]').submit();
+		}
+	});
+
+	$('.product__information .why-preorder').click(function() {
+		$('#stamped-main-widget').removeAttr('id').attr('id', 'stamped-main-widget-buf');
+		$('.availability-popup #stamped-main-widget-buf').removeAttr('id').attr('id', 'stamped-main-widget');
+		StampedFn.reloadUGC();
+		$('#stamped-main-widget-buf').fadeOut();
+		$('#stamped-main-widget').fadeIn();
+		$('.availability-popup').addClass('active');
+		$('.availability-popup-overlay').addClass('active');
+		$('body').css('overflow', 'hidden');
+	});
+	$('.product__information .availability-popup .availability-popup-close').click(function() {
+		$('#stamped-main-widget-buf').removeAttr('id').attr('id', 'stamped-main-widget');
+		$('.availability-popup #stamped-main-widget').removeAttr('id').attr('id', 'stamped-main-widget-buf');
+		StampedFn.reloadUGC();
+		$('#stamped-main-widget-buf').fadeOut();
+		$('#stamped-main-widget').fadeIn();
+		$('.availability-popup').removeClass('active');
+		$('.availability-popup-overlay').removeClass('active');
+		$('body').css('overflow', 'unset');
+	});
+	$('.product__information .availability-popup-overlay').click(function() {
+		$('#stamped-main-widget-buf').removeAttr('id').attr('id', 'stamped-main-widget');
+		$('.availability-popup #stamped-main-widget').removeAttr('id').attr('id', 'stamped-main-widget-buf');
+		StampedFn.reloadUGC();
+		$('#stamped-main-widget-buf').fadeOut();
+		$('#stamped-main-widget').fadeIn();
+		$('.availability-popup').removeClass('active');
+		$('.availability-popup-overlay').removeClass('active');
+		$('body').css('overflow', 'unset');
+	});
+	$(document).on('click', '.product-fixed-form.product-fixed-form--shown .data_add_to_cart_bundle', function() {
+		var variantId = $(this).data('variantid');
+		var subIndex= $(this).data('index');
+		if(subIndex == '0') {
+			jQuery.ajax({
+				type: 'POST',
+				url: '/cart/add.js',
+				data: {
+					id: variantId,
+					quantity: 1
+				},
+				dataType: 'json',
+				success: function() {
+					location.href='/cart';
+				}
+			});
+		} else if( subIndex == '1') {
+			$('body.template-product [data-product-original-form]').submit();
+		} else if( subIndex == '3') {
+			addToProduct(variantId, 1, "3", "Months");
+		} else {
+			addToProduct(variantId, 1, "6", "Months");
+		}
+	})
+	$('.product__information .product-bundle .add-bundle').click(function() {
+		var product_id = $(this).data('product-id');
+		addToProduct(product_id, 1, "30", "Days");
+	});
+});
+</script>
+
+{% schema %}
+{
+	"name": "Product pages",
+	"settings": [
+		{
+			"type": "checkbox",
+			"id": "show_share_buttons",
+			"label": "Show social sharing buttons",
+			"default": true
+		},
+		{
+			"type": "checkbox",
+			"id": "show_price_per_day",
+			"label": "Show price per day",
+			"default": true,
+			"info": "This setting only work if ReCharge frequency type is 'days' or 'weeks'"
+		},
+		{
+			"type": "text",
+			"id": "dosage_trigger",
+			"label": "Dosage popup trigger text",
+			"default": "what's my dosage?"
+		},
+		{
+			"type": "textarea",
+			"id": "subscription_info",
+			"label": "Subscription tab info",
+			"default": "This block will tell user something about subscription services."
+		},
+		{
+			"type": "header",
+			"content": "Fixed form"
+		},
+		{
+			"type": "text",
+			"id": "fixed_form_title",
+			"label": "Fixed form heading",
+			"default": "Purchase"
+		},
+		{
+			"type": "header",
+			"content": "Shipping info"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_1",
+			"label": "Label 1",
+			"default": "Free US Shipping"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_2",
+			"label": "Label 2",
+			"default": "Easy Cancellation"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_3",
+			"label": "Label 3",
+			"default": "100% Satisfaction Guarantee"
+		},
+		{
+			"type": "header",
+			"content": "Supplement popup"
+		},
+		{
+			"type": "text",
+			"id": "supplement_link_text",
+			"label": "Supplement Link Text",
+			"default": "Supplements Facts"
+		},
+		{
+			"type": "text",
+			"id": "question_title",
+			"label": "Question title",
+			"default": "Have question?"
+		},
+		{
+			"type": "text",
+			"id": "link_title",
+			"label": "Page title",
+			"default": "faq"
+		},
+		{
+			"type": "page",
+			"id": "link_page",
+			"label": "Choose a page"
+		},
+		{
+			"type": "header",
+			"content": "Product review"
+		},
+		{
+			"type": "header",
+			"content": "Free Produc for BOGO"
+		},
+		{
+			"type": "product",
+			"id": "bogo_product",
+			"label": "Choose a product for BOGO"
+		}
+	]
+}
+{% endschema %}

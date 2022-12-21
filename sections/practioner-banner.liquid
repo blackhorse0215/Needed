@@ -1,0 +1,83 @@
+<section class="practitioner-banner" data-section-id="{{ section.id }}" data-section-type="banner">
+    <div class="container">
+		{%- if section.settings.title != blank -%}
+            <h1 class="banner__title">{{ section.settings.title | strip }}</h1>
+		{%- endif -%}
+
+        {%- if section.settings.description != blank -%}
+            <div class="banner__description">{{ section.settings.description }}</div>
+        {%- endif -%}
+
+        {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+			<div class="col-12">
+				<div class="banner__action">
+					<a href="{{ section.settings.cta_url }}" class="button button--primary">
+						{{ section.settings.cta_text }}
+					</a>
+				</div>
+			</div>
+
+        {%- endif -%}
+    </div>
+</section>
+
+<style>
+    .practitioner-banner {
+        height: 450px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding-top: 40px;
+    }
+    .practitioner-banner .banner__title {
+        font-size: 32px;
+        line-height: 40px;
+    }
+    .practitioner-banner .banner__description {
+        font-size: 18px;
+        line-height: 25px;
+        margin-top: 13px;
+    }
+
+    @media (max-width: 991px) {
+        .practitioner-banner {
+            height: 380px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .practitioner-banner {
+            height: 320px;
+        }
+    }
+</style>
+
+{% schema %}
+    {
+        "name": "Banner",
+        "settings": [
+            {
+                "type": "textarea",
+                "id": "title",
+                "label": "Banner main heading",
+				"info": "Use html tag <strong>text</strong> for highlight text with primary color"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "Banner description"
+            },
+            {
+                "type": "text",
+                "id": "cta_text",
+                "label": "Button text"
+            },
+            {
+                "type": "url",
+                "id": "cta_url",
+                "label": "Button URL"
+            }
+        ]
+    }
+{% endschema %}

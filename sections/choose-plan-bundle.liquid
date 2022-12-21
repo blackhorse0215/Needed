@@ -1,0 +1,108 @@
+{% style %}
+  .choose-plan-bundle {
+    margin: 0 10px;
+  }
+  .choose-plan-bundle .section-inner {
+    padding: 50px 15px;
+    text-align: center;
+    border: 3px solid #1F3337;
+    margin-bottom: 90px;
+    margin-top: 80px;
+  }
+  .choose-plan-bundle .section-title {
+    color: #1F3437;
+    font-family: "Copernicus-Bold";
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+  }
+  .choose-plan-bundle .section-descr {
+    color: #1F3337;
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    margin-top: 18px;
+  }
+  .choose-plan-bundle .button-wrapper {
+    margin-top: 30px;
+  }
+  .choose-plan-bundle .section-btn {
+    max-width: 400px;
+    width: 100%;
+    height: 57px;
+    color: #FFFFFF;
+    background-color: #1f3337;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 29px;
+    text-decoration: none;
+  }
+
+  @media (max-width: 767px) {
+    .choose-plan-bundle .section-inner {
+      padding: 25px 15px;
+      margin-top: 50px;
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+    .choose-plan-bundle .section-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    .choose-plan-bundle .section-descr {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    .choose-plan-bundle .button-wrapper {
+      margin-top: 24px;
+    }
+    .choose-plan-bundle .section-btn {
+      max-width: 240px;
+      width: 100%;
+      height: 57px;
+    }
+  }
+{% endstyle %}
+
+<section class="choose-plan-bundle" data-section-id="{{ section.id }}">
+  <div class="section-inner container">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="section-descr">{{ section.settings.descr }}</div>
+    <div class="button-wrapper">
+      <a href="{{ section.settings.btn_url }}" class="section-btn">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Choose Plan",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Button URL"
+    }
+  ]
+}
+{% endschema %}

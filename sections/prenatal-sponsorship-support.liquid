@@ -1,0 +1,125 @@
+
+<style>
+    .sponsorship-support {
+        width: 100%;
+        height: 536px;
+        margin-top: 103.69px;
+        background-image: url({{ section.settings.image | img_url: "2000x" }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #bea55c;
+        background-size: cover;
+        display: inline-block;
+    }
+    .sponsorship-support .content {
+        background-color: #FFC9B9;
+        max-width:730px;
+        margin: auto;
+        padding-top: 80px;
+        text-align: center;
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+    .sponsorship-support .content h1 {
+        color: #1F3337;
+        font-size: 28px;
+    }
+    .sponsorship-support .content div {
+        margin-top: 35px;
+    }
+    .sponsorship-support .content div p{
+
+    }
+    .sponsorship-support .content button {
+        margin-top: 32px;
+        margin-bottom: 79px;
+    }
+    .sponsorship-support .content a {
+        margin-top: 32px;
+        {% comment %} margin-bottom: 79px; {% endcomment %}
+    }
+    .mob-top-image {
+        display: none;
+        margin-top: -80px;
+        margin-left: -20px;
+    }
+    .mob-bottom-image {
+        display: none;
+    }
+    @media (max-width: 550px) {
+        .mob-top-image {
+            display: block;
+        }
+        .mob-bottom-image {
+            display: block;
+        }
+        .sponsorship-support .content h1 {
+            font-size: 22px;
+        }
+        .sponsorship-support .content div {
+            text-align: left;
+        }
+        .sponsorship-support .content button {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+        .sponsorship-support .content a {
+            width: 100%;
+            margin-bottom: 0px;
+        }
+        .sponsorship-support {
+            height: auto;
+            background-color: #FFC9B9;
+        }
+    }
+</style>
+<section class = 'sponsorship-support'>
+    <div class = 'content'>
+        <img class='mob-top-image' src="{{section.settings.mob_mini_image1 | img_url: '2000x' }}"> 
+        <h1>{{section.settings.heading}}</h1>
+        <div>{{section.settings.description}}</div>
+        {% comment %} <button class="button button--primary" onclick="window.location.href='https://needed.typeform.com/nominate'">Nominate a deserving woman</button> {% endcomment %}
+        <a class="button button--primary" href="https://needed.typeform.com/nominate" target="_blank">Nominate a deserving woman</a>
+        <img class='mob-bottom-image' src="{{section.settings.mob_mini_image2 | img_url: '2000x' }}">
+    </div>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Sponsorship Support",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Support image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_image",
+                "label": "Support mob image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_mini_image1",
+                "label": "Support mob top image"
+            },
+            {
+                "type": "image_picker",
+                "id": "mob_mini_image2",
+                "label": "Support mob bottom image"
+            },
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "heading",
+                "default": "heading"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "description"
+            }
+        ]
+    }
+{% endschema %}

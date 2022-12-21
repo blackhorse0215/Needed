@@ -1,0 +1,2278 @@
+
+<style>
+    #shopify-section-bundle-plan-items{
+        margin-top: 60px;
+    }
+
+    #shopify-section-bundle-plan-items .filter-wrapper {
+        margin-bottom: 40px;
+    }
+    #shopify-section-bundle-plan-items .filter-descr {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+        text-align: center;
+    }
+    #shopify-section-bundle-plan-items .middle-text {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+        text-align: center;
+        margin-top: 40px;
+    }
+    #shopify-section-bundle-plan-items .middle-text a {
+        color: #1f3337;
+    }
+    #shopify-section-bundle-plan-items .bottom-title {
+        font-family: 'Copernicus-Bold';
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 37px;
+        text-align: center;
+        margin-top: 80px;
+    }
+    #shopify-section-bundle-plan-items .bottom-descr {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+        text-align: center;
+        margin-top: 12px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-image{
+        width: 100%;
+        object-fit: contain;
+        margin-bottom: auto;
+        height: 100%;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container {
+        margin-top: 30px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-item-inner {
+        display: flex;
+        position: relative;
+        background-color: #F6F4F2;
+        width: 100%;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-left,
+    #shopify-section-bundle-plan-items .bundle-item-right {
+        width: 50%;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-right {
+        position: relative;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-left {
+        display: flex;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-left .bundle-image-wrapper {
+        display: flex;
+        width: 100%;
+    }
+
+    .product__want-to-try {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: #D0BE78;
+    position: relative;
+  }
+  .product__want-to-try .box--text {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    padding: 12px 22px 12px 22px;
+  }
+  .product__want-to-try .box--text a {
+    color: #1f3337;
+    white-space: nowrap;
+  }
+  .product__want-to-try .box--image {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 93px;
+    height: 65px;
+  }
+  .product__want-to-try .box--image img {
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    .product__want-to-try {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #section-{{ section.id }} .product__want-to-try { 
+      margin-bottom: 15px;
+    }
+  }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-item-inner .saving-tag {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        color: #fff;
+        background-color: #85853E;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 18px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-item-inner .saving-tag span.price {
+        font-size: 22px;
+        line-height: 27px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .button-wrapper {
+        display: flex;
+        align-items: center;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .button-wrapper .more-info {
+        color: #1f3337;
+        margin-left: 30px;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 21px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-title{
+        font-size: 22px;
+        line-height: 30px;
+        color: #1F3437;
+        padding-right: 40px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-content-wrapper{
+        padding: 35px 40px 30px 50px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li{
+        font-family: "BrownPro-Regular";
+        font-size: 16px;
+        color: #1F3337;
+        line-height: 1.5;
+        position: relative;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li {
+        margin-right: 20px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li:last-child {
+        margin-right: 0;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li a{
+        font-family: "BrownPro-Regular";
+        font-size: 16px;
+        color: #1F3337;
+        text-decoration: none;
+        opacity: 0.6;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li:before{
+        position: absolute;
+        content: '·';
+        width: 10px;
+        height: 10px;
+        top: -1px;
+        right: -16px;
+        opacity: 0.6;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li:last-child:before {
+        display: none;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-description{
+        font-family: "BrownPro-Regular";
+        font-size: 18px;
+        color: #1F3337;
+        margin-top: 18px;
+        line-height: 25px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-description a {
+        color: #1F3337;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-description p{
+        margin-top: 12px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription{
+        margin-top: 20px;
+        margin-bottom: 15px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .retail-price,
+    #shopify-section-bundle-plan-items .bundle-item-container .bundled-subscription{
+        display: inline-block;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .retail-price{
+        margin-left: 70px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .label-retail,
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .label-subscription{
+        font-family: "BrownPro-Regular";
+        font-size: 15px;
+        color: #1F3337;
+        opacity: 0.5;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .content-retail,
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .content-subscription{
+        font-family: "BrownPro-Bold";
+        font-size: 18px;
+        color: #1F3337;
+        margin-top: 5px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .content-retail {
+        text-decoration: line-through;
+        opacity: 0.6;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .content-subscription .start-at {
+        font-family: 'BrownPro-Regular';
+        font-size: 15px;
+        line-height: 18px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .price-subscription .content-subscription .saving-label{
+        font-family: "BrownPro-Bold";
+        font-size: 15px;
+        color: #1F3337;
+        background-color: #d0d2d4;
+        padding: 4px 8px 2px;
+        margin-left: 6px;
+        white-space: nowrap;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-additional-info{
+        font-family: "BrownPro-Regular";
+        font-size: 16px;
+        color: #1F3337;
+        margin-top: 23px;
+        margin-bottom: 10px;
+        line-height: 1.3;
+        font-weight: 600;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-additional-info a{
+        font-family: "BrownPro-Regular";
+        font-size: 16px;
+        color: #1F3337;
+        margin-top: 23px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .buttons-wrapper {
+        margin-top: 15px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .btn-bundle-plan{
+        font-family: "BrownPro-Bold";
+        font-size: 16px;
+        color: #FFF;
+        padding-top: 18px;
+        padding-bottom: 20px;
+        max-width: 240px;
+        width: 100%;
+        margin-top: 0px;
+        display: inline-block;
+        border-radius: 30px;
+        background-color: #1F3337;
+        text-align: center;
+        cursor: pointer;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .btn-bundle-plan1{
+        font-family: "BrownPro-Bold";
+        font-size: 16px;
+        color: #FFF;
+        padding-top: 18px;
+        padding-bottom: 20px;
+        width: 240px;
+        margin-top: 0px;
+        display: inline-block;
+        border-radius: 30px;
+        background-color: #1F3337;
+        text-align: center;
+        cursor: pointer;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container form .btn-bundle-plan {
+        visibility: hidden;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup .btn-bundle-plan {
+        max-width: 100%;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .btn-bundle-plan:hover{
+        background-color: #4d5e5f;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-comments{
+        display: flex;
+        margin-top: 17px;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-comments li{
+        font-family: "BrownPro-Regular";
+        font-size: 14px;
+        color: #1F3337;
+        opacity: 0.45;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-comments li+li{
+        position: relative;
+        margin-left: 15px;
+        padding-left: 20px;
+    }
+
+    /* #shopify-section-bundle-plan-items .bundle-item-container .bundle-comments li+li:before{
+        position: absolute;
+        content: '\2022';
+        left: 0;
+        top: 3px;
+        width: 5px;
+        height: 5px;
+        font-size: 8px;
+    } */
+
+    #shopify-section-bundle-plan-items .bundle-image-wrapper p {
+        font-size: 16px;
+        opacity: 0.5;
+        text-align: center;
+        margin-top: 20px;
+        padding-left: 71px;
+        padding-right: 103px;
+    }
+    #shopify-section-bundle-plan-items .bundle-image-wrapper p a {
+        color: #1F3337;
+    }
+    #shopify-section-bundle-plan-items .rc_label__discount {
+        white-space: initial;
+    }
+    /* 5/4 */
+    #shopify-section-bundle-plan-items .bundle-pc-option {
+        margin-top: 25px;
+        font-size: 16px;
+    }
+    #shopify-section-bundle-plan-items .bundle-pc-option .pc-block.powder {
+        margin-bottom: 10px;
+    }
+    #shopify-section-bundle-plan-items .bundle-pc-option .pc-option-label {
+        padding-left: 6px;
+    }
+    #shopify-section-bundle-plan-items .bundle-pc-option .pc-block span>a {
+        color: #1F3337;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .hide-bundle-option {
+        display: none;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container form .preorder-information .save_additional p {
+        margin: 20px 0px;
+    }
+    /* 5/4 */
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews {
+        text-align: center;
+        margin-top: 10px;
+        width: 50%;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-product-reviews-badge {
+        display: inline-block !important;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-badge-starrating i:before {
+        font-size: 20px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-badge-caption {
+        margin-left: 15px;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-badge-caption span {
+        text-transform: capitalize;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-badge-caption span:after {
+        content: " · ";
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews .stamped-badge-caption:after {
+        content: "Read" !important;
+        text-decoration: underline;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews.reviews-mobile {
+        display: none;
+    }
+
+    #shopify-section-bundle-plan-items .filter-list {
+        text-align: center;
+        margin-top: 16px;
+        font-family: 'Copernicus-Bold';
+        font-size: 22px;
+        line-height: 30px;
+    }
+    #shopify-section-bundle-plan-items .filter-1,
+    #shopify-section-bundle-plan-items .filter-2 {
+        border: none;
+        border-bottom: 2px solid;
+        color: #85853E;
+        position: relative;
+        z-index: 9;
+        background: none;
+        appearance: none;
+        -webkit-appearance: none;
+        padding-right: 20px;
+        cursor: pointer;
+    }
+    #shopify-section-bundle-plan-items .filter-list .select-wrapper {
+        display: inline-flex;
+        overflow: hidden;
+        position: relative;
+    }
+    #shopify-section-bundle-plan-items .filter-list .select-wrapper:after {
+        width: 8px;
+        height: 0;
+        border-top: 2px solid #000;
+        position: absolute;
+        top: 42%;
+        right: 6px;
+        content: "";
+        z-index: 8;
+        transform: rotate(45deg);
+    }
+    #shopify-section-bundle-plan-items .filter-list .select-wrapper:before {
+        width: 8px;
+        height: 0;
+        border-top: 2px solid #000;
+        position: absolute;
+        top: 42%;
+        right: 1px;
+        content: "";
+        z-index: 8;
+        transform: rotate(-45deg);
+    }
+
+    @media (max-width: 1230px) {
+        #shopify-section-bundle-plan-items .bundle-item-container {
+            padding: 0 15px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .retail-price {
+            margin-left: 30px;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        #shopify-section-bundle-plan-items > .container {
+            max-width: 1200px;
+            padding: 0 10px;
+        }
+    }
+
+    @media (max-width: 991px) {
+        #shopify-section-bundle-plan-items .bundle-image-wrapper p {
+            padding-left: 30px;
+            padding-right: 52px;
+        }
+        #shopify-section-bundle-plan-items > .container {
+            padding: 0 20px;
+        }
+
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-content-wrapper{
+            padding: 20px;
+            text-align: center;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-title {
+            padding-right: 0;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists {
+            justify-content: center;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-item-inner {
+            display: block;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-description {
+            max-width: 500px;
+            margin: 18px auto 0;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-left,
+        #shopify-section-bundle-plan-items .bundle-item-right {
+            width: 100%;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .button-wrapper {
+            justify-content: center;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-item-inner .saving-tag {
+            width: 60px;
+            height: 60px;
+            top: -50px;
+            right: 10px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container {
+            padding: 0 5px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews.reviews-desktop {
+            display: none;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-reviews.reviews-mobile {
+            display: block;
+            margin-top: 0;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+    }
+
+    @media (max-width: 768px){
+        #shopify-section-bundle-plan-items .bundle-image-wrapper p {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        #shopify-section-bundle-plan-items > .container{
+            padding: 0 25px;
+        }
+
+        #bundle-item-container-1 .bundle-content-wrapper .bundle-description p .show-more,
+        #bundle-item-container-1 .bundle-content-wrapper .bundle-description p .show-less{
+            color: #1F3337;
+            padding-left: 6px;
+        }
+
+        #bundle-item-container-1 .bundle-content-wrapper .bundle-description p{
+            display: none;
+        }
+
+        #bundle-item-container-1 .bundle-content-wrapper .bundle-description p:first-child{
+            display: block;
+        }
+
+        #shopify-section-bundle-plan-items .bundle-item-container .btn-bundle-plan {
+            max-width: 210px;
+        }
+        
+        #shopify-section-bundle-plan-items .bundle-item-container .btn-bundle-plan1{
+            width: 210px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-content-wrapper {
+            margin-left: 0;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container {
+            padding: 0px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-title {
+            font-size: 18px;
+            line-height: 24px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists {
+            margin-top: 10px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container ul.bundle-lists li {
+            font-size: 13px;
+            line-height: 17px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-description {
+            font-size: 14px;
+            line-height: 20px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .button-wrapper .more-info {
+            font-size: 14px;
+        }
+        #shopify-section-bundle-plan-items .middle-text {
+            margin-top: 30px;
+        }
+        #shopify-section-bundle-plan-items .bottom-title {
+            margin-top: 60px;
+            font-size: 22px;
+            line-height: 30px;
+        }
+    }
+
+    @media (max-width: 450px) {
+        #shopify-section-bundle-plan-items .bundle-item-container .retail-price {
+            margin-left: 10px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .price-subscription {
+            display: flex;
+        }
+        #shopify-section-bundle-plan-items .filter-list {
+            font-size: 18px;
+            line-height: 25px;
+        }
+    }
+
+    @media (max-width: 375px){
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-lists li a{
+            font-size: 13px !important;
+        }
+
+        .bundle-item-container .bundle-content-wrapper .price-subscription .bundled-subscription{
+            margin-left: 0px !important;
+            float: right;
+        }
+        
+        #shopify-section-bundle-plan-items .bundle-item-container .button-wrapper .more-info {
+            margin-left: 10px;
+            white-space: nowrap;
+        }
+    }
+
+    .bundle-content-wrapper #rc_container .rc_block__type__autodeliver{
+        margin-top: 0px;
+    }
+
+    .bundle-item-container .bundle-content-wrapper #rc_container .rc_block__type__autodeliver {
+        display: none;
+    }
+
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup {
+        display: none;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        min-height: 675px;
+        max-width: 1000px;
+        width: 100%;
+        z-index: 999999;
+        padding: 30px 40px;
+        overflow-y: auto;
+    }
+    #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup.active {
+        display: flex;
+    }
+    .bundle-popup-overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background-color: #000;
+        opacity: 0.35;
+        display: none;
+    }
+    .bundle-popup-overlay.active {
+        display: block;
+    }
+    .bundle-popup .bundle-popup-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bundle-popup .bundle-popup-close:before,
+    .bundle-popup .bundle-popup-close:after {
+        width: 18px;
+        height: 1px;
+        border-top: 1px solid #1F3337;
+        position: absolute;
+        content: '';
+    }
+    .bundle-popup .bundle-popup-close:before {
+        transform: rotate(45deg);
+    }
+    .bundle-popup .bundle-popup-close:after {
+        transform: rotate(-45deg);
+    }
+
+    .bundle-popup .product-images,
+    .bundle-popup .product-info {
+        width: 50%;
+    }
+    .bundle-popup .product-images img {
+        display: none;
+        padding-right: 33px;
+    }
+    .bundle-popup .product-images img.active {
+        display: block;
+    }
+    .bundle-popup .product-reviews-badge {
+        margin-top: 15px;
+    }
+    .bundle-popup .stamped-product-reviews-badge .fa-star-half-o:before,
+    .bundle-popup .stamped-product-reviews-badge .fa-star-o:before,
+    .bundle-popup .stamped-product-reviews-badge .fa-star:before,
+    .bundle-popup .stamped-product-reviews-badge .stamped-fa-star-half-o:before,
+    .bundle-popup .stamped-product-reviews-badge .stamped-fa-star-o:before,
+    .bundle-popup .stamped-product-reviews-badge .stamped-fa-star:before {
+        font-size: 21px;
+    }
+    .bundle-popup .product-images .save-label-group {
+        display: none;
+    }
+    .bundle-popup .stamped-product-reviews-badge .stamped-badge-caption {
+        margin-left: 10px;
+        font-size: 17px;
+    }
+
+    .bundle-popup .top-content {
+        margin-bottom: 30px;
+        width: 100%;
+    }
+    .bundle-popup .product-title-wrapper {
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+    }
+    .bundle-popup .product-title-wrapper .product-title {
+        font-family: 'Copernicus-Bold';
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 37px;
+    }
+    .bundle-popup .product-title-wrapper .save-label-group {
+        white-space: nowrap;
+    }
+    .bundle-popup .save-label {
+        display: none;
+        color: #FFFFFF;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 17px;
+        background-color: #85853E;
+        padding: 3px 6px 0;
+        margin-left: 10px;
+        margin-bottom: 10px;
+    }
+    .bundle-popup .save-label.active {
+        display: block;
+    }
+
+    .bundle-popup .bundle-list {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        margin-top: 8px;
+        flex-wrap: wrap;
+    }
+    .bundle-popup .bundle-list li {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 21px;
+        padding-left: 25px;
+        position: relative;
+        margin-bottom: 5px;
+    }
+    .bundle-popup .bundle-list li+li {
+        margin-left: 30px;
+    }
+    .bundle-popup .bundle-list li a {
+        opacity: 0.6;
+        color: #1f3337;
+        text-decoration: none;
+    }
+    .bundle-popup .bundle-list li:before {
+        position: absolute;
+        content: url(https://cdn.shopify.com/s/files/1/0195/3293/9328/files/icon-check_1b83e161-3fd8-4c0d-ad96-10da9803edca.svg?v=1644522820);
+        width: 14px;
+        height: 14px;
+        top: 2px;
+        left: 0px;
+        /* display: none;  */
+    }
+
+    .bundle-popup .product-info .product-description {
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 22px;
+        width: 100%;
+    }
+
+    .bundle-popup .product-info .option-list {
+        margin-top: 24px;
+    }
+    .bundle-popup .product-info .option-list .product-option {
+        display: flex;
+        margin-top: 13px;
+    }
+    .bundle-popup .product-info .option-list .pc-radio {
+        display: none;
+    }
+    .bundle-popup .product-info .option-list .pc-option-label {
+        display: flex;
+        position: relative;
+        padding-left: 28px;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 19px;
+        cursor: pointer;
+    }
+    .bundle-popup .product-info .option-list .pc-option-label:before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        display: block;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        left: 3px;
+        top: 3px;
+    }
+    .bundle-popup .product-info .option-list .pc-option-label:after {
+        content: '';
+        display: block;
+        width: 14px;
+        height: 14px;
+        border: 1px solid #1f3337;
+        position: absolute;
+        left: 0;
+        border-radius: 50%;
+    }
+    .bundle-popup .product-info .option-list .pc-radio:checked + label:before {
+        background-color: #1f3337;
+    }
+    .bundle-popup .product-info .option-list .pc-option-label span {
+        font-weight: bold;
+    }
+    .bundle-popup .product-info .option-list .option-difference {
+        margin-left: 20px;
+    }
+    .bundle-popup .product-info .option-list .option-difference a {
+        opacity: 0.6;
+        color: #1F3337;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 18px;
+    }
+
+    .bundle-popup .product-info .product-prices {
+        display: flex;
+        margin-top: 24px;
+    }
+    .bundle-popup .product-info .product-prices .label-subscription {
+        opacity: 0.5;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 18px;
+    }
+    .bundle-popup .product-info .product-prices .content-subscription {
+        display: none;
+        margin-top: 4px;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 22px;
+    }
+    .bundle-popup .product-info .product-prices .content-subscription.active {
+        display: block;
+    }
+    .bundle-popup .product-info .product-prices .content-subscription .saving-label {
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 18px;
+        background-color: #d6d8d6;
+        padding: 3px 6px 1px;
+        margin-left: 5px;
+    }
+    .bundle-popup .product-info .product-prices .retail-price {
+        margin-left: 44px;
+    }
+    .bundle-popup .product-info .product-prices .label-retail {
+        opacity: 0.5;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: 18px;
+    }
+    .bundle-popup .product-info .product-prices .content-retail {
+        display: none;
+        margin-top: 4px;
+        opacity: 0.6;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 22px;
+        text-decoration: line-through;
+    }
+    .bundle-popup .product-info .product-prices .content-retail.active {
+        display: block;
+    }
+
+    .bundle-popup .product-info .additional-info {
+        display: none;
+        font-size: 16px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 19px;
+        margin-top: 16px;
+    }
+    .bundle-popup .product-info .additional-info.active {
+        display: block;
+    }
+
+    .bundle-popup .product-info form {
+        display: none;
+    }
+    .bundle-popup .product-info form.active {
+        display: block;
+    }
+    .bundle-popup .product-info .btn-bundle-plan {
+        color: #fff;
+        font-size: 16px;
+        letter-spacing: 0;
+        line-height: 19px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 490px;
+        width: 100%;
+        height: 57px;
+        border-radius: 29px;
+        background-color: #1f3337;
+        margin-top: 16px;
+        visibility: visible;
+    }
+
+    .bundle-popup .product-info .bundle-comments {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        list-style: none;
+        margin-top: 20px;
+    }
+    .bundle-popup .product-info .bundle-comments li {
+        font-size: 14px;
+        letter-spacing: 0;
+        line-height: 19px;
+        opacity: 0.45;
+    }
+    .bundle-popup .product-info .bundle-comments li + li {
+        position: relative;
+        margin-left: 15px;
+        padding-left: 20px;
+    }
+    .bundle-popup .product-info .bundle-comments li + li:before {
+        position: absolute;
+        content: '\2022';
+        left: 0;
+        top: 0px;
+        width: 5px;
+        height: 5px;
+        font-size: 8px;
+    }
+
+    @media (max-width: 991px) {
+        .bundle-popup {
+            height: 100%;
+        }
+        .bundle-popup .product-images, .bundle-popup .product-info {
+            width: 100%;
+        }
+        .bundle-popup .product-images img {
+            padding-right: 0;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup {
+            padding-top: 40px;
+        }
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup .product-info {
+            padding-bottom: 80px;
+            padding-top: 10px;
+        }
+        .bundle-popup .bundle-list li+li {
+            margin-left: 15px;
+        }
+    }
+
+    @media (max-width: 549px) {
+        #shopify-section-bundle-plan-items .bundle-item-container .bundle-popup {
+            padding: 40px 20px 60px;
+        }
+        .bundle-popup .product-title-wrapper .product-title {
+            font-size: 22px;
+            line-height: 30px;
+        }
+        .bundle-popup .save-label {
+            margin-bottom: 8px;
+        }
+        .bundle-popup .product-info .option-list .product-option {
+            display: block;
+        }
+        .bundle-popup .product-info .option-list .option-difference {
+            margin-left: 30px;
+            margin-top: 5px;
+            display: block;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .bundle-popup .bundle-list li {
+            font-size: 13px;
+            line-height: 17px;
+        }
+    }
+</style>
+
+{% assign bundle_list = '' %}
+{% assign bundle_list2 = '' %}
+{% assign product_list = "" %}
+
+{% for block in section.blocks %}
+    {% assign product = all_products[block.settings.powder_bundle_product] %}
+
+    {% if block.type == 'bundle_plan' %}
+        {%- capture bundle_html -%}
+        <div class="bundle-item-container row" id="bundle-item-container-{{ forloop.index }}" data-filterkey="{{ block.settings.filter_key }}">
+            <div class="bundle-item-inner">
+                <div class="bundle-item-left">
+                    <div class="bundle-image-wrapper">
+                        <img class="bundle-image" src="{{ block.settings.bundle_image | img_url : '600x' }}">
+                    </div>
+                </div>
+                <div class="bundle-item-right">
+                    <div class="bundle-content-wrapper">
+                        <div class="bundle-reviews reviews-{{ forloop.index }} reviews-mobile">
+                            <span class="stamped-product-reviews-badge stamped-main-badge" data-idx="{{ forloop.index }}" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                        </div>
+
+                        <h2 class="bundle-title">{{ block.settings.bundle_title }}</h2>
+                        <ul class="bundle-lists">
+                            {{ block.settings.bundle_list }}
+                        </ul>
+                        <div class="bundle-description">
+                            {{ block.settings.bundle_description }}
+                        </div>
+                        <div class="price-subscription">
+                            <div class="bundled-subscription">
+                                <div class="label-subscription">Bundled Subscription - ships monthly</div>
+                                <div class="content-subscription">{{ block.settings.bundled_subscription }}</div>
+                            </div>
+                            <div class="retail-price">
+                                <div class="label-retail">Retail Price</div>
+                                <div class="content-retail">{{ block.settings.retail_price }}</div>
+                            </div>
+                        </div>
+
+                        {% if block.settings.additional_info != blank %}
+                        <p class="bundle-additional-info">
+                            {{ block.settings.additional_info }}
+                        </p>
+                        {% endif %}
+
+                        <div class="button-wrapper">
+                            <button type="button" name="add" class="btn-bundle-plan">{{ block.settings.bundle_button }}</button>
+                            <a href="{{ block.settings.bundle_button2_url }}" class="more-info">{{ block.settings.bundle_button2 }}</a>
+                        </div>
+                    </div>
+                    {% if block.settings.saving_tag != blank %}
+                        <div class="saving-tag">{{ block.settings.saving_tag }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="bundle-reviews reviews-{{ forloop.index }} reviews-desktop">
+                <span class="stamped-product-reviews-badge stamped-main-badge" data-idx="{{ forloop.index }}" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+            </div>
+            <div class="bundle-popup">
+                <div class="bundle-popup-inner">
+                    <div class="row">
+                        <div class="top-content">
+                            <div class="product-title-wrapper">
+                                <h3 class="product-title">{{ block.settings.bundle_title }}</h3>
+                                <div class="save-label-group group-desktop">
+                                <span class="save-label powder-element active">Save {{ block.settings.powder_retail_price | minus: block.settings.powder_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% if block.settings.capsule_show %}
+                                    <span class="save-label capsule-element">Save {{ block.settings.capsule_retail_price | minus: block.settings.capsule_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                    <span class="save-label essential-element">Save {{ block.settings.essential_retail_price | minus: block.settings.essential_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% endif %}
+                                </div>
+                            </div>
+                            <div class="bundle-list">{{ block.settings.bundle_list }}</div>
+                        </div>
+
+                        <div class="product-images">
+                            <img src="{{ block.settings.powder_bundle_product.featured_image | img_url: 'master' }}" class="lazyload powder-element active" alt="">
+                            {% if block.settings.capsule_show %}
+                                <img src="{{ block.settings.capsule_bundle_product.featured_image | img_url: 'master' }}" class="lazyload capsule-element" alt="">
+                            {% endif %}
+                            {% if block.settings.essential_show %}
+                                <img src="{{ block.settings.essential_bundle_product.featured_image | img_url: 'master' }}" class="lazyload essential-element" alt="">    
+                            {% endif %}
+                            <div class="product-reviews-badge">
+                                <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-description">
+                                {% if block.settings.popup_description != blank %}
+                                    {{ block.settings.popup_description }}
+                                {% else %}
+                                    {{ block.settings.bundle_description }}
+                                {% endif %}
+                            </div>
+                    
+                            <div class="option-list">
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio first" name="product_option_{{ block.id }}" id="option_powder-{{ block.id }}" value="powder" checked>
+                                <label for="option_powder-{{ block.id }}" class="pc-option-label">Prenatal Multi Powder -&nbsp;<span>{{ block.settings.powder_bundled_subscription | times: 100 | money }}</span></label>
+                                </div>
+                                {% if block.settings.capsule_show %}
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio" name="product_option_{{ block.id }}" id="option_capsule-{{ block.id }}" value="capsule">
+                                <label for="option_capsule-{{ block.id }}" class="pc-option-label">Prenatal Multi Capsules -&nbsp;<span>{{ block.settings.capsule_bundled_subscription | times: 100 | money }}</span></label>
+                                </div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio" name="product_option_{{ block.id }}" id="option_essential-{{ block.id }}" value="essential">
+                                <label for="option_essential-{{ block.id }}" class="pc-option-label">Prenatal Multi Essentials -&nbsp;<span>{{ block.settings.essential_bundled_subscription | times: 100 | money }}</span></label>
+                                {% if block.settings.difference_url != blank %}
+                                <span class="option-difference"><a href="{{ block.settings.difference_url }}" class="open-link">What’s the difference</a></span>
+                                {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="product-prices">
+                                <div class="subscription-price">
+                                <div class="label-subscription">Bundled Subscription - ships monthly</div>
+                                <div class="content-subscription powder-element active">
+                                    {{ block.settings.powder_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.powder_retail_price | minus: block.settings.powder_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% if block.settings.capsule_show %}
+                                <div class="content-subscription capsule-element">
+                                    {{ block.settings.capsule_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.capsule_retail_price | minus: block.settings.capsule_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="content-subscription essential-element">
+                                    {{ block.settings.essential_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.essential_retail_price | minus: block.settings.essential_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% endif %}
+                                </div>
+                                <div class="retail-price">
+                                <div class="label-retail">Retail Price</div>
+                                <div class="content-retail powder-element active">{{ block.settings.powder_retail_price }}</div>
+                                {% if block.settings.capsule_show %}
+                                <div class="content-retail capsule-element">{{ block.settings.capsule_retail_price }}</div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="content-retail essential-element">{{ block.settings.essential_retail_price }}</div>
+                                {% endif %}
+                                </div>
+                            </div>
+
+                            {% if forloop.index == 1 %}
+                                <div class="product__want-to-try">
+                                    <div class="box--text"><p><strong>Save $100</strong> with code <strong>COMPLETE100</strong></p><p>Valid for new subscribers, $33.33 discount applied to months 1, 2, and 3 of subscription</p></div>
+                                </div>
+                            {% endif %}
+                    
+                            <div class="additional-info-wrapper">
+                                <div class="additional-info powder-element active">{{ block.settings.powder_additional_info }}</div>
+                                {% if block.settings.capsule_show %}
+                                <div class="additional-info capsule-element">{{ block.settings.capsule_additional_info }}</div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="additional-info essential-element">{{ block.settings.essential_additional_info }}</div>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="buttons-wrapper">
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="powder-element active" data-product-original-form="" data-productid="{{ all_products[block.settings.powder_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.powder_bundle_product] %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.powder_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.powder_bundle_button }}</button>
+                                </form>
+                                {% if block.settings.capsule_show %}
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="capsule-element" data-product-original-form="" data-productid="{{ all_products[block.settings.capsule_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.capsule_bundle_product] %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.capsule_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.capsule_bundle_button }}</button>
+                                </form>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="essential-element" data-product-original-form="" data-productid="{{ all_products[block.settings.essential_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.essential_bundle_product] %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.essential_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.essential_bundle_button }}</button>
+                                </form>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="bundle-comments">{{ block.settings.bundle_comments }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-popup-close"></div>
+            </div>
+        </div>
+        {%- endcapture -%}
+
+        {% assign bundle_list = bundle_list | append: bundle_html %}
+    {% elsif block.type == 'bundle_plan_men' %}
+        {%- capture bundle_html -%}
+        <div class="bundle-item-container row" id="bundle-item-container-{{ forloop.index }}" data-filterkey="{{ block.settings.filter_key }}">
+            <div class="bundle-item-inner">
+                <div class="bundle-item-left">
+                    <div class="bundle-image-wrapper">
+                        <img class="bundle-image" src="{{ block.settings.bundle_image | img_url : '600x' }}">
+                    </div>
+                </div>
+                <div class="bundle-item-right">
+                    <div class="bundle-content-wrapper">
+                        <div class="bundle-reviews reviews-{{ forloop.index }} reviews-mobile">
+                            <span class="stamped-product-reviews-badge stamped-main-badge" data-idx="{{ forloop.index }}" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                        </div>
+
+                        <h2 class="bundle-title">{{ block.settings.bundle_title }}</h2>
+                        <ul class="bundle-lists">
+                            {{ block.settings.bundle_list }}
+                        </ul>
+                        <div class="bundle-description">
+                            {{ block.settings.bundle_description }}
+                        </div>
+                        <div class="price-subscription">
+                            <div class="bundled-subscription">
+                                <div class="label-subscription">Bundled Subscription - ships monthly</div>
+                                <div class="content-subscription">{{ block.settings.bundled_subscription }}</div>
+                            </div>
+                            <div class="retail-price">
+                                <div class="label-retail">Retail Price</div>
+                                <div class="content-retail">{{ block.settings.retail_price }}</div>
+                            </div>
+                        </div>
+
+                        {% if block.settings.additional_info != blank %}
+                        <p class="bundle-additional-info">
+                            {{ block.settings.additional_info }}
+                        </p>
+                        {% endif %}
+
+                        <div class="button-wrapper">
+                            {% if block.settings.capsule_show == false and block.settings.essential_show == false %}
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="powder-element active" data-product-original-form="" data-productid="{{ all_products[block.settings.powder_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.powder_bundle_product] %}
+                                {% assign bundle_collection_fg = 'true' %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.powder_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan1">{{ block.settings.bundle_button }}</button>
+                                </form>
+                            {% else %}
+                                <button type="button" name="add" class="btn-bundle-plan">{{ block.settings.bundle_button }}</button>
+                            {% endif %}
+                            <a href="{{ block.settings.bundle_button2_url }}" class="more-info">{{ block.settings.bundle_button2 }}</a>
+                        </div>
+                    </div>
+                    {% if block.settings.saving_tag != blank %}
+                        <div class="saving-tag">{{ block.settings.saving_tag }}</div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="bundle-reviews reviews-{{ forloop.index }} reviews-desktop">
+                <span class="stamped-product-reviews-badge stamped-main-badge" data-idx="{{ forloop.index }}" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+            </div>
+            <div class="bundle-popup">
+                <div class="bundle-popup-inner">
+                    <div class="row">
+                        <div class="top-content">
+                            <div class="product-title-wrapper">
+                                <h3 class="product-title">{{ block.settings.bundle_title }}</h3>
+                                <div class="save-label-group group-desktop">
+                                <span class="save-label powder-element active">Save {{ block.settings.powder_retail_price | minus: block.settings.powder_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% if block.settings.capsule_show %}
+                                    <span class="save-label capsule-element">Save {{ block.settings.capsule_retail_price | minus: block.settings.capsule_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                    <span class="save-label essential-element">Save {{ block.settings.essential_retail_price | minus: block.settings.essential_bundled_subscription | round | times: 100 | money_without_trailing_zeros }}</span>
+                                {% endif %}
+                                </div>
+                            </div>
+                            <div class="bundle-list">{{ block.settings.bundle_list }}</div>
+                        </div>
+
+                        <div class="product-images">
+                            <img src="{{ block.settings.powder_bundle_product.featured_image | img_url: 'master' }}" class="lazyload powder-element active" alt="">
+                            {% if block.settings.capsule_show %}
+                                <img src="{{ block.settings.capsule_bundle_product.featured_image | img_url: 'master' }}" class="lazyload capsule-element" alt="">
+                            {% endif %}
+                            {% if block.settings.essential_show %}
+                                <img src="{{ block.settings.essential_bundle_product.featured_image | img_url: 'master' }}" class="lazyload essential-element" alt="">    
+                            {% endif %}
+                            <div class="product-reviews-badge">
+                                <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-description">
+                                {% if block.settings.popup_description != blank %}
+                                    {{ block.settings.popup_description }}
+                                {% else %}
+                                    {{ block.settings.bundle_description }}
+                                {% endif %}
+                            </div>
+                    
+                            <div class="option-list">
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio first" name="product_option_{{ block.id }}" id="option_powder-{{ block.id }}" value="powder" checked>
+                                <label for="option_powder-{{ block.id }}" class="pc-option-label">Prenatal Multi Powder -&nbsp;<span>{{ block.settings.powder_bundled_subscription | times: 100 | money }}</span></label>
+                                </div>
+                                {% if block.settings.capsule_show %}
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio" name="product_option_{{ block.id }}" id="option_capsule-{{ block.id }}" value="capsule">
+                                <label for="option_capsule-{{ block.id }}" class="pc-option-label">Prenatal Multi Capsules -&nbsp;<span>{{ block.settings.capsule_bundled_subscription | times: 100 | money }}</span></label>
+                                </div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="product-option">
+                                <input type="radio" class="pc-radio" name="product_option_{{ block.id }}" id="option_essential-{{ block.id }}" value="essential">
+                                <label for="option_essential-{{ block.id }}" class="pc-option-label">Prenatal Multi Essentials -&nbsp;<span>{{ block.settings.essential_bundled_subscription | times: 100 | money }}</span></label>
+                                {% if block.settings.difference_url != blank %}
+                                <span class="option-difference"><a href="{{ block.settings.difference_url }}" class="open-link">What’s the difference</a></span>
+                                {% endif %}
+                                </div>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="product-prices">
+                                <div class="subscription-price">
+                                <div class="label-subscription">Bundled Subscription - ships monthly</div>
+                                <div class="content-subscription powder-element active">
+                                    {{ block.settings.powder_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.powder_retail_price | minus: block.settings.powder_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% if block.settings.capsule_show %}
+                                <div class="content-subscription capsule-element">
+                                    {{ block.settings.capsule_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.capsule_retail_price | minus: block.settings.capsule_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="content-subscription essential-element">
+                                    {{ block.settings.essential_bundled_subscription | times: 100 | money }}
+                                    <span class="saving-label">{{ block.settings.essential_retail_price | minus: block.settings.essential_bundled_subscription | round | times: 100 | money_without_trailing_zeros }} savings</span>
+                                </div>
+                                {% endif %}
+                                </div>
+                                <div class="retail-price">
+                                <div class="label-retail">Retail Price</div>
+                                <div class="content-retail powder-element active">{{ block.settings.powder_retail_price }}</div>
+                                {% if block.settings.capsule_show %}
+                                <div class="content-retail capsule-element">{{ block.settings.capsule_retail_price }}</div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="content-retail essential-element">{{ block.settings.essential_retail_price }}</div>
+                                {% endif %}
+                                </div>
+                            </div>
+                    
+                            <div class="additional-info-wrapper">
+                                <div class="additional-info powder-element active">{{ block.settings.powder_additional_info }}</div>
+                                {% if block.settings.capsule_show %}
+                                <div class="additional-info capsule-element">{{ block.settings.capsule_additional_info }}</div>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <div class="additional-info essential-element">{{ block.settings.essential_additional_info }}</div>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="buttons-wrapper">
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="powder-element active" data-product-original-form="" data-productid="{{ all_products[block.settings.powder_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.powder_bundle_product] %}
+                                {% assign bundle_collection_fg = 'true' %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.powder_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.powder_bundle_button }}</button>
+                                </form>
+                                {% if block.settings.capsule_show %}
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="capsule-element" data-product-original-form="" data-productid="{{ all_products[block.settings.capsule_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.capsule_bundle_product] %}
+                                {% assign bundle_collection_fg = 'true' %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.capsule_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.capsule_bundle_button }}</button>
+                                </form>
+                                {% endif %}
+                                {% if block.settings.essential_show %}
+                                <form action="/cart/add" method="post" enctype="multipart/form-data" class="essential-element" data-product-original-form="" data-productid="{{ all_products[block.settings.essential_bundle_product].id }}">
+                                {% assign product = all_products[block.settings.essential_bundle_product] %}
+                                {% assign bundle_collection_fg = 'true' %}
+                                {% if product.available %}{% include 'preorder-product' %}{% endif %}
+                                <input type="hidden" id="quantity" name="quantity" value="1">
+                                <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[block.settings.essential_bundle_product].variants[0].id }}">
+                                <button type="submit" name="add" class="btn-bundle-plan">{{ block.settings.essential_bundle_button }}</button>
+                                </form>
+                                {% endif %}
+                            </div>
+                    
+                            <div class="bundle-comments">{{ block.settings.bundle_comments }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bundle-popup-close"></div>
+            </div>
+        </div>
+        {%- endcapture -%}
+
+        {% assign bundle_list2 = bundle_list2 | append: bundle_html %}
+    {% endif %}
+
+    {% assign product_list = product_list | append: '&' | append: product.id %}
+{% endfor %}
+
+<div class="container bundle-plan-list">
+    <div class="filter-wrapper">
+        <div class="filter-descr">{{ section.settings.filter_descr }}</div>
+        <div class="filter-list">
+            <span>I am buying for</span>
+            <div class="select-wrapper">
+                <select name="" id="" class="filter-1">
+                    <option value="me">myself</option>
+                    <option value="partner">my partner</option>
+                    <option value="me-partner" selected>me and my partner</option>
+                </select>
+            </div>
+            <span>and I need</span>
+            <div class="select-wrapper">
+                <select name="" id="" class="filter-2">
+                    <option value="complete-support" selected>complete nutrition support</option>
+                    <option value="basic">just the basics</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    {% if bundle_list != blank %}
+        {{ bundle_list }}
+    {% endif %}
+
+    <div class="middle-text">{{ section.settings.middle_text }}</div>
+
+    {% if bundle_list2 != blank %}
+        <h2 class="bottom-title">{{ section.settings.bottom_title }}</h2>
+        <div class="bottom-descr">{{ section.settings.bottom_descr }}</div>
+        {{ bundle_list2 }}
+    {% endif %}
+</div>
+
+<style>
+    .bundle-plan-reviews-sidebar {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        background-color: #fff;
+        height: 100%;
+        width: 800px;
+        z-index: 10000000;
+        transition: 1s ease-in-out;
+        padding: 30px 40px 40px;
+        display: flex;
+        flex-direction: column;
+    }
+    .bundle-plan-reviews-sidebar.active {
+        right: 0;
+    }
+    .bundle-plan-reviews-sidebar-overlay {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        display: none;
+    }
+    .bundle-plan-reviews-sidebar-overlay.active {
+        display: block;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-header {
+        color: #1F3337;
+        font-family: Copernicus;
+        font-size: 32px;
+        font-weight: bold;
+        letter-spacing: 0;
+        line-height: 40px;
+        padding-bottom: 40px;
+        border-bottom: 1px solid #e8eaeb;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body {
+        margin-right: -40px;
+        height: 100%;
+        overflow-y: auto;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body #stamped-main-widget {
+        margin: 1em 25px 1em 0;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-header {
+        margin-bottom: 0;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body .stamped-summary-actions-newquestion {
+        display: none;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-summary {
+        display: flex;
+        justify-content: space-between;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body .stamped-summary-actions-newreview {
+        margin-left: 0;
+        width: 200px;
+        height: 58px;
+        color: #fff;
+        background-color: #1F3337;
+        border-radius: 29px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: none !important;
+        font-family: 'BrownPro-Regular';
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 500;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: none;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs #tab-reviews {
+        background: none;
+        height: unset;
+        padding-bottom: 5px !important;
+        font-size: 18px;
+        line-height: 26px;
+        font-family: 'BrownPro-Regular';
+        font-weight: 400;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body li#tab-reviews[data-count]:after {
+        border-radius: 9px;
+        color: #fff;
+        background: #d2d6d7;
+        font-size: 15px;
+        line-height: 15px;
+        padding-bottom: 3px 5px 0;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs #tab-questions {
+        display: none;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div.stamped-container[data-widget-style], div[data-widget-style] div.stamped-container {
+        margin: 15px auto 0 !important;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-summary .summary-overview {
+        text-align: center;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .bundle-plan-reviews-sidebar .sidebar-close:before,
+    .bundle-plan-reviews-sidebar .sidebar-close:after {
+        width: 18px;
+        height: 1px;
+        border-top: 1px solid #1F3337;
+        position: absolute;
+        content: '';
+    }
+    .bundle-plan-reviews-sidebar .sidebar-close:before {
+        transform: rotate(45deg);
+    }
+    .bundle-plan-reviews-sidebar .sidebar-close:after {
+        transform: rotate(-45deg);
+    }
+
+    @media (max-width: 800px) {
+        .bundle-plan-reviews-sidebar {
+            width: 100%;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-header {
+            text-align: center;
+            font-size: 28px;
+            line-height: 36px;
+            padding-bottom: 24px;
+        }
+        .sample-reviews-sidebar .sidebar-header br {
+            display: none;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-summary {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+    }
+
+    @media (max-width: 549px) {
+        .bundle-plan-reviews-sidebar {
+            padding: 30px 15px;
+            transition: 0.7s ease-in-out;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body {
+            margin-right: -15px;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-summary {
+            flex-direction: column;
+            align-items: center;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body #stamped-main-widget {
+            margin-right: 15px;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-close {
+            top: 15px;
+            right: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .bundle-plan-reviews-sidebar .sidebar-body .stamped-summary-actions-newreview {
+            margin: 0 auto;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body .summary-overview {
+            display: flex;
+            flex-direction: column;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body [data-version="2"] .stamped-summary-caption .stamped-summary-text-1 {
+            display: none;
+        }
+        .bundle-plan-reviews-sidebar .sidebar-body div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs #tab-reviews {
+            font-size: 18px !important;
+        }
+    }
+</style>
+
+<div class="bundle-plan-reviews-sidebar">
+    <div class="sidebar-header">Real Reviews from Real Customers: <br><span class="bundle-plan-title"></span></div>
+    <div class="sidebar-body"></div>
+    <div class="sidebar-close"></div>
+</div>
+<div class="bundle-plan-reviews-sidebar-overlay"></div>
+<div class="bundle-popup-overlay"></div>
+
+<script>
+    function filterBundle() {
+        var filter_1 = $('.bundle-plan-list .filter-1').val();
+        var filter_2 = $('.bundle-plan-list .filter-2').val();
+        
+        $('.bundle-plan-list .bottom-title').hide();
+        $('.bundle-plan-list .bottom-descr').hide();
+        $('.bundle-plan-list .middle-text').show();
+
+        if (filter_1 == 'me-partner') {
+            $('.bundle-plan-list .bundle-item-container').hide();
+            $('.bundle-plan-list .bundle-item-container[data-filterkey=conception]').show();
+        } else if (filter_1 == 'me') {
+            if (filter_2 == 'complete-support') {
+                $('.bundle-plan-list .bundle-item-container').hide();
+                $('.bundle-plan-list .bundle-item-container[data-filterkey=complete]').show();
+            } else if (filter_2 == 'basic') {
+                $('.bundle-plan-list .bundle-item-container').hide();
+                $('.bundle-plan-list .bundle-item-container[data-filterkey=starter]').show();
+            }
+        } else if (filter_1 == 'partner') {
+            $('.bundle-plan-list .bundle-item-container').hide();
+            $('.bundle-plan-list .bundle-item-container[data-filterkey=mens-support]').show();
+            $('.bundle-plan-list .bottom-title').show();
+            $('.bundle-plan-list .bottom-descr').show();
+            $('.bundle-plan-list .middle-text').hide();
+        }
+    }
+
+    $('.bundle-plan-list .filter-list select').on('change', function() {
+        filterBundle();
+    });
+
+    $(document).ready(function() {
+        $('.bundle-plan-list').on('click', '.bundle-reviews .stamped-product-reviews-badge', function() {
+            var idx = $(this).data('idx');
+            var title = $(this).data('product-title');
+            var product_list = '{{ product_list }}';
+
+            product_list = product_list.split('&');
+            var review_html = '<div id="stamped-main-widget" class="stamped-main-widget" data-widget-style="standard" data-product-id="' + product_list[idx] + '"></div>';
+            $('.bundle-plan-reviews-sidebar .sidebar-body').html(review_html);
+            $('.bundle-plan-reviews-sidebar .sidebar-header .bundle-plan-title').html(title);
+            StampedFn.reloadUGC();
+            $('.bundle-plan-reviews-sidebar').addClass('active');
+            $('.bundle-plan-reviews-sidebar-overlay').addClass('active');
+            $('body').css('overflow', 'hidden');
+        });
+        $('.bundle-plan-reviews-sidebar-overlay').on('click', function() {
+            if ($(this).hasClass('active')) {
+                $('body').css('overflow', 'unset');
+                $('.bundle-plan-reviews-sidebar').removeClass('active');
+                $(this).removeClass('active');
+            }
+        });
+        $('.bundle-plan-reviews-sidebar').on('click', '.sidebar-close', function() {
+            if ($('.bundle-plan-reviews-sidebar').hasClass('active')) {
+                $('body').css('overflow', 'unset');
+                $('.bundle-plan-reviews-sidebar').removeClass('active');
+                $('.bundle-plan-reviews-sidebar-overlay').removeClass('active');
+            }
+        }); 
+
+        $('#shopify-section-bundle-plan-items .btn-bundle-plan').click(function() {
+            $(this).parents('.bundle-item-container').find('.bundle-popup').addClass('active');
+            $('.bundle-popup-overlay').addClass('active');
+            $('body').css('overflow', 'hidden');
+			$(this).parents('.bundle-item-container').find('.bundle-popup form.active').find("#rc_container").show();
+            setTimeout(function(){
+				$(this).parents('.bundle-item-container').find('.bundle-popup form.active').find(".rc_radio.rc_radio__autodeliver").click();
+				$(this).parents('.bundle-item-container').find('.bundle-popup form.active').find(".rc_radio.rc_radio__autodeliver").trigger();
+			}, 300);
+        });
+        $('.bundle-popup-overlay').on('click', function() {
+            if ($(this).hasClass('active')) {
+                $('body').css('overflow', 'unset');
+                $('.bundle-popup.active').find('.pc-radio.first').click();
+                $('#shopify-section-bundle-plan-items .bundle-popup.active').removeClass('active');
+                $(this).removeClass('active');
+                $('.bundle-popup').find('.powder-element').addClass('active');
+                $('.bundle-popup').find('.capsule-element').removeClass('active');
+                $('.bundle-popup').find('.essential-element').removeClass('active');
+            }
+        });
+        $('.bundle-popup').on('click', '.bundle-popup-close', function() {
+            if ($('.bundle-popup').hasClass('active')) {
+                $('body').css('overflow', 'unset');
+                $('.bundle-popup').removeClass('active');
+                $('.bundle-popup-overlay').removeClass('active');
+                $('.bundle-popup').find('.powder-element').addClass('active');
+                $('.bundle-popup').find('.capsule-element').removeClass('active');
+                $('.bundle-popup').find('.essential-element').removeClass('active');
+                $(this).parents('.bundle-popup').find('.pc-radio.first').click();
+            }
+        });
+
+        $(".bundle-popup .pc-radio").on('change', function() {
+            var option = $(this).val();
+
+            if (option == "powder") {
+            $('.bundle-popup').find('.powder-element').addClass('active');
+            $('.bundle-popup').find('.capsule-element').removeClass('active');
+            $('.bundle-popup').find('.essential-element').removeClass('active');
+            } else if (option == "capsule") {
+            $('.bundle-popup').find('.powder-element').removeClass('active');
+            $('.bundle-popup').find('.capsule-element').addClass('active');
+            $('.bundle-popup').find('.essential-element').removeClass('active');
+            } else if (option == "essential") {
+            $('.bundle-popup').find('.powder-element').removeClass('active');
+            $('.bundle-popup').find('.capsule-element').removeClass('active');
+            $('.bundle-popup').find('.essential-element').addClass('active');
+            }
+        });
+    });
+</script>
+
+<script>
+    $(function(){
+        if($(window).width() < 768){
+            // $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").first().append(" <a href='#' class='show-more'>More</a>");
+            // $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").last().append(" <a href='#' class='show-less'>Less</a>");
+
+            // $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").on("click", ".show-more", function(e){
+            //     e.preventDefault();
+            //     $(this).hide();
+            //     $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").show();
+            // })
+            // $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").on("click", ".show-less", function(e){
+            //     e.preventDefault();
+            //     $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").hide();
+            //     $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p").first().show();
+            //     $("#bundle-item-container-1 .bundle-content-wrapper .bundle-description p .show-more").show();
+            // })
+
+            $(".bundle-popup .product-description p").first().append(" <a href='#' class='show-more'>More</a>");
+            $(".bundle-popup .product-description p").last().append(" <a href='#' class='show-less'>Less</a>");
+            $(".bundle-popup .product-description p").hide();
+            $(".bundle-popup .product-description br").hide();
+            $(".bundle-popup .product-description p").first().show();
+            $(".bundle-popup .product-description p .show-more").show();
+
+            $(".bundle-popup .product-description p").on("click", ".show-more", function(e){
+                e.preventDefault();
+                $(this).hide();
+                $(".bundle-popup .product-description p").show();
+                $(".bundle-popup .product-description br").show();
+            })
+            $(".bundle-popup .product-description p").on("click", ".show-less", function(e){
+                e.preventDefault();
+                $(".bundle-popup .product-description p").hide();
+                $(".bundle-popup .product-description br").hide();
+                $(".bundle-popup .product-description p").first().show();
+                $(".bundle-popup .product-description p .show-more").show();
+            })
+        }
+    })
+</script>
+
+{% schema %}
+  {
+    "name": "Bundle plans",
+    "class": "bundle-plan-items",
+    "settings": [
+        {
+            "type": "textarea",
+            "id": "filter_descr",
+            "label": "Description for filter"
+        },
+        {
+            "type": "textarea",
+            "id": "middle_text",
+            "label": "Text"
+        },
+        {
+            "type": "text",
+            "id": "bottom_title",
+            "label": "Title for Men"
+        },
+        {
+            "type": "textarea",
+            "id": "bottom_descr",
+            "label": "Description for Men"
+        }
+    ],
+    "blocks": [
+      {
+        "type": "bundle_plan",
+        "name": "bundle-plan-block",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "bundle_image",
+            "label": "Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "bundle_title",
+            "label": "Bundle Title"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_list",
+            "label": "Bundle list"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_description",
+            "label": "Bundle Description"
+          },
+          {
+            "type": "text",
+            "id": "retail_price",
+            "label": "Retail price"
+          },
+          {
+            "type": "text",
+            "id": "bundled_subscription",
+            "label": "Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "additional_info",
+            "label": "Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "bundle_button",
+            "label": "Button Text",
+            "default": "Subscribe Now"
+          },
+          {
+            "type": "text",
+            "id": "bundle_button2",
+            "label": "Button2 Text",
+            "default": "More Info"
+          },
+          {
+            "type": "url",
+            "id": "bundle_button2_url",
+            "label": "Button2 URL"
+          },
+          {
+            "type": "text",
+            "id": "saving_tag",
+            "label": "Tag"
+          },
+          {
+            "type": "textarea",
+            "id": "popup_description",
+            "label": "Description for Popup"
+          },
+          {
+            "type": "url",
+            "id": "difference_url",
+            "label": "Difference URL"
+          },
+          {
+            "type": "text",
+            "id": "filter_key",
+            "label": "Filter Key"
+          },
+          {
+            "type": "header",
+            "content": "Powder info"
+          },
+          {
+            "type": "checkbox",
+            "id": "powder_show",
+            "label": "Powder Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "powder_bundle_image",
+            "label": "Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "powder_retail_price",
+            "label": "Retail price"
+          },
+          {
+            "type": "text",
+            "id": "powder_bundled_subscription",
+            "label": "Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "powder_additional_info",
+            "label": "Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "powder_bundle_button",
+            "label": "Button Text",
+            "default": "Subscribe Now"
+          },
+          {
+            "type": "product",
+            "id": "powder_bundle_product",
+            "label": "Bundle product"
+          },
+          {
+            "type": "header",
+            "content": "Capsule info"
+          },
+          {
+            "type": "checkbox",
+            "id": "capsule_show",
+            "label": "Capsule Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "capsule_bundle_image",
+            "label": "Capsule Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "capsule_retail_price",
+            "label": "Capsule Retail price"
+          },
+          {
+            "type": "text",
+            "id": "capsule_bundled_subscription",
+            "label": "Capsule Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "capsule_additional_info",
+            "label": "Capsule Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "capsule_bundle_button",
+            "label": "Capsule Button Text",
+            "default": "Preorder Now"
+          }, 
+          {
+            "type": "product",
+            "id": "capsule_bundle_product",
+            "label": "Capsule Bundle product"
+          },
+          {
+            "type": "header",
+            "content": "Essential info"
+          },
+          {
+            "type": "checkbox",
+            "id": "essential_show",
+            "label": "Essential Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "essential_bundle_image",
+            "label": "Essential Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "essential_retail_price",
+            "label": "Essential Retail price"
+          },
+          {
+            "type": "text",
+            "id": "essential_bundled_subscription",
+            "label": "Essential Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "essential_additional_info",
+            "label": "Essential Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "essential_bundle_button",
+            "label": "Essential Button Text",
+            "default": "Preorder Now"
+          }, 
+          {
+            "type": "product",
+            "id": "essential_bundle_product",
+            "label": "Essential Bundle product"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_comments",
+            "label": "Bundle comments"
+          }
+        ]
+      },
+      {
+        "type": "bundle_plan_men",
+        "name": "bundle-plan-men",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "bundle_image",
+            "label": "Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "bundle_title",
+            "label": "Bundle Title"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_list",
+            "label": "Bundle list"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_description",
+            "label": "Bundle Description"
+          },
+          {
+            "type": "text",
+            "id": "retail_price",
+            "label": "Retail price"
+          },
+          {
+            "type": "text",
+            "id": "bundled_subscription",
+            "label": "Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "additional_info",
+            "label": "Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "bundle_button",
+            "label": "Button Text",
+            "default": "Subscribe Now"
+          },
+          {
+            "type": "text",
+            "id": "bundle_button2",
+            "label": "Button2 Text",
+            "default": "More Info"
+          },
+          {
+            "type": "url",
+            "id": "bundle_button2_url",
+            "label": "Button2 URL"
+          },
+          {
+            "type": "text",
+            "id": "saving_tag",
+            "label": "Tag"
+          },
+          {
+            "type": "textarea",
+            "id": "popup_description",
+            "label": "Description for Popup"
+          },
+          {
+            "type": "url",
+            "id": "difference_url",
+            "label": "Difference URL"
+          },
+          {
+            "type": "text",
+            "id": "filter_key",
+            "label": "Filter Key"
+          },
+          {
+            "type": "header",
+            "content": "Powder info"
+          },
+          {
+            "type": "checkbox",
+            "id": "powder_show",
+            "label": "Powder Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "powder_bundle_image",
+            "label": "Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "powder_retail_price",
+            "label": "Retail price"
+          },
+          {
+            "type": "text",
+            "id": "powder_bundled_subscription",
+            "label": "Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "powder_additional_info",
+            "label": "Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "powder_bundle_button",
+            "label": "Button Text",
+            "default": "Subscribe Now"
+          },
+          {
+            "type": "product",
+            "id": "powder_bundle_product",
+            "label": "Bundle product"
+          },
+          {
+            "type": "header",
+            "content": "Capsule info"
+          },
+          {
+            "type": "checkbox",
+            "id": "capsule_show",
+            "label": "Capsule Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "capsule_bundle_image",
+            "label": "Capsule Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "capsule_retail_price",
+            "label": "Capsule Retail price"
+          },
+          {
+            "type": "text",
+            "id": "capsule_bundled_subscription",
+            "label": "Capsule Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "capsule_additional_info",
+            "label": "Capsule Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "capsule_bundle_button",
+            "label": "Capsule Button Text",
+            "default": "Preorder Now"
+          }, 
+          {
+            "type": "product",
+            "id": "capsule_bundle_product",
+            "label": "Capsule Bundle product"
+          },
+          {
+            "type": "header",
+            "content": "Essential info"
+          },
+          {
+            "type": "checkbox",
+            "id": "essential_show",
+            "label": "Essential Display",
+            "default": true
+          },
+          {
+            "type": "image_picker",
+            "id": "essential_bundle_image",
+            "label": "Essential Bundle Image"
+          },
+          {
+            "type": "text",
+            "id": "essential_retail_price",
+            "label": "Essential Retail price"
+          },
+          {
+            "type": "text",
+            "id": "essential_bundled_subscription",
+            "label": "Essential Bundled subscription"
+          },
+          {
+            "type": "textarea",
+            "id": "essential_additional_info",
+            "label": "Essential Additional info"
+          }, 
+          {
+            "type": "text",
+            "id": "essential_bundle_button",
+            "label": "Essential Button Text",
+            "default": "Preorder Now"
+          }, 
+          {
+            "type": "product",
+            "id": "essential_bundle_product",
+            "label": "Essential Bundle product"
+          },
+          {
+            "type": "textarea",
+            "id": "bundle_comments",
+            "label": "Bundle comments"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Bundle Plans",
+        "category": "Plan Cards", 
+        "blocks": []
+      }
+    ]
+  }
+{% endschema %}

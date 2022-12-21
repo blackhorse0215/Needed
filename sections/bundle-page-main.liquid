@@ -1,0 +1,708 @@
+<style>
+  #section-{{ section.id }} {
+    width: 1200px;
+    margin:auto;
+  }
+  #section-{{ section.id }} .plan-list {
+    flex-wrap: wrap;
+  }
+  #section-{{ section.id }} .plan-list .plan {
+    margin: 15px;
+  }
+  #section-{{ section.id }} .section-inner {
+    padding: 60px 0 80px;
+    overflow-x: hidden;
+  }
+  #section-{{ section.id }} .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .section-title .em-b {
+    font-family: 'Copernicus-Bold-Italic';
+  }
+  #section-{{ section.id }} .section-descr {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .plan-list {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+  }
+  #section-{{ section.id }} .plan {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+  }
+  #section-{{ section.id }} .plan:first-child {
+  }
+  #section-{{ section.id }} .plan-content {
+    padding: 24px;
+    padding-top: 18px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  #section-{{ section.id }} .plan-title-wrapper {
+       min-height: 80px;
+      position: relative;
+
+  }
+  #section-{{ section.id }} .plan-title-wrapper > a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+
+  }
+  #section-{{ section.id }} .plan.invert-plan .plan-content {
+    color: #fff;
+  }
+  #section-{{ section.id }} .plan-title {
+    color: #1F3437;
+    font-family: 'Copernicus-Bold';
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 26px;
+    min-height: 26px;
+  }
+  #section-{{ section.id }} .plan-subtitle {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 8px;
+  }
+  #section-{{ section.id }} .plan-descr {
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 22px;
+    min-height: 155px;
+  }
+  @media (min-width: 1201px ) {
+    #section-{{ section.id }} .plan-descr {
+      min-height: 155px;
+    }
+  }
+  #section-{{ section.id }} .button-wrapper {
+    
+  }
+
+  #section-{{ section.id }} .plan-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 57px;
+    max-width: 200px;
+    width: 100%;
+    border-radius: 29px;
+    color: #fff;
+    background-color: #1f3337;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  #section-{{ section.id }} .plan.invert-plan .plan-btn {
+    color: #1f3337;
+    background-color: #fff;
+  }
+  #section-{{ section.id }} .plan-slider-arrow {
+    display: none;
+  }
+  #section-{{ section.id }} .price-wrapper {
+    margin-top: 22px;
+    margin-bottom: 14px;
+  }
+  #section-{{ section.id }} .price-wrapper .price-title {
+    opacity: 0.5;
+    color: #1F3337;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  #section-{{ section.id }} .price-wrapper .price-value {
+    color: #1F3337;
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 17px;
+  }
+  #section-{{ section.id }} .price-wrapper .price-value span {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .quick-buy-modal {
+      padding-top: 16px;
+      display: none;
+  }
+  .quick-buy-modal h4 {
+    color: #1F3337;
+    font-size: 15px;
+    line-height: 18px;
+    margin-bottom: 8px;
+    font-weight: 400;
+  }
+  .quick-buy-item {
+    padding: 15px;
+    background-color: white;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  span.title-panel {
+    font-size: 15px;
+    color: #1F3337;
+  }
+  .price-pane {
+    display: inline-block;
+    float: right;
+  }
+  span.price-save {
+    font-size: 13px;
+    color: #85853E;
+    margin-right: 5px;
+  }
+  span.price-amount {
+    font-size: 13px;
+    color: #1F3337;
+  }
+  .product-reviews-badge {
+    text-align: left;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+  #section-{{ section.id }} .plan-image {
+    {% comment %} min-height: 269px; {% endcomment %}
+    min-height: 370px;
+    width: auto;
+    position: relative;
+  } 
+  #section-{{ section.id }} .plan-image a{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+  } 
+  @media (max-width: 1200px) {
+    #section-{{ section.id }} {
+      width: 100%;
+      margin: unset;
+    }
+    #section-{{ section.id }} .plan-list .slick-list {
+      display: flex;
+    }
+    #section-{{ section.id }} .plan-list .slick-track {
+      display: flex;
+      align-items: flex-start;
+    }
+    #section-{{ section.id }} .plan-slider-arrow {
+      display: block;
+      position: relative;
+      list-style: none;
+    }
+    #section-{{ section.id }} .plan-slider-arrow li {
+      position: absolute;
+      font-size: 37px;
+      line-height: 25px;
+      top: 0px;
+    }
+    #section-{{ section.id }} .plan-slider-arrow li i {
+      color: #1f333780;
+    }
+    #section-{{ section.id }} .plan-slider-arrow li.next {
+      right: 15px;
+    }
+    #section-{{ section.id }} .plan-slider-arrow li.prev {
+      left: 15px;
+    }
+    #section-{{ section.id }} .slick-dots {
+      position: absolute;
+      bottom: -25px;
+    }
+    #section-{{ section.id }} .slick-dots li {
+      margin: 0 8px;
+    }
+    #section-{{ section.id }} .slick-dots li button {
+      width: 10px;
+      height: 10px;
+      background-color: #1f333733;
+      border: none;
+    }
+    #section-{{ section.id }} .slick-dots li.slick-active button {
+      background-color: #1f3337;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .plan-menu input + label {
+        margin: 0px 8px !important;
+    }
+  }
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .section-title .em-b {
+      font-style: italic;
+    }
+    #section-bundle-page-main .plan-list {
+        justify-content: center;
+    }
+  }
+
+  @media (max-width: 549px) {
+    
+    #section-{{ section.id }} .section-inner {
+      padding: 80px 0;
+      padding-top: 35px;
+    }
+    #section-{{ section.id }} .section-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    #section-bundle-page-main .plan-title-wrapper {
+        min-height: auto;
+    }
+    #section-{{ section.id }} .section-descr {
+      font-size: 17px;
+      margin-top: 16px;
+    }
+    #section-{{ section.id }} .plan-list {
+      margin-top: 16px;
+    }
+    #section-{{ section.id }} .plan {
+      width: 346px;
+      margin-left: 8px;
+    }
+    #section-{{ section.id }} .plan-image {
+      min-height: auto;
+      width: auto;
+    } 
+    #section-{{ section.id }} .plan-content {
+      padding: 10px 20px 20px;
+    }
+    #section-{{ section.id }} .plan-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    #section-{{ section.id }} .plan-subtitle {
+      font-size: 13px;
+      line-height: 15px;
+    }
+    #section-{{ section.id }} .plan-descr {
+      font-size: 14px;
+      margin-top: 20px;
+      line-height: 20px;
+      min-height: auto;
+    }
+    #section-{{ section.id }} .button-wrapper {
+      margin-top: 30px;
+    }
+    #section-{{ section.id }} .slick-dots {
+      bottom: -30px;
+    }
+    #section-{{ section.id }} .slick-dots li button {
+      width: 5px;
+      height: 5px;
+    }
+    #section-{{ section.id }} .plan-slider-arrow li {
+      top: 8px;
+    }
+  }
+  .plan-menu {
+    text-align: center;
+  }
+.plan-menu input { display: none; }
+.plan-menu input + label { display: inline-block }
+
+.plan-menu input + label {
+    cursor: pointer;
+    font-family: "BrownPro-Regular";
+    font-size: 18px;
+    margin:0px 15px;
+    padding-bottom: 4px;
+    position: relative;
+    top: 1px;
+}
+.plan-menu input:checked + label {
+    border-bottom: 2px solid #87893e;;
+    color: #87893e;
+}
+.save-price {
+    position: absolute;
+    right: 24px;
+    bottom: -17px;
+    width: 74px;
+    height: 74px;
+    background-color: #85853E;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    /* align-items: center; */
+}
+span.save-price-text {
+    line-height: 13px;
+    font-size: 13px;
+    padding: 4px;
+    /* width: 50px; */
+}
+span.save-price-amount {
+    font-size: 22px;
+}
+</style>
+
+<section id="section-{{ section.id }}">
+  <div class="section-inner">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="section-descr">{{ section.settings.descr }}</div>
+    <div class="plan-menu">
+        <input type="radio" name="tabs" id="nav-all" value="all" checked/><label for="nav-all">All</label>
+        <input type="radio" name="tabs" id="nav-women" value="women"/><label for="nav-women">Women's</label>
+        <input type="radio" name="tabs" id="nav-men" value="men"><label for="nav-men">Men's</label>
+        <input type="radio" name="tabs" id="nav-home" value="trimester"><label for="nav-home">Trimester Plans</label>
+    </div>
+    {% if section.blocks.size > 0 %}
+    <div class="plan-list">
+      {% for block in section.blocks %}
+        <div data-plan-type="{{block.settings.plan_type}}" class="plan{% if block.settings.invert_chk %} invert-plan{% endif %} block-{{ block.id }}"  {% if block.settings.btn_url %} style="background-image: url({{ block.settings.image | img_url: 'master' }}); background-size: cover; background-repeat: no-repeat;" {% endif %} >
+          <div class="plan-image">
+            {% if block.settings.item_link != blank %}
+            <a href="{{block.settings.item_link}}"></a>
+            {% endif %}
+            {% if block.settings.btn_url %}
+              <style>
+
+              </style>
+            {% else %}
+              <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+            {% endif %}
+            <div class="save-price">
+              {{block.settings.save_text}}
+            </div>
+          </div>
+          <div class="plan-content" {% if block.settings.btn_url %} style="text-align: center;" {% endif %} >
+            <div class="plan-title-wrapper">
+              {% if block.settings.item_link != blank %}
+              <a href="{{block.settings.item_link}}"></a>
+              {% endif %}
+              <h3 class="plan-title">{{ block.settings.title }}</h3>
+              <div class="product-reviews-badge">
+                  <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{block.settings.powder_product.id}}" data-product-title="{{block.settings.powder_product.title}}" data-product-type="{{block.settings.powder_product.type}}" style="display: block;"></span>
+              </div>
+            </div>
+            <div class="plan_inner_content">
+              <div class="plan-descr">{{ block.settings.descr }}</div>
+              <div class="button-wrapper" {% if block.settings.btn_url %} style="margin-top: 85px;" {% endif %}>
+                <div class="price-wrapper">
+                  {% unless block.settings.quick_add_chk %}
+                  <span class="price-title">{{block.settings.price_title}}&nbsp&nbsp</span>
+                  {% endunless %}
+                  <span class="price-value">{{block.settings.price_value}}</span>
+                </div>
+                <a data-product-url="{{ block.settings.btn_url }}" class="plan-btn" data-is-quick="{{ block.settings.quick_add_chk }}" {% if block.settings.quick_add_chk %} data-variant-id='{{block.settings.powder_product.first_available_variant.id}}' {% endif %}>{{ block.settings.btn_text }}</a>
+              </div>
+            </div>
+            <div class="quick-buy-modal">
+              <h4>{{block.settings.modal_header}}</h4>
+              <div class="quick-buy-item" data-variant-id='{{block.settings.powder_product.first_available_variant.id}}'>
+                <span class="title-panel">{{block.settings.powder_title}}</span>
+                <div class="price-pane">
+                  <span class="price-save">{{block.settings.powder_save}}</span>
+                  <span class="price-amount">{{block.settings.powder_price}}</span>
+                </div>
+              </div>
+
+              <div class="quick-buy-item" data-variant-id='{{block.settings.capsules_product.first_available_variant.id}}'>
+                <span class="title-panel">{{block.settings.capsules_title}}</span>
+                <div class="price-pane">
+                  <span class="price-save">{{block.settings.capsules_save}}</span>
+                  <span class="price-amount">{{block.settings.capsules_price}}</span>
+                </div>
+              </div>
+
+              <div class="quick-buy-item" data-variant-id='{{block.settings.essentials_product.first_available_variant.id}}'>
+                <span class="title-panel">{{block.settings.essentials_title}}</span>
+                <div class="price-pane">
+                  <span class="price-save">{{block.settings.essentials_save}}</span>
+                  <span class="price-amount">{{block.settings.essentials_price}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <style>
+            .block-{{ block.id }} {
+              background-color: {{ block.settings.bg_color }};
+            }
+          </style>
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  $('.plan-btn').click(function() {
+    console.log($(this).data('product-url'));
+    if($(this).data('product-url') == "") {
+      console.log($(this).data('is-quick'));
+      if($(this).data('is-quick') == true) {
+        console.log($(this).data('variant-id'));
+        var id = $(this).data('variant-id');
+        jQuery.ajax({
+            type: 'POST',
+            url: '/cart/add.js',
+            data: {
+              id: id,
+              quantity: 1
+            },
+            dataType: 'json',
+            success: function() {
+              location.href='/cart';
+            }
+        }); 
+      }
+      else {
+        $('.quick-buy-modal').css('display', 'none');
+        $('.plan_inner_content').css('display', 'block');
+        $(this).parent().parent().css('display', 'none');
+        $(this).parent().parent().siblings('.quick-buy-modal').css('display', 'block');
+
+      }
+    }
+    else {
+      location.href = $(this).data('product-url');
+    }
+  });
+  $('.quick-buy-item').click(function() {
+    console.log($(this).data('variant-id'));
+    var id = $(this).data('variant-id');
+    jQuery.ajax({
+        type: 'POST',
+        url: '/cart/add.js',
+        data: {
+          id: id,
+          quantity: 1
+        },
+        dataType: 'json',
+        success: function() {
+          location.href='/cart';
+        }
+    }); 
+  });
+  $('body').click(function(e){
+    if($(e.target).hasClass('plan-btn') == false) {
+      $('.quick-buy-modal').css('display', 'none');
+      $('.plan_inner_content').css('display', 'block');
+    }
+  });
+  const reviewInterval = setInterval(function() {
+      const nodeList = document.getElementsByClassName("stamped-badge-caption");
+      for (let i = 0; i < nodeList.length; i++) {
+        $(nodeList[i]).html('('+ $(nodeList[i]).data('reviews') + ')');
+      }
+      if(nodeList.length)
+        clearInterval(reviewInterval);
+    }, 
+  10);
+  $('.plan-menu input').click(function() {
+    console.log($(this).val());
+    $('.plan').css('display', 'none');
+    if($(this).val() == "all") {
+
+        $('.plan').css('display', 'flex');
+    }
+    else {
+        $('.plan[data-plan-type = '+$(this).val()+']').css('display', 'flex');
+        if($(this).val() == "men" || $(this).val() == "women") {
+          $('.plan[data-plan-type = two]').css('display', 'flex');
+        }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Plans",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "plan",
+      "settings": [
+        {
+          "type": "url",
+          "id": "item_link",
+          "label": "Item Link"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "plan_type",
+          "label": "Plan Type(women, men, trimester)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "save_text",
+          "label": "Save Text",
+          "default": "<span class='save-price-text'>save up to</span><span class='save-price-amount'>$0</span>"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text",
+          "default": "Quick Add"
+        },     
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "quick_add_chk",
+          "label": "Enable Quick Add"
+        },
+        {
+          "type": "text",
+          "id": "modal_header",
+          "label": "Modal Header",
+          "default": "Select Prenatal Multi type"
+        },
+        {
+          "type": "text",
+          "id": "powder_title",
+          "label": "Powder(Product) Title",
+          "default": "Powder"
+        },
+        {
+          "type": "text",
+          "id": "powder_save",
+          "label": "Powder(Product) Save Amount",
+          "default": "Save $0.00"
+        },
+        {
+          "type": "text",
+          "id": "powder_price",
+          "label": "Powder(Product) Price",
+          "default": "<b>$0.00</b>/mo"
+        },
+        {
+          "type": "product",
+          "id": "powder_product",
+          "label": "Powder(Product) Product"
+        },
+        {
+          "type": "text",
+          "id": "capsules_title",
+          "label": "Capsules Title",
+          "default": "Capsules"
+        },
+        {
+          "type": "text",
+          "id": "capsules_save",
+          "label": "Capsules Save Amount",
+          "default": "Save $0.00" 
+        },
+        {
+          "type": "text",
+          "id": "capsules_price",
+          "label": "Capsules Price",
+          "default": "<b>$0.00</b>/mo"
+        },
+        {
+          "type": "product",
+          "id": "capsules_product",
+          "label": "Capsules Product"
+        },  
+        {
+          "type": "text",
+          "id": "essentials_title",
+          "label": "Essentials Title",
+          "default": "Essentials"
+        },
+        {
+          "type": "text",
+          "id": "essentials_save",
+          "label": "Essentials Save Amount",
+          "default": "Save $0.00" 
+        },
+        {
+          "type": "text",
+          "id": "essentials_price",
+          "label": "Essentials Price",
+          "default": "<b>$0.00</b>/mo"
+        },
+        {
+          "type": "product",
+          "id": "essentials_product",
+          "label": "Essentials Product"
+        },
+        {
+          "type": "text",
+          "id": "price_title",
+          "label": "Price Title",
+          "default": "Starts From"
+        },
+        {
+          "type": "text",
+          "id": "price_value",
+          "label": "Price Value",
+          "default": "<span>$0.00</span>/mo"
+        }, 
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color",
+          "default": "#F6F4F2"
+        },
+        {
+          "type": "checkbox",
+          "id": "invert_chk",
+          "label": "Invert"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plans",
+      "category": "plan"
+    }
+  ]
+}
+{% endschema %}

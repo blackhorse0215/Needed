@@ -1,0 +1,169 @@
+<style>
+  #section-{{ section.id }} {
+    padding: 100px 0;
+    background-color: #F6F4F2;
+  }
+  #section-{{ section.id }} .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+  }
+  #section-{{ section.id }} .item-list {
+    display: flex;
+    justify-content: center;
+    margin-top: 64px;
+  }
+  #section-{{ section.id }} .item-list .item {
+    max-width: 208px;
+    width: 100%;
+    margin-left: 70px;
+    text-align: center;
+  }
+  #section-{{ section.id }} .item-list .item:first-child {
+    margin-left: 0;
+  }
+  #section-{{ section.id }} .item-list .item-image {
+    width: 70px;
+    margin: 0 auto;
+  }
+  #section-{{ section.id }} .item-list .item-image .img-mobile {
+    display: none;
+  }
+  #section-{{ section.id }} .item-list .item-content {
+    margin-top: 30px;
+  }
+  #section-{{ section.id }} .item-list .item-title {
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+  }
+  #section-{{ section.id }} .item-list .item-descr {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-top: 16px;
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding: 60px 0;
+    }
+    #section-{{ section.id }} .section-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    #section-{{ section.id }} .item-list {
+      justify-content: space-between;
+      margin-top: 40px;
+    }
+    #section-{{ section.id }} .item-list .item {
+      margin-left: 0;
+    }
+    #section-{{ section.id }} .item-list .item-image {
+      width: 32px;
+    }
+    #section-{{ section.id }} .item-list .item-image .img-desktop {
+      display: none;
+    }
+    #section-{{ section.id }} .item-list .item-image .img-mobile {
+      display: block;
+    }
+    #section-{{ section.id }} .item-list .item-content {
+      margin-top: 20px;
+    }
+    #section-{{ section.id }} .item-list .item-descr {
+      margin-top: 10px;
+    }
+  }
+
+  @media (max-width: 549px) {
+    #section-{{ section.id }} .item-list {
+      flex-direction: column;
+    }
+    #section-{{ section.id }} .item-list .item {
+      display: flex;
+      max-width: 100%;
+      text-align: left;
+      margin-top: 30px;
+    }
+    #section-{{ section.id }} .item-list .item:first-child {
+      margin-top: 0;
+    }
+    #section-{{ section.id }} .item-list .item-image {
+      margin: 0;
+      margin-right: 20px;
+    }
+    #section-{{ section.id }} .item-list .item-content {
+      margin-top: 0;
+      width: calc(100% - 52px);
+    }
+  }
+</style>
+
+<section id="section-{{ section.id }}" class="mens-support-icons">
+  <div class="container section-inner">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+
+    {% if section.blocks.size > 0 %}
+      <div class="item-list">
+        {% for block in section.blocks %}
+          <div class="item">
+            <div class="item-image">
+              <img src="{{ block.settings.image_desktop | img_url: 'master' }}" class="lazyload img-desktop" alt="">
+              <img src="{{ block.settings.image_mobile | img_url: 'master' }}" class="lazyload img-mobile" alt="">
+            </div>
+            <div class="item-content">
+              <h4 class="item-title">{{ block.settings.title }}</h4>
+              <div class="item-descr">{{ block.settings.descr }}</div>
+            </div>
+          </div>
+        {% endfor %}  
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Icons",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image_desktop",
+          "label": "Desktop Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Mobile Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

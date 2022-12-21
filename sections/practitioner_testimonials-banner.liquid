@@ -1,0 +1,65 @@
+<section class="practitioner_testimonials-banner">
+  <div class="banner-inner">
+    <div class="banner-image">
+      <img class="desktop-image" src="{{ section.settings.desktop_image | img_url: 'master' }}" alt="{{ section.settings.desktop_image.alt | escape }}">
+      <img class="mobile-image" src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="{{ section.settings.mobile_image.alt | escape }}">
+    </div>
+
+    <div class="banner-content">
+      <h1 class="banner-title">{{ section.settings.title }}</h1>
+      <div class="banner-btn-wrapper">
+        <a href="javascript:;" class="banner-btn read-testimonials">{{ section.settings.btn_text }}</a>
+      </div>
+      <div class="banner-btn2-wrapper">
+        or <a href="javascript:;" class="banner-btn2 read-review">{{ section.settings.btn_text2 }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('.practitioner_testimonials-banner .read-testimonials').click(function() {
+    $('html, body').animate({
+      scrollTop: parseInt($('.practitioner_testimonials-list').offset().top) - 40
+    }, 100);
+  });
+
+  $('.practitioner_testimonials-banner .read-review').click(function() {
+    $('html, body').animate({
+      scrollTop: parseInt($('.stamped-review').offset().top) - 110
+    }, 150);
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Testimonials Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "desktop_image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "mobile_image",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      },
+      {
+        "type": "text",
+        "id": "btn_text2",
+        "label": "Button Text 2"
+      }
+    ]
+  }
+{% endschema %}

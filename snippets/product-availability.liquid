@@ -1,0 +1,749 @@
+<style>
+  .availability-popup .popup-inner {
+    width: 100%;
+    padding: 50px 0;
+  }
+
+  /** banner */
+  .popup-banner .banner-inner {
+    background-image: url('https://cdn.shopify.com/s/files/1/0195/3293/9328/files/product-availability-hero-desktop_1.jpg?v=1634579953');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+  }
+  .popup-banner .banner-title {
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 42px;
+    text-align: center;
+  }
+  .popup-banner .banner-descr {
+    font-size: 20px;
+    letter-spacing: 0;
+    line-height: 32px;
+    max-width: 600px;
+    margin: 30px auto 0;
+    text-align: center;
+  }
+  .popup-banner .banner-review {
+    text-align: center;
+    padding-top: 15px;
+    display: flex;
+    justify-content: center;
+  }
+  .popup-banner .banner-review #stamped-reviews-widget {
+    cursor: pointer;
+  }
+  @media (max-width: 767px) {
+    .popup-banner .banner-inner {
+      justify-content: flex-start;
+      padding-top: 50px;
+    }
+    .popup-banner .banner-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    .popup-banner .banner-descr {
+      margin-top: 16px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+  @media (max-width: 549px) {
+    .popup-banner {
+      position: relative;
+      padding-bottom: 85.33%;
+    }
+    .popup-banner .banner-inner {
+      background-image: url('https://cdn.shopify.com/s/files/1/0195/3293/9328/files/product-availability-hero-mobile_1.jpg?v=1634579953');
+      position: absolute;
+      height: 100%;
+    }
+    .popup-banner .banner-review {
+      position: absolute;
+      bottom: -40px;
+      left: 0;
+      right: 0;
+    }
+  }
+  /** banner */
+
+  /** difference */
+  .popup-difference .difference-inner {
+    padding: 50px 15px;
+  }
+  .popup-difference .difference-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 37px;
+    text-align: center;
+  }
+  .popup-difference .item-list {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1250px;
+    width: 100%;
+    margin: 50px auto 0;
+  }
+  .popup-difference .item-list .item {
+    max-width: 210px;
+    width: 100%;
+    text-align: center;
+  }
+  .popup-difference .item-list .item-image {
+    width: 47px;
+  }
+  .popup-difference .item-list .item-content {
+    margin-top: 18px;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 26px;
+  }
+  .popup-difference .difference-bottom {
+    background-color: #F6F4F2;
+    max-width: 900px;
+    width: 100%;
+    margin: 60px auto 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .popup-difference .bottom-image {
+    max-width: 236px;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+  }
+  .popup-difference .bottom-content {
+    margin-left: 10px;
+    max-width: 600px;
+    width: 100%;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 26px;
+  }
+  @media (max-width: 767px) {
+    .popup-difference .difference-inner {
+      padding: 70px 15px 40px;
+    }
+    .popup-difference .difference-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .popup-difference .item-list {
+      margin-top: 30px;
+      display: block;
+    }
+    .popup-difference .item-list .item {
+      display: flex;
+      max-width: 100%;
+      text-align: left;
+      align-items: flex-start;
+    }
+    .popup-difference .item-list .item + .item {
+      margin-top: 24px;
+    }
+    .popup-difference .item-list .item-image {
+      width: 40px;
+    }
+    .popup-difference .item-list .item-content {
+      margin-top: 0;
+      margin-left: 17px;
+    }
+    .popup-difference .difference-bottom {
+      margin-top: 50px;
+      flex-direction: column-reverse;
+    }
+    .popup-difference .bottom-image {
+      margin: 24px auto 0;
+    }
+    .popup-difference .bottom-content {
+      margin-left: 0;
+      text-align: center;
+      max-width: 100%;
+    }
+  }
+  /** difference */
+
+  /** why */
+  .popup-why .why-inner {
+    padding: 50px 15px;
+  }
+  .popup-why .why-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+  }
+  .popup-why .item-list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .popup-why .item-list .item {
+    max-width: 295px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 24px 24px;
+    background-color: #F6F4F2;
+  }
+  .popup-why .item-list .item + .item {
+    margin-left: 8px;
+  }
+  .popup-why .item-list .item-num {
+    font-family: 'Copernicus-Bold';
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 42px;
+  }
+  .popup-why .item-list .item-content {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 26px;
+    max-width: 210px;
+    width: 100%;
+    margin-left: 5px;
+  }
+  @media (max-width: 767px) {
+    .popup-why .why-inner {
+      padding: 40px 15px;
+    }
+    .popup-why .why-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .popup-why .item-list {
+      margin-top: 30px;
+      display: block;
+    }
+    .popup-why .item-list .item {
+      max-width: 100%;
+      padding: 16px 20px 20px;
+    }
+    .popup-why .item-list .item + .item {
+      margin-left: 0px;
+      margin-top: 8px;
+    }
+    .popup-why .item-list .item-content {
+      max-width: 100%;
+      margin-left: 20px;
+    }
+  }
+  /** why */
+
+  /** plans */
+  .popup-plans .plans-inner {
+    padding: 40px 15px;
+  }
+  .popup-plans .plans-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+  }
+  .popup-plans .plan-list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+  }
+  .popup-plans .plan-list .plan {
+    max-width: 287px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .popup-plans .plan-list .plan + .plan {
+    margin-left: 20px;
+  }
+  .popup-plans .plan-list .plan-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 26px;
+    letter-spacing: 0;
+    line-height: 35px;
+    text-align: center;
+  }
+  .popup-plans .plan-list .bundle-list {
+    margin-top: 8px;
+    list-style: none;
+    text-align: center;
+  }
+  .popup-plans .plan-list .bundle-list li {
+    display: inline;
+    font-size: 13px;
+    letter-spacing: 0;
+    line-height: 15px;
+    position: relative;
+  }
+  .popup-plans .plan-list .bundle-list li + li {
+    padding-left: 11px;
+  }
+  .popup-plans .plan-list .bundle-list li + li:before {
+    content: '+';
+    position: absolute;
+    left: 0px;
+    top: -2px;
+  }
+  .popup-plans .plan-list .plan-content {
+    padding: 18px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .popup-plans .plan-list .plan-descr {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-top: 16px;
+    flex: 1;
+    text-align: center;
+  }
+  .popup-plans .plan-list .plan-btn {
+    margin-top: 20px;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 57px;
+    text-align: center;
+    background-color: #1f3337;
+    border-radius: 29px;
+    text-decoration: none;
+  }
+  .popup-plans .plan-list .plan.invert-plan {
+    color: #fff;
+  }
+  .popup-plans .plan-list .plan.invert-plan .plan-btn {
+    color: #1f3337;
+    background-color: #fff;
+  }
+  .popup-plans .plans-bottom {
+    margin-top: 40px;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 26px;
+    text-align: center;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .popup-plans .plans-bottom a {
+    color: #1f3337;
+  }
+  @media (max-width: 991px) {
+    .popup-plans .plan-list .plan + .plan {
+      margin-left: 10px;
+    }
+  }
+  @media (max-width: 767px) {
+    .popup-plans .plans-inner {
+      padding: 40px 0;
+    }
+    .popup-plans .plans-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    .popup-plans .plan-list {
+      margin-top: 30px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .popup-plans .plan-list .plan {
+      max-width: calc(50% - 3px);
+    }
+    .popup-plans .plan-list .plan + .plan {
+      margin-left: 0px;
+    }
+    .popup-plans .plan-list .plan:nth-child(even) {
+      margin-left: 5px;
+    }
+    .popup-plans .plan-list .plan:nth-child(n+3) {
+      margin-top: 5px;
+    }
+    .popup-plans .plan-list .plan-image {
+      justify-content: center;
+    }
+    .popup-plans .plan-list .plan-content {
+      padding: 11px 15px 15px;
+    }
+    .popup-plans .plan-list .plan-title {
+      font-size: 20px;
+      line-height: 27px;
+    }
+    .popup-plans .plan-list .plan-descr {
+      font-size: 15px;
+      line-height: 20px;
+    }
+    .popup-plans .plan-list .plan-btn {
+      font-size: 15px;
+    }
+    .popup-plans .plans-bottom {
+      margin-top: 30px;
+    }
+  }
+  @media (max-width: 549px) {
+    .popup-plans .plan-list .plan-title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+  /** plans */
+
+  /** review */
+  .popup-reviews {
+    padding: 50px 0;
+  }
+  .popup-reviews .review-title {
+    position: relative;
+    font-family: "Copernicus-Bold";
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    max-width: 750px;
+    color: #1F3337;
+    margin: 0px auto;
+  }
+  .availability-popup #stamped-main-widget .stamped-header {
+    border-top: 1px solid #1f333730;
+    border-bottom: 1px solid #1f333730;
+    padding: 35px 0;
+    margin-bottom: 30px !important;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-caption {
+    text-align: center;
+    width: 100%;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-photos.stamped-summary-photos-container {
+    display: none;
+  }
+  #stamped-reviews-widget .fa-star-half-o:before,
+	#stamped-reviews-widget .fa-star-o:before,
+	#stamped-reviews-widget .fa-star:before,
+	#stamped-reviews-widget .stamped-fa-star-half-o:before,
+	#stamped-reviews-widget .stamped-fa-star-o:before,
+	#stamped-reviews-widget .stamped-fa-star:before {
+		font-size: 26px;
+	}
+	#stamped-reviews-widget #stamped-badge-title,
+  #stamped-reviews-widget #stamped-badge-total {
+		font-size: 16px !important;
+	}
+  .popup-reviews .availability-popup #stamped-main-widget #stamped-button-submit {
+    visibility: visible;
+  }
+  .availability-popup #stamped-main-widget .summary-overview {
+    text-align: center;
+    width: unset !important;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-text-1 {
+    display: none;
+  }
+  .availability-popup #stamped-main-widget .stamped-reviews-filter {
+    display: none;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion,
+  .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+    display: block;
+    float: unset;
+    color: #fff;
+    background-color: #1F3337;
+    font-family: 'BrownPro-Bold';
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 30px;
+    padding: 20px 40px;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+    margin-bottom: 10px;
+  }
+  .availability-popup #stamped-main-widget div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs {
+    text-align: center;
+    border-bottom: none;
+  }
+  .availability-popup #stamped-main-widget div[data-widget-style*=standard] .stamped-tab-container ul.stamped-tabs {
+    height: unset;
+  }
+  .availability-popup #stamped-main-widget .stamped-container ul.stamped-tabs li {
+    font-size: 18px;
+    font-family: 'BrownPro-Regular';
+    font-weight: 500;
+    letter-spacing: 0;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  .availability-popup #stamped-main-widget li#tab-questions[data-count][data-new-tab]:after,
+  .availability-popup #stamped-main-widget li#tab-reviews[data-count]:after {
+    font-size: 15px;
+    border-radius: 12px;
+    padding: 2px 12px;
+    margin-left: 5px;
+  }
+  .availability-popup #stamped-main-widget .stamped-reviews {
+    margin-top: 30px !important;
+  }
+  .availability-popup #stamped-main-widget .stamped-review-header-title {
+    color: #1F3437;
+    font-family: 'Copernicus-Bold';
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 30px;
+  }
+  .availability-popup #stamped-main-widget .stamped-pagination a {
+    color: #000;
+  }
+  div[data-widget-style*=standard] .stamped-summary-actions {
+    white-space: nowrap;
+  }
+  .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion {
+    display: none;
+  }
+  .availability-popup #stamped-main-widget .stamped-tab-container #tab-questions {
+    display: none;
+  }
+  .availability-popup #stamped-main-widget .stamped-form-custom-question label:first-child {
+    margin-bottom: 10px;
+  }
+  .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(3),
+  .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(4),
+  .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(5) {
+    float: left;
+    margin-right: 10px;
+  }
+  @media (max-width: 790px) {
+    .availability-popup #stamped-main-widget .stamped-summary {
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .availability-popup #stamped-main-widget .stamped-summary-actions {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+    }
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+      margin-bottom: 0;
+      margin-left: 0;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .popup-reviews .review-title {
+      font-size: 22px;
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion,
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+      font-size: 14px;
+      line-height: 18px;
+      padding: 15px 30px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .availability-popup #stamped-main-widget .stamped-header {
+      padding: 20px 0;
+      margin-bottom: 35px;
+    }
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion {
+      margin-bottom: 0;
+    }
+    .availability-popup #stamped-main-widget .summary-overview {
+      margin-bottom: 15px !important;
+    }
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion,
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+      font-size: 14px;
+      line-height: 15px;
+      padding: 15px 20px;
+      width: unset;
+    }
+    .availability-popup #stamped-main-widget .stamped-container ul.stamped-tabs li {
+      font-size: 15px !important;
+      margin-right: 10px !important;
+    }
+    .availability-popup #stamped-main-widget .stamped-reviews {
+      margin-top: 15px !important;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(3),
+    .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(4),
+    .availability-popup #stamped-main-widget .stamped-form-custom-question label:nth-child(5) {
+      float: unset;
+      margin-right: 0px;
+      margin-bottom: 10px;
+    }
+  }
+
+  @media (max-width: 370px) {
+    .availability-popup #stamped-main-widget .stamped-summary-actions {
+      flex-direction: column;
+    }
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newquestion,
+    .availability-popup #stamped-main-widget .stamped-summary-actions-newreview {
+      width: 100%;
+    }
+  }
+
+  .availability-popup #stamped-main-widget:not([data-product-id]) .stamped-summary-actions, 
+  .availability-popup #stamped-main-widget[data-product-id=""] .stamped-summary-actions {
+    display: block !important;
+  }
+  /** review */
+</style>
+
+<div class="popup-inner">
+  <div class="popup-banner">
+    <div class="banner-inner">
+      <h2 class="banner-title">Because of you, we're  always in demand!</h2>
+      <div class="banner-descr">We’re working hard to re-stock, but quality nutrition takes time. Here’s what to know while you wait.</div>
+    </div>
+    <div class="banner-review">
+      <div id="stamped-reviews-widget" data-widget-type="site-badge" data-badge-type="minimal"></div>
+    </div>
+  </div>
+
+  <div class="popup-difference">
+    <div class="difference-inner">
+      <h2 class="difference-title">How We Are <span class="color-2">Different</span></h2>
+      <div class="item-list">
+        <div class="item">
+          <img data-src="//cdn.shopify.com/s/files/1/0195/3293/9328/files/nutrients_x200.png?v=1577610418" class="lazyload item-image" alt="">
+          <div class="item-content">We formulate our products from the ground-up, never whitelabeling products off the shelf</div>
+        </div>
+        <div class="item">
+          <img data-src="//cdn.shopify.com/s/files/1/0195/3293/9328/files/icon-4_4c96ee03-c16d-412c-90df-de66819cc24a_x200.png?v=1590996041" class="lazyload item-image" alt="">
+          <div class="item-content">We hand-select every single nutrient form and dosage</div>
+        </div>
+        <div class="item">
+          <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/time-svg.png?v=1634580072" class="lazyload item-image" alt="">
+          <div class="item-content">We never compromise on quality, even when a chosen ingredient is delayed</div>
+        </div>
+        <div class="item">
+          <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/purity-svg.png?v=1634580072" class="lazyload item-image" alt="">
+          <div class="item-content">We go above and beyond industry standards for safety and purity</div>
+        </div>
+        <div class="item">
+          <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/tested.png?v=1635232503" class="lazyload item-image" alt="">
+          <div class="item-content">We third-party test every product batch. This critical step adds weeks to our product timelines</div>
+        </div>
+      </div>
+      <div class="difference-bottom">
+        <div class="bottom-image">
+          <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/practitioners_1.png?v=1634579953" class="lazyload" alt="">
+        </div>
+        <div class="bottom-content">We’re trusted by thousands of perinatal health practitioners and mamas because we never cut corners. <b>Your body and baby deserve only the best.</b></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-why">
+    <div class="why-inner">
+      <h2 class="why-title"><span class="color-2">Why Preorder</span> And Subscribe</h2>
+      <div class="item-list">
+        <div class="item"><span class="item-num">1</span><span class="item-content">Preordering guarantees you'll be the first to receive our products when they're available.</span></div>
+        <div class="item"><span class="item-num">2</span><span class="item-content">We prioritize subscriptions, so you won’t run out once your first order ships.</span></div>
+        <div class="item"><span class="item-num">3</span><span class="item-content">Prenatals aren’t just for the 9 months of pregnancy! Ours are worth waiting for.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-plans">
+    <div class="plans-inner">
+      <h2 class="plans-title"><span class="color-2">What to Take</span> While You Wait</h2>
+      <div class="plan-list">
+        <div class="plan" style="background-color: #FDCABD;">
+          <div class="plan-image">
+            <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/Bestsellers_Bundle_Capsules18_1.jpg?v=1635234414" class="lazyload" alt="">
+          </div>
+          <div class="plan-content">
+            <h3 class="plan-title">Prenatal Multi Powder</h3>
+            <div class="plan-descr">24 optimal vitamins and minerals that mamas and babies need in easy-to-take vanilla powder.</div>
+            <a href="https://thisisneeded.com/products/prenatal-multi" class="plan-btn">Shop Now</a>
+          </div>
+        </div>
+        <div class="plan" style="background-color: #DBC981;">
+          <div class="plan-image">
+            <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/Bestsellers_Bundle_Capsules17_1.jpg?v=1635234414" class="lazyload" alt="">
+          </div>
+          <div class="plan-content">
+            <h3 class="plan-title">The Complete Plan™ (Powder)</h3>
+            <div class="bundle-list">
+              <li>Prenatal Multi</li>
+              <li>Omega-3</li>
+              <li>Collagen Protein</li>
+              <li>Pre / Probiotic</li>
+            </div>
+            <div class="plan-descr">Unparalleled nourishment for every phase of pregnancy — micronutrient, microbiome, and protein needs.</div>
+            <a href="https://thisisneeded.com/pages/the-complete-plan" class="plan-btn">Shop Now</a>
+          </div>
+        </div>
+        <div class="plan" style="background-color: #FDCABD;">
+          <div class="plan-image">
+            <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/Bestsellers_Bundle_Capsules16_1.jpg?v=1635234414" class="lazyload" alt="">
+          </div>
+          <div class="plan-content">
+            <h3 class="plan-title">Starter Plan (Powder)</h3>
+            <div class="bundle-list">
+              <li>Prenatal Multi</li>
+              <li>Omega-3</li>
+            </div>
+            <div class="plan-descr">Two essential products are designed to meet your (and your baby’s) optimal micronutrient needs.</div>
+            <a href="https://thisisneeded.com/pages/the-starter-plan" class="plan-btn">Shop Now</a>
+          </div>
+        </div>
+        <div class="plan invert-plan" style="background-color: #002B2C;">
+          <div class="plan-image">
+            <img data-src="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/Bestsellers_Bundle_Capsules15_1.jpg?v=1635234414" class="lazyload" alt="">
+          </div>
+          <div class="plan-content">
+            <h3 class="plan-title">Men’s Support Plan</h3>
+            <div class="plan-descr">Supports sperm health and optimizes men’s health.</div>
+            <a href="https://thisisneeded.com/pages/mens-support-plan" class="plan-btn">Shop Now</a>
+          </div>
+        </div>
+      </div>
+      <div class="plans-bottom">
+        <p>Need help choosing the right products for you? Our team of perinatal nutritionists are happy to help.</p>
+        <p>Chat, text, or <a href="mailto:hello@thisisneeded.com">email</a> us!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-reviews">
+    <div class="reviews-inner container">
+      <h2 class="review-title">Why Is <span class="color-2">Needed Loved</span></h2>
+      <div 
+        id="stamped-main-widget-buf"
+      >
+      </div>
+    </div>
+  </div>
+</div>
+<div class="availability-popup-close"></div>
+
+<script>
+  $('.availability-popup').on('click', '.banner-review #stamped-reviews-widget', function() {
+    $('.availability-popup').animate({
+      scrollTop: $('.availability-popup .popup-reviews').offset().top
+    }, 400);
+  });
+</script>

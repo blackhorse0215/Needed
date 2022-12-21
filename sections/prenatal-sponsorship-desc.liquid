@@ -1,0 +1,71 @@
+
+<style>
+    .sponsorship-desc {
+        width: 100%;
+        margin-top: 100px;
+    }
+    .sponsorship-desc .container {
+        max-width: 730px;
+        margin: auto;
+        text-align: center;
+    }
+    .sponsorship-desc .container h1 {
+        font-size: 28px;
+        color: #1F3337;
+    }
+    .sponsorship-desc .container div {
+        margin-top: 24px;
+        font-size: 18px;
+        line-height: 26px;
+        color: #1F3337;
+    }
+    .sponsorship-desc .container button {
+        margin-top: 32px;
+    }
+    .sponsorship-desc .container a {
+        margin-top: 32px;
+    }
+    @media (max-width: 550px) {
+        .sponsorship-desc .container h1 {
+            font-size: 22px;
+        }
+        .sponsorship-desc .container div {
+            text-align: left;
+        }
+        .sponsorship-desc .container button {
+            width: 100%;
+        }
+        .sponsorship-desc .container a {
+            width: 100%;
+        }
+    }
+</style>
+<section class='sponsorship-desc'>
+    <div class='container'>
+        <h1>{{section.settings.heading}}</h1>
+        <div>{{section.settings.description}}</div> 
+        <a class="button button--primary" href="https://needed.typeform.com/nominate" target="_blank">Nominate a deserving woman</a>
+        {% comment %} <button class="button button--primary">Meet the Needed Changemakers</button> {% endcomment %}
+        {% comment %} <a class="button button--primary" href="https://thisisneeded.com/pages/changemakers" >Meet the Needed Changemakers</a> {% endcomment %}
+    </div>
+
+</section>
+
+{% schema %}
+    {
+        "name": "Sponsorship Desc",
+        "settings": [
+            {
+                "type": "text",
+                "id": "heading",
+                "label": "heading",
+                "default": "heading"
+            },
+            {
+                "type": "textarea",
+                "id": "description",
+                "label": "description"
+            }
+        ]
+    }
+{% endschema %}

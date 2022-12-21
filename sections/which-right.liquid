@@ -1,0 +1,405 @@
+<style>
+    section.which-right-wm-pm {
+        background-image: linear-gradient(to right, #B3CBCB 50%, #FFCEC1 50%);
+    }
+    section.which-right-wm-pm .container h1 {
+        font-size: 35px;
+        color: #1F3437;
+        padding-top: 90px;
+        padding-bottom: 74px;
+        max-width: 612px;
+        margin: auto;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: normal;
+    }
+    section.which-right-wm-pm .container .vs-content {
+        width: 100%;
+        padding-bottom: 90px;
+        display: flex;
+    }
+    section.which-right-wm-pm .container .vs-content .col {
+        width: 50%;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content {
+        width: 100%;
+        display: flex;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-first {
+        width: 68%;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-second {
+        width: 30%;
+    }
+    .col-pm {
+        padding-left: 5%;
+    }
+    .col-wm {
+        padding-right: 5%;
+    }
+    .col-pm .button {
+        min-width: 150px;
+        width: 155px;
+        margin-top: 6px;
+    }
+    .col-pm p {
+        font-size: 16px;
+        margin-bottom: 16px;
+        margin-top: 32px;
+    }
+    .col-wm .button {
+        margin-top: 74px;
+        min-width: 150px;
+        width: 155px;
+    }
+    .inner-col-first h2 {
+        font-size: 20px !important;
+        font-weight: normal;
+        font-family: Copernicus-bold,sans-serif;
+        padding-bottom: 28px;
+        letter-spacing: normal;
+    }
+    .inner-content .inner-col-first p {
+        font-family: BrownPro-Bold,sans-serif;
+        font-size: 16px;
+        padding-bottom: 12px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+    .inner-content .inner-col-first ul li {
+        font-size: 16px;
+        color: #1F3337;
+        padding-left: 30px;
+        margin-top: 11px;
+        margin-bottom: 11px;
+        position: relative;
+    }
+    .inner-content .inner-col-first ul li:before {
+        position: absolute;
+        content: url(https://cdn.shopify.com/s/files/1/0195/3293/9328/files/icon-check.svg?v=1636556680);
+        width: 14px;
+        height: 14px;
+        top: 2px;
+        left: 2px;
+    }
+    .vs-content .col-pm .inner-content .inner-col-first {
+        width: 80% !important;
+    }
+    .vs-content .col-pm .inner-content .inner-col-second {
+        width: 0px !important;
+        position: relative;
+    }
+    .vs-content .col-pm .inner-content .inner-col-second img {
+        position: absolute;
+        min-width: 225px;
+        top: -26px;
+    }
+    @media (max-width: 1400px) {
+        .vs-content .col-pm .inner-content .inner-col-first {
+            width: 70% !important;
+        }
+        .vs-content .col-pm .inner-content .inner-col-second img {
+            position: absolute;
+            min-width: 200px;
+            top: -26px;
+            left: -39px;
+        }
+
+    }
+    @media (max-width: 1100px) {
+        .vs-content .col-pm .inner-content .inner-col-first {
+            width: 60% !important;
+        }
+        .vs-content .col-pm .inner-content .inner-col-second img {
+            min-width: 150px;
+        }
+
+    }
+    @media (max-width: 899px) {
+        .mobile-show {
+            display: flex !important;
+        }
+        .col-pm .button {
+            min-width: 32%;
+            width: 32%;
+            margin-top: 6px;
+            padding-left: 21px;
+            padding-right: 21px;
+        }
+        .col-pm {
+            padding: 0px !important;
+        }
+        .vs-content .col-pm .inner-content .inner-col-first {
+            width: 100% !important;
+        }
+        section.which-right-wm-pm {
+            background-image: linear-gradient(to right, #B3CBCB 50%, #B3CBCB 50%);;
+        }
+        section.which-right-wm-pm .container .mobile-img {
+            display: block !important;
+        }
+        section.which-right-wm-pm .container .vs-content .col-pm{
+            display: none;
+        }
+        section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-first {
+            width: 100%;
+            text-align: center;
+        }
+        section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-second {
+            display: none;
+        }
+        section.which-right-wm-pm .container h1 {
+            font-size: 25px;
+            padding-top: 42px;
+            padding-bottom: 24px;
+        }
+        section.which-right-wm-pm .container .switch-btn {
+            margin-top: 15px !important;
+            margin-bottom: 23px !important;
+        }
+        .col-wm .inner-col-first h2 {
+            font-size: 24px !important;
+            padding-bottom: 5px;
+        }
+        .col-pm .inner-col-first h2 {
+            font-size: 24px !important;
+            padding-bottom: 20px;
+        }
+        .col-wm .inner-col-first h2 span{
+            font-size: 18px;
+        }
+        .inner-content .inner-col-first p {
+            padding-bottom: 0px;
+        }
+        .inner-content .inner-col-first ul li {
+            text-align: left;
+        }
+        section.which-right-wm-pm .container .vs-content {
+            padding-bottom: 50px;
+        }
+        .col-wm .button {
+            min-width: 100%;
+            margin-top: 25px;
+        }
+        .col-pm p {
+            text-align: center;
+        }
+    }
+    section.which-right-wm-pm .container .mobile-img {
+        display: none;
+    }
+    section.which-right-wm-pm .container .mobile-img img {
+        display: none;
+    }
+    section.which-right-wm-pm .container .mobile-img img:first-child {
+        display: block;
+    }
+    section.which-right-wm-pm .container .mobile-img img:first-child {
+        width: 137px;
+        margin: auto;
+    }
+    section.which-right-wm-pm .container .mobile-img img:(:first-child) {
+        width: 313.39px;
+        margin: auto;
+    }
+    section.which-right-wm-pm .container .switch-btn {
+        display: none;
+        margin: 30px 0px;
+    }
+    section.which-right-wm-pm .container .switch-btn .left {
+        border-radius: 25px 0px 0px 25px;
+    }
+    section.which-right-wm-pm .container .switch-btn .right {
+        border-radius: 0px 25px 25px 0px;
+        border-left: 0px;
+    }
+    section.which-right-wm-pm .container .switch-btn .btn {
+        text-align: center;
+        width: 50%;
+        border: 1px solid #1F3337;
+        padding: 16px 0px;
+    }
+    section.which-right-wm-pm .container .switch-btn .active {
+        background: white;
+    }
+</style>
+<section class="which-right-wm-pm" data-section-id="{{ section.id }}">
+    <div class="container">
+        <h1>{{section.settings.title}}</h1>
+        <div class="mobile-img">
+            <img src="{{section.settings.img_wm | img_url: 'master' }}">
+            <img src="{{section.settings.img_pm_mobile | img_url: 'master' }}">
+        </div>
+        <div class="switch-btn mobile-show">
+            <div class="btn left active"> Women's Multi </div>
+            <div class="btn right"> Prenatal Multi </div>
+        </div>
+        <div class="vs-content"> 
+            <div class="col col-wm">
+                <div class="inner-content">
+                    <div class="inner-col-first">
+                        <h2>{{section.settings.wm_title}}</h2><br>
+                        <p>{{section.settings.wm_take_title}}</p>
+                        <ul>
+                            {% for block in section.blocks %}
+                                {% if block.type == "wmtakeitem" %}
+                                    <li>{{block.settings.take_title}}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="inner-col-second">
+                        <img src="{{section.settings.img_wm | img_url: 'master' }}">
+                    </div>
+                </div>
+                <a href="#" class="button button--primary">{{section.settings.btn_addtocart}}</a>
+            </div>
+            <div class="col col-pm">
+                <div class="inner-content">
+                    <div class="inner-col-first">
+                        <h2>{{section.settings.pm_title}}</h2>
+                        <p>{{section.settings.pm_take_title}}</p>
+                        <ul>
+                            {% for block in section.blocks %}
+                                {% if block.type == "pmtakeitem" %}
+                                    <li>{{block.settings.take_title}}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="inner-col-second">
+                        <img src="{{section.settings.img_pm | img_url: 'master' }}">
+                    </div>
+                </div>
+                <p>Shop Prenatal Multi:</p>
+                <a href="https://thisisneeded.com/products/prenatal-multi-powder" class="button button--primary">{{section.settings.btn_powder}}</a>
+                <a href="https://thisisneeded.com/products/prenatal-multi-capsules" class="button button--primary">{{section.settings.btn_capsules}}</a>
+                <a href="https://thisisneeded.com/products/prenatal-multi-essentials" class="button button--primary">{{section.settings.btn_essentials}}</a>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+$(document).ready(function() {
+    $('section.which-right-wm-pm .container .switch-btn .right').on('click', function() {
+        console.log('click right btn');
+        $('section.which-right-wm-pm .container .switch-btn .right').addClass('active');
+        $('section.which-right-wm-pm .container .switch-btn .left').removeClass('active');
+        $('.col-wm').css('display', 'none');
+        $('.col-pm').css('display', 'block');
+        $('.mobile-img img').css('display', 'block');
+        $('.mobile-img img:first-child').css('display', 'none');
+        $('section.which-right-wm-pm').css('background-image', 'linear-gradient(to right, #FFCEC1 50%, #FFCEC1 50%)');
+    });
+    $('section.which-right-wm-pm .container .switch-btn .left').on('click', function() {
+        console.log('click left btn');
+        $('section.which-right-wm-pm .container .switch-btn .right').removeClass('active');
+        $('section.which-right-wm-pm .container .switch-btn .left').addClass('active');
+        $('.col-wm').css('display', 'block');
+        $('.col-pm').css('display', 'none');
+        $('.mobile-img img').css('display', 'none');
+        $('.mobile-img img:first-child').css('display', 'block');
+        $('section.which-right-wm-pm').css('background-image', 'linear-gradient(to right, #B3CBCB 50%, #B3CBCB 50%)');
+    });
+});
+</script>
+{% schema %}
+{
+    "name": "WhichRight", 
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Main heading",
+            "default": "Women's Multi or Prenatal Multi - Which is Right for You?"
+        },
+        {
+            "type": "textarea",
+            "id": "wm_title",
+            "label": "Sub heading For WM",
+            "default": "Women's Multi"
+        },
+        {
+            "type": "textarea",
+            "id": "pm_title",
+            "label": "Sub headingFor WM",
+            "default": "Prenatal Multi<br>(Powder, Capsules or Essentials)"
+        },
+        {
+            "type": "textarea",
+            "id": "wm_take_title",
+            "label": "Sub heading For WM Take",
+            "default": "Take it When You Are"
+        },
+        {
+            "type": "textarea",
+            "id": "pm_take_title",
+            "label": "Sub heading For PM Take",
+            "default": "Take it When You Are"
+        },
+        {
+            "type": "text",
+            "id": "btn_addtocart",
+            "label": "Add to Cart",
+            "default": "Add to cart"
+        },
+        {
+            "type": "text",
+            "id": "btn_powder",
+            "label": "powder btn",
+            "default": "Powder"
+        },
+        {
+            "type": "text",
+            "id": "btn_capsules",
+            "label": "capsules btn",
+            "default": "Capsules"
+        },
+        { 
+            "type": "text",
+            "id": "btn_essentials",
+            "label": "essentials btn",
+            "default": "Essentials"
+        },
+        { 
+            "type": "image_picker",
+            "id": "img_wm",
+            "label": "Image For WM"
+        },
+        { 
+            "type": "image_picker",
+            "id": "img_pm",
+            "label": "Image For PM"
+        },
+        { 
+            "type": "image_picker",
+            "id": "img_pm_mobile",
+            "label": "Image For PM Mobile"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "wmtakeitem",
+            "name": "wmtakeitem",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "take_title",
+                    "label": "Take title"
+                }
+            ]
+        },
+        {
+            "type": "pmtakeitem",
+            "name": "pmtakeitem",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "take_title",
+                    "label": "Take title"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

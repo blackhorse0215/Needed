@@ -1,0 +1,1161 @@
+<style>
+  .nutrient-amount-pmulti-essential .nutrient-amounts {
+    width: calc(100% - 182px);
+    position: relative;
+  }
+</style>
+
+{% assign nutrient_count = 0 %}
+{% assign text_list_count = 0 %}
+
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    {% if block.type == "nutrient" %}
+      {% assign nutrient_count = nutrient_count | plus: 1 %}
+    {% elsif block.type == "text_list" %}
+      {% assign text_list_count = text_list_count | plus: 1 %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+
+{% if nutrient_count > 0 %}
+
+  {% capture nutrient_tabs_header %}
+    {% assign count = 0 %}
+    <ul class="tabs nutrient-tab-header" role="tablist">
+    {% for block in section.blocks %}
+      {% if block.type == 'nutrient' %}
+        {% assign nutrient = block %}
+        <li class="tab {% if count == 0 %}active{% endif %}">
+          <a href="javascript:;" data-id="nutrient_{{ nutrient.id }}">{{ nutrient.settings.nutrient_name }}</a>
+        </li>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+    </ul>
+    
+    {% assign count = 0 %}
+    <select name="" id="" class="nutrient-select-header">
+      {% for block in section.blocks %}
+        {% if block.type == 'nutrient' %}
+          {% assign nutrient = block %}
+          <option value="nutrient_{{ nutrient.id }}" {% if count == 0 %}selected{% endif %}>{{ nutrient.settings.nutrient_name }}</option>
+          {% assign count = count | plus: 1 %}
+        {% endif %}
+      {% endfor %}
+    </select>
+  {% endcapture %}
+
+  {% capture nutrient_tabs_content %}
+    {% assign count = 0 %}
+    {% for block in section.blocks %}
+      {% if block.type == 'nutrient' %}
+        {% assign nutrient = block %}
+        <div id="nutrient_{{ nutrient.id }}" class="nutrient-tab-content {% if count == 0 %}active{% endif %}">
+          <!-- 4/9 -->
+          {% if nutrient.settings.display_option %}
+            <div class="switch-btn switch-desktop">
+              <div class="btn left{% unless product.handle contains 'essentials' %} active{% endunless %}">Needed Prenatal Multi Powder/Capsules</div>
+              <div class="btn right{% if product.handle contains 'essentials' %} active{% endif %}">Needed Prenatal Essentials</div>
+            </div>
+
+            <label for="" class="switch-label mobile">Compare with Needed Prenatal product:</label>
+            <div class="switch-btn switch-mobile">
+              <div class="btn left{% unless product.handle contains 'essentials' %} active{% endunless %}">Powder/Capsules</div>
+              {% comment %} <div class="btn center{% if product.handle contains 'capsules' %} active{% endif %}">Capsules</div> {% endcomment %}
+              <div class="btn right{% if product.handle contains 'essentials' %} active{% endif %}">Essentials</div>
+            </div>
+          {% endif %}
+
+          {% comment %} <div class="nutrient-contentinner pill{% if product.handle contains 'capsules' %} active{% endif %}">
+            <div class="nutrient-amounts">
+              <div class="typical-less-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  <div class="value">{{ nutrient.settings.typical_less_amount_min_pill }} - {{ nutrient.settings.typical_less_amount_max_pill | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_pill }}</div>
+                  <div class="real"></div>
+                  <div class="empty"></div>
+                </div>
+              </div>
+              <label style="margin-top: 30px;">Prenatal Multi Capsules</label>
+              <div class="optimal-amount">
+                <div class="nutrient-amount">
+                  {{ nutrient.settings.optimal_amount_pill  | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_pill }}<span>needed.<div>&reg;</div></span>
+                </div>
+                <div class="empty"></div>
+              </div>
+              {% if nutrient.settings.typical_more_amount_pill != blank %}
+              <div class="typical-more-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  {{ nutrient.settings.typical_more_amount_pill | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_pill }}
+                </div>
+              </div>
+              {% endif %}
+              <div class="vert-line"></div>
+              <div class="vert-line-pill"><p>Supportive level</p></div>
+              <style>
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-less-amount .nutrient-amount .real {
+                  width: calc(100% * {{ nutrient.settings.typical_less_amount_max_pill }} / {{ nutrient.settings.optimal_amount }});
+                  height: 100%;
+                  background-color: #1F3337;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .empty {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #1F3337;
+                  opacity: 0.2;
+                  position: absolute;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .optimal-amount .empty {
+                  position: absolute;
+                  width: 100%;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line {
+                  position: absolute;
+                  width: 1px;
+                  height: 100%;
+                  top: 15px;
+                  left: 100%;
+                  background-color: #878742;
+                  opacity: 0.4;
+                  z-index: 1;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill {
+                  position: absolute;
+                  height: 100%;
+                  top: 15px;
+                  left: 100%;
+                  z-index: 1;
+                  border-left: 1px dashed #878742;
+                  opacity: 0.6;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill p {
+                  margin-top: -10px;
+                  color: #878742;
+                  font-family: "BrownPro-Regular";
+                  line-height: -8px;
+                  margin-left: 10px;
+                  font-size: 16px;
+                }
+
+                @media (max-width: 767px) {
+                  /* .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill p {
+                    margin-left: -123px;
+                  } */
+                }
+
+                {% if nutrient.settings.typical_more_amount_pill != blank %}
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-less-amount .nutrient-amount {
+                    width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount_pill }});
+                    display: flex;
+                  }
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .optimal-amount .nutrient-amount {
+                    width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount_pill }});
+                    z-index: 1;
+                  }
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-more-amount .nutrient-amount {
+                    width: 100%;
+                    position: relative;
+                    z-index: 9;
+                  }
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill {
+                    left: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount_pill }});
+                  }
+
+                  {% assign left_val = nutrient.settings.optimal_amount_pill | times: 2 | divided_by: nutrient.settings.typical_more_amount_pill %}
+                  {% if left_val >= 1 %}
+                  @media (max-width: 767px) {
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill p {
+                      margin-left: -123px;
+                    }
+                  }
+                  {% endif %}
+                {% else %}
+                  {% if nutrient.settings.typical_more_amount != blank %}
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .optimal-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount }});
+                      z-index: 1;
+                    }
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill {
+                      left: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount }});
+                    }
+
+                    {% assign left_val = nutrient.settings.optimal_amount_pill | times: 2 | divided_by: nutrient.settings.typical_more_amount %}
+                    {% if left_val >= 1 %}
+                    @media (max-width: 767px) {
+                      .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill p {
+                        margin-left: -123px;
+                      }
+                    }
+                    {% endif %}
+                    
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-less-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.typical_more_amount }});
+                      display: flex;
+                    }
+                  {% else %}
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .optimal-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.optimal_amount }});
+                      z-index: 1;
+                    }
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill {
+                      left: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.optimal_amount }});
+                    }
+
+                    {% assign left_val = nutrient.settings.optimal_amount_pill | times: 2 | divided_by: nutrient.settings.optimal_amount %}
+                    {% if left_val >= 1 %}
+                    @media (max-width: 767px) {
+                      .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .vert-line-pill p {
+                        margin-left: -123px;
+                      }
+                    }
+                    {% endif %}
+
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-less-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_pill }} / {{ nutrient.settings.optimal_amount }});
+                      display: flex;
+                    }
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.pill .typical-less-amount .nutrient-amount .real {
+                      width: calc(100% * {{ nutrient.settings.typical_less_amount_max_pill }} / {{ nutrient.settings.optimal_amount_pill }});
+                      height: 100%;
+                      background-color: #1F3337;
+                    }
+                  {% endif %}
+                {% endif %}
+              </style>
+
+            </div>
+            <div class="nutrient-mobilefootertext nutrient-footertext">
+              {{ nutrient.settings.footer_text_pill }}
+            </div>
+            <div class="nutrient-separator"></div>
+            <div class="nutrient-description">
+              {{ nutrient.settings.description_pill }}
+            </div>
+          </div> {% endcomment %}
+
+          <!-- 4/9 -->
+          <script class="kjh"></script>
+          <div class="nutrient-contentinner powder{% unless product.handle contains 'essentials' %} active{% endunless %}">
+            <div class="nutrient-amounts">
+              <div class="typical-less-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  <div class="value">{{ nutrient.settings.typical_less_amount_min }} - {{ nutrient.settings.typical_less_amount_max | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit }}</div>
+                  <div class="real"></div>
+                  <div class="empty"></div>
+                </div>
+              </div>
+              <div class="optimal-amount">
+                <label>Optimal</label>
+                <div class="nutrient-amount">
+                  {{ nutrient.settings.optimal_amount  | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit }}<span>needed.<div>&reg;</div></span>
+                </div>
+              </div>
+              {% if nutrient.settings.typical_more_amount != blank %}
+              <div class="typical-more-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  {{ nutrient.settings.typical_more_amount | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit }}
+                </div>
+              </div>
+              {% endif %}
+              <div class="vert-line"></div>
+              
+              <style>
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .typical-less-amount .nutrient-amount {
+                  width: calc(100% * {{ nutrient.settings.optimal_amount }} / {{ nutrient.settings.typical_more_amount }});
+                  display: flex;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .typical-less-amount .nutrient-amount .real {
+                  width: calc(100% * {{ nutrient.settings.typical_less_amount_max }} / {{ nutrient.settings.optimal_amount }});
+                  height: 100%;
+                  background-color: #1F3337;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .typical-less-amount .nutrient-amount .empty {
+                  width: calc(100% - (100% * {{ nutrient.settings.typical_less_amount_max }} / {{ nutrient.settings.optimal_amount }}));
+                  height: 100%;
+                  background-color: #1F3337;
+                  opacity: 0.2;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .vert-line {
+                  position: absolute;
+                  width: 1px;
+                  height: calc(100% - 20px);
+                  top: 27px;
+                  left: 100%;
+                  background-color: #878742;
+                  opacity: 0.4;
+                  z-index: 1;
+                }
+              {% if nutrient.settings.typical_more_amount != blank %}
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .optimal-amount .nutrient-amount {
+                  width: calc(100% * {{ nutrient.settings.optimal_amount }} / {{ nutrient.settings.typical_more_amount }});
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .typical-more-amount .nutrient-amount {
+                  width: 100%;
+                  position: relative;
+                  z-index: 9;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .vert-line {
+                  left: calc(100% * {{ nutrient.settings.optimal_amount }} / {{ nutrient.settings.typical_more_amount }});
+                }
+              {% else %}
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.powder .optimal-amount .nutrient-amount {
+                  width: 100%;
+                }
+              {% endif %}
+              </style>
+
+            </div>
+            <div class="nutrient-mobilefootertext nutrient-footertext">
+              {{ nutrient.settings.footer_text }}
+            </div>
+            <div class="nutrient-separator"></div>
+            <div class="nutrient-description">
+              {{ nutrient.settings.description }}
+            </div>
+          </div>
+
+          <div class="nutrient-contentinner essential{% if product.handle contains 'essentials' %} active{% endif %}">
+            <div class="nutrient-amounts">
+              <div class="typical-less-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  <div class="value">{{ nutrient.settings.typical_less_amount_min_es }} - {{ nutrient.settings.typical_less_amount_max_es | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_es }}</div>
+                  <div class="real"></div>
+                  <div class="empty"></div>
+                </div>
+              </div>
+              <label style="margin-top: 30px;">Prenatal Multi Essentials</label>
+              <div class="optimal-amount">
+                <div class="nutrient-amount">
+                  <span class="nutrient-amount-prefix">{{ nutrient.settings.optimal_amount_es  | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_es }}</span><span class="nutrient-amount-suffix">needed.<div>&reg;</div></span>
+                </div>
+                <div class="empty"></div>
+              </div>
+              {% if nutrient.settings.typical_more_amount_es != blank %}
+              <div class="typical-more-amount">
+                <label>Typical</label>
+                <div class="nutrient-amount">
+                  {{ nutrient.settings.typical_more_amount_es | times:100 | money_without_currency | remove:'.00' }}{{ nutrient.settings.unit_es }}
+                </div>
+              </div>
+              {% endif %}
+              <div class="vert-line"></div>
+              <div class="vert-line-es"><p>Supportive level</p></div>
+              <style>
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .typical-less-amount .nutrient-amount {
+                  display: flex;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .empty {
+                  width: 100%;
+                  height: 100%;
+                  background-color: #1F3337;
+                  opacity: 0.2;
+                  position: absolute;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .optimal-amount .empty {
+                  position: absolute;
+                  width: 100%;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line {
+                  position: absolute;
+                  width: 1px;
+                  height: 100%;
+                  top: 15px;
+                  left: 100%;
+                  background-color: #878742;
+                  opacity: 0.4;
+                  z-index: 1;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es {
+                  position: absolute;
+                  height: 100%;
+                  top: 15px;
+                  left: 100%;
+                  z-index: 1;
+                  border-left: 1px dashed #878742;
+                  opacity: 0.6;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es p {
+                  margin-top: -10px;
+                  color: #878742;
+                  font-family: "BrownPro-Regular";
+                  line-height: -8px;
+                  margin-left: 10px;
+                  font-size: 16px;
+                }
+                .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .optimal-amount .nutrient-amount .nutrient-amount-suffix {
+                  padding-left: 20px;
+                }
+
+                {% if nutrient.settings.typical_more_amount_es != blank %}
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .optimal-amount .nutrient-amount {
+                    width: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.typical_more_amount_es }});
+                    z-index: 1;
+                  }
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .typical-more-amount .nutrient-amount {
+                    width: 100%;
+                    position: relative;
+                    z-index: 9;
+                  }
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es {
+                    left: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.typical_more_amount_es }});
+                  }
+                  
+                  {% assign left_val = nutrient.settings.optimal_amount_es | times: 2 | divided_by: nutrient.settings.typical_more_amount_es %}
+                  {% if left_val >= 1 %}
+                  @media (max-width: 767px) {
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es p {
+                      margin-left: -123px;
+                    }
+                  }
+                  {% endif %}
+
+                  .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .typical-less-amount .nutrient-amount .real {
+                    width: calc(100% * {{ nutrient.settings.typical_less_amount_max_es }} / {{ nutrient.settings.typical_more_amount_es }});
+                    height: 100%;
+                    background-color: #1F3337;
+                  }
+                {% else %}
+                  {% if nutrient.settings.typical_more_amount != blank %}
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .optimal-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.typical_more_amount }});
+                      z-index: 1;
+                    }
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es {
+                      left: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.typical_more_amount }});
+                    }
+
+                    {% assign left_val = nutrient.settings.optimal_amount_es | times: 2 | divided_by: nutrient.settings.typical_more_amount %}
+                    {% if left_val >= 1 %}
+                    @media (max-width: 767px) {
+                      .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es p {
+                        margin-left: -123px;
+                      }
+                    }
+                    {% endif %}
+
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .typical-less-amount .nutrient-amount .real {
+                      width: calc(100% * {{ nutrient.settings.typical_less_amount_max_es }} / {{ nutrient.settings.typical_more_amount }});
+                      height: 100%;
+                      background-color: #1F3337;
+                    }
+                  {% else %}
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .optimal-amount .nutrient-amount {
+                      width: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.optimal_amount }});
+                      z-index: 1;
+                    }
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es {
+                      left: calc(100% * {{ nutrient.settings.optimal_amount_es }} / {{ nutrient.settings.optimal_amount }});
+                    }
+
+                    {% assign left_val = nutrient.settings.optimal_amount_es | times: 2 | divided_by: nutrient.settings.optimal_amount %}
+                    {% if left_val >= 1 %}
+                    @media (max-width: 767px) {
+                      .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .vert-line-es p {
+                        margin-left: -123px;
+                      }
+                    }
+                    {% endif %}
+
+                    .nutrient-amount-pmulti-essential #nutrient_{{ nutrient.id }} .nutrient-contentinner.essential .typical-less-amount .nutrient-amount .real {
+                      width: calc(100% * {{ nutrient.settings.typical_less_amount_max_es }} / {{ nutrient.settings.optimal_amount }});
+                      height: 100%;
+                      background-color: #1F3337;
+                    }
+                  {% endif %}
+                {% endif %}
+              </style>
+            </div>
+            <div class="nutrient-mobilefootertext nutrient-footertext">
+              {{ nutrient.settings.footer_text_es }}
+            </div>
+            <div class="nutrient-separator"></div>
+            <div class="nutrient-description">
+              {{ nutrient.settings.description_es }}
+            </div>
+          </div>
+
+          <div class="nutrient-footertext">
+            {{ nutrient.settings.footer_text }}
+          </div>
+        </div>
+        {% assign count = count | plus: 1 %}
+      {% endif %}
+    {% endfor %}
+  {% endcapture %}
+
+{% endif %}
+
+
+<section class="nutrient-amount-pmulti-essential" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="section-title">
+      {{ section.settings.section_title }}
+    </div>
+
+    <div class="nutrient-list js-animate animate-fade-in">
+      {% if nutrient_count > 0 %}
+        <div class="nutrient-tabs">
+          <div class="nutrient-tabs-header">
+            {{ nutrient_tabs_header }}
+          </div>
+          <div class="nutrient-tabs-content">
+            {{ nutrient_tabs_content }}
+          </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="section-title2">
+      {{ section.settings.section_title2 }}
+    </div>
+
+    <div class="text-list">
+      {% if text_list_count > 0 %}
+        {% for block in section.blocks %}
+          {% if block.type == 'text_list' %}
+            <div class="text-dtneed"><span>x</span>{{ block.settings.description }}</div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    <div class="section-button">
+      <a href="{{ section.settings.button_link }}" class="complete-comparison">{{ section.settings.button_text }}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .nutrient-amount-pmulti-essential .switch-btn {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 15px;
+  }
+  .nutrient-amount-pmulti-essential .switch-label {
+    display: none !important;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn.switch-mobile {
+    display: none;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn:hover {
+    cursor: pointer;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn .btn {
+    border: 1px solid #1F3337;
+    padding: 16px;
+    padding-right: 39.5px;
+    padding-left: 39.5px;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn .left {
+    border-radius: 25px 0px 0px 25px;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn .active {
+    background: white;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn .center {
+    border-left: 0px;
+  }
+  .nutrient-amount-pmulti-essential .switch-btn .right {
+    border-radius: 0px 25px 25px 0px;
+    border-left: 0px;
+  }
+
+  .nutrient-amount-pmulti-essential {
+    padding: 125px 0 105px;
+    margin-bottom: 25px;
+    background-color: #F6F4F2;
+    position: relative;
+  }
+  .nutrient-amount-pmulti-essential .section-title {
+    font-family: 'Copernicus-bold';
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    color: #1F3437;
+    max-width: 670px;
+    margin: 0 auto 60px;
+  }
+  .nutrient-amount-pmulti-essential .section-title span {
+    color: #878742;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-select-header {
+    display: none;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-header li a {
+    font-family: 'Copernicus-bold';
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    color: #1F3337;
+    text-decoration: none;
+    padding-bottom: 4px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-header li.active a {
+    border-bottom: 3px solid #1F3337;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content {
+    padding: 48px 0;
+    display: none;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content.active {
+    display: block;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-contentinner {
+    display: none;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-contentinner.active {
+    display: flex;
+  }
+  .nutrient-amount-pmulti-essential .typical-less-amount .nutrient-amount {
+    height: 60px;
+    position: relative;
+  }
+  .nutrient-amount-pmulti-essential .typical-less-amount .nutrient-amount .value {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9;
+  }
+  .nutrient-amount-pmulti-essential .optimal-amount .nutrient-amount {
+    background-color: #878742;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    padding: 20px;
+  }
+  .nutrient-amount-pmulti-essential .optimal-amount .nutrient-amount span {
+    position: relative;
+  }
+  .nutrient-amount-pmulti-essential .optimal-amount .nutrient-amount span div {
+    position: absolute;
+    top: -7px;
+    right: 0;
+    font-size: 13px;
+    font-family: 'Copernicus-Book';
+  }
+  .nutrient-amount-pmulti-essential .typical-more-amount .nutrient-amount {
+    background-color: #1F3337;
+    height: 60px;
+    padding: 20px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .optimal-amount {
+    margin-top: 30px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-contentinner.pill .optimal-amount {
+    display: flex;
+    position: relative;
+    margin: 0;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-contentinner.essential .optimal-amount {
+    display: flex;
+    position: relative;
+    margin: 0;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .typical-more-amount {
+    margin-top: 30px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content label {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 22px;
+    line-height: 20px;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-amount {
+    color: #FFFFFF;
+    font-family: 'BrownPro-regular';
+    font-size: 24px;
+    line-height: 20px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-separator {
+    width: 10px;
+    border-style: solid;
+    border-color: #1F3337;
+    border-width: 1px;
+    border-left: hidden;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    opacity: 0.2;
+    margin: 65px 35px 30px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-description {
+    width: 172px;
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 23px;
+    display: inline-table;
+    margin: auto;
+    padding-top: 30px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-footertext {
+    color: #1F3337;
+    font-family: 'BrownPro-regular';
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    margin-top: 45px;
+    text-align: center;
+    padding: 0 30px;
+  }
+  .nutrient-amount-pmulti-essential .nutrient-mobilefootertext {
+    display: none;
+  }
+  .nutrient-amount-pmulti-essential .section-title2 {
+    font-family: 'Copernicus-bold';
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    color: #1F3437;
+    max-width: 670px;
+    margin: 63px auto 40px;
+  }
+  .nutrient-amount-pmulti-essential .section-title2 span {
+    color: #878742;
+  }
+  .nutrient-amount-pmulti-essential .text-list {
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .nutrient-amount-pmulti-essential .text-dtneed {
+    font-family: 'BrownPro-regular';
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0;
+    color: #1F3337;
+    display: flex;
+    width: 47%;
+    margin-bottom: 20px;
+  }
+  .nutrient-amount-pmulti-essential .text-dtneed:last-child,
+  .nutrient-amount-pmulti-essential .text-dtneed:nth-last-child(2) {
+    margin-bottom: 0px;
+  }
+  .nutrient-amount-pmulti-essential .text-dtneed span {
+    margin-right: 18px;
+  }
+  .nutrient-amount-pmulti-essential .section-button {
+    margin-top: 45px;
+    text-align: center;
+  }
+  .nutrient-amount-pmulti-essential .section-button a {
+    display: inline-block;
+    text-decoration: none;
+    background-color: #1F3337;
+    color: #ffffff;
+    padding: 20px 80px;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 28px;
+  }
+  @media (max-width: 1023px) {
+    .nutrient-amount-pmulti-essential .nutrient-tab-header {
+      padding: 0 70px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-header li a {
+      font-size: 16px;
+      line-height: 20px;
+      padding-bottom: 3px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content label {
+      font-size: 21px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-amount {
+      font-size: 21px;
+    }
+    .nutrient-amount-pmulti-essential .text-list {
+      width: 85%;
+    }
+  }
+  @media (max-width: 919px) {
+    .nutrient-amount-pmulti-essential .nutrient-tab-header {
+      padding: 0 40px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-header li.active a {
+      border-bottom: 2px solid #1F3337;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-header li a {
+      font-size: 15px;
+      line-height: 18px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content label {
+      font-size: 19px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-amount {
+      font-size: 18px;
+    }
+    .nutrient-amount-pmulti-essential .typical-less-amount .nutrient-amount {
+      height: 58px;
+    }
+    .nutrient-amount-pmulti-essential .optimal-amount .nutrient-amount {
+      height: 58px;
+    }
+    .nutrient-amount-pmulti-essential .typical-more-amount .nutrient-amount {
+      height: 58px;
+    }
+    .nutrient-amount-pmulti-essential .text-list {
+      width: 95%;
+    }
+  }
+  @media (max-width: 767px) {
+    .nutrient-amount-pmulti-essential .nutrient-tab-content {
+      padding: 20px 0px;
+    }
+    .nutrient-amount-pmulti-essential .switch-label.mobile {
+      display: block !important;
+      color: #1F3337;
+      font-size: 16px;
+      letter-spacing: 0;
+      line-height: 23px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: -5px;
+    }
+    .nutrient-amount-pmulti-essential .switch-btn .btn {
+      padding: 10px 20px;
+      font-size: 15px;
+    }
+    .nutrient-amount-pmulti-essential .switch-btn.switch-desktop {
+      display: none;
+    }
+    .nutrient-amount-pmulti-essential .switch-btn.switch-mobile {
+      display: flex;
+    }
+    .nutrient-amount-pmulti-essential .section-title,
+    .nutrient-amount-pmulti-essential .section-title2 {
+      font-size: 26px;
+      line-height: 35px;
+      max-width: 520px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-header {
+      display: none;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-amounts {
+      width: 100%;
+      position: relative;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-select-header {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      font-size: 18px;
+      color: #1F3337;
+      font-family: 'Copernicus-bold';
+      letter-spacing: 0;
+      line-height: 24px;
+      border: 1px solid #1F3337;
+      align-items: center;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-select-header:after {
+      justify-self: end;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-contentinner.active {
+      display: block;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-separator {
+      border-left-style: solid;
+      border-top-right-radius: unset;
+      width: 100%;
+      margin: 20px 0 0;
+      height: 10px;
+      border-top: none;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-left-width: 1px;
+      border-left-style: solid;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-description {
+      width: 100%;
+      display: block;
+      margin: 25px auto 0;
+      padding: 0 30px;
+      text-align: center;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-footertext {
+      display: none;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-mobilefootertext {
+      display: block;
+      text-align: left;
+    }
+    .nutrient-amount-pmulti-essential .text-dtneed {
+      width: 100%;
+    }
+    .nutrient-amount-pmulti-essential .text-dtneed:nth-last-child(2) {
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 519px) {
+    .nutrient-amount-pmulti-essential .nutrient-description {
+      padding: 0px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-footertext {
+      padding: 0px;
+    }
+    .nutrient-amount-pmulti-essential .section-button a {
+      padding: 18px 25px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content label {
+      font-size: 18px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content .nutrient-amount {
+      font-size: 16px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content:first-child .optimal-amount .nutrient-amount {
+      display: block;
+      /* padding: 10px 20px; */
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content:first-child .optimal-amount .nutrient-amount span {
+      /* display: block; */
+      margin-top: 3px;
+    }
+    .nutrient-amount-pmulti-essential .nutrient-tab-content:first-child .optimal-amount .nutrient-amount span div {
+      display: inline-block;
+      right: unset;
+      margin-left: -6px;
+    }
+  }
+</style>
+
+<script>
+  $(".nutrient-amount-pmulti-essential .nutrient-tab-header li a").click(function() {
+    var tabId = $(this).data("id");
+    $(".nutrient-amount-pmulti-essential .nutrient-tab-content").removeClass("active");
+    $(".nutrient-amount-pmulti-essential #" + tabId).addClass("active");
+    $(".nutrient-amount-pmulti-essential .nutrient-tab-header li.active").removeClass("active");
+    $(this).parent().addClass("active");
+    $(".nutrient-amount-pmulti-essential .nutrient-select-header option[value="+tabId+"]").attr('selected', '');
+  });
+
+  $(".nutrient-amount-pmulti-essential .nutrient-select-header").change(function() {
+    var tabId = $(this).val();
+    $(".nutrient-amount-pmulti-essential .nutrient-tab-content").removeClass("active");
+    $(".nutrient-amount-pmulti-essential #" + tabId).addClass("active");
+    $(".nutrient-amount-pmulti-essential .nutrient-tab-header li.active").removeClass("active");
+    $(".nutrient-amount-pmulti-essential .nutrient-tab-header li a[data-id="+tabId+"]").parent().addClass("active");
+  });
+  
+  $(".nutrient-amount-pmulti-essential .switch-btn .btn").on("click", function() {
+    if (!$(this).hasClass('active')) {
+      if ($(this).hasClass('left')) {
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.active').removeClass('active');
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.powder').addClass('active');
+        $(this).parents('.switch-btn').find('.btn.active').removeClass('active');
+        $(this).addClass('active');
+      } else if ($(this).hasClass('center')) {
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.active').removeClass('active');
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.pill').addClass('active');
+        $(this).parents('.switch-btn').find('.btn.active').removeClass('active');
+        $(this).addClass('active');
+      } else {
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.active').removeClass('active');
+        $('.nutrient-amount-pmulti-essential .nutrient-contentinner.essential').addClass('active');
+        $(this).parents('.switch-btn').find('.btn.active').removeClass('active');
+        $(this).addClass('active');
+      }
+    }
+  });
+
+</script>
+
+{% schema %}
+{
+  "name": "Nutrient Amount",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "section_title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "section_title2",
+      "label": "Title2"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nutrient",
+      "name": "Nutrient",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Powder Pill Options"
+        },
+        {
+          "type": "checkbox",
+          "id": "display_option",
+          "label": "This nutrient has different values for pill & powder.",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "nutrient_name",
+          "label": "Nutrient Name"
+        },
+        {
+          "type": "header",
+          "content": "Prenatal Multi Powder"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_min",
+          "label": "Typical Amount Min(Less)",
+          "default": "0"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_max",
+          "label": "Typical Amount Max(Less)"
+        },
+        {
+          "type": "text",
+          "id": "optimal_amount",
+          "label": "Optimal Amount"
+        },
+        {
+          "type": "text",
+          "id": "typical_more_amount",
+          "label": "Typical Amount(More)"
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "Unit"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "footer_text",
+          "label": "Footer Text"
+        },
+        {
+          "type": "header",
+          "content": "Prenatal Multi Capsules"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_min_pill",
+          "label": "Typical Amount Min(Less)",
+          "default": "0"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_max_pill",
+          "label": "Typical Amount Max(Less)"
+        },
+        {
+          "type": "text",
+          "id": "optimal_amount_pill",
+          "label": "Optimal Amount"
+        },
+        {
+          "type": "text",
+          "id": "typical_more_amount_pill",
+          "label": "Typical Amount(More)"
+        },
+        {
+          "type": "text",
+          "id": "unit_pill",
+          "label": "Unit"
+        },
+        {
+          "type": "textarea",
+          "id": "description_pill",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "footer_text_pill",
+          "label": "Footer Text"
+        },
+        {
+          "type": "header",
+          "content": "Prenatal Multi Essentials"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_min_es",
+          "label": "Typical Amount Min(Less)",
+          "default": "0"
+        },
+        {
+          "type": "text",
+          "id": "typical_less_amount_max_es",
+          "label": "Typical Amount Max(Less)"
+        },
+        {
+          "type": "text",
+          "id": "optimal_amount_es",
+          "label": "Optimal Amount"
+        },
+        {
+          "type": "text",
+          "id": "typical_more_amount_es",
+          "label": "Typical Amount(More)"
+        },
+        {
+          "type": "text",
+          "id": "unit_es",
+          "label": "Unit"
+        },
+        {
+          "type": "textarea",
+          "id": "description_es",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "footer_text_es",
+          "label": "Footer Text"
+        }
+      ]
+    },
+    {
+      "type": "text_list",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

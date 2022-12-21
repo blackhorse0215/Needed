@@ -1,0 +1,432 @@
+<style>
+  #section-{{ section.id }} {
+    background-color: #E0CE86;
+  }
+  #section-{{ section.id }} .section-inner {
+    padding: 80px 0px;
+  }
+  #section-{{ section.id }} .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .section-title span.underline {
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  #section-{{ section.id }} .section-title span.em-b {
+    font-family: 'Copernicus-Bold-Italic';
+  }
+  #section-{{ section.id }} .section-descr {
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 31px;
+    text-align: center;
+    max-width: 860px;
+    width: 100%;
+    margin: 30px auto 0;
+    padding: 0 15px;;
+  }
+  #section-{{ section.id }} .plan-list {
+    margin-top: 55px;
+    display: flex;
+  }
+  #section-{{ section.id }} .plan-image {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+  }
+  #section-{{ section.id }} .plan-image:before {
+    content: '+';
+    position: absolute;
+    left: -11px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 42px;
+    line-height: 23px;
+  }
+  #section-{{ section.id }} .plan-image:after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -15px;
+    transform: translateX(-50%) rotate(45deg);
+    z-index: 1;
+    background: #E0CE86;
+  }
+  #section-{{ section.id }} .plan:first-child .plan-image:before {
+    display: none;
+  }
+  #section-{{ section.id }} .over-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 50px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #section-{{ section.id }} .plan-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 31px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  #section-{{ section.id }} .plan-descr {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 18px;
+    text-align: center;
+    opacity: 0.5;
+    max-width: 310px;
+    margin: 10px auto 0;
+  }
+
+  #section-{{ section.id }} .icon-list {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .icon-list .icon {
+    display: flex;
+    margin-left: 50px;
+  }
+  #section-{{ section.id }} .icon-list .icon:first-child {
+    margin-left: 0;
+  }
+  #section-{{ section.id }} .icon-list .icon-image {
+    width: 24px;
+    min-width: 24px;
+  }
+  #section-{{ section.id }} .icon-list .icon-title {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    max-width: 340px;
+    width: 100%;
+    margin-left: 20px;
+  }
+
+  #section-{{ section.id }} .button-wrapper {
+    margin-top: 40px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .button-wrapper.second-btn {
+    margin-top: 10px;
+  }
+  #section-{{ section.id }} .section-btn {
+    max-width: 400px;
+    height: 57px;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    background-color: #1F3337;
+    text-align: center;
+    border-radius: 29px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+  }
+  #section-{{ section.id }} .button-wrapper.second-btn .section-btn {
+    color: #1f3337;
+    background-color: transparent;
+    border: 2px solid #1f3337;
+  }
+
+  @media (max-width: 1200px) {
+    #section-{{ section.id }} .over-text {
+      font-size: 35px;
+      line-height: 40px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #section-{{ section.id }} .plan-list {
+      margin-top: 40px;
+    }
+    #section-{{ section.id }} .over-text {
+      font-size: 30px;
+      line-height: 34px;
+      font-weight: 500;
+    }
+    #section-{{ section.id }} .icon-list {
+      flex-direction: column;
+      align-items: center;
+    }
+    #section-{{ section.id }} .icon-list .icon {
+      margin-left: 0;
+      margin-top: 15px;
+    }
+    #section-{{ section.id }} .icon-list .icon:first-child {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 991px) {
+    #section-{{ section.id }} .plan-list {
+      flex-wrap: wrap;
+    }
+    #section-{{ section.id }} .plan-list .plan {
+      width: 50%;
+    }
+    #section-{{ section.id }} .plan-descr {
+      display: none;
+    }
+    #section-{{ section.id }} .plan-list .plan:first-child,
+    #section-{{ section.id }} .plan-list .plan:nth-child(2) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    #section-{{ section.id }} .plan-image:before {
+      display: none;
+    }
+    #section-{{ section.id }} .plan:first-child .plan-image:before {
+      display: block;
+      bottom: -11px;
+      right: -11px;
+      top: unset;
+      transform: unset;
+      left: unset;
+      z-index: 2;
+    }
+    #section-{{ section.id }} .plan-list .plan:first-child .plan-image:after,
+    #section-{{ section.id }} .plan-list .plan:nth-child(2) .plan-image:after {
+      top: -15px;
+    }
+    #section-{{ section.id }} .plan-list .plan:first-child .plan-title,
+    #section-{{ section.id }} .plan-list .plan:nth-child(2) .plan-title {
+      margin-top: 0;
+      margin-bottom: 16px;
+    }
+    #section-{{ section.id }} .plan-title {
+      margin-top: 16px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .section-inner {
+      padding: 50px 0;
+    }
+    #section-{{ section.id }} .section-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+    #section-{{ section.id }} .section-title span.em-b {
+      font-style: italic;
+    }
+    #section-{{ section.id }} .section-descr {
+      font-size: 17px;
+      line-height: 24px;
+      margin-top: 16px;
+    }
+    #section-{{ section.id }} .plan-list {
+      margin-top: 32px;
+    }
+    #section-{{ section.id }} .plan:first-child .plan-image:before {
+      font-size: 34px;
+      line-height: 18px;
+      right: -9px;
+      bottom: -9px;
+    }
+    #section-{{ section.id }} .plan-image:after {
+      width: 22px;
+      height: 22px;
+      bottom: -12px;
+    }
+    #section-{{ section.id }} .plan-list .plan:first-child .plan-image:after,
+    #section-{{ section.id }} .plan-list .plan:nth-child(2) .plan-image:after {
+      top: -12px;
+    }
+    #section-{{ section.id }} .over-text {
+      font-size: 24px;
+      line-height: 29px;
+    }
+    #section-{{ section.id }} .plan-title {
+      font-size: 20px;
+      line-height: 24px;
+    }
+    #section-{{ section.id }} .button-wrapper {
+      margin-top: 32px;
+    }
+  }
+
+  @media (max-width: 549px) {
+    #section-{{ section.id }} .plan-title {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+</style>
+
+{% assign plan_list = '' %}
+{% assign icon_list = '' %}
+
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    {% if block.type == 'plan' %}
+      {%- capture plan_html -%}
+      <div class="plan">
+        <div class="plan-image">
+          <img src="{{ block.settings.image | img_url: '476x476' }}" class="lazyload" alt="">
+          <div class="over-text">{{ block.settings.over_text }}</div>
+        </div>
+        <div class="plan-content">
+          <h3 class="plan-title">{{ block.settings.title }}</h3>
+          <div class="plan-descr">{{ block.settings.descr }}</div>
+        </div>
+      </div>
+      {%- endcapture -%}
+
+      {% assign plan_list = plan_list | append: plan_html %}
+    {% elsif block.type == 'icon' %}
+      {%- capture icon_html -%}
+      <div class="icon">
+        <div class="icon-image">
+          <img src="{{ block.settings.image | img_url: 'master' }}" class="lazyload" alt="">
+        </div>
+        <div class="icon-title">{{ block.settings.title }}</div>
+      </div>
+      {%- endcapture -%}
+
+      {% assign icon_list = icon_list | append: icon_html %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<section id="section-{{ section.id }}" class="home-introduce">
+  <div class="section-inner">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+    <div class="section-descr">{{ section.settings.descr }}</div>
+
+    {% if plan_list != blank %}
+    <div class="plan-list">{{ plan_list }}</div>
+    {% endif %}
+
+    {% if icon_list != blank %}
+    <div class="icon-list">{{ icon_list }}</div>  
+    {% endif %}
+    
+    {% if section.settings.btn_text1 != blank %}
+      <div class="button-wrapper main-btn">
+        <a href="{{ section.settings.btn_url1 }}" class="section-btn">{{ section.settings.btn_text1 }}</a>
+      </div>
+    {% endif %}
+
+    {% if section.settings.btn_text2 != blank %}
+      <div class="button-wrapper second-btn">
+        <a href="{{ section.settings.btn_url2 }}" class="section-btn">{{ section.settings.btn_text2 }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Plan Introduction",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "btn_text1",
+      "label": "Button Text 1"
+    },
+    {
+      "type": "url",
+      "id": "btn_url1",
+      "label": "Button URL 1"
+    },
+    {
+      "type": "text",
+      "id": "btn_text2",
+      "label": "Button Text 2"
+    },
+    {
+      "type": "url",
+      "id": "btn_url2",
+      "label": "Button URL 2"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "over_text",
+          "label": "Over Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "icon",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plan Introduction",
+      "category": "plan"
+    }
+  ]
+}
+{% endschema %}

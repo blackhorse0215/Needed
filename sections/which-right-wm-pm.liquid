@@ -1,0 +1,192 @@
+<style>
+    section.which-right-wm-pm {
+        background-image: linear-gradient(to right, #FFCEC1 50%, #ffe6e0 50%);
+    }
+    section.which-right-wm-pm .container h1 {
+        font-size: 35px;
+        color: #1F3437;
+        padding-top: 90px;
+        padding-bottom: 74px;
+        max-width: 612px;
+        margin: auto;
+        text-align: center;
+        font-weight: normal;
+        letter-spacing: normal;
+    }
+    section.which-right-wm-pm .container .vs-content {
+        width: 100%;
+        padding-bottom: 90px;
+        display: flex;
+    }
+    section.which-right-wm-pm .container .vs-content .col {
+        width: 50%;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content {
+        width: 100%;
+        display: flex;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-first {
+        width: 60%;
+    }
+    section.which-right-wm-pm .container .vs-content .col .inner-content .inner-col-second {
+        width: 40%;
+    }
+    .col-pm {
+        padding-left: 116px;
+    }
+    .col-wm {
+        padding-right: 86px;
+    }
+    .col-pm .button {
+        min-width: 150px;
+        width: 150px;
+    }
+    .col-pm p {
+        font-size: 16px;
+        margin-bottom: 22px;
+    }
+    .col-wm .button {
+        min-width: 160px;
+        width: 172px;
+    }
+    .inner-col-first h2 {
+        font-size: 20px !important;
+        font-weight: normal;
+        font-family: Copernicus-bold,sans-serif;
+        padding-bottom: 28px;
+    }
+    .inner-col-first p {
+        font-family: BrownPro-Bold,sans-serif;
+        font-size: 16px;
+        padding-bottom: 12px;
+    }
+</style>
+<section class="which-right-wm-pm" data-section-id="{{ section.id }}">
+    <div class="container">
+        <h1>{{section.settings.title}}</h1>
+        <div class="vs-content"> 
+            <div class="col col-wm">
+                <div class="inner-content">
+                    <div class="inner-col-first">
+                        <h2>{{section.settings.wm_title}}</h2><br>
+                        <p>{{section.settings.wm_take_title}}</p>
+                    </div>
+                    <div class="inner-col-second">
+                        <img src="{{section.settings.img_wm | img_url: 'master' }}">
+                    </div>
+                </div>
+                <a href="" class="button button--primary">{{section.settings.btn_addtocart}}</a>
+            </div>
+            <div class="col col-pm">
+                <div class="inner-content">
+                    <div class="inner-col-first">
+                        <h2>{{section.settings.pm_title}}</h2>
+                        <p>{{section.settings.pm_take_title}}</p>
+                    </div>
+                    <div class="inner-col-second">
+                        <img src="{{section.settings.img_pm | img_url: 'master' }}">
+                    </div>
+                </div>
+                <p>Shop Prenatal Multi:</p>
+                <a href="https://thisisneeded.com/products/prenatal-multi-powder" class="button button--primary">{{section.settings.btn_powder}}</a>
+                <a href="https://thisisneeded.com/products/prenatal-multi-capsules" class="button button--primary">{{section.settings.btn_capsules}}</a>
+                <a href="https://thisisneeded.com/products/prenatal-multi-essentials" class="button button--primary">{{section.settings.btn_essentials}}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% schema %}
+{
+    "name": "WhichRight",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Main heading",
+            "default": "Women's Multi or Prenatal Multi - Which is Right for You?"
+        },
+        {
+            "type": "textarea",
+            "id": "wm_title",
+            "label": "Sub heading For WM",
+            "default": "Women's Multi"
+        },
+        {
+            "type": "textarea",
+            "id": "pm_title",
+            "label": "Sub headingFor WM",
+            "default": "Prenatal Multi<br>(Powder, Capsules or Essentials)"
+        },
+        {
+            "type": "textarea",
+            "id": "wm_take_title",
+            "label": "Sub heading For WM Take",
+            "default": "Take it When You Are"
+        },
+        {
+            "type": "textarea",
+            "id": "pm_take_title",
+            "label": "Sub heading For PM Take",
+            "default": "Take it When You Are"
+        },
+        {
+            "type": "text",
+            "id": "btn_addtocart",
+            "label": "Add to Cart",
+            "default": "Add to cart"
+        },
+        {
+            "type": "text",
+            "id": "btn_powder",
+            "label": "powder btn",
+            "default": "Powder"
+        },
+        {
+            "type": "text",
+            "id": "btn_capsules",
+            "label": "capsules btn",
+            "default": "Capsules"
+        },
+        { 
+            "type": "text",
+            "id": "btn_essentials",
+            "label": "essentials btn",
+            "default": "Essentials"
+        },
+        { 
+            "type": "image_picker",
+            "id": "img_wm",
+            "label": "Image For WM"
+        },
+        { 
+            "type": "image_picker",
+            "id": "img_pm",
+            "label": "Image For PM"
+        }
+    ],
+    "blocks": [
+         {
+            "type": "wm-take",
+            "name": "wm-take",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "option-take",
+                    "label": "option-take"
+                }
+            ]
+        },
+        {
+            "type": "pm-take",
+            "name": "pm-take",
+            "settings": [
+                {
+                    "type": "textarea",
+                    "id": "option-take",
+                    "label": "option-take"
+                }
+            ]
+        }
+    ]
+}
+{% endschema %}

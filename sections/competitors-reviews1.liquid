@@ -1,0 +1,104 @@
+<section class="competitors-reviews">
+  <div class="reviews-inner container">
+    <div class="reviews-content">
+      <div class="reviews-descr">{{ section.settings.description }}</div>
+      <div class="reviews-form">
+        {% form 'contact', class: 'form' %}
+          {%- if form.posted_successfully? -%}
+            <div class="success-text" tabindex="-1">
+              <p>thanks! downloaded successfully!</p>
+            </div>
+
+            <script>
+              var a = document.createElement('A');
+              var filePath = "{{ 'Needed_Prenatal-Vitamin-Reviews.pdf' | asset_url }}";
+              a.href = filePath;
+              a.download = filePath.substr(filePath.lastIndexOf('/') + 1);
+              // a.target = '_blank';
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            </script>
+          {%- else -%}
+            <div class="col-12">
+              {{ form.errors | default_errors }}
+            </div>
+            <input type="text"
+                class="input prenatal"
+                required
+                name="contact[prenatal]"
+                id="ContactFormPrenatal"
+                placeholder="What prenatal are you currently taking?"
+            >
+
+            <!-- <select type="text"
+                class="select"
+                name="contact[prenatal]"
+                id="ContactFormPrenatal"
+                placeholder="What prenatal are you currently taking?"
+            value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}"    
+            >
+            
+                <option value="" disabled selected>What prenatal are you currently taking?</option>
+                {% for block in section.blocks %}
+                    {% if block.type == 'customer_type' %}
+                        <option value="{{ block.settings.title | handle }}">
+                            {{- block.settings.title -}}
+                        </option>
+                    {% endif %}
+                {% endfor %}
+            </select> -->
+                      
+            <input type="email"
+                required
+                class="input email"
+                name="contact[email]"
+                id="ContactFormEmail"
+                placeholder="Your email"
+                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                spellcheck="false"
+                autocomplete="off"
+                autocapitalize="off"
+            >
+
+            <button type="submit" class="download-guide button button--primary">
+              download the prenatal vitamin review guide!
+            </button>
+          {% endif %}
+        {% endform %}
+      </div>
+      <div class="reviews-info">
+        {% comment %} <img class="lazyload info-image" data-src="{{ 'competitor-information.svg' | img_url: '39x' }}"> {% endcomment %}
+        {% comment %} <img src="{{ 'competitor-information.svg' | img_url: '39x' }}" class="info-image"> {% endcomment %}
+        <div class="info-text">{{ section.settings.info_text }}</div>
+      </div>
+    </div>
+
+    <div class="reviews-image">
+      <img class="lazyload" data-src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt | escape }}">
+    </div>
+  </div>
+</section>
+ 
+{% schema %}
+  {
+    "name": "Reviews",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "textarea",
+        "id": "info_text",
+        "label": "Information Text"
+      },
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Image"
+      }
+    ]
+  }
+{% endschema %}

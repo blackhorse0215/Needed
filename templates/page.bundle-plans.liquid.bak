@@ -1,0 +1,6 @@
+{% section 'bundle-plan-banner' %}
+{% section 'bundle-plan-items' %}
+{% section 'choose-plan-bundle' %}
+{%- comment -%}{% section 'reviews-bundle' %}{%- endcomment -%}
+{% section 'home-testimonials' %}
+{% section 'pro-questions-plan' %}

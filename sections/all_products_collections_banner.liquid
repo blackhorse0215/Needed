@@ -1,0 +1,203 @@
+
+<style>
+    section.all-product-collection-banner.all-product-collection-banner-desktop {
+        margin-top: 103.69px;
+        padding-top: 160px;
+        height: 360px;
+        background-image: url({{ section.settings.image | img_url: "2000x" }});
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #bea55c;
+        background-size: cover;
+        position: relative;
+    }
+
+    @media (min-width: 1600px) {
+        section.all-product-collection-banner.all-product-collection-banner-desktop {
+            height: 450px;
+        }
+    }
+
+    @media (min-width: 769px) and (max-width: 1599px){
+        section.all-product-collection-banner{
+            background-position-x: center;
+        }
+    }
+    section.all-product-collection-banner.all-product-collection-banner-desktop .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        /* max-width: 1200px; */
+        width: 75%;
+    }
+    section.all-product-collection-banner.all-product-collection-banner-mob {
+        position: relative;
+    }
+    section.all-product-collection-banner.all-product-collection-banner-mob .align-items-center{
+        display: inline-block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 75%;
+    }
+
+    section.all-product-collection-banner .all-product-collection-banner__title{
+        font-family: "Copernicus-Bold";
+        font-size: 35px;
+        line-height: 1.3;
+        color: #1F3337;
+        width: 66.6%;
+        margin: 0 auto;
+        padding-top: 15px;
+    }
+    section.all-product-collection-banner .all-product-collection-banner__description{
+      margin-top: 25px;
+    }
+    section.all-product-collection-banner.all-product-collection-banner-mob .all-product-collection-banner__title {
+        width: 100%;
+        padding-top: 0;
+    }
+
+    section.all-product-collection-banner-mob{
+        display: none;
+    }
+
+    @media (max-width: 768px){
+
+        section.all-product-collection-banner-desktop{
+            display: none;
+        }
+
+        section.all-product-collection-banner-mob{
+            display: block;
+            background-image: none;
+        }
+
+        section.all-product-collection-banner-mob .all-product-collection-background{
+            width: 100%;
+        }
+
+        #shopify-section-all-product-collection-items{
+            margin-top: 64px !important;
+        }
+
+        section.all-product-collection-banner-mob .all-product-collection-banner__title{
+            font-family: "Copernicus-Bold";
+            font-size: 32px;
+            text-align: center;
+            color: #1F3337;
+            line-height: 1.3;
+            margin-top: 35px;
+        }
+        
+        #shopify-section-all-product-collection-items > .container{
+            padding: 0 30px;
+        }
+
+        /* #shopify-section-all-product-collection-items .bundle-item-container{
+            padding-top: 0px !important;
+            padding-bottom: 64px !important;
+        } */
+
+        /* #shopify-section-all-product-collection-items .bundle-item-container .bundle-image-wrapper{
+            margin-left: -10px;
+            margin-right: -10px;
+        } */
+
+        /* #shopify-section-all-product-collection-items .bundle-item-container .bundle-image-wrapper .bundle-image{
+            margin: 0px !important;
+            width: 100%;
+        } */
+
+        /* #shopify-section-all-product-collection-items .bundle-item-container:nth-child(even) > .col-md-6:first-child {
+            order: 0 !important;
+        } */
+
+        /* #shopify-section-all-product-collection-items .bundle-content-wrapper{
+            padding: 0px !important;
+        } */
+
+
+        #shopify-section-all-product-collection-items .bundle-item-container .bundle-content-wrapper .bundle-comments{
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #shopify-section-all-product-collection-items .bundle-item-container+.bundle-item-container{
+            margin-top: 20px !important;
+        }
+    }
+    @media (max-width: 1199px) {
+        section.all-product-collection-banner.all-product-collection-banner-desktop {
+        margin-top: 55px;
+    }
+    @media (max-width: 549px) {
+        section.all-product-collection-banner-mob .all-product-collection-banner__title{
+            font-size: 26px;
+            line-height: 35px;
+        }
+    }
+
+    @media (max-width: 360px){
+        section.all-product-collection-banner-mob .all-product-collection-banner__title{
+            font-size: 26px;
+        }
+
+        #shopify-section-all-product-collection-items{
+            margin-top: 40px !important;
+        }
+    }
+
+</style>
+
+
+<section class="all-product-collection-banner all-product-collection-banner-desktop">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="all-product-collection-banner__title">
+                <span class="all-product-collection-banner__title-shape">{{ section.settings.title }}</span>
+            </h1>
+            <p class="all-product-collection-banner__description">{{section.settings.description}}</p>
+		</div>
+	</div>
+</section>
+
+<section class="all-product-collection-banner all-product-collection-banner-mob">
+    <img class="all-product-collection-background" src="{{ section.settings.image_mobile | img_url: '780x' }}">
+	<div class="container">
+		<div class="align-items-center">
+            <h1 class="all-product-collection-banner__title">
+                <span class="all-product-collection-banner__title-shape">{{ section.settings.title }}</span>
+            </h1>
+		</div>
+	</div>
+</section>
+
+{% schema %}
+    {
+        "name": "All Product Collection",
+        "settings": [
+            {
+                "type": "image_picker",
+                "id": "image",
+                "label": "Banner image"
+            },
+            {
+                "type": "image_picker",
+                "id": "image_mobile",
+                "label": "Banner mobile image"
+            },
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Banner heading",
+                "default": "Banner title"
+            }
+        ]
+    }
+{% endschema %}

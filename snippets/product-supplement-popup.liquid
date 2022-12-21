@@ -1,0 +1,73 @@
+{% assign supplement_popup = product.metafields.airf.supplement %}
+{% if section.settings.supplement_link_image %}
+	{% assign supplement_popup = section.settings.supplement_link_image | img_url: "master" %}
+{% endif %}
+{% if supplement_popup and supplement_popup != '&nbsp' %}
+	<div class="product__supplement-fact">
+		<div class="popup popup--dosage popup--supplement" data-popup="product-supplement">
+
+			<div class="popup__container">
+				<div class="popup__close-wrapper">
+					<span class="popup__close"></span>
+				</div>
+				<div class="popup-img-wrapper">
+					<img class="lazyload" data-src="{{ supplement_popup }}" data-product-handle="{{product.handle}}"/>
+				</div>
+			</div>
+		</div>
+
+		<div class="">
+			{% if section.settings.supplement_link_text != blank %}
+			<a
+				href="table"
+				target="_blank"
+				class="product__supplement-link"
+				data-popup-trigger="product-supplement"
+			>
+				{{ section.settings.supplement_link_text }}
+			</a>
+			{% endif %}
+			{% if section.settings.question_title != blank %}
+			<span class="have_ques">{% if section.settings.supplement_link_text != blank %}<span class="btn dot">•</span>{% endif %}{{ section.settings.question_title }}</span>
+			{% endif %}
+			{% if section.settings.link_title and section.settings.link_page != blank %}
+			{% comment %} <a class="faq_link" href="/pages/{{ section.settings.link_page }}">{{ section.settings.link_title }}</a> {% endcomment %}
+			<a class="faq_link" href="javascript:;">{{ section.settings.link_title }}</a>
+			{% endif %}
+		</div>
+	</div>
+{% endif %}
+
+<style>
+	.template-product .product__information .product__supplement-fact .popup-img-wrapper img{
+		visibility: visible;
+		max-height: 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.template-product .product__information .product__supplement-fact .popup-img-wrapper{
+		width: auto;
+		height: auto;
+		background-image: none !important;
+		display: inline-block;
+	}
+
+	.template-product .product__information .product__supplement-fact .popup--supplement{
+		display: none !important;
+	}
+
+	.template-product .product__information .product__supplement-fact .popup--supplement.popup--opened{
+		display: flex !important;
+		padding-top: 40px;
+	}
+	.template-product .product__information .product__supplement-fact .popup-img-wrapper img {
+		max-width: 550px;
+	}
+</style>
+
+<script>
+	$(".product__supplement-link").on("click", function(){
+		$(".product__supplement-fact .popup--supplement").css("display", "flex");
+	});
+</script>

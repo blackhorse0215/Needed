@@ -1,0 +1,365 @@
+<style>
+  #section-{{ section.id }} {
+    padding: 70px 0 100px;
+  }
+  #section-{{ section.id }} .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+    max-width: 830px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  #section-{{ section.id }} .section-descr {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 27px;
+    max-width: 770px;
+    width: 100%;
+    margin: 24px auto 0;
+    text-align: center;
+  }
+  #section-{{ section.id }} .testimonial-list-wrapper {
+    margin-top: 50px;
+    position: relative;
+  }
+  #section-{{ section.id }} .testimonial-list {
+    background-color: #1F3337;
+    position: relative;
+  }
+  #section-{{ section.id }} .testimonial-list .testimonial {
+    position: relative;
+  }
+  #section-{{ section.id }} .testimonial-list .testimonial-inner {
+    width: 100%;
+    color: #FFFFFF;
+    font-size: 22px;
+    letter-spacing: 0;
+    line-height: 37px;
+    padding: 80px 9% 160px 8%;
+    position: relative;
+  }
+  #section-{{ section.id }} .testimonial-list .testimonial-inner:before {
+  content: open-quote;
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+  }
+  #section-{{ section.id }} .testimonial-list .testimonial-inner:after {
+    content: close-quote;
+    position: absolute;
+    right: initial;
+    top: 15px;
+    font-family: 'Copernicus-Book', sans-serif;
+    font-size: 90px;
+    line-height: 1;
+    letter-spacing: 3.8px;
+    transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    color: #85853e;
+  }
+  #section-{{ section.id }} .testimonial-list .testimonial-inner blockquote {
+    text-indent: 55px;
+  }
+
+  #section-{{ section.id }} .testimonial-list .slick-arrow {
+    position: absolute;
+    display: inline-block;
+    width: 47px;
+    height: 47px;
+    background: 0 0;
+    border-radius: 50%;
+    z-index: 1;
+    top: 50%;
+  }
+  #section-{{ section.id }} .testimonial-list .arrow--left {
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    left: -35px;
+  }
+  #section-{{ section.id }} .testimonial-list .arrow--left svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(90deg);
+    -ms-transform: translate(-50%,-50%) rotate(90deg);
+    -webkit-transform: translate(-50%,-50%) rotate(90deg);
+    -moz-transform: translate(-50%,-50%) rotate(90deg);
+    -o-transform: translate(-50%,-50%) rotate(90deg);
+    width: 80px;
+    margin-right: 3px;
+  }
+  #section-{{ section.id }} .testimonial-list .arrow--right {
+    transform: translate(50%,-50%);
+    -ms-transform: translate(50%,-50%);
+    -webkit-transform: translate(50%,-50%);
+    -moz-transform: translate(50%,-50%);
+    -o-transform: translate(50%,-50%);
+    right: -35px;
+  }
+  #section-{{ section.id }} .testimonial-list .arrow--right svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) rotate(-90deg);
+    -ms-transform: translate(-50%,-50%) rotate(-90deg);
+    -webkit-transform: translate(-50%,-50%) rotate(-90deg);
+    -moz-transform: translate(-50%,-50%) rotate(-90deg);
+    -o-transform: translate(-50%,-50%) rotate(-90deg);
+    width: 80px;
+    margin-left: 3px;
+  }
+
+  #section-{{ section.id }} .author-list {
+    padding: 0 9% 0 8%;
+    margin-top: -85px;
+  }
+  #section-{{ section.id }} .author-list .author {
+    margin-right: 35px;
+  }
+  #section-{{ section.id }} .author-list .author-inner {
+    max-width: 215px;
+    width: 100%;
+  }
+  #section-{{ section.id }} .author-list .author:not(.slick-current) .author-inner {
+    max-width: 153px;
+  }
+  #section-{{ section.id }} .author-list .author-content {
+    opacity: 0;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 12px;
+    min-height: 38px;
+  }
+  #section-{{ section.id }} .author-list .author.slick-current .author-content {
+    opacity: 1;
+  }
+
+  #section-{{ section.id }} .button-wrapper {
+    margin-top: 40px;
+    text-align: center;
+  }
+  #section-{{ section.id }} .section-btn {
+    max-width: 415px;
+    width: 100%;
+    height: 57px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f3337;
+    font-family: 'BrownPro-Bold';
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    border: 2px solid #1f3337;
+    border-radius: 29px;
+    text-decoration: none;
+  }
+  #section-{{ section.id }} .author-list .author.hidden-slide .author-inner {
+    max-width: 215px;
+  }
+
+  @media (max-width: 1340px) {
+    #section-{{ section.id }} .testimonial-list .arrow--left {
+      left: -9px;
+      width: 20px;
+      height: 20px;
+    }
+    #section-{{ section.id }} .testimonial-list .arrow--left svg {
+      width: 30px;
+    }
+    #section-{{ section.id }} .testimonial-list .arrow--right {
+      right: -7px;
+      width: 20px;
+      height: 20px;
+    }
+    #section-{{ section.id }} .testimonial-list .arrow--right svg {
+      width: 30px;
+    }
+    #section-{{ section.id }} .testimonial-list-wrapper {
+      padding: 0 15px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding: 70px 0;
+    }
+    #section-{{ section.id }} .section-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    #section-{{ section.id }} .section-descr {
+      font-size: 17px;
+      margin-top: 16px;
+    }
+    #section-{{ section.id }} .button-wrapper {
+      margin-top: 90px;
+    }
+    #section-{{ section.id }} .testimonial-list-wrapper {
+      margin-top: 32px;
+      padding: 0 5px;
+    }
+    #section-{{ section.id }} .testimonial-list .testimonial-inner {
+      font-size: 18px;
+      line-height: 26px;
+    }
+    #section-{{ section.id }} .testimonial-list .testimonial-inner {
+      padding: 40px 5% 130px 4%;
+    }
+    #section-{{ section.id }} .testimonial-list .testimonial-inner:after {
+      top: -33px;
+    }
+    #section-{{ section.id }} .testimonial-list .testimonial-inner blockquote {
+      text-indent: 55px;
+    }
+    #section-{{ section.id }} .author-list .slick-track {
+      display: flex;
+      align-items: flex-end;
+    }
+    #section-{{ section.id }} .author-list {
+      padding: 0 5% 0 4%;
+    }
+    #section-{{ section.id }} .author-list .author {
+      margin-right: 15px;
+    }
+    #section-{{ section.id }} .author.slick-current .author-image {
+      padding-bottom: 0;
+    }
+  }
+</style>
+
+{% assign testimonial_list = '' %}
+{%- assign author_list = '' -%}
+
+{% if section.blocks.size > 0 %}
+  {% for block in section.blocks %}
+    {%- capture testimonial_html -%}
+      <div class="testimonial">
+        <div class="testimonial-inner">
+          <blockquote>{{ block.settings.descr }}</blockquote>
+        </div>
+      </div>
+    {%- endcapture -%}
+    {%- assign testimonial_list = testimonial_list | append: testimonial_html -%}
+
+    {%- capture author_html -%}
+    <div class="author">
+      <div class="author-inner">
+        <div class="author-image">
+          <img src="{{ block.settings.photo | img_url: 'master' }}" class="lazyload" alt="">
+        </div>
+        <div class="author-content">{{ block.settings.author }}</div>
+      </div>
+    </div>
+    {%- endcapture -%}
+    {%- assign author_list = author_list | append: author_html -%}
+  {% endfor %}
+{% endif %}
+
+<section id="section-{{ section.id }}" class="starter-plan-testimonials">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+
+    <div class="testimonial-list-wrapper js-animate animate-fade-in">
+      {% if testimonial_list != blank %}
+        <div class="testimonial-list">{{ testimonial_list }}</div>
+      {% endif %}
+      
+      {% if author_list != blank %}
+        <div class="author-list">{{ author_list }}</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<script>
+  $(document).ready(function() {
+    $('#section-{{ section.id }} .testimonial-list').slick({
+      adaptiveHeight: true,
+      slidesToShow: 1,
+      autoplay: false,
+      arrows: true,
+      dots: false,
+      infinite: false,
+      prevArrow: '<button type="button" class="slick-arrow arrow arrow--left"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#939c9e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1px;}</style></defs><title/><g id="chevron-bottom"><line class="cls-1" x1="16" x2="7" y1="20.5" y2="11.5"/><line class="cls-1" x1="25" x2="16" y1="11.5" y2="20.5"/></g></svg></button>',
+      nextArrow: '<button type="button" class="slick-arrow arrow arrow--right"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:none;stroke:#939c9e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1px;}</style></defs><title/><g id="chevron-bottom"><line class="cls-1" x1="16" x2="7" y1="20.5" y2="11.5"/><line class="cls-1" x1="25" x2="16" y1="11.5" y2="20.5"/></g></svg></button>',
+      asNavFor: '#section-{{ section.id }} .author-list'
+    });
+
+    $('#section-{{ section.id }} .author-list').slick({
+      variableWidth: true,
+      slidesToShow: 1,
+      autoplay: false,
+      arrows: false,
+      dots: false,
+      asNavFor: '#section-{{ section.id }} .testimonial-list',
+      draggable: false,
+      infinite: false,
+      accessibility: false,
+      swipe: false,
+      touchMove: false
+    });
+
+    $('#section-{{ section.id }} .author-list').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+      if (currentSlide < nextSlide) {
+        $(slick.$slides.get(currentSlide)).addClass('hidden-slide');
+      }
+    });
+    $('#section-{{ section.id }} .author-list').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+      if ($(slick.$slides.get(currentSlide)).hasClass('hidden-slide')) {
+        setTimeout(() => {
+          $(slick.$slides.get(currentSlide)).removeClass('hidden-slide');
+        }, 100);
+      }
+    });
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Testimonials",
+    "max_blocks": 10,
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "title",
+        "label": "Title"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "testimonial",
+        "name": "Testimonial",
+        "settings": [
+          {
+            "type": "richtext",
+            "id": "descr",
+            "label": "Description"
+          },
+          {
+            "type": "image_picker",
+            "id": "photo",
+            "label": "Photo"
+          },
+          {
+            "type": "textarea",
+            "id": "author",
+            "label": "Author"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

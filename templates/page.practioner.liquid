@@ -1,0 +1,31 @@
+<!--   This area was rendered by Powerful Formbuilder App -->
+	{% unless template == 'product' %}
+		{% include 'globo-form-script' %}
+		<script>
+			{% if product %}
+			var PFB_product_name = '{{ product.title }}';
+			var PFB_product_url = '{{ product.url }}';
+			{% endif %}
+			{% if customer %}
+			var PFB_customer_email = '{{ customer.email }}';
+			var PFB_customer_name = '{{ customer.first_name }} {{ customer.last_name }}';
+			{% endif %}
+		</script>
+	{% endunless %}
+<!-- End Area -->
+    
+{% section 'practioner-banner' %}
+{% section 'practitioner-image-text' %}
+{% section 'practitioner-guide' %}
+{% section 'practitioner-partners' %}
+{% section 'practitioner-why' %}
+{% section 'practioner-form' %}
+
+<div class="hidden">
+	{% section 'form-success' %}
+</div>
+
+{% comment %}
+{% section 'global-ticker' %}
+{% section 'practioner-our-partners' %}
+{% endcomment %}

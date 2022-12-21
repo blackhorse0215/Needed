@@ -1,0 +1,6 @@
+{% section 'stress-sleep-plan-template' %}
+{% section 'product-icons-stress-sleep-plan.liquid' %}
+{% section 'stress-sleep-plan-items' %}
+{% section 'stress-sleep-plan-testimonials' %}
+{% section 'starter-plan-icons' %}
+{% section 'stress-sleep-plan-reviews' %}

@@ -1,0 +1,122 @@
+
+<style>
+
+.mobile-learn-menu-container{
+    display: none;
+    top: 0px !important;
+    margin-top: 55px;
+    position: fixed;
+    background: #FFF;
+    width: 100%;
+    padding: 20px;
+    padding-bottom: 40px;
+    z-index: 9998;
+    height: calc(100% - 55px);
+    overflow-y: auto;
+}
+
+.mobile-learn-menu-container .mobile-learn-menu-label{
+    font-family: "BrownPro-Regular";
+    font-size: 14px;
+    color: #1F3337;
+    opacity: 0.5;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items li{
+    margin-top: 22px;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items li .site-nav__link{
+    font-family: "BrownPro-Regular";
+    font-size: 16px;
+    color: #1F3437;
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items li .site-nav__link:hover{
+    color: #86883D !important;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items li .science-dropdown-menu{
+    padding-left: 20px;
+}
+
+.mobile-learn-menu-container .mega-menu.mega-learn-items li .science-dropdown-menu li.science-sub-menu-item a{
+    font-size: 14px;
+}
+</style>
+
+
+<div class="mobile-learn-menu-container">
+    <div class="mobile-learn-menu-label">Learn</div>
+
+    <ul class="site-nav__dropdown mega-menu mega-learn-items">
+
+        <li class="mega-menu__item">
+            <a href="/pages/blog-list" class="site-nav__link">Blog</a>
+        </li>
+
+        <li class="mega-menu__item">
+            <a href="/pages/science" class="site-nav__link">Science</a>
+            <ul class="science-dropdown-menu">
+                <li class="science-sub-menu-item">
+                    <a href="/pages/product-standards" class="site-nav__link">Our Product Standards</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="/pages/changemakers" class="site-nav__link">Our Practitioner Collective</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="https://thisisneeded.com/pages/prenatal-vitamin-reviews" class="site-nav__link">Prenatal Vitamin Reviews</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="https://cdn.shopify.com/s/files/1/0195/3293/9328/files/Needed_What_to_Look_For_In_a_Prenatal.pdf?v=1614386021" class="site-nav__link">What to Look For in a Prenatal</a>
+                </li>
+            </ul>
+        </li>
+
+        <li class="mega-menu__item">
+            <a href="/pages/about" class="site-nav__link">About</a>
+            <ul class="science-dropdown-menu">
+                <li class="science-sub-menu-item">
+                    <a href="/pages/about" class="site-nav__link">Our Story</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="/pages/quiz" class="site-nav__link">Explore Your Needs</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="/pages/practitioner" class="site-nav__link">Join Our Practitioner Referral Program</a>
+                </li>
+                <li class="science-sub-menu-item">
+                    <a href="/pages/prenatal-multi-sponsorship" class="site-nav__link">Prenatal Multi Sponsorship</a>
+                </li>
+            </ul>
+        </li>
+    
+    </ul>
+
+</div>
+
+
+<script>
+    $(function(){
+        $(".header__container--mobile .mobile-nav-menu-learn").on("click", function(){
+            $(".mobile-learn-menu-container").fadeIn("fast");
+            $(".mobile-top-menu-header").fadeIn("fast");
+            // $("html, body").animate({ scrollTop: "0" }); 
+            $('body').addClass('open-mobile-menu');
+        });
+        
+        $(".mobile-top-menu-header .close-mobile-menu").on("click", function(){
+            $(".mobile-learn-menu-container").fadeOut("fast");
+            $(".mobile-top-menu-header").fadeOut("fast");
+            $('body').removeClass('open-mobile-menu');
+        });
+    })
+</script>

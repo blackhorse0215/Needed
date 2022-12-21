@@ -1,0 +1,942 @@
+<style>
+  #section-{{ section.id }} {
+    padding-top: 120px;
+    padding-bottom: 100px;
+    background-color: #F6F4F2;
+  }
+
+  #section-{{ section.id }} .product-images img {
+    display: none;
+    width: 100%;
+  }
+  #section-{{ section.id }} .product-images img.active {
+    display: block;
+  }
+  #section-{{ section.id }} .stamped-product-reviews-badge .fa-star-half-o:before,
+  #section-{{ section.id }} .stamped-product-reviews-badge .fa-star-o:before,
+  #section-{{ section.id }} .stamped-product-reviews-badge .fa-star:before,
+  #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star-half-o:before,
+  #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star-o:before,
+  #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star:before {
+    font-size: 26px;
+  }
+  #section-{{ section.id }} .product-images .save-label-group {
+    display: none;
+  }
+  #section-{{ section.id }} .stamped-product-reviews-badge .stamped-badge-caption {
+    margin-left: 10px;
+    font-size: 20px;
+  }
+
+  #section-{{ section.id }} .product-info {
+    padding-left: 65px;
+  }
+  #section-{{ section.id }} .product-info .product-title-wrapper {
+    display: flex;
+    align-items: flex-end;
+  }
+  #section-{{ section.id }} .product-info .product-title-wrapper .product-title {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 42px;
+  }
+  #section-{{ section.id }} .save-label {
+    display: none;
+    color: #FFFFFF;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 17px;
+    background-color: #85853E;
+    padding: 3px 6px 0;
+    margin-left: 10px;
+    margin-bottom: 12px;
+  }
+  #section-{{ section.id }} .save-label.active {
+    display: block;
+  }
+
+  #section-{{ section.id }} .product-info .bundle-list {
+    display: flex;
+    list-style: none;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  #section-{{ section.id }} .product-info .bundle-list li {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 21px;
+    padding-left: 25px;
+    position: relative;
+    min-width: 38%;
+    margin-bottom: 5px;
+  }
+  #section-{{ section.id }} .product-info .bundle-list li a {
+    opacity: 0.6;
+    color: #1f3337;
+    text-decoration: none;
+  }
+  #section-{{ section.id }} .product-info .bundle-list li:before {
+    position: absolute;
+    content: url("https://cdn.shopify.com/s/files/1/0195/3293/9328/t/49/assets/icon-check.svg");
+    width: 14px;
+    height: 14px;
+    top: 2px;
+    left: 0px;
+  }
+
+  #section-{{ section.id }} .product-info .product-description {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin-top: 25px;
+    max-width: 490px;
+    width: 100%;
+  }
+  #section-{{ section.id }} .product-info .product-description.descr-mobile {
+    display: none;
+  }
+
+  #section-{{ section.id }} .product-info .option-list {
+    margin-top: 24px;
+  }
+  #section-{{ section.id }} .product-info .option-list .product-option {
+    display: flex;
+    margin-top: 13px;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-radio {
+    display: none;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-option-label {
+    display: flex;
+    position: relative;
+    padding-left: 28px;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    cursor: pointer;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-option-label:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    display: block;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 3px;
+    top: 3px;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-option-label:after {
+    content: '';
+    display: block;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #1f3337;
+    position: absolute;
+    left: 0;
+    border-radius: 50%;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-radio:checked + .pc-option-label:before {
+    background-color: #1f3337;
+  }
+  #section-{{ section.id }} .product-info .option-list .pc-option-label span {
+    font-weight: bold;
+  }
+  #section-{{ section.id }} .product-info .option-list .option-difference {
+    margin-left: 20px;
+  }
+  #section-{{ section.id }} .product-info .option-list .option-difference a {
+    opacity: 0.6;
+    color: #1F3337;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+
+  #section-{{ section.id }} .product-info .product-prices {
+    display: flex;
+    margin-top: 24px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .label-subscription {
+    opacity: 0.5;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .content-subscription {
+    display: none;
+    margin-top: 4px;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .content-subscription.active {
+    display: block;
+  }
+  #section-{{ section.id }} .product-info .product-prices .content-subscription .saving-label {
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 18px;
+    background-color: #d6d8d6;
+    padding: 3px 6px 1px;
+    margin-left: 5px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .retail-price {
+    margin-left: 44px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .label-retail {
+    opacity: 0.5;
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 18px;
+  }
+  #section-{{ section.id }} .product-info .product-prices .content-retail {
+    display: none;
+    margin-top: 4px;
+    opacity: 0.6;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-decoration: line-through;
+  }
+  #section-{{ section.id }} .product-info .product-prices .content-retail.active {
+    display: block;
+  }
+
+  #section-{{ section.id }} .product-info .additional-info {
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 16px;
+  }
+  #section-{{ section.id }} .product-info .additional-info.active {
+    display: block;
+  }
+
+  #section-{{ section.id }} .product-info form {
+    display: none;
+  }
+  #section-{{ section.id }} .product-info form.active {
+    display: block;
+  }
+  #section-{{ section.id }} .product-info .btn-bundle-plan {
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 490px;
+    width: 100%;
+    height: 57px;
+    border-radius: 29px;
+    background-color: #1f3337;
+    margin-top: 16px;
+    visibility: visible;
+  }
+
+  #section-{{ section.id }} .product__want-to-try {
+    margin-top: 20px;
+    display: inline-block;
+    background-color: #D0BE78;
+    position: relative;
+  }
+  #section-{{ section.id }} .product__want-to-try .box--text {
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 24px;
+    padding: 12px 22px 12px 22px;
+  }
+  #section-{{ section.id }} .product__want-to-try .box--text a {
+    color: #1f3337;
+    white-space: nowrap;
+  }
+  #section-{{ section.id }} .product__want-to-try .box--image {
+    position: absolute;
+    right: 20px;
+    bottom: 0;
+    width: 93px;
+    height: 65px;
+  }
+  #section-{{ section.id }} .product__want-to-try .box--image img {
+    width: 100%;
+  }
+
+  @media (max-width: 991px) {
+    #section-{{ section.id }} .product__want-to-try {
+      margin-top: 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #section-{{ section.id }} .product__want-to-try {
+      margin-bottom: 15px;
+    }
+  }
+
+  #section-{{ section.id }} .product-info .bundle-comments {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 20px;
+  }
+  #section-{{ section.id }} .product-info .bundle-comments li {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 19px;
+    opacity: 0.45;
+  }
+  #section-{{ section.id }} .product-info .bundle-comments li + li {
+    position: relative;
+    margin-left: 15px;
+    padding-left: 20px;
+  }
+  #section-{{ section.id }} .product-info .bundle-comments li + li:before {
+    position: absolute;
+    content: '\2022';
+    left: 0;
+    top: 0px;
+    width: 5px;
+    height: 5px;
+    font-size: 8px;
+  }
+
+  @media (max-width: 1199px) {
+    #section-{{ section.id }} {
+      padding-top: 80px;
+      padding-bottom: 60px;
+    }
+  }
+
+  @media (max-width: 1119px) {
+    #section-{{ section.id }} .product-info {
+      padding-left: 35px;
+    }
+  }
+  
+  @media (max-width: 1119px) {
+    #section-{{ section.id }} .product-info {
+      padding-left: 15px;
+    }
+  }
+
+  @media (max-width: 991px) {
+    #section-{{ section.id }} {
+      background-color: #fff;
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+    #section-{{ section.id }} .row {
+      margin: 0 -20px;
+    }
+    #section-{{ section.id }} .product-images {
+      padding: 0;
+      position: relative;
+    }
+    #section-{{ section.id }} .product-images img {
+      width: 100%;
+      margin: 0 auto;
+    }
+    #section-{{ section.id }} .stamped-product-reviews-badge .fa-star-half-o:before,
+    #section-{{ section.id }} .stamped-product-reviews-badge .fa-star-o:before,
+    #section-{{ section.id }} .stamped-product-reviews-badge .fa-star:before,
+    #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star-half-o:before,
+    #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star-o:before,
+    #section-{{ section.id }} .stamped-product-reviews-badge .stamped-fa-star:before {
+      font-size: 20px;
+    }
+    #section-{{ section.id }} .stamped-product-reviews-badge .stamped-badge-caption {
+      margin-left: 10px;
+      font-size: 18px;
+    }
+    #section-{{ section.id }} .product-images .save-label-group {
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 33px;
+    }
+    #section-{{ section.id }} .save-label {
+      margin-left: 0;
+    }
+    
+    #section-{{ section.id }} .product-info {
+      padding-left: 0;
+      padding-top: 15px;
+    }
+    #section-{{ section.id }} .product-info .product-title-wrapper {
+      justify-content: center;
+    }
+    #section-{{ section.id }} .product-info .save-label-group {
+      display: none;
+    }
+
+    #section-{{ section.id }} .product-info .bundle-list {
+      justify-content: center;
+    }
+    #section-{{ section.id }} .product-info .bundle-list li {
+      min-width: unset;
+      margin-left: 15px;
+    }
+
+    #section-{{ section.id }} .product-info .btn-bundle-plan {
+      max-width: 100%;
+    }
+
+    #section-{{ section.id }} .product-info .product-description {
+      max-width: 100%;
+    }
+    #section-{{ section.id }} .product-info .product-description.descr-desktop {
+      display: none;
+    }
+    #section-{{ section.id }} .product-info .product-description.descr-mobile {
+      display: block;
+    }
+  }
+
+  @media (max-width: 549px) {
+    #section-{{ section.id }} .product-info {
+      padding: 15px 5px 0;
+    }
+    #section-{{ section.id }} .product-info .product-title-wrapper {
+      justify-content: center;
+    }
+    #section-{{ section.id }} .product-info .product-title-wrapper .product-title {
+      font-size: 26px;
+      line-height: 35px;
+    }
+
+    #section-{{ section.id }} .product-info .bundle-list {
+      justify-content: center;
+    }
+    #section-{{ section.id }} .product-info .bundle-list li {
+      padding-left: 15px;
+    }
+    #section-{{ section.id }} .product-info .bundle-list li:first-child {
+      margin-left: 0;
+      padding-left: 0;
+    }
+    #section-{{ section.id }} .product-info .bundle-list li:before {
+      content: '·';
+      top: -1px;
+    }
+    #section-{{ section.id }} .product-info .bundle-list li:first-child:before {
+      display: none;
+    }
+  }
+
+  @media (max-width: 490px) {
+    #section-{{ section.id }} .product-info .option-list .product-option {
+      flex-direction: column;
+    }
+    #section-{{ section.id }} .product-info .option-list .option-difference {
+      margin-left: auto;
+      margin-top: 15px;
+    }
+  }
+
+  @media (max-width: 420px) {
+    #section-{{ section.id }} .product-info .product-prices {
+      align-items: flex-end;
+    }
+    #section-{{ section.id }} .product-info .product-prices .subscription-price {
+      width: 50%;
+    }
+    #section-{{ section.id }} .product-info .product-prices .retail-price {
+      margin-left: 0;
+      width: 50%;
+      padding-left: 20px;
+    }
+  }
+
+  /* popup */
+  #section-{{ section.id }} .popup-difference {
+    display: none;
+    max-width: 1000px;
+    width: 100%;
+    min-height: 490px;
+    position: fixed;
+    background-color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+  }
+  #section-{{ section.id }} .popup-difference.open {
+    display: flex;
+  }
+  #section-{{ section.id }} .popup-difference .popup-inner {
+    display: inline-block;
+    padding: 30px 60px;
+    width: 100%;
+  }
+  #section-{{ section.id }} .popup-difference .popup-title {
+    color: #1F3337;
+    font-family: 'Copernicus-Bold';
+    font-size: 28px;
+    letter-spacing: 0;
+    line-height: 37px;
+    text-align: center;
+  }
+  #section-{{ section.id }} .popup-difference .popup-body {
+    display: flex;
+    margin-top: 36px;
+    align-items: flex-start;
+  }
+  #section-{{ section.id }} .popup-difference .popup-content {
+    width: 50%;
+    padding-right: 40px;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 22px;
+  }
+  #section-{{ section.id }} .popup-difference .popup-image {
+    width: 50%;
+    display: inline-flex;
+    background-color: #FFCBBC;
+  }
+  #section-{{ section.id }} .popup-difference .popup-image img {
+    width: 270px;
+    margin: 0 auto;
+  }
+  #section-{{ section.id }} .popup-difference .popup-footer {
+    margin-top: 30px;
+    text-align: center;
+  }
+  #section-{{ section.id }} .popup-difference .popup-footer .close-popup {
+    max-width: 240px;
+    width: 100%;
+    height: 57px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #1f3337;
+    border-radius: 29px;
+    text-decoration: none;
+  }
+  #section-{{ section.id }} .popup-difference .popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 35px;
+    line-height: 30px;
+    opacity: 0.4;
+    cursor: pointer;
+  }
+
+  #section-{{ section.id }} .popup-overlay {
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.35;
+    left: 0;
+    top: 0;
+    z-index: 90;
+  }
+  #section-{{ section.id }} .popup-overlay.open {
+    display: block;
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .popup-difference {
+      max-height: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      transform: unset;
+    }
+    #section-{{ section.id }} .popup-difference .popup-inner {
+      padding: 40px 30px;
+      margin: auto 0;
+    }
+    #section-{{ section.id }} .popup-difference .popup-body {
+      flex-direction: column-reverse;
+      margin-top: 20px;
+    }
+    #section-{{ section.id }} .popup-difference .popup-image {
+      width: 100%;
+    }
+    #section-{{ section.id }} .popup-difference .popup-content {
+      width: 100%;
+      margin-top: 15px;
+      padding-right: 0;
+    }
+  }
+
+  body.popup-opened {
+    overflow: hidden;
+  }
+</style>
+
+{% assign product = all_products['mens-complete-plan'] %}
+
+<section id="section-{{ section.id }}" class="mens-support-template section--plan-template">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-lg-6 product-images">
+        <img src="{{ section.settings.powder_product.featured_image | img_url: 'master' }}" class="lazyload powder-element active" alt="">
+        {% if section.settings.show_capsule %}
+        <img src="{{ section.settings.capsule_product.featured_image | img_url: 'master' }}" class="lazyload capsule-element" alt="">
+        {% endif %}
+        {% if section.settings.show_essential %}
+        <img src="{{ section.settings.essential_product.featured_image | img_url: 'master' }}" class="lazyload essential-element" alt="">
+        {% endif %}
+
+        <!-- <div class="product-reviews-badge">
+					<span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+				</div> -->
+        <div class="save-label-group group-mobile">
+          <span class="save-label powder-element active">Save {{ section.settings.powder_retail_price | minus: section.settings.powder_subscription_price| times: 100 | divided_by : section.settings.powder_retail_price | floor  }}%</span>
+          {% if section.settings.show_capsule %}
+          <span class="save-label capsule-element">Save {{ section.settings.capsule_retail_price | minus: section.settings.capsule_subscription_price | round | times: 100 | money_without_trailing_zeros }}</span>
+          {% endif %}
+          {% if section.settings.show_essential %}
+          <span class="save-label essential-element">Save {{ section.settings.essential_retail_price | minus: section.settings.essential_subscription_price | round | times: 100 | money_without_trailing_zeros }}</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="product-info">
+          <div class="product-title-wrapper">
+            <h1 class="product-title">{{ section.settings.title }}</h1>
+            <div class="save-label-group group-desktop">
+              <span class="save-label powder-element active">Save {{ section.settings.powder_retail_price | minus: section.settings.powder_subscription_price| times: 100 | divided_by : section.settings.powder_retail_price | floor  }}%</span>
+              {% if section.settings.show_capsule %}
+              <span class="save-label capsule-element">Save {{ section.settings.capsule_retail_price | minus: section.settings.capsule_subscription_price | round | times: 100 | money_without_trailing_zeros }}</span>
+              {% endif %}
+              {% if section.settings.show_essential %}
+              <span class="save-label essential-element">Save {{ section.settings.essential_retail_price | minus: section.settings.essential_subscription_price | round | times: 100 | money_without_trailing_zeros }}</span>
+              {% endif %}
+            </div>
+          </div>
+          <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;padding:10px 0;"></span>
+          <div class="bundle-list">{{ section.settings.bundle_list }}</div>
+          <div class="product-description descr-desktop">{{ section.settings.descr }}</div>
+
+          <div class="option-list">
+            {% if section.settings.show_capsule == false and section.settings.show_essential == false %}
+            <!-- <div class="product-option">
+              <input type="radio" class="pc-radio" name="product_option" id="option_powder" value="powder" checked>
+              <label for="option_powder" class="pc-option-label">Prenatal Multi Powder -&nbsp;<span>{{ section.settings.powder_subscription_price | times: 100 | money }}</span></label>
+            </div> -->
+            {% endif %}
+            {% if section.settings.show_capsule %}
+            <div class="product-option">
+              <input type="radio" class="pc-radio" name="product_option" id="option_capsule" value="capsule">
+              <label for="option_capsule" class="pc-option-label">Prenatal Multi Capsules -&nbsp;<span>{{ section.settings.capsule_subscription_price | times: 100 | money }}</span></label>
+            </div>
+            {% endif %}
+            {% if section.settings.show_essential %}
+            <div class="product-option">
+              <input type="radio" class="pc-radio" name="product_option" id="option_essential" value="essential">
+              <label for="option_essential" class="pc-option-label">Prenatal Multi Essentials -&nbsp;<span>{{ section.settings.essential_subscription_price | times: 100 | money }}</span></label>
+              <span class="option-difference"><a href="javascript:;" class="open-popup">What’s the difference</a></span>
+            </div>
+            {% endif %}
+          </div>
+
+          <div class="product__want-to-try">
+            <div class="box--text"><p><strong>Save $100</strong> with code <strong>COMPLETE100</strong></p><p>Valid for new subscribers, $33.33 discount applied to months 1, 2, and 3 of subscription</p></div>
+          </div>
+
+          <div class="product-prices">
+            <div class="subscription-price">
+              <div class="label-subscription">Bundled Subscription - ships monthly</div>
+              <div class="content-subscription powder-element active">
+                {{ section.settings.powder_subscription_price | times: 100 | money }}
+                <span class="saving-label">{{ section.settings.powder_retail_price | minus: section.settings.powder_subscription_price | round | times: 100 | money_without_trailing_zeros }} savings</span>
+              </div>
+              {% if section.settings.show_capsule %}
+              <div class="content-subscription capsule-element">
+                {{ section.settings.capsule_subscription_price | times: 100 | money }}
+                <span class="saving-label">{{ section.settings.capsule_retail_price | minus: section.settings.capsule_subscription_price | round | times: 100 | money_without_trailing_zeros }} savings</span>
+              </div>
+              {% endif %}
+              {% if section.settings.show_essential %}
+              <div class="content-subscription essential-element">
+                {{ section.settings.essential_subscription_price | times: 100 | money }}
+                <span class="saving-label">{{ section.settings.essential_retail_price | minus: section.settings.essential_subscription_price | round | times: 100 | money_without_trailing_zeros }} savings</span>
+              </div>
+              {% endif %}
+            </div>
+            <div class="retail-price">
+              <div class="label-retail">Retail Price</div>
+              <div class="content-retail powder-element active">{{ section.settings.powder_retail_price }}</div>
+              {% if section.settings.show_capsule %}
+              <div class="content-retail capsule-element">{{ section.settings.capsule_retail_price }}</div>
+              {% endif %}
+              {% if section.settings.show_essential %}
+              <div class="content-retail essential-element">{{ section.settings.essential_retail_price }}</div>
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="additional-info-wrapper">
+            <div class="additional-info powder-element active">{{ section.settings.powder_additional_info }}</div>
+            {% if section.settings.show_capsule %}
+            <div class="additional-info capsule-element">{{ section.settings.capsule_additional_info }}</div>
+            {% endif %}
+            {% if section.settings.show_essential %}
+            <div class="additional-info essential-element">{{ section.settings.essential_additional_info }}</div>
+            {% endif %}
+          </div>
+
+          <div class="buttons-wrapper">
+            <form action="/cart/add" method="post" enctype="multipart/form-data" class="powder-element active" data-product-original-form="" data-productid="{{ all_products[section.settings.powder_product].id }}">
+              {% assign product = all_products[section.settings.powder_product] %}
+              {% if product.available %}{% include 'preorder-product' %}{% endif %}
+              <input type="hidden" id="quantity" name="quantity" value="1">
+              <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[section.settings.powder_product].variants[0].id }}">
+              <button type="submit" name="add" class="btn-bundle-plan">{{ section.settings.powder_btn_text }}</button>
+            </form>
+            {% if section.settings.show_capsule %}
+            <form action="/cart/add" method="post" enctype="multipart/form-data" class="capsule-element" data-product-original-form="" data-productid="{{ all_products[section.settings.capsule_product].id }}">
+              {% assign product = all_products[section.settings.capsule_product] %}
+              {% if product.available %}{% include 'preorder-product' %}{% endif %}
+              <input type="hidden" id="quantity" name="quantity" value="1">
+              <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[section.settings.capsule_product].variants[0].id }}">
+              <button type="submit" name="add" class="btn-bundle-plan">{{ section.settings.capsule_btn_text }}</button>
+            </form>
+            {% endif %}
+            {% if section.settings.show_essential %}
+            <form action="/cart/add" method="post" enctype="multipart/form-data" class="essential-element" data-product-original-form="" data-productid="{{ all_products[section.settings.essential_product].id }}">
+              {% assign product = all_products[section.settings.essential_product] %}
+              {% if product.available %}{% include 'preorder-product' %}{% endif %}
+              <input type="hidden" id="quantity" name="quantity" value="1">
+              <input type="hidden" class="hidden-variant-id" name="id" value="{{ all_products[section.settings.essential_product].variants[0].id }}">
+              <button type="submit" name="add" class="btn-bundle-plan">{{ section.settings.essential_btn_text }}</button>
+            </form>
+            {% endif %}
+          </div>
+
+          <div class="bundle-comments">{{ section.settings.bundle_comment }}</div>
+
+          <div class="product-description descr-mobile">{{ section.settings.descr }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="popup-difference">
+    <div class="popup-inner">
+      <div class="popup-header">
+        <!-- <h2 class="popup-title">Prenatal Multi Capsules, 3 or 8?</h2> -->
+      </div>
+      <div class="popup-body">
+        <div class="popup-content">
+          <!-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc mattis ornare felis, eu porta nunc feugiat vitae. Duis scelerisque urna vitae eleifend tempus.<br><br>
+          Curabitur diam diam, scelerisque eget imperdiet quis, dictum eu est. Maecenas vitae quam in risus sagittis commodo. Cras sit amet risus quis quam scelerisque vulputate. Proin justo massa, lacinia ut urna non, venenatis vestibulum massa. Aenean in metus non libero dictum euismod quis nec neque.  -->
+        </div>
+        <div class="popup-image">
+          <!-- <img src="//cdn.shopify.com/s/files/1/0195/3293/9328/files/starter_essential.jpg?v=1633528252" class="lazyload" alt=""> -->
+        </div>
+      </div>
+      <div class="popup-footer">
+        <a href="javascript:;" class="close-popup">Close</a>
+      </div>
+    </div>
+    <div class="popup-close">&times;</div>
+  </div>
+  <div class="popup-overlay"></div>
+</section>
+
+<script>
+  $('#section-{{ section.id }} .option-difference .open-popup').click(function() {
+    $('#section-{{ section.id }} .popup-difference').addClass('open');
+    $('#section-{{ section.id }} .popup-overlay').addClass('open');
+    $('body').addClass('popup-opened');
+  });
+  $('#section-{{ section.id }} .popup-difference .close-popup').click(function() {
+    $('#section-{{ section.id }} .popup-difference').removeClass('open');
+    $('#section-{{ section.id }} .popup-overlay').removeClass('open');
+    $('body').removeClass('popup-opened');
+  });
+  $('#section-{{ section.id }} .popup-difference .popup-close').click(function() {
+    $('#section-{{ section.id }} .popup-difference').removeClass('open');
+    $('#section-{{ section.id }} .popup-overlay').removeClass('open');
+    $('body').removeClass('popup-opened');
+  });
+  $('#section-{{ section.id }}').on('click', '.popup-overlay.open', function() {
+    $('#section-{{ section.id }} .popup-difference').removeClass('open');
+    $('#section-{{ section.id }} .popup-overlay').removeClass('open');
+    $('body').removeClass('popup-opened');
+  });
+
+  $("#section-{{ section.id }} .pc-radio").on('change', function() {
+    var option = $(this).val();
+
+    if (option == "powder") {
+      $('#section-{{ section.id }}').find('.powder-element').addClass('active');
+      $('#section-{{ section.id }}').find('.capsule-element').removeClass('active');
+      $('#section-{{ section.id }}').find('.essential-element').removeClass('active');
+    } else if (option == "capsule") {
+      $('#section-{{ section.id }}').find('.powder-element').removeClass('active');
+      $('#section-{{ section.id }}').find('.capsule-element').addClass('active');
+      $('#section-{{ section.id }}').find('.essential-element').removeClass('active');
+    } else if (option == "essential") {
+      $('#section-{{ section.id }}').find('.powder-element').removeClass('active');
+      $('#section-{{ section.id }}').find('.capsule-element').removeClass('active');
+      $('#section-{{ section.id }}').find('.essential-element').addClass('active');
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Product",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_list",
+      "label": "Bundle List"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    },
+    {
+      "type": "header",
+      "content": "Powder Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_powder",
+      "label": "Display Powder",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "powder_image",
+      "label": "Image"
+    },
+    {
+      "type": "product",
+      "id": "powder_product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "powder_subscription_price",
+      "label": "Subscription Price"
+    },
+    {
+      "type": "text",
+      "id": "powder_retail_price",
+      "label": "Retail Price"
+    },
+    {
+      "type": "text",
+      "id": "powder_additional_info",
+      "label": "Additional Info"
+    },
+    {
+      "type": "text",
+      "id": "powder_btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "header",
+      "content": "Capsule Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_capsule",
+      "label": "Display Capsule",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "capsule_image",
+      "label": "Image"
+    },
+    {
+      "type": "product",
+      "id": "capsule_product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "capsule_subscription_price",
+      "label": "Subscription Price"
+    },
+    {
+      "type": "text",
+      "id": "capsule_retail_price",
+      "label": "Retail Price"
+    },
+    {
+      "type": "text",
+      "id": "capsule_additional_info",
+      "label": "Additional Info"
+    },
+    {
+      "type": "text",
+      "id": "capsule_btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "header",
+      "content": "Essential Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_essential",
+      "label": "Display Essential",
+      "default": false
+    },
+    {
+      "type": "image_picker",
+      "id": "essential_image",
+      "label": "Image"
+    },
+    {
+      "type": "product",
+      "id": "essential_product",
+      "label": "Product"
+    },
+    {
+      "type": "text",
+      "id": "essential_subscription_price",
+      "label": "Subscription Price"
+    },
+    {
+      "type": "text",
+      "id": "essential_retail_price",
+      "label": "Retail Price"
+    },
+    {
+      "type": "text",
+      "id": "essential_additional_info",
+      "label": "Additional Info"
+    },
+    {
+      "type": "text",
+      "id": "essential_btn_text",
+      "label": "Button Text"
+    },
+    {
+      "type": "textarea",
+      "id": "bundle_comment",
+      "label": "Comments"
+    }
+  ]
+}
+{% endschema %}

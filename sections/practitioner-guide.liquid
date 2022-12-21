@@ -1,0 +1,107 @@
+<section class="practitioner-guide" data-section-id="{{ section.id }}">
+  <div class="container">
+    <div class="guide-content">{{ section.settings.content }}</div>
+    <div class="bottom-text">{{ section.settings.bottom_text }}</div>
+    <div class="guide-button">
+      <a href="{{ section.settings.btn_link }}" target="_blank">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .practitioner-guide {
+    padding: 100px 0 70px;
+  }
+  .practitioner-guide .guide-content {
+    color: #1F3437;
+    font-family: 'Copernicus-Bold';
+    font-size: 30px;
+    letter-spacing: 0;
+    line-height: 52px;
+  }
+  .practitioner-guide .bottom-text {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  .practitioner-guide .guide-button {
+    margin-top: 20px;
+    text-align: center;
+  }
+  .practitioner-guide .guide-button a {
+    color: #1F3337;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 17px;
+    text-decoration: none;
+    border: 2px solid;
+    border-radius: 28.5px;
+    max-width: 430px;
+    width: 100%;
+    height: 57px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 30px;
+    margin: 0 auto;
+  }
+
+  @media (max-width: 991px) {
+    .practitioner-guide {
+      padding: 90px 0 45px;
+    }
+    .practitioner-guide .guide-content {
+      font-size: 24px;
+      line-height: 41px;
+    }
+    .practitioner-guide .bottom-text {
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 50px;
+    }
+    .practitioner-guide .guide-button {
+      margin-top: 16px;
+    }
+  }
+
+  @media (max-width: 549px) {
+    .practitioner-guide .guide-content {
+      font-size: 18px;
+      line-height: 30px;
+    }
+    .practitioner-guide .bottom-text {
+      margin-top: 38px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Guide",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Content"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom Text"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Text"
+    }
+  ]
+}
+{% endschema %}

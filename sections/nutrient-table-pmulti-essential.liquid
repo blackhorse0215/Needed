@@ -1,0 +1,592 @@
+{% if template == "product" %}
+  <section id="nutrient-table" class="nutrient-table">
+    <div class="nutrient-table__container">
+      <div class="nutrient-table__heading">
+        <h1 class="nutrient-table__title">
+          {{section.settings.section_title}}
+        </h1>
+        
+        {% if section.settings.section_subtitle %}
+          <span class="nutrient-table__subtitle">
+            {{section.settings.section_subtitle}}
+          </span>
+        {% endif %}
+      </div>
+
+      <div class="tab-nav">
+        <a href="javascript:;" class="active" data-id="slider1">
+          {{section.settings.tab1_title}}
+        </a>
+        <a href="javascript:;" data-id="slider2">
+          {{section.settings.tab2_title}}
+        </a>
+        <a href="javascript:;" data-id="slider3">
+          {{section.settings.tab3_title}}
+        </a>
+      </div>
+
+      <div class="slider-container">
+        <div id="slider1" class="nutrient-table__content active">
+          {% for block in section.blocks %}
+            {% if block.settings.tab_id == "tab1" %}
+              <div class="nutrient-table__item">
+                <div class="item-header">
+                  <h3 class="item-header__title">{{ block.settings.item_title }}</h3>
+                  <span class="item-header__capacity">{{ block.settings.item_capacity }}</span>
+                  <span class="item-header__description desktop-item">{{ block.settings.item_description }}</span>
+                  <span class="item-header__description mobile-item">{{ block.settings.mobile_item_description }}</span>
+                </div>
+                <div class="item-content">
+                  <span class="item-content-text desktop-item">
+                    {{ block.settings.item_content }}
+                  </span>
+                  <span class="item-content-text mobile-item">
+                    {{ block.settings.mobile_item_content }}
+                  </span>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_mama_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_mama_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_mama_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_mama_content }}
+                    </ul>
+                  </div>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_baby_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_baby_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_baby_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_baby_content }}
+                    </ul>
+                  </div>
+                </div>
+                <div class="item-footer">
+                  <a class="more-info" href="/pages/ingredient-support#{{block.settings.item_title | replace: ' ', '-' | downcase}}">More Info</a>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div id="slider2" class="nutrient-table__content">
+          {% for block in section.blocks %}
+            {% if block.settings.tab_id == "tab2" %}
+              <div class="nutrient-table__item">
+                <div class="item-header">
+                  <h3 class="item-header__title">{{ block.settings.item_title }}</h3>
+                  <span class="item-header__capacity">{{ block.settings.item_capacity }}</span>
+                  <span class="item-header__description desktop-item">{{ block.settings.item_description }}</span>
+                  <span class="item-header__description mobile-item">{{ block.settings.mobile_item_description }}</span>
+                </div>
+                <div class="item-content">
+                  <span class="item-content-text desktop-item">
+                    {{ block.settings.item_content }}
+                  </span>
+                  <span class="item-content-text mobile-item">
+                    {{ block.settings.mobile_item_content }}
+                  </span>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_mama_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_mama_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_mama_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_mama_content }}
+                    </ul>
+                  </div>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_baby_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_baby_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_baby_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_baby_content }}
+                    </ul>
+                  </div>
+                </div>
+                <div class="item-footer">
+                  <a class="more-info" href="/pages/ingredient-support#{{block.settings.item_title | replace: ' ', '-' | downcase}}">More Info</a>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div id="slider3" class="nutrient-table__content">
+          {% for block in section.blocks %}
+            {% if block.settings.tab_id == "tab3" %}
+              <div class="nutrient-table__item">
+                <div class="item-header">
+                  <h3 class="item-header__title">{{ block.settings.item_title }}</h3>
+                  <span class="item-header__capacity">{{ block.settings.item_capacity }}</span>
+                  <span class="item-header__description desktop-item">{{ block.settings.item_description }}</span>
+                  <span class="item-header__description mobile-item">{{ block.settings.mobile_item_description }}</span>
+                </div>
+                <div class="item-content">
+                  <span class="item-content-text desktop-item">
+                    {{ block.settings.item_content }}
+                  </span>
+                  <span class="item-content-text mobile-item">
+                    {{ block.settings.mobile_item_content }}
+                  </span>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_mama_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_mama_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_mama_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_mama_content }}
+                    </ul>
+                  </div>
+                  <div class="item-content__support">
+                    <h6 class="support-header desktop-item">{{block.settings.support_baby_title}}</h6>
+                    <h6 class="support-header mobile-item">{{block.settings.mobile_support_baby_title}}</h6>
+                    <ul class="support-feature desktop-item">
+                      {{ block.settings.support_baby_content }}
+                    </ul>
+                    <ul class="support-feature mobile-item">
+                      {{ block.settings.mobile_support_baby_content }}
+                    </ul>
+                  </div>
+                </div>
+                <div class="item-footer">
+                  <a class="more-info" href="/pages/ingredient-support#{{block.settings.item_title | replace: ' ', '-' | downcase}}">More Info</a>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="nutrient-table__footer">
+        <h1 class="nutrient-table__footer_title">
+          {{section.settings.section_footer_title}}
+        </h1>
+
+        {% if section.settings.section_footer_subtitle %}
+          <a class="nutrient-table__footer_subtitle" href="{{ section.settings.section_footer_link }}">
+            {{section.settings.section_footer_subtitle}}
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+{% else %}
+  {% capture ingredient_names %}
+    {% assign forindex = 0 %}
+    <ul class="ingredient-items">
+    {% for item in section.blocks %}
+      {% assign forindex = forindex | plus: 1 %}
+      {% assign ingredient_item = item.settings.item_title %}
+      <li class="ingredient-item {% if forindex == 1 %} active {% endif %}">
+        <a href="#{{ ingredient_item | replace: ' ', '-' | downcase }}" data-id="ingredient{{ forindex }}" data-param-id="{{ ingredient_item | replace: ' ', '-' | downcase }}">{{ingredient_item}}</a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% endcapture %}
+
+  {% capture ingredient_contents %}
+  <div class="ingredients-container">
+    {% assign forindex = 0 %}
+    {% for block in section.blocks %}
+      {% assign forindex = forindex | plus: 1 %}
+      <div class="ingredient-content id-ingredient{{forindex}}" style="display: {% if forindex == 1 %} block {% else %} none {% endif %}">
+        {% assign page_content = pages[block.settings.page_handle].content %}
+        {% assign main_content = page_content | split: '<!-- research_support -->' %}
+        {{ main_content[0] }}
+      </div>
+    {% endfor %}
+  </div>
+  {% endcapture %}
+
+  {% capture research_support_section %}
+  <div class="research-support-container">
+    {% assign forindex = 0 %}
+    {% for item in section.blocks %}
+      {% assign forindex = forindex | plus: 1 %}
+      <div class="research-support id-ingredient{{forindex}}" style="display: {% if forindex == 1 %} block {% else %} none {% endif %}">
+        {% assign page_content = pages[item.settings.page_handle].content %}
+        {% assign special_content = page_content | split: '<!-- research_support -->' %}
+        {{ special_content[1] }} 
+      </div>
+    {% endfor %}
+  </div>
+  {% endcapture %}
+
+  <div class="ingredient-container">
+  <div class="sidebar-header-mobile">
+    <a href="/products/prenatal-multi" class="btn-back-mobile"></a>
+    <div class="current-item-name">Vitamin A</div>
+  </div>
+  <div class="ingredient-sidebar">
+    <a href="/products/prenatal-multi" class="btn-back">Back to The Needed Prenatal</a>
+    {{ ingredient_names }}
+  </div>
+
+  <div class="ingredient-main-body">
+    {{ ingredient_contents }}
+  </div>
+  {{ research_support_section }}
+  </div>
+{% endif %}
+
+<style>
+  #MainContent .nutrient-table {
+    {% if section.settings.background_color != blank %}
+      background-color: {{ section.settings.background_color }};
+    {% else %}
+      background-image: linear-gradient(211.41deg, #F0F9EB 0%, #DDF0D3 100%);
+    {% endif %}
+  }
+
+  /****************************** Temporary hidden More button for each item ***********************/
+  /* #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item .item-footer .more-info{
+      visibility: hidden;
+  } */
+
+  #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item .item-footer .more-info {
+    opacity: .5;
+    text-decoration: none;
+  }
+
+  .nutrient-table__container .slick-track {
+    display: flex !important;
+  }
+
+  .nutrient-table__container .slick-slide {
+    height: inherit !important;
+  }
+
+  .nutrient-table__container .slider-container {
+    position: relative;
+  }
+
+  @media (min-width: 1025px) {
+    .nutrient-table__container .slick-arrow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .nutrient-table__container .slick-arrow {
+      display: block;
+    }
+  }
+
+  #nutrient-table .nutrient-table__footer {
+    text-align: center;
+  }
+  #nutrient-table .nutrient-table__footer .nutrient-table__footer_title {
+    font-family: 'Copernicus-Bold';
+    font-size: 28px;
+    line-height: 37px;
+    letter-spacing: 0;
+    color: #1F3437;
+    margin-top: 87px;
+    margin-bottom: 22px;
+  }
+
+  #nutrient-table .nutrient-table__footer .nutrient-table__footer_subtitle {
+    font-family: 'BrownPro-Regular';
+    font-size: 18px;
+    line-height: 26px;
+    color: #1F3337;
+    margin-bottom: 100px;
+  }
+
+  @media (max-width: 767px) {
+    #nutrient-table .nutrient-table__footer .nutrient-table__footer_title {
+      font-size: 22px;
+      padding: 0 30px;
+      line-height: 30px;
+    }
+    #nutrient-table .nutrient-table__footer .nutrient-table__footer_subtitle {
+      font-size: 16px;
+      margin-bottom: 80px;
+    }
+  }
+
+  #nutrient-table .nutrient-table__container .nutrient-table__heading span {
+    max-width: 610px !important;
+  }
+
+  .tab-nav {
+    display: block;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .tab-nav a {
+    font-size: 16px;
+    line-height: 1.2;
+    color: #1F3337;
+    opacity: .35;
+    text-decoration: none;
+    padding: 0 25px;
+  }
+
+  .tab-nav a.active {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  .nutrient-table__content {
+    display: none !important;
+  }
+  .nutrient-table__content.active {
+    display: flex !important;
+  }
+
+  #shopify-section-nutrient-table-pmulti-essential .mobile-item {
+    display: none !important;
+  }
+
+  @media(max-width: 991px) {
+    #shopify-section-nutrient-table-pmulti-essential .desktop-item {
+      display: none !important;
+    }
+    #shopify-section-nutrient-table-pmulti-essential .mobile-item {
+      display: block !important;
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__heading span {
+      padding: 0 20px !important;
+    }
+    .tab-nav {
+      margin-bottom: 30px;
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__content {
+      margin: 0 15px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      flex-wrap: unset;
+      justify-content: unset;
+      padding-bottom: 20px;
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar {
+      width: 10px;
+      height: 8px;
+      margin-top: 22px; 
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, .2);
+      border-radius: 4px;
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, .05);
+      border-radius: 4px;
+    }
+
+    #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item > div {
+      padding-left: 20px !important;
+    }
+
+    #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item {
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      width: calc(100% - 70px);
+      margin-right: 15px;
+      margin-left: 0;
+      transform-origin: center center;
+      transform: scale(1);
+      transition: transform 0.5s;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      font-size: 100px;
+    }
+    #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item .item-footer .more-info {
+      float: right;
+      text-decoration: none;
+      margin-right: 25px;
+    }
+  }
+  
+  @media (max-width: 374px) {
+    .tab-nav {
+      margin-top: -7px;
+    }
+    .tab-nav a {
+      display: inline-block;
+      margin-top: 7px;
+    }
+  }
+</style>
+
+<script>
+  $(".tab-nav a").click(function() {
+    var tabId = $(this).data("id");
+    $(".nutrient-table__content").removeClass("active");
+    $("#" + tabId).addClass("active");
+    $(".tab-nav a").removeClass("active");
+    $(this).addClass("active");
+    toggleSlick();
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Nutrient Table | PME",
+    "max_blocks": 99,
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Heading",
+        "default": "Give your microbiome exactly what it needs for you and your baby with our targeted support."
+      },
+      {
+        "type": "textarea",
+        "id": "section_subtitle",
+        "label": "Subheading",
+        "default": "We are thoughtful about every ingredient, using only what is needed for optimal nutrient delivery."
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background Color"
+      },
+      {
+        "type": "text",
+        "id": "tab1_title",
+        "label": "Tab1 Title",
+        "default": "Vitamins"
+      },
+      {
+        "type": "text",
+        "id": "tab2_title",
+        "label": "Tab2 Title",
+        "default": "Minerals"
+      },
+      {
+        "type": "text",
+        "id": "tab3_title",
+        "label": "Tab3 Title",
+        "default": "Botanicals"
+      },
+      {
+        "type": "textarea",
+        "id": "section_footer_title",
+        "label": "Footer Title"
+      },
+      {
+        "type": "text",
+        "id": "section_footer_subtitle",
+        "label": "Footer Subtitle"
+      },
+      {
+        "type": "url",
+        "id": "section_footer_link",
+        "label": "Footer Subtitle Link"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "table",
+        "name": "Table",
+        "settings": [
+          {
+            "type": "select",
+            "id": "tab_id",
+            "label": "Select Tab",
+            "options": [
+              {
+                "value": "tab1",
+                "label": "Tab1"
+              },
+              {
+                "value": "tab2",
+                "label": "Tab2"
+              },
+              {
+                "value": "tab3",
+                "label": "Tab3"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "id": "item_title",
+            "label": "Heading"
+          },
+          {
+            "type": "page",
+            "id": "page_handle",
+            "label": "Select a page"
+          },
+          {
+            "type": "text",
+            "id": "item_capacity",
+            "label": "Capacity"
+          },
+          {
+            "type": "text",
+            "id": "item_description",
+            "label": "Description"
+          },
+          {
+            "type": "text",
+            "id": "mobile_item_description",
+            "label": "Mobile Description"
+          },
+          {
+            "type": "textarea",
+            "id": "item_content",
+            "label": "Content"
+          },
+          {
+            "type": "textarea",
+            "id": "mobile_item_content",
+            "label": "Mobile Content"
+          },
+          {
+            "type": "text",
+            "id": "support_mama_title",
+            "label": "Support mama Title"
+          },
+          {
+            "type": "text",
+            "id": "mobile_support_mama_title",
+            "label": "Mobile Support mama Title"
+          },
+          {
+            "type": "textarea",
+            "id": "support_mama_content",
+            "label": "Support mama Content"
+          },
+          {
+            "type": "textarea",
+            "id": "mobile_support_mama_content",
+            "label": "Mobile Support mama Content"
+          },
+          {
+            "type": "text",
+            "id": "support_baby_title",
+            "label": "Support baby Title"
+          },
+          {
+            "type": "text",
+            "id": "mobile_support_baby_title",
+            "label": "Mobile Support baby Title"
+          },
+          {
+            "type": "textarea",
+            "id": "support_baby_content",
+            "label": "Support baby Content"
+          },
+          {
+            "type": "textarea",
+            "id": "mobile_support_baby_content",
+            "label": "Mobile Support baby Content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

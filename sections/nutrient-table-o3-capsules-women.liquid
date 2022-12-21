@@ -1,0 +1,263 @@
+<section id="nutrient-table" class="nutrient-table">
+  <div class="nutrient-table__container">
+    <div class="nutrient-table__heading">
+      <h1 class="nutrient-table__title">
+        {{section.settings.section_title}}
+      </h1>  
+      {% if section.settings.section_subtitle %}
+        <span class="nutrient-table__subtitle">
+          {{section.settings.section_subtitle}}
+        </span>
+      {% endif %}
+    </div>
+    <div class="slider-container">
+      <div class="nutrient-table__content">
+        {% for block in section.blocks %}
+          <div class="nutrient-table__item">
+            <div class="item-header">
+              <h3 class="item-header__title">{{ block.settings.item_title }}</h3>
+              <span class="item-header__capacity">{{ block.settings.item_capacity }}</span>
+              <span class="item-header__description desktop-item">{{ block.settings.item_description }}</span>
+              <span class="item-header__description mobile-item">{{ block.settings.mobile_item_description }}</span>
+            </div>
+            <div class="item-content">
+              <span class="item-content-text desktop-item">
+                {{ block.settings.item_content }}
+              </span>
+              <span class="item-content-text mobile-item">
+                {{ block.settings.mobile_item_content }}
+              </span>
+              <div class="item-content__support">
+                <h6 class="support-header desktop-item">{{block.settings.support_mama_title}}</h6>
+                <h6 class="support-header mobile-item">{{block.settings.mobile_support_mama_title}}</h6>
+                <ul class="support-feature desktop-item">
+                  {{ block.settings.support_mama_content }}
+                </ul>
+                <ul class="support-feature mobile-item">
+                  {{ block.settings.mobile_support_mama_content }}
+                </ul>
+              </div>
+              <div class="item-content__support">
+                <h6 class="support-header desktop-item">{{block.settings.support_baby_title}}</h6>
+                <h6 class="support-header mobile-item">{{block.settings.mobile_support_baby_title}}</h6>
+                <ul class="support-feature desktop-item">
+                  {{ block.settings.support_baby_content }}
+                </ul>
+                <ul class="support-feature mobile-item">
+                  {{ block.settings.mobile_support_baby_content }}
+                </ul>
+              </div>
+            </div>
+            <div class="item-footer">
+              <a class="more-info" href="/pages/ingredient-support#{{block.settings.item_title | replace: ' ', '-' | downcase}}">More Info</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+#MainContent .nutrient-table {
+  {% if section.settings.background_color != blank %}
+    background-color: {{ section.settings.background_color }};
+  {% else %}
+    background-image: linear-gradient(211.41deg, #F0F9EB 0%, #DDF0D3 100%);
+  {% endif %}
+}
+.nutrient-table__container .slick-track
+{
+  display: flex !important;
+}
+
+.nutrient-table__container .slick-slide
+{
+  height: inherit !important;
+}
+
+#nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item .item-footer .more-info {
+  opacity: .5;
+  text-decoration: none;
+}
+
+.nutrient-table__container .slider-container {
+  position: relative;
+}
+
+#shopify-section-nutrient-table-o3-capsules-women .mobile-item {
+  display: none !important;
+}
+
+@media(max-width: 991px) {
+  #shopify-section-nutrient-table-o3-capsules-women .desktop-item {
+    display: none !important;
+  }
+  #shopify-section-nutrient-table-o3-capsules-women .mobile-item {
+    display: block !important;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__heading h1 {
+    padding: 0 15px;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__heading span {
+    padding: 0 20px !important;
+  }
+  .tab-nav {
+    margin-bottom: 30px;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__content {
+    margin: 0 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    flex-wrap: unset;
+    justify-content: unset;
+    padding-bottom: 20px;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+    margin-top: 22px; 
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, .2);
+    border-radius: 4px;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, .05);
+    border-radius: 4px;
+  }
+
+  #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item > div {
+    padding-left: 20px !important;
+  }
+
+  #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    width: calc(100% - 70px);
+    margin-right: 15px;
+    margin-left: 0;
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 0.5s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    font-size: 100px;
+  }
+  #nutrient-table .nutrient-table__container .nutrient-table__content .nutrient-table__item .item-footer .more-info {
+    float: right;
+    text-decoration: none;
+    margin-right: 25px;
+  }
+}
+
+/****************************** Hide more info button ******************************/
+
+</style>
+
+{% schema %}
+{
+  "name": "Nutrient Table | O3+",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Heading",
+      "default": "Give your microbiome exactly what it needs for you and your baby with our targeted support."
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Subheading",
+      "default": "We are thoughtful about every ingredient, using only what is needed for optimal nutrient delivery."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "table",
+      "name": "Table",
+      "settings": [
+        {
+          "type": "text",
+          "id": "item_title",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "item_capacity",
+          "label": "Capacity"
+        },
+        {
+          "type": "text",
+          "id": "item_description",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "mobile_item_description",
+          "label": "Mobile Description"
+        },
+        {
+          "type": "textarea",
+          "id": "item_content",
+          "label": "Content"
+        },
+        {
+          "type": "textarea",
+          "id": "mobile_item_content",
+          "label": "Mobile Content"
+        },
+        {
+          "type": "text",
+          "id": "support_mama_title",
+          "label": "Support mama Title"
+        },
+        {
+          "type": "text",
+          "id": "mobile_support_mama_title",
+          "label": "Mobile Support mama Title"
+        },
+        {
+          "type": "textarea",
+          "id": "support_mama_content",
+          "label": "Support mama Content"
+        },
+        {
+          "type": "textarea",
+          "id": "mobile_support_mama_content",
+          "label": "Mobile Support mama Content"
+        },
+        {
+          "type": "text",
+          "id": "support_baby_title",
+          "label": "Support baby Title"
+        },
+        {
+          "type": "text",
+          "id": "mobile_support_baby_title",
+          "label": "Mobile Support baby Title"
+        },
+        {
+          "type": "textarea",
+          "id": "support_baby_content",
+          "label": "Support baby Content"
+        },
+        {
+          "type": "textarea",
+          "id": "mobile_support_baby_content",
+          "label": "Mobile Support baby Content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

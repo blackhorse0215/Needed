@@ -1,0 +1,238 @@
+{%- capture item_list -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'text' -%}
+      <div class="item">{{ block.settings.text }}</div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+{%- capture structure_list -%}
+  {%- for block in section.blocks -%}
+    {%- if block.type == 'structure' -%}
+      <div class="structure">
+        <div class="structure-title">{{ block.settings.title }}</div>
+        <div class="structure-descr">{{ block.settings.descr }}</div>
+      </div>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<section class="practitioner-why" data-section-id="{{ section.id }}">
+  <div class="container">
+    <h2 class="section-title">{{ section.settings.title }}</h2>
+
+    {% if item_list != '' %}
+    <div class="item-list">{{ item_list }}</div>  
+    {% endif %}
+    
+    <div class="section-text">{{ section.settings.text }}</div>
+
+    <div class="structure-program">
+      <div class="program-left">
+        <h2 class="section-title2">{{ section.settings.title2 }}</h2>
+
+        {% if structure_list != '' %}
+        <div class="structure-list">{{ structure_list }}</div>
+        {% endif %}
+      </div>
+      <div class="program-right">
+        <img class="lazyload" data-src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .practitioner-why {
+    padding: 140px 0;
+    background-color: #F6F4F2;
+  }
+  .practitioner-why .section-title {
+    font-size: 35px;
+    line-height: 47px;
+    text-align: center;
+    font-family: 'Copernicus-Bold';
+  }
+  .practitioner-why .item-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+  }
+  .practitioner-why .item {
+    max-width: 230px;
+    width: 100%;
+    min-height: 160px;
+    font-size: 16px;
+    line-height: 22px;
+    padding: 20px 15px 20px 40px;
+    background-color: #fff;
+    position: relative;
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .practitioner-why .item:before {
+    position: absolute;
+    content: url(https://cdn.shopify.com/s/files/1/0195/3293/9328/files/icon-check.svg?v=1636556680);
+    width: 14px;
+    height: 14px;
+    left: 16px;
+  }
+  .practitioner-why .section-text {
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 35px;
+    text-align: center;
+  }
+  .practitioner-why .structure-program {
+    display: flex;
+    margin-top: 90px;
+  }
+  .practitioner-why .program-left {
+    width: 50%;
+    padding-right: 40px;
+  }
+  .practitioner-why .program-right {
+    width: 50%;
+    text-align: right;
+  }
+  .practitioner-why .section-title2 {
+    font-size: 28px;
+    line-height: 37px;
+    font-family: 'Copernicus-Bold';
+  }
+  .practitioner-why .structure-list {
+    margin-top: 40px;
+  }
+  .practitioner-why .structure + .structure {
+    margin-top: 40px;
+  }
+  .practitioner-why .structure-title {
+    font-size: 17px;
+    line-height: 24px;
+    font-weight: bold;
+  }
+  .practitioner-why .structure-descr {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 20px;
+  }
+
+  @media (max-width: 991px) {
+    .practitioner-why {
+      padding: 60px 0 65px;
+    }
+    .practitioner-why .program-left {
+      padding-right: 10px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .practitioner-why .section-title {
+      font-size: 32px;
+      line-height: 42px;
+    }
+    .practitioner-why .item-list {
+      margin-top: 40px;
+    }
+    .practitioner-why .section-text {
+      margin-top: 30px;
+    }
+    .practitioner-why .structure-program {
+      flex-direction: column-reverse;
+      margin-top: 66px;
+    }
+    .practitioner-why .program-left {
+      width: 100%;
+      padding-right: 0;
+      padding-top: 30px;
+    }
+    .practitioner-why .program-right {
+      width: 100%;
+      text-align: center;
+    }
+    .practitioner-why .section-title2 {
+      text-align: center;
+    }
+    .practitioner-why .structure-list {
+      margin-top: 30px;
+    }
+    .practitioner-why .structure + .structure {
+      margin-top: 24px;
+    }
+  }
+
+  @media (max-width: 509px) {
+    .practitioner-why .item-list {
+      margin-right: -5px;
+    }
+    .practitioner-why .item {
+      max-width: calc(50% - 5px);
+    }
+  }
+
+  @media (max-width: 419px) {
+    .practitioner-why .item {
+      padding: 40px 15px 20px 15px;
+    }
+    .practitioner-why .item:before {
+      top: 14px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Why Become Partner",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "title2",
+      "label": "Title 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "structure",
+      "name": "Structure",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },  
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

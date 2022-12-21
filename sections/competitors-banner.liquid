@@ -1,0 +1,55 @@
+<section class="competitors-banner">
+  <div class="banner-inner">
+    <div class="banner-image">
+      <img class="desktop-image" src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt | escape }}">
+      <img class="mobile-image" src="{{ section.settings.image_mobile | img_url: 'master' }}" alt="{{ section.settings.image_mobile.alt | escape }}">
+    </div>
+
+    <div class="banner-content">
+      <h1 class="banner-title">{{ section.settings.title }}</h1>
+      <div class="banner-descr">{{ section.settings.description }}</div>
+      <a class="banner-btn download-guide-btn" href="javascript:;">{{ section.settings.btn_text }}</a>
+    </div>
+  </div>
+</section>
+
+<script>
+  $('.competitors-banner .download-guide-btn').click(function() {
+    $('html, body').animate({
+      scrollTop: parseInt($('.competitors-reviews .reviews-content').offset().top)
+    }, 100);
+  });
+</script>
+
+{% schema %}
+  {
+    "name": "Banner",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "image",
+        "label": "Desktop Image"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_mobile",
+        "label": "Mobile Image"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "btn_text",
+        "label": "Button Text"
+      }
+    ]
+  }
+{% endschema %}

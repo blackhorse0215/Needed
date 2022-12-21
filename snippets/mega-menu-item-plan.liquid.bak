@@ -1,0 +1,391 @@
+
+<style>
+.dropdown-mega-plan {
+    position: unset !important;
+}
+.site-nav .site-nav__item[data-menu="dropdown"] .mega-menu-plan-cover {
+    display: none;
+    transition: opacity 0.5s ease-in;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan-cover {
+    background-color: #FFF;
+    padding: 40px 22px 10px;
+    width: 100%;
+    min-height: 525px;
+    box-shadow: 0px 0px 3px #00000020;
+    position: absolute;
+    left: 0px;
+    top: 70px;
+    display: inline-block;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan{
+    margin: auto;
+    width: 1170px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.site-nav .site-nav__item[data-menu="dropdown"] .mega-menu-plan .mega-menu-body {
+    display: flex;
+    padding-bottom: 28px;
+    height: 100%;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item{
+    width: 33%;
+    padding: 0px 8px;
+    margin-top: 0px !important;
+    border-right: 1px solid #F6F4F2;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item:hover .mega-plan-title{
+    color: #85853E;
+
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item:hover .plan-shop-link {
+    background-color: rgba(134,134,64, 0.1); 
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item:nth-child(5){
+    border-right: none;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-img{
+    width: auto;
+    height: 100%;
+    max-width: max-content;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-plan-container{
+    position: relative;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-plan-container .mega-plan-link {
+    text-decoration: none;
+}
+.site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-plan-container .tag-new{
+    position: absolute;
+    top: 8px;
+    left: -4px;
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 14px;
+    padding: 2px 4px 0;
+    color: #fff;
+    background-color: #85853E;
+}
+.mega-menu-trimester-plan span.tag-new{
+    font-family: "BrownPro-Regular";
+    font-size: 12px;
+    letter-spacing: 0;
+    line-height: 14px;
+    padding: 2px 4px 0;
+    color: #fff;
+    background-color: #85853E;
+    margin-left: 6px;
+    margin-right: 10px;
+}
+.mega-menu-trimester-plan{
+    background-color: #F6F4F2;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    margin: 0 18px;
+}
+.mega-menu-trimester-plan p{
+    color: #1F3437;
+    font-family: "Copernicus-Bold";
+    font-size: 22px;
+    letter-spacing: 0px;
+    line-height: 27px;
+    display: flex;
+    align-items: center;
+}
+.mega-menu-trimester-plan a{
+    display: flex;
+    align-items: center;
+    color: #85853E;
+    font-family: "BrownPro-Regular";
+    font-size: 16px;
+    font-weight: bold;
+    /* letter-spacing: 0.5px; */
+    line-height: 19px;
+}
+.mega-menu-plan .mega-plan-title{
+    font-family: "Copernicus-Bold";
+    font-size: 18px;
+    line-height: 27px;
+    margin-top: 12px;
+    margin-bottom: 0px;
+    color: #1F3437;
+    letter-spacing: 0px;
+    min-height: 54px;
+}
+.mega-menu-plan .mega-plan-items li{
+    font-family: "BrownPro-Regular";
+    font-size: 14px;
+    margin-left: 28px;
+    color: #1F3337;
+    opacity: 0.65;
+    position: relative;
+    line-height: 1.4;
+}
+.mega-menu-plan .mega-plan-items li:before{
+    position: absolute;
+    content: url(https://cdn.shopify.com/s/files/1/0195/3293/9328/files/icon-check.svg?v=1636556680);
+    width: 14px;
+    height: 14px;
+    top: 2px;
+    left: -27px;
+}
+.mega-menu-plan .mega-menu__item .mega-plan-link:hover .plan-shop-link {
+    color: #1F3437;
+    text-decoration: none;
+}
+.mega-menu-plan .mega-menu__item .plan-shop-link{
+    font-family: "BrownPro-Bold";
+    font-size: 16px;
+    color: #85853E;
+    text-decoration: underline;
+    position: absolute;
+    bottom: 0;
+}
+.mega-menu-plan .mega-menu__item .plan-shop-link.desk-link{
+    float: right;
+    font-family: "BrownPro-Bold";
+    font-size: 16px;
+    color: #85853E;
+    text-decoration: underline;
+    bottom: 0;
+    min-width: 33px;
+    min-height: 33px;
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid rgba(134,134,64, 0.1);
+}
+.mega-menu-plan .mega-menu__item .plan-shop-link.desk-link:hover {
+    background-color: rgba(134,134,64, 0.1);
+}
+.mega-menu-plan .mega-menu__item .plan-shop-link.desk-link .plan-shop-link-img{
+    width: 5.77px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.mega-menu-plan .mega-menu-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0px;
+    margin: 0 18px;
+    border-top: 1px solid #e8eaeb;
+}
+.mega-menu-plan .mega-menu-footer .find-bundle {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    opacity: 0.65;
+    color: #1F3337;
+}
+.mega-menu-plan .mega-menu-footer .find-bundle strong {
+    font-family: "Copernicus-Bold-Italic";
+}
+.mega-menu-plan .mega-menu-footer .find-bundle a {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    opacity: 0.65;
+    color: #1F3337;
+    margin-left: 2px;
+}
+.mega-menu-plan .mega-menu-footer .find-bundle a:hover {
+    opacity: 1;
+    text-decoration: none;
+}
+.mega-menu-plan .mega-menu-footer .gift-card {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    opacity: 0.65;
+    color: #1F3337;
+    display: flex;
+    align-items: center;
+}
+.mega-menu-plan .mega-menu-footer .gift-card a {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0;
+    color: #868640;
+    width: 132px;
+    height: 37px;
+    border: 1px solid #868640;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    margin-left: 10px;
+}
+.mega-menu-plan .mega-menu-footer .gift-card a:hover {
+    color: #fff;
+    background-color: #868640;
+}
+.mega-menu-plan .mega-menu-footer .gift-card a svg {
+    margin-right: 4px;
+    margin-top: -2px;
+}
+.mega-menu-plan .mega-menu-footer .gift-card a:hover svg g#menu-new2 {
+    fill: #fff;
+}
+
+@media (max-width: 1119px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        width: 900px;
+        min-height: 570px;
+        left: -152px;
+        padding: 40px 10px 10px;
+    }
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-plan-container img {
+        width: 183px !important;
+    }
+    .mega-menu-plan .mega-plan-title {
+        font-size: 18px;
+        line-height: 23px;
+        min-height: 46px;
+        margin-top: 4px;
+        margin-bottom: 8px;
+    }
+    .mega-menu-plan .mega-plan-items li {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 900px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        width: 760px;
+        left: -80px;
+    }
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item {
+        padding: 0 5px;
+    }
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan .mega-menu__item .mega-plan-container img {
+        width: 175px !important;
+    }
+    .site-nav .site-nav__item[data-menu="dropdown"] .mega-menu-plan .mega-menu-body {
+        padding-bottom: 18px;
+    }
+    .mega-menu-plan .mega-menu-footer {
+        margin: 0 5px;
+    }
+    .mega-menu-plan .mega-menu-footer .find-bundle {
+        margin-right: 10px;
+    }
+}
+
+@media (max-width: 870px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        left: -130px;
+    }
+}
+
+/* @media (max-width: 834px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        left: -200px;
+    }
+}
+
+@media (max-width: 810px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        left: -190px;
+    }
+}
+
+@media (max-width: 800px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        left: -180px;
+    }
+}
+
+@media (max-width: 784px) {
+    .site-nav .site-nav__item[data-menu="dropdown"]:hover .mega-menu-plan {
+        left: -170px;
+    }
+} */
+</style>
+
+<li class="site-nav__item dropdown-mega-plan" data-menu="dropdown">
+    <a href="#"
+    class="site-nav__link "
+    data-keyword
+    >
+        <span data-keyword-context>Start your plan</span>
+        {% comment %} <span data-icon></span> {% endcomment %}
+    </a>
+    <div class="mega-menu-plan-cover">
+        <div class="mega-menu mega-menu-plan">
+            <ul class="mega-menu-body">
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        {% assign product = all_products['complete-plan-2'] %}
+                        <a href="https://thisisneeded.com/pages/the-complete-plan" class="mega-plan-link">
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-the-complete-plan.jpg' | asset_img_url : 'master' }}">
+                            <h2 class="mega-plan-title">The Complete Plan™</h2>
+                        </a>
+                    </div>
+                </li>
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        {% assign product = all_products['starter-plan'] %}
+                        <a href="https://thisisneeded.com/pages/the-starter-plan" class="mega-plan-link">
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-the-starter-plan.jpg' | asset_img_url : 'master' }}">
+                            <h2 class="mega-plan-title">The Starter Plan</h2>
+                        </a>
+                    </div>
+                </li>
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        <a href="https://thisisneeded.com/pages/trimester-plans" class="mega-plan-link">
+                            <div class="tag-new">NEW</div>
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-trimester-plans.jpg' | asset_img_url : 'master' }}">
+                            <h2 class="mega-plan-title">Trimester Plans</h2>
+                        </a>
+                    </div>
+
+                </li>
+            </ul>
+            <ul class="mega-menu-body">
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        {% assign product = all_products['conception-support-for-two'] %}
+                        <a href="https://thisisneeded.com/pages/conception-support-for-two" class="mega-plan-link">
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-conception-support-plan-for-two.jpg' | asset_img_url : 'master' }}" class='plan-shop-link-img'>
+                            <h2 class="mega-plan-title">Conception Support Plan for Two</h2>
+                        </a>
+                    </div>
+                </li>
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        {% assign product = all_products['mens-complete-plan'] %}
+                        <a href="https://thisisneeded.com/pages/mens-complete-plan" class="mega-plan-link">
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-the-complete-plan-for-men.jpg' | asset_img_url : 'master' }}" class='plan-shop-link-img'>
+                            <h2 class="mega-plan-title">The Complete Plan™ for Men</h2>
+                                           
+                        </a>
+                    </div>
+                </li>
+                <li class="mega-menu__item">
+                    <div class="mega-plan-container">
+                        {% assign product = all_products['mens-complete-plan'] %}
+                        <a href="https://thisisneeded.com/pages/womens-health-plan" class="mega-plan-link">
+                            <div class="tag-new">NEW</div>
+                            <img class="mega-plan-block lazyload" data-src="{{'menu-the-womens-health-plan.jpg' | asset_img_url : 'master' }}" class='plan-shop-link-img'>
+                            <h2 class="mega-plan-title">The Women's Health Plan</h2>
+                                           
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="mega-menu-footer">
+                <div class="find-bundle">Need help finding the right bundle for an <strong>optimal you?</strong> <a href="https://thisisneeded.com/pages/quiz" class="take-quiz">Take the quiz</a>.</div>
+                {% comment %} <div class="gift-card">Looking for a perfect gift for her or him? <a href="https://thisisneeded.com/products/gift-card">{% include 'gift.svg' %}Gift Cards</a></div> {% endcomment %}
+            </div>
+        </div>
+    </div>    
+</li>

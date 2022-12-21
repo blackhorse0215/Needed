@@ -1,0 +1,366 @@
+<div data-section-id="{{ section.id }}" data-section-type="product" data-enable-history-state="true" itemscope
+	 itemtype="http://schema.org/Product" class="product">
+
+	{%- assign current_variant = product.selected_or_first_available_variant -%}
+	{%- assign featured_image = current_variant.featured_image | default: product.featured_image -%}
+
+	<meta itemprop="name" content="{{ product.title }}{% unless product.has_only_default_variant %} - {{ current_variant.title }}{% endunless %}">
+	<meta itemprop="url" content="{{ shop.url }}{{ current_variant.url }}">
+	<meta itemprop="brand" content="{{ product.vendor }}">
+	<meta itemprop="image" content="{{ featured_image | img_url: '600x600' }}">
+  <meta itemprop="description" content="{{ product.description | strip_html | escape }}">
+
+	<div class="container product__postpartum-prep">
+		<div class="row">
+			<div class="col-12 col-lg-6">
+				{% assign images_count = product.images | size %}
+				<div {% if images_count > 1 %}id="product-main-slider"{% endif %} class="product__image">
+					{% for image in product.images  %}
+						<div>
+							<div class="product__image-slide">
+								<img class="lazyload" data-src="{{ image | img_url: '1600x' }}" alt="{{ image.alt | escape }}">
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="col-12 col-lg-6">
+				<div class="product__information">
+					<h1 class="product__title">{{ product.title }}</h1>
+
+					<div class="product__description desktop">
+						{{ product.description }}
+					</div>
+
+          <div class="product-class-offer desktop">
+            <p>{{ section.settings.offer_content }}</p>
+            <img src="{{ section.settings.offer_image | img_url: '120x80' }}" />
+          </div>
+
+					<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product__form">
+						<meta itemprop="priceCurrency" content="{{ shop.currency }}">
+						<meta itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+						<link itemprop="availability"
+							  href="http://schema.org/{% if current_variant.available %}InStock{% else %}OutOfStock{% endif %}">
+
+            <div class="product-variants">
+              <div class="recording-option">
+                <input
+                  type="radio"
+                  class="variant-option"
+                  name="product_variant"
+                  id="variant_recording"
+									checked="checked"
+                  value="recording"
+                />
+                <label for="variant_recording" class="variant-label">Recorded live. Watch the recorded event.</label>
+              </div>
+            </div>
+
+						<form action="/cart/add" method="post" enctype="multipart/form-data" data-product-original-form data-productid="{{product.id}}">
+              <input type="hidden" name="properties[Event Type]" class="prop-event-type" value="Recording" />
+              <input type="hidden" name="properties[Event Date]" class="prop-event-date" value="" />
+
+              <select id="product-select-{{ product.id }}" data-productid="{{product.id}}" name="id" class="visually-hidden" data-product-select>
+								{% for variant in product.variants %}
+									<option
+										{% if variant.id == current_variant.id and variant.available %}selected="selected"{% endif %}
+										{% unless variant.available %}disabled="disabled"{% endunless %}
+										value="{{ variant.id }}"
+									>
+										{{ variant.title }}
+									</option>
+								{% endfor %}
+							</select>
+
+              {% if current_variant.available %}
+								<div class="product__action">
+									<button
+										type="submit"
+										name="add"
+										class="button button--primary add-virtual-class"
+										data-add-to-cart
+										{% unless current_variant.available %}disabled="disabled"{% endunless %}
+									>
+										<span data-add-to-cart-text>
+                      {{ product.price | money_without_trailing_zeros }} - Add to Cart
+										</span>
+									</button>
+								</div>
+							{% else %}
+								<button id="BIS_trigger" class="button button--primary" style="display: none;">Notify me</button>
+							{% endif %}
+						</form>
+					</div>
+
+					<div class="product__icons-container">
+						<div class="product__icons">
+							{% include 'product-icons' %}
+						</div>
+					</div>
+
+					<div class="product__description mobile">
+						{{ product.description }}
+					</div>
+
+          <div class="product-class-offer mobile">
+            <p>{{ section.settings.offer_content }}</p>
+            <img src="{{ section.settings.offer_image | img_url: '120x80' }}" />
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="product-fixed-form" data-fixed-form>
+		<div class="container">
+			<div class="row">
+				<div class="col-4 col-lg-6 product-fixed-form__title">
+					<span class="sticky-bar-title">{{ section.settings.fixed_form_title }} {{ product.title }}</span>
+					<span class="sticky-bar-save" style="display: none;"></span>
+				</div>
+				<div class="col-8 col-lg-6 product-fixed-form__action">
+					<button class="button button--primary" data-add-to-cart
+							{% unless current_variant.available %}id="BIS_trigger"{% endunless %}
+					>
+						<span data-add-to-cart-text class="sticky-bar-button">
+							{{ product.price | money_without_trailing_zeros }} - Add to cart
+						</span>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+  {% unless product == empty %}
+		<script type="application/json" data-product-json>
+			{{ product | json }}
+		</script>
+	{% endunless %}
+</div>
+
+<style>
+	.product-fixed-form .sticky-bar-save {
+		background: #e7e7d9;
+		font-size: 15px;
+		padding: 3px 5px;
+	}
+	.product .product__icons-container {
+		margin-top: 22px !important;
+	}
+	.product .product__supplement-fact {
+		margin-top: 16px !important;
+	}
+	.product-fixed-form.product-fixed-form--shown {
+		padding: 17px 0 !important;
+	}
+	.add-to-bundle {
+		cursor: pointer;
+	}
+
+	.product__action * {
+		font-family: "BrownPro-Bold",sans-serif;
+		font-size: 16px !important;
+		line-height: 1.2 !important;
+	}
+	.block__type__bundle {
+		margin-top: 15px;
+	}
+	.label__onetime, .label__bundle {
+		font-family: 'BrownPro-regular';
+		font-size: 16px;
+		line-height: 19px;
+	}
+	.label__onetime span, .label__bundle span {
+		font-family: 'BrownPro-bold';
+	}
+	.compare-price {
+		text-decoration: line-through;
+	}
+	.price__autodeliver {
+		color: #85853E;
+	}
+	.product__information .product__form .product__action button[data-add-to-cart]{
+		margin-top: 20px;
+	}
+  .product__postpartum-prep .product__description.desktop p,
+  .product__postpartum-prep .product__description.desktop br {
+    display: none;
+  }
+  .product__postpartum-prep .product__description.desktop p:first-child,
+  .product__postpartum-prep .product__description.desktop p:first-child br {
+    display: block;
+  }
+
+	@media (max-width: 991px) {
+		.product-fixed-form .product-fixed-form__action .button {
+			padding: 14px 15px;
+		}
+		.product__title {
+			text-align: center;
+		}
+		.accordHeaderLinks {
+			text-align: center;
+		}
+		.addition-contents .contents {
+			font-size: 17px;
+			line-height: 1.5;
+		}
+		.addition-contents .addition-author {
+			line-height: 1.2;
+		}
+	}
+
+	@media (min-width: 769px){
+		.product__information .product__form{
+			margin-top: 0px;
+		}
+
+		.product__information .product__form .product__action button[data-add-to-cart]{
+			margin-top: 25px;
+		}
+	}
+
+	@media (max-width: 374px){
+		#shopify-section-product .product-fixed-form .product-fixed-form__action{
+			max-width: 150px;
+		}
+
+		#shopify-section-product .product-fixed-form .product-fixed-form__action button{
+			max-width: 150px;
+			font-size: 14px;
+			padding: 12px 12px 10px;
+		}
+
+		#shopify-section-product .product-fixed-form .product-fixed-form__title{
+			max-width: calc(100% - 150px);
+		}
+	}
+
+</style>
+
+
+<script>
+$(document).ready(function(){
+  $('.live-event-option').on('change', '.event-date', function() {
+    $('.live-event-option .event-date-label.active').removeClass('active');
+    $(this).parent().addClass('active');
+
+    let event_option = $('.variant-option').val();
+    if (event_option == 'live-event') {
+      $('.prop-event-date').val($(this).val());
+    }
+  });
+
+  $('.product-variants').on('change', '.variant-option', function() {
+    if ($(this).val() == 'live-event') {
+      $('.prop-event-type').val('Live');
+      $('.prop-event-date').val($('.live-event-option .event-date:checked').val());
+    } else if ($(this).val() == 'recording') {
+      $('.prop-event-type').val('Recording');
+      $('.prop-event-date').val('');
+    }
+  });
+
+  $(".product__postpartum-prep .product__description.desktop p").first().append(" <a href='#' class='show-more'>Show More</a>");
+  $(".product__postpartum-prep .product__description.desktop p").last().append(" <a href='#' class='show-less'>Show Less</a>");
+
+  $(".product__postpartum-prep .product__description.desktop p").on("click", ".show-more", function(e){
+      e.preventDefault();
+      $(this).hide();
+      $(".product__postpartum-prep .product__description.desktop p").show();
+      $(".product__postpartum-prep .product__description.desktop br").show();
+  })
+  $(".product__postpartum-prep .product__description.desktop p").on("click", ".show-less", function(e){
+      e.preventDefault();
+      $(".product__postpartum-prep .product__description.desktop p").hide();
+      $(".product__postpartum-prep .product__description.desktop br").hide();
+      $(".product__postpartum-prep .product__description.desktop p").first().show();
+      $(".product__postpartum-prep .product__description.desktop p br").first().show();
+      $(".product__postpartum-prep .product__description.desktop p .show-more").show();
+  })
+	
+  $('.add-virtual-class').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    bogoData = {
+      items: [{
+        "quantity": 1,
+        "id": '39347247055000',
+      },{
+        "quantity": 1,
+        "id": '{{ current_variant.id }}',
+        "properties[Event Type]": $('.prop-event-type').val(),
+        "properties[Event Date]": $('.prop-event-date').val()
+      }]
+    };
+    
+    jQuery.ajax({
+      type: 'POST',
+      url: '/cart/add.js',
+      data: bogoData,
+      dataType: 'json',
+      success: function() {
+        location.href = '/cart';
+      }
+    });
+  });
+});
+</script>
+
+
+{% schema %}
+{
+	"name": "Product pages",
+	"settings": [
+    {
+      "type": "header",
+      "content": "Offer"
+    },
+    {
+      "type": "richtext",
+      "id": "offer_content",
+      "label": "Content"
+    },
+    {
+      "type": "image_picker",
+      "id": "offer_image",
+      "label": "Image"
+    },
+		{
+			"type": "header",
+			"content": "Fixed form"
+		},
+		{
+			"type": "text",
+			"id": "fixed_form_title",
+			"label": "Fixed form heading",
+			"default": "Purchase"
+		},
+		{
+			"type": "header",
+			"content": "Shipping info"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_1",
+			"label": "Label 1",
+			"default": "Free US Shipping"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_2",
+			"label": "Label 2",
+			"default": "Easy Cancellation"
+		},
+		{
+			"type": "text",
+			"id": "shipping_info_3",
+			"label": "Label 3",
+			"default": "100% Satisfaction Guarantee"
+		}
+	]
+}
+{% endschema %}

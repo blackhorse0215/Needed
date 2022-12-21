@@ -1,0 +1,223 @@
+.practitioner_testimonials-banner {
+  .banner-inner {
+    position: relative;
+  }
+
+  .banner-image {
+    .mobile-image {
+      display: none;
+    }
+  }
+  .banner-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 733px;
+    top: calc(50% + 45px);
+    transform: translateY(-50%);
+    text-align: center;
+
+    .banner-title {
+      font-size: 45px;
+      font-weight: bold;
+      letter-spacing: 0;
+      line-height: 59px;
+    }
+    .banner-btn {
+      font-size: 16px;
+      line-height: 19px;
+      color: #fff;
+      background-color: #1f3337;
+      border-radius: 28px;
+      padding: 20px 80px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 40px;
+    }
+    .banner-btn2-wrapper {
+      font-size: 16px;
+      line-height: 22px;
+      margin-top: 16px;
+
+      .banner-btn2 {
+        color: #1f3337;
+      }
+    }
+  }
+
+  @media (max-width: 1439px) {
+    .banner-content {
+      max-width: 630px;
+
+      .banner-title {
+        font-size: 42px;
+        line-height: 54px;
+      }
+    }
+  }
+
+  @media (max-width: 1279px) {
+    .banner-content {
+      max-width: 540px;
+
+      .banner-title {
+        font-size: 38px;
+        line-height: 48px;
+      }
+    }
+  }
+
+  @media (max-width: 991px) {
+    .banner-content {
+      max-width: 420px;
+
+      .banner-title {
+        font-size: 34px;
+        line-height: 45px;
+      }
+      .banner-btn {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    .banner-image {
+      .desktop-image {
+        height: 350px;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @media (max-width: 767px) {
+    .banner-image {
+      .desktop-image {
+        display: none;
+      }
+      .mobile-image {
+        display: block;
+        width: 100%;
+      }
+    }
+    .banner-content {
+      position: relative;
+      top: 0;
+      transform: unset;
+      max-width: 100%;
+      padding: 20px 12px;
+
+      .banner-title {
+        font-size: 32px;
+        line-height: 42px;
+      }
+    }
+  }
+
+  @media (max-width: 374px) {
+    .banner-content {
+      .banner-title {
+        font-size: 27px;
+        line-height: 38px;
+      }
+    }
+  }
+}
+
+.practitioner_testimonials-list {
+  .list-inner {
+    padding-top: 70px;
+    padding-bottom: 120px;
+  }
+
+  .testimonial-list {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(350px,1fr));
+    grid-auto-rows: 0;
+
+    .testimonial:nth-child(n+13) {
+      display: none;
+    }
+    .testimonial-image {
+      position: relative;
+    }
+    .testimonial-title {
+      color: #fff;
+      font-size: 14px;
+      line-height: 16px;
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      bottom: 20px;
+      max-width: 288px;
+    }
+    .testimonial-content {
+      padding: 40px;
+      font-size: 16px;
+      line-height: 22px;
+
+      &:before {
+        background-image: url("{{ 'testimonial-quote.svg' | asset_url }}");
+        background-repeat: no-repeat;
+        content: '';
+        display: inline-block;
+        width: 31px;
+        height: 23px;
+      }
+    }
+  }
+
+  .btn-wrapper {
+    text-align: center;
+  }
+  .more-testimonials {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 57px;
+    color: #1f3337;
+    font-family: 'BrownPro Bold';
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 28px;
+    border: 2px solid #1f3337;
+    text-decoration: none;
+    margin-top: 44px;
+  }
+  .btn-sec{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 320px;
+    height: 57px;
+    color: #1f3337;
+    font-family: 'BrownPro Bold';
+    font-size: 16px;
+    line-height: 19px;
+    border-radius: 28px;
+    border: 2px solid #1f3337;
+    text-decoration: none;
+    margin-top: 44px;
+  }
+
+  @media (max-width: 767px) {
+    .testimonial-list {
+      .testimonial:nth-child(n+7) {
+        display: none;
+      }
+    }
+  }
+
+  @media (max-width: 370px) {
+    .testimonial-list {
+      grid-gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    }
+    .more-testimonials {
+      width: 240px;
+    } 
+  }
+}

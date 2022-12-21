@@ -1,0 +1,380 @@
+{% assign author = article.metafields.airf.author %}
+{% if author and author != blank %}
+    {% assign separator = "###" %}
+    {% assign author_namespaces = author | split: separator %}
+
+    {% assign namespace = author_namespaces[0] %}
+    {% assign custom_object = shop.metafields[namespace] %}
+
+    {% assign avatar = custom_object['avatar'] %}
+    {% comment %}
+        {% if avatar and avatar != '&nbsp' %}
+            <img src="{{ avatar }}" />
+        {% endif %}
+    {% endcomment %}
+
+    {% assign name = custom_object['name'] %}
+    {% comment %}
+        {% if name and name != '&nbsp' %}
+            {{ name }}
+        {% endif %}
+    {% endcomment %}
+
+    {% assign position = custom_object['position'] %}
+    {% comment %}
+        {% if position and position != '&nbsp' %}
+            {{ position }}
+        {% endif %}
+    {% endcomment %}
+
+    {% assign biography = custom_object['biography'] %}
+    {% comment %}
+        {% if biography and biography != '&nbsp' %}
+            {{ biography }}
+        {% endif %}
+    {% endcomment %}
+{% endif %}
+
+<article class="article-page">
+
+    <div class="article-page__banner"
+         {% if article.image != blank %}style="background-image: url({{ article.image | img_url: '2000x' }});" {% endif %}>
+    </div>
+
+    <div class="container">
+        <div class="rte">
+            <div class="article-page__header">
+                <h1 class="article-page__title" data-keyword><span class="article-page__title-icon" data-icon></span>{{ article.title }}</h1>
+                {% if name and name != '&nbsp' %}
+                    <h4 class="article-user__name">{{ name }}</h4>
+
+                    <div class="article-page__author">by {{ name }}, {% if position and position != '&nbsp' %}<strong>{{ position }}</strong>{% endif %}</div>
+                {% endif %}
+            </div>
+            <div class="article-page__social">
+                <label for="Share">Share:</label>
+                <ul class="social-icons">
+                    <li class="social-icons__item">
+                        <a href="#" class="social-icons__link" target="_blank" title="Facebook">
+                            {% include 'icon-facebook' %}
+                        </a>
+                    </li>
+                    <li class="social-icons__item">
+                        <a href="#" class="social-icons__link" target="_blank" title="Pinterest">
+                            {% include 'icon-pinterest' %}
+                        </a>
+                    </li>
+                    <li class="social-icons__item">
+                        <a href="#" class="social-icons__link" target="_blank" title="Instagram">
+                            {% include 'icon-instagram' %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="article-page__body">
+                <!-- buy button start -->
+                {% assign split_txt = '<div class="embed-product-wrapper"></div>' %}
+                {% assign content = article.content | split: split_txt %}
+                {% assign order_arr = article.metafields.global.display_order | split: ',' %}
+                
+                {% for item in content %}
+                    {{ item }}
+                    {% if section.blocks.size > 0 and content.size > forloop.index  %}
+                        {% assign block_item = section.blocks %}
+                        {% assign i = order_arr[forloop.index0] | minus: 1 %}
+                        {% assign title = block_item[i].settings.title %}
+                        {% assign b_list = block_item[i].settings.b_list %}
+                        {% assign desc = block_item[i].settings.desc %}
+                        {% assign btn_text = block_item[i].settings.btn_text %}
+                        {% assign btn_link = block_item[i].settings.btn_link %}
+                        {% assign product = all_products[block_item[i].settings.buy_button_product] %}
+
+                        <div class="bundle-item-container row">
+                            <div class="col-md-6 col-sm-12">
+                                <div class="bundle-image-wrapper">
+                                    <img class="bundle-image" src="{{ product.images[0] | img_url : '540x540' }}">
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                <div class="bundle-content-wrapper">
+                                    <h2 class="bundle-title">{{ title }}</h2>
+                                    <p class="bundle-subtitle">{{ b_list }}</p>
+                                    <p>{{ desc }}</p>
+                                    {% assign p_link = btn_link %}
+                                    {% if btn_link == blank %}
+                                        {% assign p_link = "#" %}
+                                    {% endif %}
+                                    <a href="{{ p_link }}" target="_blank" class="button button--primary buy-btn">{{ btn_text }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <!-- buy button end -->
+            </div>
+        </div>
+
+        <ul class="article-page__tags">
+            {% for tag in article.tags %}
+                {% unless tag contains "_main:" %}
+                    <li class="tag tag--active"><span class="tag__link">{{ tag | remove : '-'}}</span></li>
+                {% endunless %}
+            {% endfor %}
+        </ul>
+
+        {% if author and author != blank %}
+            <div class="article-user">
+                <div class="article-user__photo"
+                     style="{% if avatar and avatar != '&nbsp' %}
+                        background-image: url('{{ avatar }}');
+                     {% else %}
+                        background-image: url({{ 'avatar-placeholder.png' | asset_img_url: '400x' }});
+                    {% endif %}">
+                </div>
+
+                <div class="article-user__info">
+                    {% if name and name != '&nbsp' %}
+                        <h4 class="article-user__name">{{ name }}</h4>
+                    {% endif %}
+
+
+                    {% if position and position != '&nbsp' %}
+                        <p class="article-user__position">{{ position }}</p>
+                    {% endif %}
+
+                    {% if biography and biography != '&nbsp' %}
+                        <div class="article-user__bio">{{ biography }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+        <div class="article-page__social bottom">
+            <p>Liked the article? Share it.</p>
+            <ul class="social-icons">
+                <li class="social-icons__item">
+                    <a href="#" class="social-icons__link" target="_blank" title="Facebook">
+                        {% include 'icon-facebook' %}
+                    </a>
+                </li>
+                <li class="social-icons__item">
+                    <a href="#" class="social-icons__link" target="_blank" title="Pinterest">
+                        {% include 'icon-pinterest' %}
+                    </a>
+                </li>
+                <li class="social-icons__item">
+                    <a href="#" class="social-icons__link" target="_blank" title="Instagram">
+                        {% include 'icon-instagram' %}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {% unless blog.articles_count == 0 %}
+        <section class="featured-blog">
+
+            {% if section.settings.related_articles_title != blank %}
+                <h2 class="featured-blog__heading">{{ section.settings.related_articles_title }}</h2>
+            {% endif %}
+
+            <div id="featured-blog-slider" class="row">
+                {% assign related_articles = blog.articles %}
+                {% assign articles_count = 0 %}
+
+                {% for related_article in related_articles %}
+                    {% if article.id != related_article.id and articles_count < 5 %}
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <article
+                                    class="article-card"
+                                    {% if related_article.image != blank %}
+                                        style="background-image: url({{ related_article.image | img_url: '1000x' }});"
+                                    {% endif %}
+                            >
+                                <div class="article-card__content">
+                                    <h3 class="article-card__title">
+                                        <a href="{{ related_article.url }}">{{ related_article.title }}</a>
+                                    </h3>
+                                </div>
+                            </article>
+                        </div>
+                        {% assign articles_count = articles_count | plus: 1 %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    {% endunless %}
+</article> 
+<style>
+.article-page__body .buy-btn {
+    text-decoration: none;
+    width: 100%;
+}
+.article-page__body .buy-btn:hover {
+    color: white;
+}
+#shopify-section-article-template .container {
+    max-width: 860px;
+}
+#shopify-section-article-template .bundle-item-container.row {
+    margin: 60px 0;
+    border: 1px solid #E1E3E4;
+}
+#shopify-section-article-template .bundle-item-container.row .col-md-6 {
+    padding: 0;
+    position: relative;
+}
+#shopify-section-article-template .bundle-item-container.row .col-md-12 {
+    padding: 0;
+}
+#shopify-section-article-template .bundle-image {
+    margin: 0;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+}
+#shopify-section-article-template .bundle-image-wrapper {
+    padding-bottom: 100%;
+}
+#shopify-section-article-template .bundle-content-wrapper {
+    padding: 10px 25px;
+}
+#shopify-section-article-template p, #shopify-section-article-template li {
+    font-size: 16px;
+}
+#shopify-section-article-template .bundle-item-container.row p {
+    font-size: 15px;
+}
+#shopify-section-article-template .bundle-title {
+    margin-bottom: 15px;
+}
+#shopify-section-article-template .bundle-subtitle {
+    margin-bottom: 20px;
+}
+#shopify-section-article-template .featured-blog {
+    max-width: 1200px;
+    margin: auto;
+}
+#shopify-section-article-template .featured-blog .featured-blog__heading p {
+    font-size: 35px;
+}
+#shopify-section-article-template .article-page__body p>b {
+    font-size: 26px;
+    font-family: "Copernicus-Extrabold";
+}
+#shopify-section-article-template .article-page__body p:nth-child(1)::first-letter {
+    font-size: 50px;
+    font-family: "Copernicus-Bold";
+}
+#shopify-section-article-template .rte ul li:before {
+    width: 16px;
+    height: 1px;
+    border-radius: none;
+}
+#shopify-section-article-template ul li {
+    padding-left: 15px;
+}
+#shopify-section-article-template .rte .article-page__social ul li:before {
+    display: none;
+}
+#shopify-section-article-template .article-page__social {
+    align-items: center;
+    display: flex;
+}
+#shopify-section-article-template .article-page__social label {
+    margin-top: 6px;
+}
+#shopify-section-article-template .article-page__social ul.social-icons {
+    margin: 0;
+}
+#shopify-section-article-template .article-page__social ul li {
+    padding: 0;
+}
+#shopify-section-article-template .article-page__social.bottom {
+    display: block;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+#shopify-section-article-template .article-page__social.bottom ul li {
+    padding: 0 12px;
+}
+@media (min-width: 768px) {
+    #shopify-section-article-template .container {
+        padding: 0;
+    }
+    #shopify-section-article-template .bundle-item-container.row .col-md-6:nth-child(1) {
+        max-width: 44%;
+        flex: 0 0 44%;
+    }
+    #shopify-section-article-template .bundle-item-container.row .col-md-6:nth-child(2) {
+        max-width: 56%;
+        flex: 0 0 56%;
+    }
+    #shopify-section-article-template .bundle-content-wrapper {
+        padding: 10px 60px;
+    }
+    #shopify-section-article-template ul li {
+        padding-left: 36px;
+    }
+}
+@media (max-width: 767px) {
+    #shopify-section-article-template .featured-blog {
+        padding: 0 20px;
+    }
+}
+</style>
+{% schema %}
+  {
+    "name": "Article page",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "related_articles_title",
+            "label": "Related articles heading",
+            "default": "<p><strong>integrated education is</strong> needed.</p>"
+        }
+    ],
+    "blocks": [
+        {
+            "type": "colums",
+            "name": "Buy button",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "title",
+                    "label": "Title",
+                    "default": "Conception Support (Ships Monthly)"
+                },
+                {
+                    "type": "text",
+                    "id": "b_list",
+                    "label": "Bundle list text",
+                    "default": "Prenatal Multi + Pre / Probiotic + Collagen Protein"
+                },
+                {
+                    "type": "textarea",
+                    "id": "desc",
+                    "label": "Description",
+                    "default": "Bundle our 3 main products for extra savings while optimally supporting you and your baby's micronutrient, protein, and microbiome needs."
+                },
+                {
+                    "type": "text",
+                    "id": "btn_text",
+                    "label": "Button text",
+                    "default": "Shop Now"
+                },
+                {
+                    "type": "text",
+                    "id": "btn_link",
+                    "label": "Button link",
+                    "default": "https://thisisneeded.com/pages/bundle-plans#bundle-item-container-2"
+                },
+                {
+                    "type": "product",
+                    "id": "buy_button_product",
+                    "label": "Product"
+                }
+            ]
+        }
+    ]
+  }
+{% endschema %}

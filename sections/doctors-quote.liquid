@@ -1,0 +1,32 @@
+<section class="doctors-quote">
+    <div class="addition-contents">
+        {% assign quote_text = product.metafields.airf.quote_text %}
+        {% assign practitioner_name = product.metafields.airf.quote_name %}
+        <p class="contents">{{ quote_text }}</p>
+        <p class="addition-author">{{ practitioner_name }}</p>
+    </div>
+</section>
+
+<style>
+section.doctors-quote {
+    display:none;
+}
+.addition-contents {
+    padding: 45px 30px;
+    max-width: calc(100% - 60px);
+    margin: 0 auto 30px;
+    background-color: #f6f4f2;
+}
+.addition-contents .contents {
+    font-size: 22px;
+    line-height: 38px;
+}
+.addition-contents .addition-author {
+    line-height: 1.2;
+}
+@media (max-width: 500px) {
+    section.doctors-quote {
+        display: block;
+    }
+}
+</style>

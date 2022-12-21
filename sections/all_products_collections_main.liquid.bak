@@ -1,0 +1,1173 @@
+<style>
+  #section-{{ section.id }} .section-inner {
+    margin-top: 60px;
+    overflow-x: hidden;
+  }
+  #section-{{ section.id }} .section-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 47px;
+    text-align: center;
+    padding: 0 15px;
+  }
+  #section-{{ section.id }} .list-content {
+    margin: auto;
+    max-width: 1170px;
+  }
+  #section-{{ section.id }} .section-title .em-b {
+    font-family: 'Copernicus-Bold-Italic';
+  }
+  #section-{{ section.id }} .section-descr {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 24px;
+    text-align: center;
+    margin-top: 24px;
+    padding: 0 15px;
+  }
+  /* #section-{{ section.id }} .collections-menu {
+      text-align: center;
+  } */
+  /* #section-{{ section.id }} .collections-menu input {
+    color: #1F3337;
+    font-family: "BrownPro-Regular";
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 22px;
+    margin: 0 15px;
+    text-decoration: none;
+    position: relative;
+  }
+  #section-{{ section.id }} .collections-menu a.active,
+  #section-{{ section.id }} .collections-menu a:hover {
+     color: #87893e;
+  }
+  #section-{{ section.id }} .collections-menu a.active::after,
+  #section-{{ section.id }} .collections-menu a:hover::after {
+    content: " ";
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    top: calc(100% + 5px);
+    left: 0;
+    background-color: #87893e;
+  } */
+  #section-{{ section.id }} .product-collection-list {
+    margin-left: -11px;
+    margin-top: 46px;
+    flex-wrap: wrap;
+    max-width: 1170px;
+  }
+  #section-{{ section.id }} .product-collection {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding-right: 16px;
+    padding-left: 16px;
+    background-color: white;
+    
+  }
+  #section-{{ section.id }} .product-collection-content {
+    padding: 24px;
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f6f4f2;
+    text-align: left;
+  }
+  #section-{{ section.id }} .product-collection-content h1{
+    font-size: 20px;
+  }
+  #section-{{ section.id }} .product-collection-content .product-reviews-badge{
+    text-align: left;
+    margin-top: 5px;
+    font-size: 13px;
+  }
+  #section-{{ section.id }} .product-collection-list .product-collection-image {
+    position: relative;
+    display: block;
+    background-color: #f6f4f2;
+  }
+  #section-{{ section.id }} .product-collection-list .product-collection-image .foodtype {
+    padding-top: 6px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    float: right;
+    right: 25px;
+    top:20px;
+    font-size: 12px;
+    background: white;
+    position: absolute;
+  }
+  #section-{{ section.id }} .product-collection-list .product-collection-image .newlabel {
+    padding-top: 6px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    padding-left: 6px;
+    float: right;
+    right: 120px; /*BS updated 83*/
+    top:20px;
+    font-size: 12px;
+    background: #1F3337;
+    color: white;
+    position: absolute;
+  }  
+  #section-{{ section.id }} .product-collection-title-wrapper {
+    flex: 1;
+  }
+  #section-{{ section.id }} .product-collection .product-collection-content .invert-product-collection {
+    color: black;
+  }
+  #section-{{ section.id }} .product-collection .product-collection-content .invert-product-collection {
+    animation-name: purchase-anim;
+    animation-duration: 2.5s;
+    animation-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000);
+  }
+  
+  @keyframes purchase-anim {
+    from {opacity: 0;transform: translateY(-20px);}
+    to {opacity: 1;transform: translateY(0);}
+  }
+  #section-{{ section.id }} .product-collection-title {
+    font-family: 'Copernicus-Bold';
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 35px;
+  }
+  #section-{{ section.id }} .product-collection-subtitle {
+    font-size: 14px;
+    letter-spacing: 0;
+    line-height: 20px;
+    margin-top: 8px;
+  }
+  #section-{{ section.id }} .product-collection-descr {
+    font-size: 15px;
+    letter-spacing: 0;
+    line-height: 22px;
+    min-height: 100px;
+    margin-top: 24px;
+  }
+  #section-{{ section.id }} .product-collection-price {
+    font-size: 15px;
+  }
+  #section-{{ section.id }} .product-collection-price span:first-child{
+    opacity: 50%;
+  }
+  #section-{{ section.id }} .button-wrapper {
+    margin-top: 15px;
+  }
+  #section-{{ section.id }} .quick-add-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 200px;
+    width: 100%;
+    height: 57px;
+    border-radius: 29px;
+    color: #fff;
+    background-color: #1f3337;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  #section-{{ section.id }} .quick-add-btn:hover {
+    background-color: #4d5e5f;
+    opacity: .8;
+    transition: .2s all;
+  }
+  .invert-product-collection .purchase-btn.one-time,
+  .invert-product-collection .subscribe-save .purchase-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .invert-product-collection .subscribe-save {
+    margin-top: 15px;
+  }
+  .invert-product-collection .subscribe-save p {
+    font-size: 16px;
+  }
+  .invert-product-collection .subscribe-save .purchase-btn .down-percent {
+    color: #87893e;
+    font-size: 14px;
+  }
+  .invert-product-collection .purchase-btn .price {
+    font-weight: 600;
+  }
+  .invert-product-collection .subscribe-save .purchase-btn .down-percent,
+  .invert-product-collection .subscribe-save .purchase-btn .price {
+    margin-left: 10px;
+  }
+  .invert-product-collection .subscribe-save .purchase-btn .popular {
+    position: absolute;
+    top: 0.5px;
+    background-color: #85853E;
+    left: 14.5px;
+    font-size: 10px;
+    color: white;
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+  #section-{{ section.id }} .product-collection .invert-product-collection .purchase-btn {
+    border: 1px solid transparent;
+    margin-top: 5px;
+    background-color: white;
+    color: black;
+    width: 100%;
+    min-width: 100%;
+    min-height: 49px;
+    padding: 14.5px 16.5px;
+    border-radius: 4px;
+    box-shadow: none;
+    font-family: BrownPro-Regular,sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    transition-property: color,background-color;
+    transition-duration: .3s;
+  }
+  #section-{{ section.id }} .product-collection .invert-product-collection .purchase-btn:hover {
+    border: 1px solid #1F3337;
+  } 
+  #section-{{ section.id }} .product-collection .invert-product-collection .purchase-btn div:first-child {
+    min-width: 115px;
+  }
+  #section-{{ section.id }} .product-collection-slider-arrow {
+    display: none;
+  }
+  .product-collection-image img, .product-collection-title {
+    cursor: pointer;
+  }
+
+  @media (max-width: 1280px) {
+    #section-{{ section.id }} .product-collection-list .slick-list {
+      display: flex;
+    }
+    #section-{{ section.id }} .product-collection-list .slick-track {
+      display: flex;
+      align-items: flex-start;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow {
+      display: block;
+      position: relative;
+      list-style: none;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow li {
+      position: absolute;
+      font-size: 37px;
+      line-height: 25px;
+      top: 0px;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow li i {
+      color: #1f333780;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow li.next {
+      right: 15px;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow li.prev {
+      left: 15px;
+    }
+    #section-{{ section.id }} .slick-dots {
+      position: absolute;
+      bottom: -25px;
+    }
+    #section-{{ section.id }} .slick-dots li {
+      margin: 0 8px;
+    }
+    #section-{{ section.id }} .slick-dots li button {
+      width: 10px;
+      height: 10px;
+      background-color: #1f333733;
+      border: none;
+    }
+    #section-{{ section.id }} .slick-dots li.slick-active button {
+      background-color: #1f3337;
+    }
+    #section-{{ section.id }} .product-collection .product-collection-content h1{
+      font-size: 17px;
+    }
+    #section-{{ section.id }} .product-collection .product-collection-content .product-collection-descr{
+      font-size: 14px;
+      min-height: 120px;
+      margin-top: 10px;
+    }
+    #section-{{ section.id }} .product-collection .product-collection .product-reviews-badge {
+      margin-top: 0px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} .section-title .em-b {
+      font-style: italic;
+    }
+    #section-{{ section.id }} .product-collection {
+      width: 48%;
+      margin-left: 8px;
+    }
+  }
+
+  @media (max-width: 549px) {
+    #section-{{ section.id }} .section-title {
+      font-size: 22px;
+      line-height: 30px;
+    }
+    #section-{{ section.id }} .section-descr {
+      font-size: 17px;
+      margin-top: 16px;
+    }
+    #section-{{ section.id }} .product-collection-list {
+      margin-top: 30px;
+    }
+    #section-{{ section.id }} .product-collection {
+      width: 100%;
+      margin-left: 8px;
+    }
+    
+    #section-{{ section.id }} .product-collection-content {
+      padding: 10px 20px 20px;
+      background-color: #f6f4f2;
+    }
+    #section-{{ section.id }} .product-collection-title {
+      font-size: 18px;
+      line-height: 24px;
+    }
+    #section-{{ section.id }} .product-collection-subtitle {
+      font-size: 13px;
+      line-height: 15px;
+    }
+    #section-{{ section.id }} .product-collection-descr {
+      font-size: 17px;
+      margin-top: 20px;
+    }
+    #section-{{ section.id }} .button-wrapper {
+      margin-top: 30px;
+    }
+    #section-{{ section.id }} .slick-dots {
+      bottom: -30px;
+    }
+    #section-{{ section.id }} .slick-dots li button {
+      width: 5px;
+      height: 5px;
+    }
+    #section-{{ section.id }} .product-collection-slider-arrow li {
+      top: 8px;
+    }
+  }
+  /* The Modal (background) */
+.purchase-modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0, 43,45,0.5); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position:fixed;
+  bottom:0px;
+  width:100%;
+  margin: auto;
+}
+.modal-content .product-collection-content {
+  padding: 15px !important;
+  background-color: #f6f4f2;
+}
+.modal-content .product-collection-content .modal-title .quick-add{
+  color: #1F3437;
+  opacity: 60%;
+  font-size: 15px;
+}
+
+/* The Close Button */
+.modal-content .product-collection-content .modal-title .close {
+  opacity: 40%;
+  right: 15px;
+  top: 7px;
+  font-size: 35px;
+  position: absolute;
+}
+.modal-content .product-collection-content .product-collection-title {
+  margin-top: 32px;
+  font-size: 20px;
+  min-height: 24px;
+}
+.modal-content .product-collection-content .invert-product-collection{
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+.product-collection a{
+  text-decoration: none;
+  color: #1f3337;
+}
+input { display: none; }
+input + label { display: inline-block }
+
+input ~ .tab { display: none }
+#nav-women:checked ~ .tab.content1,
+#nav-men:checked ~ .tab.content2,
+#nav-home:checked ~ .tab.content3{ display: flex; }
+
+input + label {
+  font-family: "BrownPro-Regular";
+  font-size: 18px;
+  margin:0px 15px;
+  padding-bottom: 4px;
+  position: relative;
+  top: 1px;
+}
+input:checked + label {
+  border-bottom: 2px solid #87893e;;
+  color: #87893e;
+}
+input ~ .tab {
+  padding: 0px;
+}
+</style>
+
+<section id="section-{{ section.id }}">
+  <div class="section-inner">
+    {% assign three_product = null %}
+    {% assign six_product = null %}
+    {% if section.blocks.size > 0 %}
+      <div class="list-content" style="text-align: center;">
+        <input type="radio" name="tabs" id="nav-women" value="women" checked/><label for="nav-women">Women's</label>
+        <input type="radio" name="tabs" id="nav-men" value="men"><label for="nav-men">Men's</label>
+        <input type="radio" name="tabs" id="nav-home" value="home"><label for="nav-home">At-Home Tests</label>
+        <div class="product-collection-list tab content1">
+            {% for block in section.blocks %}
+                {% if block.settings.collection_type == "women" %}
+                    <div class="product-collection block-{{ block.id }}" data-handle = "{{block.settings.products_collections_product.handle}}">
+                    <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                      <div class="product-collection-image">
+                          <img src="{{ block.settings.image | img_url: 'master' }}" class="lazyload" alt="">
+                          {% if block.settings.food_type != "" %}
+                            <span class="foodtype">{{ block.settings.food_type }}</span>
+                          {% endif %}
+                          {% if block.settings.new_chk %}
+                            {% if block.settings.title contains "Women's Omega 3+" or block.settings.title contains "Choline" %}
+                              <span class="newlabel" {% if block.settings.food_type != "" %} style="right: 95px;" {% else %} style="right: 25px !important; " {% endif %}>NEW</span>
+                            {% else %}
+                              <span class="newlabel" {% if block.settings.food_type != "" %} style="" {% else %} style="right: 25px !important; " {% endif %}>NEW</span>
+                            {% endif %}
+                          {% endif %}
+                      </div>
+                    </a>
+                    <div id="myModal" class="purchase-modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="product-collection-content">
+                          <div class="modal-title">
+                            <span class='quick-add'>Quick Add</span>
+                            <span class="close">&times;</span>
+                          </div>
+                          <h1 class="product-collection-title">{{ block.settings.title }}</h1>
+                          <div class = "invert-product-collection" {% if block.settings.invert_chk %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                              <a href="javascript:;" class="purchase-btn one-time button button--primary" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "0" data-unittype = "0">
+                                  <span class="term">One-time purchase</span>
+                                  <span class="price">{{block.settings.products_collections_product.price | money }}</span>
+                              </a>
+                              <div class = "subscribe-save">
+                                  <p>Subscribe & Save</p>
+                                  {% assign product_id = block.settings.products_collections_product.id %}
+                                  {% assign discount_varient_id = 'test' %}
+                                  {% for variant in block.settings.products_collections_product.variants %}
+                                    {% assign discount_varient_id = variant.metafields.subscriptions.discount_variant_id %}
+                                  {% endfor %}
+                                  {% assign subscription_product = block.settings.products_collections_product.metafields.subscriptions %}
+                                  {% assign subscription_id = subscription_product.subscription_id %}
+                                  
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-subscription_id = "{{subscription_id}}" data-discount-variant-id="{{discount_varient_id}}" data-productid = "{{block.settings.products_collections_product.id}}" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "30" data-unittype = "day">
+                                      <div style='text-align:left'>
+                                        <span class="term">1 Month</span>
+                                        <span class="down-percent">-15%</span>
+                                      </div>
+                                      <div style='text-align:right'>
+                                        <span class="down-price"></span>
+                                        <span class="price">{{block.settings.products_collections_product.price | times: 0.85 | money }}</span>
+                                      </div>
+                                    </a>
+                                  {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-trimester-bundle-3-month-supply' %}
+                                  {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                    {% assign pro_three_month_handle = 'omega-3-for-men-trimester-bundle-3-month-supply' %}
+                                  {% endif %}
+                                  {% if block.settings.products_collections_product.handle == 'prenatal-multi' %}
+                                    {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-powder-trimester-bundle-3-month-supply' %}
+                                  {% endif %}
+                                  {% assign pro_six_month_handle = block.settings.products_collections_product.handle | append: '-6-month-supply' %}
+                                  {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                    {% assign pro_six_month_handle = 'omega-3-for-men-6-month-supply' %}
+                                  {% endif %}
+                                  
+
+                                  {% assign all_my_products = collections['trimester-bundles'].products %}
+                                  {% for tmp_product in all_my_products %}
+                                    {% if tmp_product.handle == pro_three_month_handle %}
+                                      {% assign three_product = tmp_product %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  {% assign all_my_products = collections['6-month-supply'].products %}
+                                  {% for tmp_product in all_my_products %}
+                                    {% if tmp_product.handle == pro_six_month_handle %}
+                                      {% assign six_product = tmp_product %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{three_product.variants[0].id}}" data-qty = "1" data-fre = "3" data-unittype = "Months">
+                                    <div style='text-align:left'>
+                                      <span class="term">3 Months</span>
+                                      <span class="down-percent">-25%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price">{{block.settings.products_collections_product.price | times: 0.75 | money }}/mo</span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.75 | times: 3 | money }}</span>
+                                    </div>
+                                    <span class="popular">POPULAR</span>
+                                  </a>
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{six_product.variants[0].id}}" data-qty = "1" data-fre = "6" data-unittype = "Months">
+                                    <div style='text-align:left'>
+                                      <span class="term">6 Months</span>
+                                      <span class="down-percent">-33%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price">{{block.settings.products_collections_product.price | times: 0.6667 | money }}/mo</span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.6667 | times: 6 | money }}</span>
+                                    </div>
+                                  </a> 
+                              </div>
+                          </div>    
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-collection-content">
+                        <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                          <h1 class="product-collection-title">{{ block.settings.title }}</h1>
+                        </a>
+                        <div class = "invert-product-collection invert-desktop" {% if block.settings.invert_chk %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                            <a href="javascript:;" class="purchase-btn one-time button button--primary" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "0" data-unittype = "0">
+                                <span class="term">One-time purchase</span>
+                                <span class="price">{{block.settings.products_collections_product.price | money }}</span>
+                            </a>
+                            <div class = "subscribe-save">
+                                <p>Subscribe & Save</p>
+                                {% assign product_id = block.settings.products_collections_product.id %}
+                                {% assign discount_varient_id = 'test' %}
+                                {% for variant in block.settings.products_collections_product.variants %}
+                                  {% assign discount_varient_id = variant.metafields.subscriptions.discount_variant_id %}
+                                {% endfor %}
+                                {% assign subscription_product = block.settings.products_collections_product.metafields.subscriptions %}
+                                {% assign subscription_id = subscription_product.subscription_id %}
+                                
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-subscription_id = "{{subscription_id}}" data-discount-variant-id="{{discount_varient_id}}" data-productid = "{{block.settings.products_collections_product.id}}" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "30" data-unittype = "day">
+                                    <div style='text-align:left'>
+                                      <span class="term">1 Month</span>
+                                      <span class="down-percent">-15%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price"></span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.85 | money }}</span>
+                                    </div>
+                                  </a>
+                                {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-trimester-bundle-3-month-supply' %}
+                                {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                  {% assign pro_three_month_handle = 'omega-3-for-men-trimester-bundle-3-month-supply' %}
+                                {% endif %}
+                                {% if block.settings.products_collections_product.handle == 'prenatal-multi' %}
+                                  {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-powder-trimester-bundle-3-month-supply' %}
+                                {% endif %}
+                                {% assign pro_six_month_handle = block.settings.products_collections_product.handle | append: '-6-month-supply' %}
+                                {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                  {% assign pro_six_month_handle = 'omega-3-for-men-6-month-supply' %}
+                                {% endif %}
+
+                                {% assign all_my_products = collections['trimester-bundles'].products %}
+                                {% for tmp_product in all_my_products %}
+                                  {% if tmp_product.handle == pro_three_month_handle %}
+                                    {% assign three_product = tmp_product %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% assign all_my_products = collections['6-month-supply'].products %}
+                                {% for tmp_product in all_my_products %}
+                                  {% if tmp_product.handle == pro_six_month_handle %}
+                                    {% assign six_product = tmp_product %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+                                  
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{three_product.variants[0].id}}" data-qty = "1" data-fre = "3" data-unittype = "Months">
+                                  <div style='text-align:left'>
+                                    <span class="term">3 Months</span>
+                                    <span class="down-percent">-25%</span>
+                                  </div>
+                                  <div style='text-align:right'>
+                                    <span class="down-price">{{block.settings.products_collections_product.price | times: 0.75 | money }}/mo</span>
+                                    <span class="price">{{block.settings.products_collections_product.price | times: 0.75 | times: 3 | money }}</span>
+                                  </div>
+                                  <span class="popular">POPULAR</span>
+                                </a>
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{six_product.variants[0].id}}" data-qty = "1" data-fre = "6" data-unittype = "Months">
+                                  <div style='text-align:left'>
+                                    <span class="term">6 Months</span>
+                                    <span class="down-percent">-33%</span>
+                                  </div>
+                                  <div style='text-align:right'>
+                                    <span class="down-price">{{block.settings.products_collections_product.price | times: 0.6667 | money }}/mo</span>
+                                    <span class="price">{{block.settings.products_collections_product.price | times: 0.6667 | times: 6 | money }}</span>
+                                  </div>
+                                </a> 
+                            </div>
+                        </div>    
+                        <div class = "normal-product-collection" {% if block.settings.invert_chk %} style="display:none;" {% else %} style="display:block;" {% endif %}>
+                            <div class="product-reviews-badge">
+                                <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{block.settings.products_collections_product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                            </div>
+                            <div class="product-collection-descr">{{ block.settings.descr }}</div>
+                            <div class="product-collection-price">
+                                <span>Starts From </span>
+                                <span style='font-weight:bold'>{{block.settings.products_collections_product.price | money }}</span>
+                                <span>/mo</span>
+                            </div>
+                            <div class="button-wrapper">
+                                <a href="javascript:;" class="quick-add-btn">{{ block.settings.btn_text }}</a>
+                            </div>
+                        </div>    
+                    </div>
+
+                    <style>
+                        .block-{{ block.id }} {
+                        background-color: {{ block.settings.bg_color }};
+                        }
+                    </style>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="product-collection-list tab content2">
+            {% for block in section.blocks %}
+                {% if block.settings.collection_type == "men" %}
+                    <div class="product-collection block-{{ block.id }}" data-handle = "{{block.settings.products_collections_product.handle}}">
+                    <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                      <div class="product-collection-image">
+                          <img src="{{ block.settings.image | img_url: 'master' }}" class="lazyload" alt="">
+                          {% if block.settings.food_type %}
+                            <span class="foodtype">{{ block.settings.food_type }}</span>
+                          {% endif %}
+                          {% if block.settings.new_chk %}
+                            <span class="newlabel">NEW</span>
+                          {% endif %}
+                      </div>
+                    </a>
+                    <div id="myModal" class="purchase-modal">
+                      <!-- Modal content -->
+                      <div class="modal-content">
+                        <div class="product-collection-content">
+                          <div class="modal-title">
+                            <span class='quick-add'>Quick Add</span>
+                            <span class="close">&times;</span>
+                          </div>
+                          <h1 class="product-collection-title">{{ block.settings.title }}</h1>
+                          <div class = "invert-product-collection" {% if block.settings.invert_chk %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                              <a href="javascript:;" class="purchase-btn one-time button button--primary" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "0" data-unittype = "0">
+                                  <span class="term">One-time purchase</span>
+                                  <span class="price">{{block.settings.products_collections_product.price | money }}</span>
+                              </a>
+                              <div class = "subscribe-save">
+                                  <p>Subscribe & Save</p>
+                                  {% assign product_id = block.settings.products_collections_product.id %}
+                                  {% assign discount_varient_id = 'test' %}
+                                  {% for variant in block.settings.products_collections_product.variants %}
+                                    {% assign discount_varient_id = variant.metafields.subscriptions.discount_variant_id %}
+                                  {% endfor %}
+                                  {% assign subscription_product = block.settings.products_collections_product.metafields.subscriptions %}
+                                  {% assign subscription_id = subscription_product.subscription_id %}
+                                  
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-subscription_id = "{{subscription_id}}" data-discount-variant-id="{{discount_varient_id}}" data-productid = "{{block.settings.products_collections_product.id}}" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "30" data-unittype = "day">
+                                      <div style='text-align:left'>
+                                        <span class="term">1 Month</span>
+                                        <span class="down-percent">-15%</span>
+                                      </div>
+                                      <div style='text-align:right'>
+                                        <span class="down-price"></span>
+                                        <span class="price">{{block.settings.products_collections_product.price | times: 0.85 | money }}</span>
+                                      </div>
+                                    </a>
+                                  {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-trimester-bundle-3-month-supply' %}
+                                  {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                    {% assign pro_three_month_handle = 'omega-3-for-men-trimester-bundle-3-month-supply' %}
+                                  {% endif %}
+                                  {% if block.settings.products_collections_product.handle == 'prenatal-multi' %}
+                                    {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-powder-trimester-bundle-3-month-supply' %}
+                                  {% endif %}
+                                  {% assign pro_six_month_handle = block.settings.products_collections_product.handle | append: '-6-month-supply' %}
+                                  {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                    {% assign pro_six_month_handle = 'omega-3-for-men-6-month-supply' %}
+                                  {% endif %}
+
+                                  
+
+                                  {% assign all_my_products = collections['trimester-bundles'].products %}
+                                  {% for tmp_product in all_my_products %}
+                                    {% if tmp_product.handle == pro_three_month_handle %}
+                                      {% assign three_product = tmp_product %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  {% assign all_my_products = collections['6-month-supply'].products %}
+                                  {% for tmp_product in all_my_products %}
+                                    {% if tmp_product.handle == pro_six_month_handle %}
+                                      {% assign six_product = tmp_product %}
+                                      {% break %}
+                                    {% endif %}
+                                  {% endfor %}
+
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{three_product.variants[0].id}}" data-qty = "1" data-fre = "3" data-unittype = "Months">
+                                    <div style='text-align:left'>
+                                      <span class="term">3 Months</span>
+                                      <span class="down-percent">-25%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price">{{block.settings.products_collections_product.price | times: 0.75 | money }}/mo</span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.75 | times: 3 | money }}</span>
+                                    </div>
+                                    <span class="popular">POPULAR</span>
+                                  </a>
+                                  <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{six_product.variants[0].id}}" data-qty = "1" data-fre = "6" data-unittype = "Months">
+                                    <div style='text-align:left'>
+                                      <span class="term">6 Months</span>
+                                      <span class="down-percent">-33%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price">{{block.settings.products_collections_product.price | times: 0.6667 | money }}/mo</span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.6667 | times: 6 | money }}</span>
+                                    </div>
+                                  </a> 
+                              </div>
+                          </div>    
+                        </div>
+                      </div>
+                    </div>
+                    <div class="product-collection-content">
+                        <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                          <h1 class="product-collection-title">{{ block.settings.title }}</h1>
+                        </a>
+                        <div class = "invert-product-collection invert-desktop" {% if block.settings.invert_chk %} style="display:block;" {% else %} style="display:none;" {% endif %}>
+                            <a href="javascript:;" class="purchase-btn one-time button button--primary" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "0" data-unittype = "0">
+                                <span class="term">One-time purchase</span>
+                                <span class="price">{{block.settings.products_collections_product.price | money }}</span>
+                            </a>
+                            <div class = "subscribe-save">
+                                <p>Subscribe & Save</p>
+                                {% assign product_id = block.settings.products_collections_product.id %}
+                                {% assign discount_varient_id = 'test' %}
+                                {% for variant in block.settings.products_collections_product.variants %}
+                                  {% assign discount_varient_id = variant.metafields.subscriptions.discount_variant_id %}
+                                {% endfor %}
+                                {% assign subscription_product = block.settings.products_collections_product.metafields.subscriptions %}
+                                {% assign subscription_id = subscription_product.subscription_id %}
+                                
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-subscription_id = "{{subscription_id}}" data-discount-variant-id="{{discount_varient_id}}" data-productid = "{{block.settings.products_collections_product.id}}" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1" data-fre = "30" data-unittype = "day">
+                                    <div style='text-align:left'>
+                                      <span class="term">1 Month</span>
+                                      <span class="down-percent">-15%</span>
+                                    </div>
+                                    <div style='text-align:right'>
+                                      <span class="down-price"></span>
+                                      <span class="price">{{block.settings.products_collections_product.price | times: 0.85 | money }}</span>
+                                    </div>
+                                  </a>
+                                {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-trimester-bundle-3-month-supply' %}
+                                {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                  {% assign pro_three_month_handle = 'omega-3-for-men-trimester-bundle-3-month-supply' %}
+                                {% endif %}
+                                {% if block.settings.products_collections_product.handle == 'prenatal-multi' %}
+                                  {% assign pro_three_month_handle = block.settings.products_collections_product.handle | append: '-powder-trimester-bundle-3-month-supply' %}
+                                {% endif %}
+                                {% assign pro_six_month_handle = block.settings.products_collections_product.handle | append: '-6-month-supply' %}
+                                {% if block.settings.products_collections_product.handle == 'omega-3-for-men' %}
+                                  {% assign pro_six_month_handle = 'omega-3-for-men-6-month-supply' %}
+                                {% endif %}
+
+                                {% assign all_my_products = collections['trimester-bundles'].products %}
+                                {% for tmp_product in all_my_products %}
+                                  {% if tmp_product.handle == pro_three_month_handle %}
+                                    {% assign three_product = tmp_product %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% assign all_my_products = collections['6-month-supply'].products %}
+                                {% for tmp_product in all_my_products %}
+                                  {% if tmp_product.handle == pro_six_month_handle %}
+                                    {% assign six_product = tmp_product %}
+                                    {% break %}
+                                  {% endif %}
+                                {% endfor %}
+ 
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{three_product.variants[0].id}}" data-qty = "1" data-fre = "3" data-unittype = "Months">
+                                  <div style='text-align:left'>
+                                    <span class="term">3 Months</span>
+                                    <span class="down-percent">-25%</span>
+                                  </div>
+                                  <div style='text-align:right'>
+                                    <span class="down-price">{{block.settings.products_collections_product.price | times: 0.75 | money }}/mo</span>
+                                    <span class="price">{{block.settings.products_collections_product.price | times: 0.75 | times: 3 | money }}</span>
+                                  </div>
+                                  <span class="popular">POPULAR</span>
+                                </a>
+                                <a href="javascript:;" class="purchase-btn button button--primary" data-variantid = "{{six_product.variants[0].id}}" data-qty = "1" data-fre = "6" data-unittype = "Months">
+                                  <div style='text-align:left'>
+                                    <span class="term">6 Months</span>
+                                    <span class="down-percent">-33%</span>
+                                  </div>
+                                  <div style='text-align:right'>
+                                    <span class="down-price">{{block.settings.products_collections_product.price | times: 0.6667 | money }}/mo</span>
+                                    <span class="price">{{block.settings.products_collections_product.price | times: 0.6667 | times: 6 | money }}</span>
+                                  </div>
+                                </a> 
+                            </div>
+                        </div>    
+                        <div class = "normal-product-collection" {% if block.settings.invert_chk %} style="display:none;" {% else %} style="display:block;" {% endif %}>
+                            <div class="product-reviews-badge">
+                                <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{block.settings.products_collections_product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                            </div>
+                            <div class="product-collection-descr">{{ block.settings.descr }}</div>
+                            <div class="product-collection-price">
+                                <span>Starts From </span>
+                                <span style="font-weight:bold;">{{block.settings.products_collections_product.price | money }}</span>
+                                <span>/mo</span>
+                            </div>
+                            <div class="button-wrapper">
+                                <a href="javascript:;" class="quick-add-btn">{{ block.settings.btn_text }}</a>
+                            </div>
+                        </div>    
+                    </div>
+
+                    <style>
+                        .block-{{ block.id }} {
+                        background-color: {{ block.settings.bg_color }};
+                        }
+                    </style>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="product-collection-list tab content3">
+            {% for block in section.blocks %}
+                {% if block.settings.collection_type == "home" %}
+                    <div class="product-collection block-{{ block.id }}" data-handle = "{{block.settings.products_collections_product.handle}}">
+                    <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                      <div class="product-collection-image">
+                          <img src="{{ block.settings.image | img_url: 'master' }}" class="lazyload" alt="">
+                      </div>
+                    </a>
+                    <div class="product-collection-content">
+                        <a href="https://thisisneeded.com/products/{{block.settings.products_collections_product.handle}}" >
+                          <h1 class="product-collection-title">{{ block.settings.title }}</h1>
+                        </a>
+                        <div class = "normal-product-collection" {% if block.settings.invert_chk %} style="display:none;" {% else %} style="display:block;" {% endif %}>
+                            <div class="product-reviews-badge">
+                                <span class="stamped-product-reviews-badge stamped-main-badge" data-id="{{block.settings.products_collections_product.id}}" data-product-title="{{product.title}}" data-product-type="{{product.type}}" style="display: block;"></span>
+                            </div>
+                            <div class="product-collection-descr">{{ block.settings.descr }}</div>
+                            <div class="product-collection-price">
+                                <span style="font-weight:bold;">{{block.settings.products_collections_product.price | money }}</span>
+                            </div>
+                            <div class="button-wrapper">
+                                <a href="javascript:;" class="quick-add-btn home-btn" data-variantid = "{{block.settings.products_collections_product.first_available_variant.id}}" data-qty = "1">{{ block.settings.btn_text }}</a>
+                            </div>
+                        </div>    
+                    </div>
+
+                    <style>
+                        .block-{{ block.id }} {
+                          background-color: {{ block.settings.bg_color }};
+                        }
+                    </style>
+                    </div>
+                {% endif %}
+            {% endfor %}        
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<script>
+$(document).ready(function() {
+  var url = window.location.href;
+  var $radios = $('input:radio[name=tabs]');
+  if(url.includes('#nav-men')){
+    $radios.filter('[value=women]').prop('checked',false);
+    $radios.filter('[value=men]').prop('checked',true);
+  }
+
+  const reviewInterval = setInterval(function() {
+      const nodeList = document.getElementsByClassName("stamped-badge-caption");
+      for (let i = 0; i < nodeList.length; i++) {
+        $(nodeList[i]).html('('+ $(nodeList[i]).data('reviews') + ')');
+      }
+      if(nodeList.length)
+        clearInterval(reviewInterval);
+    }, 
+  10);
+  
+  const bodyList = document.querySelectorAll(".product-collection-content .product-collection-descr");
+  const titleList = document.querySelectorAll(".product-collection-content .product-collection-title");
+  
+  let maxBodyHeight = 0, maxTitleHeight = 0;
+  let btnHeight = $(document.querySelector('.normal-product-collection .button-wrapper')).height();
+
+  for (let i = 0; i < bodyList.length; i++) {
+    if (maxBodyHeight < $(bodyList[i]).height())
+      maxBodyHeight = $(bodyList[i]).height();
+
+    if (maxTitleHeight < $(titleList[i]).height())
+      maxTitleHeight = $(titleList[i]).height();
+  }
+  for (let i = 0; i < bodyList.length; i++) {
+    $(bodyList[i]).css('minHeight', maxBodyHeight + 15 + 'px');
+    $(titleList[i]).css('minHeight', maxTitleHeight + 'px');
+  }
+  $('body').click(function(e){
+    if($(window).width() < 550) {
+      if($(e.target).hasClass('purchase-modal') || $(e.target).hasClass('close')) {
+        $('.purchase-modal').css('display', "none");
+      }
+    }
+    else {
+      if($(e.target).hasClass('quick-add-btn')) {
+
+      }
+      else {
+        console.log('body click');
+        const nodeList = document.querySelectorAll(".invert-desktop");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        const nodeList2 = document.querySelectorAll(".normal-product-collection");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList2[i].style.display = "block";
+        }  
+      } 
+    }
+  });
+  $('.normal-product-collection .button-wrapper .quick-add-btn').click(function() {
+    if($(this).hasClass('home-btn'))
+    { 
+      var id = $(this).data('variantid');
+      var qty = $(this).data('qty');
+      jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: {
+            id: id,
+            quantity: qty
+          },
+          dataType: 'json',
+          success: function() {
+            location.href='/cart';
+          }
+      });        
+    }
+    else
+    {
+      if($(window).width() < 550) {
+        var new_selected = $(this).parent('.button-wrapper').parent('.normal-product-collection').parent('.product-collection-content').siblings('.purchase-modal');
+        new_selected.css('display',"block");
+        new_selected.children('.modal-content').children('.product-collection-content').children('.invert-product-collection').css('display','block');
+      }
+      else {
+        console.log('quick add');
+        const nodeList = document.querySelectorAll(".invert-desktop");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList[i].style.display = "none";
+        }
+        const nodeList2 = document.querySelectorAll(".normal-product-collection");
+        for (let i = 0; i < nodeList.length; i++) {
+            nodeList2[i].style.display = "block";
+        }
+        var new_selected = $(this).parent('.button-wrapper').parent('.normal-product-collection').parent('.product-collection-content');
+        new_selected.children('.invert-product-collection').css('display','block');
+        new_selected.children('.normal-product-collection').css('display','none');
+      }
+    }
+
+      // var old_selected = document.querySelector('invert-product-collection').css('display','block');
+  });
+
+
+    $('.invert-product-collection a').on('click', function() {
+      var id = $(this).data('variantid');
+      var qty = $(this).data('qty');
+      var fre = $(this).data('fre');
+      var unittype = $(this).data('unittype');
+      var discount_variant_id = $(this).data('discount-variant-id');
+      console.log(id);
+      console.log(qty);
+      console.log(fre); 
+      if(fre == "0") {
+        jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: {
+            id: id,
+            quantity: qty
+          },
+          dataType: 'json',
+          success: function() {
+            location.href='/cart';
+          }
+        });        
+      }
+      else if(fre == "30") {
+        subscription_id = $(this).data('subscription_id');
+        console.log(subscription_id);
+         jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: {
+            id: discount_variant_id,
+            quantity: qty,
+            properties: {
+              shipping_interval_frequency: fre,
+              subscription_id: subscription_id,
+              shipping_interval_unit_type: unittype
+            }
+
+          },
+          dataType: 'json',
+          success: function() {
+            location.href='/cart';
+          }
+        });  
+      }
+      else {
+        jQuery.ajax({
+          type: 'POST',
+          url: '/cart/add.js',
+          data: {
+            id: id,
+            quantity: qty,
+            properties: {
+              shipping_interval_frequency: fre,
+              shipping_interval_unit_type: unittype
+            }
+
+          },
+          dataType: 'json',
+          success: function() {
+            location.href='/cart';
+          }
+        });          
+      }
+    });
+});
+</script>
+
+{% schema %}
+{
+  "name": "Plans",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "textarea",
+      "id": "descr",
+      "label": "Description"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "plan",
+      "name": "plan",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+            "type": "text",
+            "id": "collection_type",
+            "label": "Collection Type"
+        },
+        {
+            "type": "text",
+            "id": "food_type",
+            "label": "Food Type"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Text"
+        },
+        {
+          "type": "url",
+          "id": "btn_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "color",
+          "id": "bg_color",
+          "label": "Background Color"
+        },
+        {
+          "type": "checkbox",
+          "id": "invert_chk",
+          "label": "Invert"
+        },
+        {
+        "type": "product",
+        "id": "products_collections_product",
+        "label": "Bundle product"
+        },
+        {
+          "type": "checkbox",
+          "id": "new_chk",
+          "label": "New Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Plans",
+      "category": "plan"
+    }
+  ]
+}
+{% endschema %}

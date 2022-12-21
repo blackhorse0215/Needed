@@ -1,0 +1,193 @@
+<style>
+  #section-{{ section.id }} {
+    padding: 20px 0 40px;
+  }
+  #section-{{ section.id }} .ingredient-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  #section-{{ section.id }} .ingredient {
+    max-width: 285px;
+    width: 100%;
+    margin: 12px 5px;
+  }
+  #section-{{ section.id }} .ingredient-inner {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  #section-{{ section.id }} .ingredient-image {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  #section-{{ section.id }} .hover-text {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    font-size: 34px;
+    line-height: 36px;
+    font-family: 'BrownPro-Bold';
+    background-color: rgba(0, 0, 0, 25%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #section-{{ section.id }} .ingredient-content {
+    padding: 24px 20px 32px;
+    background-color: #F6F4F2;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  #section-{{ section.id }} .ingredient-content .title {
+    font-family: 'Copernicus-Bold';
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 0;
+    line-height: 24px;
+    min-height: 96px;
+  }
+  #section-{{ section.id }} .ingredient-content .dosage {
+    color: #8A8A47;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: 19px;
+    margin-top: 16px;
+  }
+  #section-{{ section.id }} .ingredient-content .description {
+    font-size: 18px;
+    letter-spacing: 0;
+    line-height: 26px;
+    margin-top: 32px;
+    flex: 1;
+  }
+
+  @media (max-width: 1199px) {
+    #section-{{ section.id }} .ingredient-list {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    #section-{{ section.id }} {
+      padding: 0px 0 20px;
+    }
+  }
+
+  @media (max-width: 629px) {
+    #section-{{ section.id }} .container {
+      padding: 0;
+    }
+    #section-{{ section.id }} .ingredient-list {
+      justify-content: space-between;
+    }
+    #section-{{ section.id }} .ingredient {
+      max-width: calc(50% - 3px);
+      margin: 0;
+      margin-top: 6px;
+    }
+  }
+
+  @media (max-width: 549px) {
+    #section-{{ section.id }} .hover-text {
+      font-size: 30px;
+      line-height: 34px;
+    }
+    #section-{{ section.id }} .ingredient-content {
+      padding: 10px 15px 20px;
+    }
+    #section-{{ section.id }} .ingredient-content .title {
+      font-size: 16px;
+      line-height: 22px;
+      /* min-height: 66px; */
+    }
+    #section-{{ section.id }} .ingredient-content .dosage {
+      font-size: 14px;
+      line-height: 17px;
+      margin-top: 8px;
+    }
+    #section-{{ section.id }} .ingredient-content .description {
+      font-size: 15px;
+      line-height: 20px;
+      margin-top: 20px;
+    }
+  }
+  
+  @media (max-width: 450px) {
+    #section-{{ section.id }} .hover-text {
+      font-size: 24px;
+      line-height: 29px;
+    }
+  }
+</style>
+
+<section id="section-{{ section.id }}" class="product-ingredients">
+  <div class="container">
+    {% if section.blocks.size > 0 %}
+    <div class="ingredient-list">
+      {% for block in section.blocks %}
+      <div class="ingredient">
+        <div class="ingredient-inner">
+          <div class="ingredient-image">
+            <img src="{{ block.settings.image | img_url: 'master' }}" alt="">
+            <div class="hover-text">{{ block.settings.hover_text }}</div>
+          </div>
+          <div class="ingredient-content">
+            <h3 class="title">{{ block.settings.title }}</h3>
+            <div class="dosage">{{ block.settings.dosage }}</div>
+            <div class="description">{{ block.settings.descr }}</div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product Ingredients",
+  "settings": [
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "hover_text",
+          "label": "Hover Text"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "dosage",
+          "label": "Dosage"
+        },
+        {
+          "type": "textarea",
+          "id": "descr",
+          "label": "Description"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
